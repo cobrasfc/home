@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Home" description="Join Metford Cobras FC — community football for juniors, seniors, and summer competitions.">
+	<section
+		class="relative overflow-hidden bg-cobra-blue"
+	>
+		<img
+			src="/assets/metford-rec.jpg"
+			alt=""
+			aria-hidden="true"
+			class="absolute inset-0 h-full w-full object-cover"
+			loading="eager"
+			decoding="async"
+		/>
+		<div aria-hidden="true" class="absolute inset-0"></div>
+		<div aria-hidden="true" class="absolute inset-0 bg-gradient-to-b from-black/10 via-black/20 to-white/0"></div>
+
+		<div class="container-page relative grid items-center gap-6 py-24 md:py-40">
+			<div class="w-full rounded-2xl bg-white/70 p-6 ring-1 ring-white/30 backdrop-blur-md md:w-1/2 md:p-8">
+				<p class="kicker">Community football • Metford</p>
+				<h1 class="page-title mt-2">Home of the Cobras!</h1>
+				<p class="mt-4 text-base text-slate-800">
+					Metford Cobras is a welcoming club for players and families. Come for the footy — stay for the mates,
+					coaching, and community.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="container-page grid gap-4 py-10 md:grid-cols-3">
+			<div class="card">
+				<p class="kicker">Players</p>
+				<h2 class="mt-2 text-lg font-medium text-slate-900">U6's to Over 35's</h2>
+				<p class="mt-2 text-sm text-slate-700">Junior, Senior, and Summer football with a supportive club culture.</p>
+				<a class="mt-4 inline-block text-sm font-medium text-cobra-blue" href="/play-football/junior">
+					Explore playing options →
+				</a>
+			</div>
+			<div class="card">
+				<p class="kicker">Volunteers</p>
+				<h2 class="mt-2 text-lg font-medium text-slate-900">Make a difference</h2>
+				<p class="mt-2 text-sm text-slate-700">Coaching, team management, committee, canteen — every bit helps.</p>
+				<a class="mt-4 inline-block text-sm font-medium text-cobra-blue" href="/contact-us">Become a volunteer →</a>
+			</div>
+			<div class="card">
+				<p class="kicker">Sponsors</p>
+				<h2 class="mt-2 text-lg font-medium text-slate-900">Showcase your business</h2>
+				<p class="mt-2 text-sm text-slate-700">
+					Thousands of players, parents and supporters visit Metford Cobras FC each season.
+				</p>
+				<a class="mt-4 inline-block text-sm font-medium text-cobra-blue" href="/sponsorship">
+					Sponsorship opportunities →
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-slate-50">
+		<div class="container-page py-10">
+			<div class="grid gap-6 md:grid-cols-2 md:items-center">
+				<div class="space-y-3">
+					<p class="kicker">What we stand for</p>
+					<h2 class="text-2xl font-medium text-slate-900">A club built on sportsmanship, community, fun, and a love of football.</h2>
+					<p class="text-sm text-slate-700">
+						For over 30 years Metford Cobras FC has been a part of your local community. We believe that our value goes beyond the pitch.<br/>We are committed to fostering a positive environment where players of all ages can develop their skills, build lasting friendships, and contribute to the community. Join us and be part of something special.
+					</p>
+					<a class="btn-secondary" href="/club/values">Read our values</a>
+				</div>
+				<div class="card">
+					<img
+						src="/assets/values_community-hub.png"
+						alt="Placeholder action illustration"
+						class="h-auto w-full"
+						loading="lazy"
+					/>
+				</div>
+			</div>
+		</div>
+	</section>
+</BaseLayout>

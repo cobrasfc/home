@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../site.config';
+
+const url = SITE.mailchimpSubscribeUrl;
+---
+
+<BaseLayout title="Subscribe" description="Subscribe for club updates.">
+	<section class="container-page py-10 md:py-14">
+		<p class="kicker">Subscribe</p>
+		<h1 class="page-title">Get club news and key dates</h1>
+		<p class="mt-4 max-w-2xl text-sm text-slate-700">
+			Subscribing to our mailing list is the easiest way to make sure you don’t miss important updates — including
+			when registrations open, how teams are filling up, and when discounts become available.
+		</p>
+
+		<div class="mt-8 card">
+			<h2 class="text-lg font-medium text-slate-900">Subscribe</h2>
+			<p class="mt-2 text-sm text-slate-700">
+				Join our list via Mailchimp. It only takes a moment.
+			</p>
+			<a class="mt-4 btn-primary" href={url} target="_blank" rel="noreferrer">Subscribe via Mailchimp</a>
+		</div>
+	</section>
+</BaseLayout>

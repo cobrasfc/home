@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-label="Placeholder hero image">
+	<defs>
+		<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0" stop-color="#ECDD14" stop-opacity="0.15" />
+			<stop offset="1" stop-color="#253D97" stop-opacity="0.08" />
+		</linearGradient>
+		<linearGradient id="grass" x1="0" y1="0" x2="1" y2="0">
+			<stop offset="0" stop-color="#253D97" stop-opacity="0.14" />
+			<stop offset="1" stop-color="#ECDD14" stop-opacity="0.12" />
+		</linearGradient>
+	</defs>
+	<rect width="1200" height="700" fill="white" />
+	<rect width="1200" height="420" fill="url(#sky)" />
+	<path d="M0 420h1200v280H0z" fill="url(#grass)" />
+	<path d="M-20 520c260-120 420-80 620-10 170 60 300 40 620-60v270H-20z" fill="#253D97" opacity="0.08" />
+	<path d="M110 250c220-140 380-120 520-30 120 76 270 70 470-12" fill="none" stroke="#ECDD14" stroke-width="18" stroke-linecap="round" opacity="0.55" />
+	<path d="M170 300c180-130 310-120 430-44 112 70 240 62 420-8" fill="none" stroke="#253D97" stroke-width="12" stroke-linecap="round" opacity="0.28" />
+	<g opacity="0.75">
+		<circle cx="260" cy="440" r="52" fill="#253D97" opacity="0.22" />
+		<circle cx="320" cy="420" r="34" fill="#ECDD14" opacity="0.25" />
+		<circle cx="920" cy="470" r="60" fill="#253D97" opacity="0.20" />
+		<circle cx="860" cy="440" r="30" fill="#ECDD14" opacity="0.24" />
+	</g>
+	<text x="60" y="650" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="22" fill="#4b5563">
+		Replace with club photo or Rematch-style illustration.
+	</text>
+</svg>

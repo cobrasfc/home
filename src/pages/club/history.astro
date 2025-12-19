@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="History" description="The story of Metford Cobras FC — a local club built by the community.">
+	<section class="container-page py-10">
+		<p class="kicker">Club</p>
+		<h1 class="page-title">Our History</h1>
+		<div class="mt-8 grid gap-4 md:grid-cols-2">
+			<div class="card">
+				<h2 class="text-lg font-medium text-slate-900">Where it started</h2>
+				<p class="mt-2 text-sm text-slate-700">
+					Metford Cobras FC was founded in <span class="font-medium text-slate-900">1993</span> by President - Ken Foot, Secretary - Cherly Sucker, and Treasurer Bob Parker. From humble beginnings, the club's first fund raising event was raffling off a fruit cake that then Canteen Supervisor, Robin Bailey, had cooked herself. The club took a set of hand-me-down jerseys from neighbouring club Tenambit who were changing their colours from yellow and blue to red and blue.
+				</p>
+			</div>
+			<div class="card">
+				<h2 class="text-lg font-medium text-slate-900">What we’re proud of</h2>
+				<ul class="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-700">
+					<li>Our first ever senior team was a Women's team who went on to win minor and major premierships in third and second division competitions.</li>
+					<li>We were the first team in the region to sport jerseys with an Indigenous design. A celebration of the high Indigenous representation in our club.</li>
+					<li>Our current President, Mitchell Barwick, played under 6's at Metford in the inaugural 1993 season.</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="mt-4 card">
+			<h2 class="text-lg font-medium text-slate-900">Milestones</h2>
+			<ol class="mt-3 space-y-2 text-sm text-slate-700">
+				<li><span class="font-medium text-slate-900">1993</span> — Club founded</li>
+				<li><span class="font-medium text-slate-900">1999</span> — Metford 2nd Divison AAW win minor and major premierships</li>
+				<li><span class="font-medium text-slate-900">2014</span> — Metford AAM win their first minor and major premierships</li>
+				<li><span class="font-medium text-slate-900">2022</span> — Introduction of the Indigenous kit</li>
+			</ol>
+		</div>
+		<figure class="mt-4">
+			<img
+				src="/assets/first-hv-reps.jpg"
+				width="3946"
+				height="2351"
+				loading="lazy"
+				decoding="async"
+				alt="Metford Cobras early representatives team photo"
+				class="h-auto w-full rounded-2xl ring-1 ring-black/5"
+			/>
+		</figure>
+
+		<div class="mt-4 grid gap-4 md:grid-cols-2">
+			<figure>
+				<img
+					src="/assets/EPSON016.jpg"
+					width="2133"
+					height="1503"
+					loading="lazy"
+					decoding="async"
+					alt="Historical club photo (EPSON016)"
+					class="h-auto w-full rounded-2xl ring-1 ring-black/5"
+				/>
+			</figure>
+			<figure>
+				<img
+					src="/assets/DSC_0160.JPG"
+					width="6016"
+					height="4000"
+					loading="lazy"
+					decoding="async"
+					alt="Historical club photo (DSC_0160)"
+					class="h-auto w-full rounded-2xl ring-1 ring-black/5"
+				/>
+			</figure>
+		</div>
+		<div class="mt-8 flex flex-wrap gap-3">
+			<a class="btn-primary" href="/contact-us">Volunteer with us</a>
+			<a class="btn-secondary" href="/committee">Meet the committee</a>
+		</div>
+	</section>
+</BaseLayout>

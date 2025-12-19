@@ -1,0 +1,145 @@
+---
+import { SITE } from '../site.config';
+
+const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isActive = (href: string) => {
+	if (href === '/') return pathname === '/';
+	return pathname === href || pathname.startsWith(`${href}/`);
+};
+
+const linkClass = (href: string) =>
+	[
+		'rounded-lg px-3 py-2 text-sm font-medium text-slate-800 transition-colors hover:bg-cobra-blue/10 focus-visible:bg-cobra-blue/10',
+		isActive(href) ? 'bg-cobra-blue/10 text-slate-900' : ''
+	].join(' ');
+
+const dropdownLinkClass = (href: string) =>
+	[
+		'block w-full rounded-lg px-3 py-2 text-sm font-medium text-slate-800 transition-colors hover:bg-cobra-blue/10 focus-visible:bg-cobra-blue/10',
+		isActive(href) ? 'bg-cobra-blue/10 text-slate-900' : ''
+	].join(' ');
+---
+
+<header class="border-b border-black/5 bg-white">
+	<div class="container-page flex items-center justify-between gap-3 py-3">
+		<a href="/" class="flex items-center gap-3">
+			<img
+				src="/assets/logo-shield.svg"
+				width="40"
+				height="40"
+				alt="Metford Cobras club logo"
+				loading="eager"
+			/>
+			<div class="leading-tight">
+				<div class="text-sm font-medium text-slate-900">{SITE.name}</div>
+				<div class="font-serif text-xs italic text-slate-600">
+					Community football
+				</div>
+			</div>
+		</a>
+
+		<nav class="hidden items-center gap-1 md:flex" aria-label="Primary">
+			<a class={linkClass('/')} href="/">Home</a>
+
+			<details class="group relative">
+				<summary
+					class={
+						[
+							'list-none cursor-pointer rounded-lg px-3 py-2 text-sm font-medium text-slate-800 transition-colors hover:bg-cobra-blue/10 focus-visible:bg-cobra-blue/10',
+							isActive('/club') ? 'bg-cobra-blue/10 text-slate-900' : ''
+						].join(' ')
+					}
+				>
+					<span class="inline-flex items-center gap-1">
+						Club
+						<span aria-hidden="true" class="text-slate-400">▾</span>
+					</span>
+				</summary>
+				<div class="absolute left-0 top-full z-10 mt-2 w-52 rounded-xl bg-white p-2 shadow-lg ring-1 ring-black/5">
+					<div class="flex flex-col">
+						<a class={dropdownLinkClass('/club/history')} href="/club/history">History</a>
+						<a class={dropdownLinkClass('/club/values')} href="/club/values">Values</a>
+						<a class={dropdownLinkClass('/committee')} href="/committee">Committee</a>
+					</div>
+				</div>
+			</details>
+
+			<details class="group relative">
+				<summary
+					class={
+						[
+							'list-none cursor-pointer rounded-lg px-3 py-2 text-sm font-medium text-slate-800 transition-colors hover:bg-cobra-blue/10 focus-visible:bg-cobra-blue/10',
+							isActive('/play-football')
+								? 'bg-cobra-blue/10 text-slate-900'
+								: ''
+						].join(' ')
+					}
+				>
+					<span class="inline-flex items-center gap-1">
+						Play Football
+						<span aria-hidden="true" class="text-slate-400">▾</span>
+					</span>
+				</summary>
+				<div class="absolute left-0 top-full z-10 mt-2 w-56 rounded-xl bg-white p-2 shadow-lg ring-1 ring-black/5">
+					<div class="flex flex-col">
+						<a class={dropdownLinkClass('/play-football/junior')} href="/play-football/junior">Junior</a>
+						<a class={dropdownLinkClass('/play-football/senior')} href="/play-football/senior">Senior</a>
+						<a class={dropdownLinkClass('/play-football/summer')} href="/play-football/summer">Summer</a>
+					</div>
+				</div>
+			</details>
+
+			<a class={linkClass('/sponsorship')} href="/sponsorship">Sponsorship</a>
+			<a class="btn-primary" href="/subscribe">Subscribe</a>
+		</nav>
+
+		<details class="md:hidden">
+			<summary class="btn-secondary list-none cursor-pointer">Menu</summary>
+			<div class="absolute left-0 right-0 top-[72px] z-20 border-b border-black/5 bg-white">
+				<div class="container-page py-4">
+					<div class="flex flex-col gap-2" aria-label="Mobile navigation">
+						<a class={linkClass('/')} href="/">Home</a>
+
+						<details class="rounded-lg bg-slate-50 p-2">
+							<summary class="cursor-pointer text-sm font-medium text-slate-900">Club</summary>
+							<div class="mt-2 flex flex-col gap-1 pl-2">
+								<a class={linkClass('/club/history')} href="/club/history">History</a>
+								<a class={linkClass('/club/values')} href="/club/values">Values</a>
+								<a class={linkClass('/committee')} href="/committee">Committee</a>
+							</div>
+						</details>
+
+						<details class="rounded-lg bg-slate-50 p-2">
+							<summary class="cursor-pointer text-sm font-medium text-slate-900">Play Football</summary>
+							<div class="mt-2 flex flex-col gap-1 pl-2">
+								<a class={linkClass('/play-football/junior')} href="/play-football/junior">Junior</a>
+								<a class={linkClass('/play-football/senior')} href="/play-football/senior">Senior</a>
+								<a class={linkClass('/play-football/summer')} href="/play-football/summer">Summer</a>
+							</div>
+						</details>
+
+						<a class={linkClass('/sponsorship')} href="/sponsorship">Sponsorship</a>
+						<a class="btn-primary" href="/subscribe">Subscribe</a>
+					</div>
+				</div>
+			</div>
+		</details>
+	</div>
+</header>
+
+<script is:inline>
+	(() => {
+		const nav = document.querySelector('nav[aria-label="Primary"]');
+		if (!nav) return;
+
+		const dropdowns = Array.from(nav.querySelectorAll('details'));
+		dropdowns.forEach((detailsEl) => {
+			detailsEl.addEventListener('toggle', () => {
+				if (!detailsEl.open) return;
+				dropdowns.forEach((other) => {
+					if (other !== detailsEl) other.open = false;
+				});
+			});
+		});
+	})();
+</script>

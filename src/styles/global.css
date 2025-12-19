@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@import "@fontsource/poppins/400.css";
+@import "@fontsource/poppins/500.css";
+@import "@fontsource/baskervville/400-italic.css";
+
+@theme {
+	--color-cobra-blue: #253d97;
+	--color-cobra-yellow: #ecdd14;
+	--font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+	--font-serif: "Baskervville", ui-serif, Georgia, serif;
+}
+
+:root {
+	--cobra-blue: #253d97;
+	--cobra-yellow: #ecdd14;
+	--page-bg: #ffffff;
+	--text: #0b1020;
+	--muted: #4b5563;
+	--ring: color-mix(in srgb, var(--cobra-yellow) 70%, white);
+}
+
+@layer base {
+	html {
+		color: var(--text);
+		background: var(--page-bg);
+		font-family: var(--font-sans);
+		text-rendering: optimizeLegibility;
+		-webkit-text-size-adjust: 100%;
+	}
+
+	body {
+		min-height: 100vh;
+	}
+
+	a {
+		text-underline-offset: 0.2em;
+	}
+
+	:focus-visible {
+		outline: 3px solid var(--ring);
+		outline-offset: 2px;
+	}
+}
+
+@layer components {
+	.container-page {
+		@apply mx-auto w-full max-w-6xl px-4;
+	}
+
+	.btn {
+		@apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition;
+	}
+
+	.btn-primary {
+		@apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition bg-cobra-blue text-white hover:opacity-95;
+	}
+
+	.btn-secondary {
+		@apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition bg-white text-cobra-blue ring-1 ring-inset ring-cobra-blue/20 hover:bg-cobra-blue/5;
+	}
+
+	.kicker {
+		@apply text-xs font-medium uppercase tracking-wider text-cobra-blue;
+	}
+
+	.page-title {
+		@apply text-3xl font-medium leading-tight text-cobra-blue md:text-4xl;
+	}
+
+	.card {
+		@apply rounded-2xl bg-white p-5 ring-1 ring-black/5;
+	}
+}

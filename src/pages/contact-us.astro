@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../site.config';
+---
+
+<BaseLayout title="Contact Us" description="Contact Metford Cobras FC.">
+	<section class="container-page py-10 md:py-14">
+		<p class="kicker">Contact</p>
+		<h1 class="page-title">Contact Us</h1>
+		<p class="mt-4 max-w-2xl text-sm text-slate-700">
+			For registrations, volunteering, sponsorship, or general questions — reach out and we’ll point you to the
+			right person.
+		</p>
+
+		<div class="mt-8 grid gap-4 md:grid-cols-2">
+			<div class="card">
+				<h2 class="text-lg font-medium text-slate-900">Club contacts</h2>
+				<dl class="mt-4 space-y-3 text-sm">
+					<div>
+						<dt class="font-medium text-slate-900">Email</dt>
+						<dd class="text-slate-700">
+							<a class="text-cobra-blue hover:underline" href={`mailto:${SITE.contact.email}`}>{SITE.contact.email}</a>
+						</dd>
+					</div>
+					<div>
+						<dt class="font-medium text-slate-900">Facebook</dt>
+						<dd class="text-slate-700">
+							<a class="text-cobra-blue hover:underline" href={SITE.facebookUrl} target="_blank" rel="noreferrer"
+								>Open Facebook</a
+							>
+						</dd>
+					</div>
+				</dl>
+			</div>
+
+			<div class="card">
+				<h2 class="text-lg font-medium text-slate-900">Our location</h2>
+				<p class="mt-2 text-sm text-slate-700">{SITE.location.groundName}</p>
+				<p class="mt-1 text-sm text-slate-700">{SITE.location.addressLine}</p>
+				<div class="mt-4 flex flex-wrap gap-3">
+					<a
+						class="btn-secondary"
+						href="https://www.maitland.nsw.gov.au/facilities/metford-recreation-reserve-no-1"
+						target="_blank"
+						rel="noreferrer"
+					>
+						More location info
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="mt-4 card">
+			<img
+				src="/assets/metford-rec.jpg"
+				alt="Placeholder image of the club grounds"
+				class="h-auto w-full"
+				loading="lazy"
+				decoding="async"
+			/>
+		</div>
+	</section>
+</BaseLayout>
