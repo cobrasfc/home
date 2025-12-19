@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../utils/withBase';
 ---
 
 <BaseLayout title="Senior Football" description="Senior football at Metford Cobras FC — compete hard, train well, back your mates.">
@@ -44,7 +45,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 		<div class="mt-4 card">
 			<img
-				src="/assets/senior-football.jpg"
+				src={withBase('/assets/senior-football.jpg')}
 				alt="Metford Cobras players warming up at training"
 				class="h-auto w-full"
 				loading="lazy"
@@ -89,8 +90,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		</div>
 
 		<div class="mt-8 flex flex-wrap gap-3">
-			<a class="btn-primary" href="/contact-us">Train with us</a>
-			<a class="btn-secondary" href="/subscribe">Subscribe for updates</a>
+			<a class="btn-primary" href={withBase('/contact-us')}>Train with us</a>
+			<a class="btn-secondary" href={withBase('/subscribe')}>Subscribe for updates</a>
 		</div>
 	</section>
 </BaseLayout>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../utils/withBase';
 ---
 
 <BaseLayout title="Values" description="Metford Cobras FC values — the behaviours we expect and the culture we protect.">
@@ -11,7 +12,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		<div class="mt-8 grid gap-4 md:grid-cols-2">
 			<div class="card">
 				<img
-					src="/assets/c80c1889-619f-322e-c7ad-2aef1db564e9.png"
+					src={withBase('/assets/c80c1889-619f-322e-c7ad-2aef1db564e9.png')}
 					alt="Placeholder image representing Love of Football"
 					class="h-auto w-full rounded-2xl ring-1 ring-black/5"
 					loading="lazy"
@@ -26,7 +27,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 			<div class="card">
 				<img
-					src="/assets/a653d59b-f723-86f0-6934-81792f3f298a.png"
+					src={withBase('/assets/a653d59b-f723-86f0-6934-81792f3f298a.png')}
 					alt="Placeholder image representing Hub of the Community"
 					class="h-auto w-full rounded-2xl ring-1 ring-black/5"
 					loading="lazy"
@@ -42,7 +43,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 			<div class="card">
 				<img
-					src="/assets/95458082-abc7-88fd-31fe-82c714f9e604.png"
+					src={withBase('/assets/95458082-abc7-88fd-31fe-82c714f9e604.png')}
 					alt="Placeholder image representing Sportsmanship above Victory"
 					class="h-auto w-full rounded-2xl ring-1 ring-black/5"
 					loading="lazy"
@@ -59,7 +60,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 			<div class="card">
 				<img
-					src="/assets/f6d2ee00-0b51-f8c1-13ce-89278b5f501c.png"
+					src={withBase('/assets/placeholders/hero.svg')}
 					alt="Placeholder image representing Football for Fun"
 					class="h-auto w-full rounded-2xl ring-1 ring-black/5"
 					loading="lazy"

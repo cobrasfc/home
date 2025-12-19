@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../utils/withBase';
 ---
 
 <BaseLayout title="History" description="The story of Metford Cobras FC — a local club built by the community.">
@@ -34,7 +35,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		</div>
 		<figure class="mt-4">
 			<img
-				src="/assets/first-hv-reps.jpg"
+				src={withBase('/assets/first-hv-reps.jpg')}
 				width="3946"
 				height="2351"
 				loading="lazy"
@@ -47,7 +48,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		<div class="mt-4 grid gap-4 md:grid-cols-2">
 			<figure>
 				<img
-					src="/assets/EPSON016.jpg"
+					src={withBase('/assets/EPSON016.jpg')}
 					width="2133"
 					height="1503"
 					loading="lazy"
@@ -58,7 +59,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 			</figure>
 			<figure>
 				<img
-					src="/assets/DSC_0160.JPG"
+					src={withBase('/assets/DSC_0160.JPG')}
 					width="6016"
 					height="4000"
 					loading="lazy"
@@ -69,8 +70,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 			</figure>
 		</div>
 		<div class="mt-8 flex flex-wrap gap-3">
-			<a class="btn-primary" href="/contact-us">Volunteer with us</a>
-			<a class="btn-secondary" href="/committee">Meet the committee</a>
+			<a class="btn-primary" href={withBase('/contact-us')}>Volunteer with us</a>
+			<a class="btn-secondary" href={withBase('/committee')}>Meet the committee</a>
 		</div>
 	</section>
 </BaseLayout>

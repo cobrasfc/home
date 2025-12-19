@@ -1,12 +1,13 @@
 ---
 import { SITE } from '../site.config';
+import { withBase } from '../utils/withBase';
 ---
 
 <footer class="border-t border-black/5 bg-white">
 	<div class="container-page grid gap-6 py-10 md:grid-cols-2 md:items-start">
 		<div class="space-y-3">
 			<div class="flex items-center gap-3">
-				<img src="/assets/logo-shield.svg" width="36" height="36" alt="Metford Cobras club logo" />
+				<img src={withBase('/assets/logo-shield.svg')} width="36" height="36" alt="Metford Cobras club logo" />
 				<div>
 					<div class="text-sm font-medium text-slate-900">{SITE.name}</div>
 					<div class="text-xs text-slate-600">Built for players, volunteers, and sponsors.</div>
@@ -21,8 +22,8 @@ import { SITE } from '../site.config';
 			<a class="text-slate-700 hover:text-cobra-blue" href={SITE.facebookUrl} target="_blank" rel="noreferrer">
 				Facebook
 			</a>
-			<a class="text-slate-700 hover:text-cobra-blue" href="/contact-us">Contact Us</a>
-			<a class="text-slate-700 hover:text-cobra-blue" href="/committee">Committee</a>
+			<a class="text-slate-700 hover:text-cobra-blue" href={withBase('/contact-us')}>Contact Us</a>
+			<a class="text-slate-700 hover:text-cobra-blue" href={withBase('/committee')}>Committee</a>
 		</nav>
 	</div>
 	<div class="border-t border-black/5 py-4">

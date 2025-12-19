@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE } from '../site.config';
+import { withBase } from '../utils/withBase';
 ---
 
 <BaseLayout title="Contact Us" description="Contact Metford Cobras FC.">
@@ -52,7 +53,7 @@ import { SITE } from '../site.config';
 
 		<div class="mt-4 card">
 			<img
-				src="/assets/metford-rec.jpg"
+				src={withBase('/assets/metford-rec.jpg')}
 				alt="Placeholder image of the club grounds"
 				class="h-auto w-full"
 				loading="lazy"

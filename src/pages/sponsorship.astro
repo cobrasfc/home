@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../utils/withBase';
 ---
 
 <BaseLayout title="Sponsorship" description="Sponsor Metford Cobras FC and back local sport.">
@@ -11,7 +12,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		</p>
 
 		<div class="mt-6 flex flex-wrap gap-3">
-			<a class="btn-primary" href="/contact-us">Enquire about sponsorship</a>
+			<a class="btn-primary" href={withBase('/contact-us')}>Enquire about sponsorship</a>
 			<a class="btn-secondary" href="#tiers">View sponsorship tiers</a>
 		</div>
 
@@ -26,7 +27,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				<div class="card">
 					<a href="https://www.ftbbq.com.au/" target="_blank" rel="noreferrer" class="block">
 						<img
-							src="/assets/sponsors/oCWac0FPmXKJOLivc5O5jeJMmNwy57mL.png"
+							src={withBase('/assets/sponsors/oCWac0FPmXKJOLivc5O5jeJMmNwy57mL.png')}
 							alt="F.T. BBQ logo placeholder"
 							class="h-28 w-auto"
 							loading="lazy"
@@ -47,7 +48,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				<div class="card">
 					<a href="https://www.swirlndip.com.au/" target="_blank" rel="noreferrer" class="block">
 						<img
-							src="/assets/sponsors/swirl.png"
+							src={withBase('/assets/sponsors/swirl.png')}
 							alt="Swirl n Dip logo placeholder"
 							class="h-28 w-auto"
 							loading="lazy"
@@ -67,7 +68,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				<div class="card">
 					<a href="https://thewindsorcastle.com.au/" target="_blank" rel="noreferrer" class="block">
 						<img
-							src="/assets/sponsors/windsor-logo.png"
+							src={withBase('/assets/sponsors/windsor-logo.png')}
 							alt="The Windsor Castle logo placeholder"
 							class="h-28 w-auto"
 							loading="lazy"
@@ -124,7 +125,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			<div class="mt-6 rounded-xl bg-cobra-blue/5 p-4">
 				<h3 class="text-base font-medium text-slate-900">Next step</h3>
 				<p class="mt-1 text-sm text-slate-700">Contact us and we’ll send the sponsor pack and options.</p>
-				<a class="mt-4 inline-flex btn-primary" href="/contact-us">Contact Us</a>
+				<a class="mt-4 inline-flex btn-primary" href={withBase('/contact-us')}>Contact Us</a>
 			</div>
 		</div>
 	</section>

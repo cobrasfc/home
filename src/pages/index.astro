@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../utils/withBase';
 ---
 
 <BaseLayout title="Home" description="Join Metford Cobras FC — community football for juniors, seniors, and summer competitions.">
@@ -7,7 +8,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		class="relative overflow-hidden bg-cobra-blue"
 	>
 		<img
-			src="/assets/metford-rec.jpg"
+			src={withBase('/assets/metford-rec.jpg')}
 			alt=""
 			aria-hidden="true"
 			class="absolute inset-0 h-full w-full object-cover"
@@ -35,7 +36,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				<p class="kicker">Players</p>
 				<h2 class="mt-2 text-lg font-medium text-slate-900">U6's to Over 35's</h2>
 				<p class="mt-2 text-sm text-slate-700">Junior, Senior, and Summer football with a supportive club culture.</p>
-				<a class="mt-4 inline-block text-sm font-medium text-cobra-blue" href="/play-football/junior">
+				<a class="mt-4 inline-block text-sm font-medium text-cobra-blue" href={withBase('/play-football/junior')}>
 					Explore playing options →
 				</a>
 			</div>
@@ -43,7 +44,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				<p class="kicker">Volunteers</p>
 				<h2 class="mt-2 text-lg font-medium text-slate-900">Make a difference</h2>
 				<p class="mt-2 text-sm text-slate-700">Coaching, team management, committee, canteen — every bit helps.</p>
-				<a class="mt-4 inline-block text-sm font-medium text-cobra-blue" href="/contact-us">Become a volunteer →</a>
+				<a class="mt-4 inline-block text-sm font-medium text-cobra-blue" href={withBase('/contact-us')}>Become a volunteer →</a>
 			</div>
 			<div class="card">
 				<p class="kicker">Sponsors</p>
@@ -51,7 +52,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				<p class="mt-2 text-sm text-slate-700">
 					Thousands of players, parents and supporters visit Metford Cobras FC each season.
 				</p>
-				<a class="mt-4 inline-block text-sm font-medium text-cobra-blue" href="/sponsorship">
+				<a class="mt-4 inline-block text-sm font-medium text-cobra-blue" href={withBase('/sponsorship')}>
 					Sponsorship opportunities →
 				</a>
 			</div>
@@ -67,11 +68,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 					<p class="text-sm text-slate-700">
 						For over 30 years Metford Cobras FC has been a part of your local community. We believe that our value goes beyond the pitch.<br/>We are committed to fostering a positive environment where players of all ages can develop their skills, build lasting friendships, and contribute to the community. Join us and be part of something special.
 					</p>
-					<a class="btn-secondary" href="/club/values">Read our values</a>
+					<a class="btn-secondary" href={withBase('/club/values')}>Read our values</a>
 				</div>
 				<div class="card">
 					<img
-						src="/assets/values_community-hub.png"
+						src={withBase('/assets/values_community-hub.png')}
 						alt="Placeholder action illustration"
 						class="h-auto w-full"
 						loading="lazy"

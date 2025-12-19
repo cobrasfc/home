@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../utils/withBase';
 ---
 
 <BaseLayout title="Junior Football" description="Junior football at Metford Cobras FC — fun-first, skill building, and community.">
@@ -36,7 +37,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 			</div>
 			<div class="card">
 				<img
-					src="/assets/junior/entry.png"
+					src={withBase('/assets/junior/entry.png')}
 					alt="Placeholder image of entry level junior football"
 					class="h-auto w-full"
 					loading="lazy"
@@ -67,7 +68,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 			</div>
 			<div class="card">
 				<img
-					src="/assets/junior/junior.png"
+					src={withBase('/assets/junior/junior.png')}
 					alt="Placeholder image of junior football"
 					class="h-auto w-full"
 					loading="lazy"
@@ -95,7 +96,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 			</div>
 			<div class="card">
 				<img
-					src="/assets/junior/youth.png"
+					src={withBase('/assets/junior/youth.png')}
 					alt="Placeholder image of youth football"
 					class="h-auto w-full"
 					loading="lazy"
@@ -119,9 +120,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		</div>
 
 		<div class="mt-8 flex flex-wrap gap-3">
-			<a class="btn-primary" href="/contact-us">Register interest</a>
-			<a class="btn-secondary" href="/club/values">Our values</a>
-			<a class="btn-secondary" href="/subscribe">Get updates</a>
+			<a class="btn-primary" href={withBase('/contact-us')}>Register interest</a>
+			<a class="btn-secondary" href={withBase('/club/values')}>Our values</a>
+			<a class="btn-secondary" href={withBase('/subscribe')}>Get updates</a>
 		</div>
 	</section>
 </BaseLayout>

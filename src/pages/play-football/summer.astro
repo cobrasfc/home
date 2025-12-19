@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../utils/withBase';
 ---
 
 <BaseLayout title="Summer Football" description="Summer football at Metford Cobras FC — social, fast, and fun.">
@@ -41,7 +42,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 					The mixed competition is a popular option for adults looking for a social, inclusive way to play, with an
 					emphasis on enjoyment and participation rather than results.
 				</p>
-				<a class="mt-4 inline-block text-sm font-medium text-cobra-blue" href="/subscribe">Get dates first →</a>
+				<a class="mt-4 inline-block text-sm font-medium text-cobra-blue" href={withBase('/subscribe')}>Get dates first →</a>
 			</div>
 		</div>
 
@@ -89,8 +90,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 		</div>
 
 		<div class="mt-8 flex flex-wrap gap-3">
-			<a class="btn-primary" href="/contact-us">Join summer footy</a>
-			<a class="btn-secondary" href="/subscribe">Subscribe</a>
+			<a class="btn-primary" href={withBase('/contact-us')}>Join summer footy</a>
+			<a class="btn-secondary" href={withBase('/subscribe')}>Subscribe</a>
 		</div>
 	</section>
 </BaseLayout>
