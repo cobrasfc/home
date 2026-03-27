@@ -30,19 +30,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Compute Astro base + site
-        shell: bash
+      - name: Set Astro base + site
         run: |
-          REPO_NAME="${{ github.event.repository.name }}"
-          OWNER="${{ github.repository_owner }}"
-
-          if [[ "$REPO_NAME" == "$OWNER.github.io" ]]; then
-            echo "ASTRO_BASE=/" >> "$GITHUB_ENV"
-            echo "ASTRO_SITE=https://$OWNER.github.io" >> "$GITHUB_ENV"
-          else
-            echo "ASTRO_BASE=/$REPO_NAME" >> "$GITHUB_ENV"
-            echo "ASTRO_SITE=https://$OWNER.github.io/$REPO_NAME" >> "$GITHUB_ENV"
-          fi
+          echo "ASTRO_BASE=/" >> "$GITHUB_ENV"
+          echo "ASTRO_SITE=https://metfordcobras.com.au" >> "$GITHUB_ENV"
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
