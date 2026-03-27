@@ -1,25 +1,40 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE } from '../site.config';
+import { withBase } from '../utils/withBase';
 
 const url = SITE.mailchimpSubscribeUrl;
 ---
 
-<BaseLayout title="Subscribe" description="Subscribe for club updates.">
+<BaseLayout title="Subscribe" description="Subscribe for Metford Cobras FC club updates, registration news, and season announcements.">
 	<section class="container-page py-10 md:py-14">
-		<p class="kicker">Subscribe</p>
+		<p class="kicker">Stay connected</p>
 		<h1 class="page-title">Get club news and key dates</h1>
 		<p class="mt-4 max-w-2xl text-sm text-slate-700">
-			Subscribing to our mailing list is the easiest way to make sure you don’t miss important updates — including
-			when registrations open, how teams are filling up, and when discounts become available.
+			Our mailing list is the easiest way to stay across everything at Metford Cobras &#8212; from when registrations open to game day changes, season results, and club events.
 		</p>
 
-		<div class="mt-8 card">
-			<h2 class="text-lg font-medium text-slate-900">Subscribe</h2>
-			<p class="mt-2 text-sm text-slate-700">
-				Join our list via Mailchimp. It only takes a moment.
+		<div class="mt-8 grid gap-4 md:grid-cols-3">
+			<div class="card">
+				<p class="kicker">Registrations</p>
+				<p class="mt-2 text-sm text-slate-700">Be first to know when registrations open for each season so your spot is secured.</p>
+			</div>
+			<div class="card">
+				<p class="kicker">Season news</p>
+				<p class="mt-2 text-sm text-slate-700">Results, draws, schedule changes, and important club announcements delivered to your inbox.</p>
+			</div>
+			<div class="card">
+				<p class="kicker">Club events</p>
+				<p class="mt-2 text-sm text-slate-700">Gala Days, presentation nights, fundraisers &#8212; never miss a moment off the pitch.</p>
+			</div>
+		</div>
+
+		<div class="mt-8 card bg-cobra-blue text-white ring-0">
+			<h2 class="text-lg font-medium text-white">Join the Cobras mailing list</h2>
+			<p class="mt-2 text-sm text-white/80">
+				Subscribe via Mailchimp. It only takes a moment and you can unsubscribe any time.
 			</p>
-			<a class="mt-4 btn-primary" href={url} target="_blank" rel="noreferrer">Subscribe via Mailchimp</a>
+			<a class="mt-4 btn-accent" href={url} target="_blank" rel="noreferrer">Subscribe now</a>
 		</div>
 	</section>
 </BaseLayout>

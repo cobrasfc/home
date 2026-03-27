@@ -60,6 +60,10 @@
 		@apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition bg-white text-cobra-blue ring-1 ring-inset ring-cobra-blue/20 hover:bg-cobra-blue/5;
 	}
 
+	.btn-accent {
+		@apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition bg-cobra-yellow text-cobra-blue hover:brightness-95;
+	}
+
 	.kicker {
 		@apply text-xs font-medium uppercase tracking-wider text-cobra-blue;
 	}
@@ -69,6 +73,6 @@
 	}
 
 	.card {
-		@apply rounded-2xl bg-white p-5 ring-1 ring-black/5;
+		@apply rounded-2xl bg-white p-5 ring-1 ring-black/5 transition hover:shadow-md hover:-translate-y-0.5;
 	}
 }

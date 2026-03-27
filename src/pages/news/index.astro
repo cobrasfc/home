@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../utils/withBase';
+import { SITE } from '../../site.config';
+---
+
+<BaseLayout title="News" description="The latest news and updates from Metford Cobras FC — follow us on Facebook.">
+	<section class="container-page py-10 md:py-14">
+		<p class="kicker">Club</p>
+		<h1 class="page-title">News &amp; Updates</h1>
+		<p class="mt-2 max-w-2xl text-sm text-slate-700">
+			Follow along on Facebook for match results, announcements, and club news.
+		</p>
+
+		<div class="mt-8 flex flex-col items-center gap-6 md:flex-row md:items-start">
+			<div id="fb-root"></div>
+			<div
+				class="fb-page w-full overflow-hidden rounded-2xl ring-1 ring-black/5"
+				data-href={SITE.facebookUrl}
+				data-tabs="timeline"
+				data-width="500"
+				data-height="800"
+				data-small-header="true"
+				data-adapt-container-width="true"
+				data-hide-cover="false"
+				data-show-facepile="false"
+			></div>
+
+			<div class="w-full shrink-0 space-y-4 md:w-64">
+				<div class="card">
+					<p class="kicker">Follow us</p>
+					<p class="mt-2 text-sm text-slate-700">Stay up to date with match results, training news, and club events.</p>
+					<a class="mt-4 btn-primary" href={SITE.facebookUrl} target="_blank" rel="noreferrer">Facebook</a>
+				</div>
+				<div class="card">
+					<p class="kicker">Subscribe</p>
+					<p class="mt-2 text-sm text-slate-700">Get key dates and season news delivered straight to your inbox.</p>
+					<a class="mt-4 btn-secondary" href={withBase('/subscribe')}>Mailing list</a>
+				</div>
+				<div class="card">
+					<p class="kicker">Get in touch</p>
+					<p class="mt-2 text-sm text-slate-700">Questions about the season, registrations, or the club? We&#8217;d love to hear from you.</p>
+					<a class="mt-4 btn-secondary" href={withBase('/contact-us')}>Contact us</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</BaseLayout>
+
+<script is:inline>
+	(function (d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s);
+		js.id = id;
+		js.src = 'https://connect.facebook.net/en_AU/sdk.js#xfbml=1&version=v18.0';
+		fjs.parentNode.insertBefore(js, fjs);
+	})(document, 'script', 'facebook-jssdk');
+</script>

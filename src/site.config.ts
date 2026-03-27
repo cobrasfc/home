@@ -6,7 +6,7 @@ export const SITE = {
 	facebookUrl: 'https://www.facebook.com/metfordcobrasfc/',
 	contact: {
 		email: 'metfordcobrasfootballclub@gmail.com',
-		phone: ''
+		phone: '0431 586 446'
 	},
 	location: {
 		groundName: 'Metford Recreation Reserve No. 1',

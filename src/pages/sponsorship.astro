@@ -8,18 +8,38 @@ import { withBase } from '../utils/withBase';
 		<p class="kicker">Sponsorship</p>
 		<h1 class="page-title">Back local sport. Get real local visibility.</h1>
 		<p class="mt-4 max-w-2xl text-sm text-slate-700">
-			Sponsoring the Cobras supports players and families — and connects your business with our community.
+			Sponsoring the Cobras supports players and families &#8212; and connects your business with our community across Hunter, Newcastle and Lake Macquarie. Over the year we host thousands of players, parents, and supporters at our winter competition, summer 6&#8217;s competition, and end of year Gala Day.
 		</p>
+
+		<div class="mt-6 grid grid-cols-2 gap-3 md:grid-cols-4">
+			<div class="rounded-xl bg-cobra-blue/5 p-4 text-center">
+				<div class="text-2xl font-medium text-cobra-blue">100+</div>
+				<div class="mt-1 text-xs text-slate-600">Registered players</div>
+			</div>
+			<div class="rounded-xl bg-cobra-blue/5 p-4 text-center">
+				<div class="text-2xl font-medium text-cobra-blue">8</div>
+				<div class="mt-1 text-xs text-slate-600">Teams</div>
+			</div>
+			<div class="rounded-xl bg-cobra-blue/5 p-4 text-center">
+				<div class="text-2xl font-medium text-cobra-blue">30+</div>
+				<div class="mt-1 text-xs text-slate-600">Years in the community</div>
+			</div>
+			<div class="rounded-xl bg-cobra-blue/5 p-4 text-center">
+				<div class="text-2xl font-medium text-cobra-blue">15k</div>
+				<div class="mt-1 text-xs text-slate-600">Monthly Facebook views</div>
+			</div>
+		</div>
 
 		<div class="mt-6 flex flex-wrap gap-3">
 			<a class="btn-primary" href={withBase('/contact-us')}>Enquire about sponsorship</a>
 			<a class="btn-secondary" href="#tiers">View sponsorship tiers</a>
+			<a class="btn-secondary" href={withBase('/assets/General 2026 Sponsorship Letter.pdf')} target="_blank" rel="noreferrer" download>Download prospectus (PDF)</a>
 		</div>
 
 		<div class="mt-10">
 			<h2 class="text-xl font-medium text-slate-900">Current sponsors</h2>
 			<p class="mt-2 max-w-2xl text-sm text-slate-700">
-				We’re grateful for the local businesses who back the Cobras. Please support the people who support community
+				We&#8217;re grateful for the local businesses who back the Cobras. Please support the people who support community
 				football.
 			</p>
 
@@ -38,10 +58,10 @@ import { withBase } from '../utils/withBase';
 							The best products and advice for all things BBQ from an award winning team.
 						</p>
 						<p class="mt-3 text-sm text-slate-700">
-							Thanks for your continued support of Metford Cobras FC — it helps keep football affordable and our match
+							Thanks for your continued support of Metford Cobras FC &#8212; it helps keep football affordable and our match
 							days running.
 						</p>
-						<span class="mt-4 inline-block text-sm font-medium text-cobra-blue">Visit website →</span>
+						<span class="mt-4 inline-block text-sm font-medium text-cobra-blue">Visit website &#8594;</span>
 					</a>
 				</div>
 
@@ -56,12 +76,12 @@ import { withBase } from '../utils/withBase';
 						/>
 						<h3 class="mt-4 text-lg font-medium text-slate-900">Swirl n Dip</h3>
 						<p class="mt-2 text-sm text-slate-700">
-							An intergalactic taste sensation — perfect for celebrating wins (and shaking off tough losses).
+							An intergalactic taste sensation &#8212; perfect for celebrating wins (and shaking off tough losses).
 						</p>
 						<p class="mt-3 text-sm text-slate-700">
-							We appreciate your continued support of the club and the community we’re building.
+							We appreciate your continued support of the club and the community we&#8217;re building.
 						</p>
-						<span class="mt-4 inline-block text-sm font-medium text-cobra-blue">Visit website →</span>
+						<span class="mt-4 inline-block text-sm font-medium text-cobra-blue">Visit website &#8594;</span>
 					</a>
 				</div>
 
@@ -79,9 +99,9 @@ import { withBase } from '../utils/withBase';
 							A classic local venue for meals, catch-ups, and community get-togethers.
 						</p>
 						<p class="mt-3 text-sm text-slate-700">
-							Thank you for your continued support — your backing makes a real difference for players and families.
+							Thank you for your continued support &#8212; your backing makes a real difference for players and families.
 						</p>
-						<span class="mt-4 inline-block text-sm font-medium text-cobra-blue">Visit website →</span>
+						<span class="mt-4 inline-block text-sm font-medium text-cobra-blue">Visit website &#8594;</span>
 					</a>
 				</div>
 			</div>
@@ -98,34 +118,87 @@ import { withBase } from '../utils/withBase';
 			</div>
 			<div class="card">
 				<h2 class="text-lg font-medium text-slate-900">Easy to support</h2>
-				<p class="mt-2 text-sm text-slate-700">Simple tiers and clear deliverables. We’ll look after you.</p>
+				<p class="mt-2 text-sm text-slate-700">Simple tiers and clear deliverables. We&#8217;ll look after you.</p>
 			</div>
 		</div>
 
-		<div id="tiers" class="mt-10 card">
+		<div id="tiers" class="mt-10">
 			<h2 class="text-xl font-medium text-slate-900">Sponsorship tiers</h2>
-			<p class="mt-2 text-sm text-slate-700">
-				Options for businesses of every size and budget.
-			</p>
-			<div class="mt-6 grid gap-4 md:grid-cols-3">
-				<div class="rounded-xl bg-slate-50 p-4">
-					<div class="text-sm font-medium text-slate-900">Digital Sponsorship</div>
-					<div class="mt-2 text-sm text-slate-700">Social shoutouts + website listing</div>
+			<p class="mt-2 text-sm text-slate-700">Options for businesses of every size and budget.</p>
+
+			<div class="mt-6 grid gap-4 md:grid-cols-2">
+				<div class="card">
+					<div class="flex items-start justify-between gap-4">
+						<h3 class="text-base font-medium text-slate-900">Digital Sponsorship</h3>
+						<span class="shrink-0 rounded-full bg-cobra-blue/10 px-3 py-1 text-sm font-medium text-cobra-blue">$300</span>
+					</div>
+					<ul class="mt-3 space-y-1.5 text-sm text-slate-700">
+						<li class="flex gap-2"><span class="text-cobra-yellow font-bold">&#8212;</span>Your logo on our social media posts and email newsletters</li>
+						<li class="flex gap-2"><span class="text-cobra-yellow font-bold">&#8212;</span>3 sponsor showcase posts on our Facebook page</li>
+						<li class="flex gap-2"><span class="text-cobra-yellow font-bold">&#8212;</span>Facebook averages approx. 15,000 views per month during the playing season</li>
+					</ul>
 				</div>
-				<div class="rounded-xl bg-slate-50 p-4">
-					<div class="text-sm font-medium text-slate-900">Field Sponsorship</div>
-					<div class="mt-2 text-sm text-slate-700">Game day signage at home games, finals and gala days</div>
+
+				<div class="card">
+					<div class="flex items-start justify-between gap-4">
+						<h3 class="text-base font-medium text-slate-900">Field Sponsorship</h3>
+						<span class="shrink-0 rounded-full bg-cobra-blue/10 px-3 py-1 text-sm font-medium text-cobra-blue">$600</span>
+					</div>
+					<ul class="mt-3 space-y-1.5 text-sm text-slate-700">
+						<li class="flex gap-2"><span class="text-cobra-yellow font-bold">&#8212;</span>All Digital Sponsorship benefits</li>
+						<li class="flex gap-2"><span class="text-cobra-yellow font-bold">&#8212;</span>Your banner or A-Frame displayed at all home games, finals, gala days, and summer 6&#8217;s events</li>
+						<li class="flex gap-2 text-slate-500 text-xs"><span>Banner/A-Frame to be provided by your business.</span></li>
+					</ul>
 				</div>
-				<div class="rounded-xl bg-slate-50 p-4">
-					<div class="text-sm font-medium text-slate-900">Team and Club Sponsorship</div>
-					<div class="mt-2 text-sm text-slate-700">Premium placement + kit logos and frequent social media mentions</div>
+
+				<div class="card">
+					<div class="flex items-start justify-between gap-4">
+						<h3 class="text-base font-medium text-slate-900">Team Sponsorship</h3>
+						<span class="shrink-0 rounded-full bg-cobra-blue/10 px-3 py-1 text-sm font-medium text-cobra-blue">$1,000</span>
+					</div>
+					<ul class="mt-3 space-y-1.5 text-sm text-slate-700">
+						<li class="flex gap-2"><span class="text-cobra-yellow font-bold">&#8212;</span>All Digital and Field Sponsorship benefits</li>
+						<li class="flex gap-2"><span class="text-cobra-yellow font-bold">&#8212;</span>Your logo on the chest of your nominated team&#8217;s jersey</li>
+						<li class="flex gap-2"><span class="text-cobra-yellow font-bold">&#8212;</span>A framed team photo and thank you letter to display at your business</li>
+					</ul>
+					<img
+						src={withBase('/assets/sponsors/juniors-your-business-here.png')}
+						alt="Junior jersey with sponsor logo placement example"
+						class="mt-4 w-full rounded-xl object-cover"
+						loading="lazy"
+						decoding="async"
+					/>
+				</div>
+
+				<div class="card bg-cobra-blue text-white ring-0">
+					<div class="flex items-start justify-between gap-4">
+						<h3 class="text-base font-medium text-white">Club Sponsorship</h3>
+						<span class="shrink-0 rounded-full bg-cobra-yellow/20 px-3 py-1 text-sm font-medium text-cobra-yellow">$5,000</span>
+					</div>
+					<ul class="mt-3 space-y-1.5 text-sm text-white/80">
+						<li class="flex gap-2"><span class="text-cobra-yellow font-bold">&#8212;</span>All Digital and Field Sponsorship benefits</li>
+						<li class="flex gap-2"><span class="text-cobra-yellow font-bold">&#8212;</span>Your logo on the back of all team jerseys &#8212; junior and senior</li>
+						<li class="flex gap-2"><span class="text-cobra-yellow font-bold">&#8212;</span>A thank you video posted on our socials</li>
+						<li class="flex gap-2"><span class="text-cobra-yellow font-bold">&#8212;</span>A senior team jersey with your logo on the back</li>
+						<li class="flex gap-2"><span class="text-cobra-yellow font-bold">&#8212;</span>A thank you letter to display at your business</li>
+					</ul>
+					<img
+						src={withBase('/assets/sponsors/senior-women-your-business-here.png')}
+						alt="Senior women&#8217;s jersey with sponsor logo placement example"
+						class="mt-4 w-full rounded-xl object-cover"
+						loading="lazy"
+						decoding="async"
+					/>
 				</div>
 			</div>
 
-			<div class="mt-6 rounded-xl bg-cobra-blue/5 p-4">
-				<h3 class="text-base font-medium text-slate-900">Next step</h3>
-				<p class="mt-1 text-sm text-slate-700">Contact us and we’ll send the sponsor pack and options.</p>
-				<a class="mt-4 inline-flex btn-primary" href={withBase('/contact-us')}>Contact Us</a>
+			<div class="mt-6 rounded-2xl bg-cobra-blue/5 p-5">
+				<h3 class="text-base font-medium text-slate-900">Ready to get involved?</h3>
+				<p class="mt-1 text-sm text-slate-700">Get in touch and we&#8217;ll work with you to find the right fit. We&#8217;re always happy to discuss arrangements that work for both parties.</p>
+				<div class="mt-4 flex flex-wrap gap-3">
+					<a class="btn-primary" href={withBase('/contact-us')}>Contact Us</a>
+					<a class="btn-secondary" href="mailto:metfordcobrasfootballclub@gmail.com">metfordcobrasfootballclub@gmail.com</a>
+				</div>
 			</div>
 		</div>
 	</section>

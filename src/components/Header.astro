@@ -16,13 +16,13 @@ const isActive = (href: string) => {
 const linkClass = (href: string) =>
 	[
 		'rounded-lg px-3 py-2 text-sm font-medium text-slate-800 transition-colors hover:bg-cobra-blue/10 focus-visible:bg-cobra-blue/10',
-		isActive(href) ? 'bg-cobra-blue/10 text-slate-900' : ''
+		isActive(href) ? 'text-cobra-blue underline decoration-cobra-yellow decoration-2 underline-offset-4' : ''
 	].join(' ');
 
 const dropdownLinkClass = (href: string) =>
 	[
 		'block w-full rounded-lg px-3 py-2 text-sm font-medium text-slate-800 transition-colors hover:bg-cobra-blue/10 focus-visible:bg-cobra-blue/10',
-		isActive(href) ? 'bg-cobra-blue/10 text-slate-900' : ''
+		isActive(href) ? 'text-cobra-blue underline decoration-cobra-yellow decoration-2 underline-offset-4' : ''
 	].join(' ');
 ---
 
@@ -46,6 +46,7 @@ const dropdownLinkClass = (href: string) =>
 
 		<nav class="hidden items-center gap-1 md:flex" aria-label="Primary">
 			<a class={linkClass('/')} href={withBase('/')}>Home</a>
+			<a class={linkClass('/news')} href={withBase('/news')}>News</a>
 
 			<details class="group relative">
 				<summary
@@ -96,7 +97,7 @@ const dropdownLinkClass = (href: string) =>
 			</details>
 
 			<a class={linkClass('/sponsorship')} href={withBase('/sponsorship')}>Sponsorship</a>
-			<a class="btn-primary" href={withBase('/subscribe')}>Subscribe</a>
+			<a class="btn-accent" href={withBase('/subscribe')}>Subscribe</a>
 		</nav>
 
 		<details class="md:hidden">
@@ -105,6 +106,7 @@ const dropdownLinkClass = (href: string) =>
 				<div class="container-page py-4">
 					<div class="flex flex-col gap-2" aria-label="Mobile navigation">
 						<a class={linkClass('/')} href={withBase('/')}>Home</a>
+						<a class={linkClass('/news')} href={withBase('/news')}>News</a>
 
 						<details class="rounded-lg bg-slate-50 p-2">
 							<summary class="cursor-pointer text-sm font-medium text-slate-900">Club</summary>
@@ -125,7 +127,7 @@ const dropdownLinkClass = (href: string) =>
 						</details>
 
 						<a class={linkClass('/sponsorship')} href={withBase('/sponsorship')}>Sponsorship</a>
-						<a class="btn-primary" href={withBase('/subscribe')}>Subscribe</a>
+						<a class="btn-accent" href={withBase('/subscribe')}>Subscribe</a>
 					</div>
 				</div>
 			</div>
