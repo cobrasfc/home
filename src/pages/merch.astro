@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Merch Store" description="Shop official Metford Cobras FC merchandise. Club hoodies available now, with secure checkout powered by Square.">
+	<section class="container-page py-10 md:py-14">
+		<p class="kicker">Official merchandise</p>
+		<h1 class="page-title">Cobras Merch Store</h1>
+		<p class="mt-4 max-w-2xl text-sm text-slate-700">
+			Represent the Cobras on and off the pitch. All orders are processed securely through Square &#8212; no account required, all major cards accepted.
+		</p>
+
+		<div class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+
+			<!-- Product card: Club Hoodie -->
+			<div class="card flex flex-col">
+				<div class="overflow-hidden rounded-xl bg-slate-100">
+					<img
+						src="https://items-images-production.s3.us-west-2.amazonaws.com/files/727f9a9db5674842ec1c21a758f2e79788245709/original.jpeg"
+						alt="Metford Cobras FC Club Hoodie"
+						class="w-full object-cover"
+						loading="lazy"
+					/>
+				</div>
+				<div class="mt-4 flex flex-1 flex-col">
+					<h2 class="text-base font-semibold text-slate-900">Club Hoodie</h2>
+					<p class="mt-1 text-sm text-slate-600">Official Metford Cobras FC hoodie. Available in multiple sizes.</p>
+					<p class="mt-3 text-lg font-semibold text-cobra-blue">$45.00 &#8211; $55.00</p>
+					<a
+						href="https://square.link/u/Rn3fVSaE"
+						target="_blank"
+						rel="noreferrer noopener"
+						class="btn-accent mt-4 w-full justify-center"
+					>
+						Buy now &#8594;
+					</a>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Trust signals -->
+		<div class="mt-12 rounded-2xl border border-black/5 bg-slate-50 p-6">
+			<h2 class="text-sm font-semibold text-slate-700">Safe &amp; secure shopping</h2>
+			<ul class="mt-3 grid gap-3 text-sm text-slate-600 sm:grid-cols-3">
+				<li class="flex items-start gap-2">
+					<span class="mt-0.5 text-cobra-blue" aria-hidden="true">&#10003;</span>
+					<span><strong class="text-slate-800">Secure checkout</strong> &#8212; payments processed by Square, a globally trusted payment provider.</span>
+				</li>
+				<li class="flex items-start gap-2">
+					<span class="mt-0.5 text-cobra-blue" aria-hidden="true">&#10003;</span>
+					<span><strong class="text-slate-800">No account needed</strong> &#8212; pay as a guest with any major credit or debit card.</span>
+				</li>
+				<li class="flex items-start gap-2">
+					<span class="mt-0.5 text-cobra-blue" aria-hidden="true">&#10003;</span>
+					<span><strong class="text-slate-800">Questions?</strong> &#8212; contact the club directly if you have any issues with your order.</span>
+				</li>
+			</ul>
+		</div>
+	</section>
+</BaseLayout>
