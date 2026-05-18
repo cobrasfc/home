@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../site.config';
+import { withBase } from '../utils/withBase';
+
+const positions = [
+	'Vice President',
+	'Grounds / Facilities Coordinator',
+	'Equipment / Gear Steward',
+	'Sponsorship &amp; Fundraising Coordinator',
+	'Team Official Coordinator',
+	'Club Referee',
+	'Member Protection Information Officer (MPIO)',
+	'General Committee',
+];
+
+const subject = encodeURIComponent('Expression of Interest — Volunteer Position');
+const mailto = `mailto:${SITE.contact.email}?subject=${subject}`;
+---
+
+<BaseLayout title="Get Involved" description="Express your interest in volunteering or joining the Metford Cobras FC committee.">
+	<section class="container-page py-10 md:py-14 max-w-2xl">
+		<p class="kicker">Volunteer</p>
+		<h1 class="page-title">Get involved with the Cobras</h1>
+		<p class="mt-4 text-sm text-slate-700">
+			We&#8217;d love to hear from you. To express your interest in a volunteer or committee position, send us an email with the details below and we&#8217;ll be in touch.
+		</p>
+
+		<div class="mt-8 card bg-cobra-blue/5 ring-0">
+			<h2 class="text-sm font-semibold text-slate-900">What to include in your email</h2>
+			<ul class="mt-4 space-y-3">
+				<li class="flex gap-3 text-sm text-slate-700">
+					<span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cobra-blue text-xs font-semibold text-white">1</span>
+					<span><strong class="text-slate-900">Your name</strong></span>
+				</li>
+				<li class="flex gap-3 text-sm text-slate-700">
+					<span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cobra-blue text-xs font-semibold text-white">2</span>
+					<span><strong class="text-slate-900">Your email address</strong></span>
+				</li>
+				<li class="flex gap-3 text-sm text-slate-700">
+					<span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cobra-blue text-xs font-semibold text-white">3</span>
+					<span><strong class="text-slate-900">Your contact number</strong></span>
+				</li>
+				<li class="flex gap-3 text-sm text-slate-700">
+					<span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cobra-blue text-xs font-semibold text-white">4</span>
+					<div>
+						<strong class="text-slate-900">Preferred position(s)</strong> &#8212; choose one or more from the list below:
+						<ul class="mt-2 space-y-1 pl-1">
+							{positions.map((pos) => (
+								<li class="flex gap-2 text-slate-600">
+									<span class="mt-0.5 shrink-0 text-cobra-blue">&#8594;</span>
+									<span set:html={pos} />
+								</li>
+							))}
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<div class="mt-6 rounded-2xl bg-cobra-yellow p-5">
+			<h2 class="text-base font-semibold text-cobra-blue">Send your expression of interest</h2>
+			<p class="mt-1 text-sm text-cobra-blue/80">
+				Email us at <strong>{SITE.contact.email}</strong> or tap the button below.
+			</p>
+			<a class="mt-4 btn-primary" href={mailto}>
+				Send email &#8594;
+			</a>
+		</div>
+
+		<p class="mt-6 text-center text-sm text-slate-500">
+			Want to learn more about the roles first?
+			<a class="text-cobra-blue hover:underline" href={withBase('/committee')}>View all positions &#8594;</a>
+		</p>
+	</section>
+</BaseLayout>
