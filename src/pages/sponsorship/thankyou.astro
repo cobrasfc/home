@@ -1,0 +1,175 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../site.config';
+import { withBase } from '../../utils/withBase';
+---
+
+<BaseLayout title="Thank you — Sponsor" description="Thank you for sponsoring Metford Cobras FC. Please fill in your details so we can get your package set up.">
+	<section class="container-page py-10 md:py-14 max-w-2xl">
+		<p class="kicker">You&#8217;re in</p>
+		<h1 class="page-title">Thank you for sponsoring the Cobras!</h1>
+		<p class="mt-4 text-sm text-slate-700">
+			You&#8217;re officially a Cobras FC sponsor &#8212; thank you. You&#8217;re helping local kids and adults play the game they love, and your support makes a real difference to our community.
+		</p>
+
+		<div class="mt-6 card bg-cobra-blue/5 ring-0">
+			<h2 class="text-sm font-semibold text-slate-900">What happens next</h2>
+			<ul class="mt-3 space-y-2 text-sm text-slate-700">
+				<li class="flex gap-2"><span class="mt-0.5 shrink-0 text-cobra-blue">&#8594;</span><span>Fill in your details below so we know who you are and what your business needs.</span></li>
+				<li class="flex gap-2"><span class="mt-0.5 shrink-0 text-cobra-blue">&#8594;</span><span>We&#8217;ll be in touch within 2&#8211;3 business days to confirm your package and collect your logo.</span></li>
+				<li class="flex gap-2"><span class="mt-0.5 shrink-0 text-cobra-blue">&#8594;</span><span>Your logo will be applied to the relevant jerseys and/or signage before the season starts.</span></li>
+			</ul>
+		</div>
+
+		<!-- Form -->
+		<form
+			id="sponsor-form"
+			action="https://formspree.io/f/[PLACEHOLDER_FORM_ID]"
+			method="POST"
+			class="mt-8 space-y-5"
+		>
+			<input type="hidden" name="_next" value="https://metfordcobras.com.au/sponsorship/thankyou?submitted=1" />
+			<input type="hidden" name="_subject" value="New Cobras FC Sponsor" />
+
+			<div>
+				<label class="block text-sm font-medium text-slate-900" for="business-name">
+					Business name <span class="text-red-500" aria-hidden="true">*</span>
+				</label>
+				<input
+					class="mt-1 w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
+					type="text"
+					id="business-name"
+					name="business_name"
+					required
+					autocomplete="organization"
+				/>
+			</div>
+
+			<div>
+				<label class="block text-sm font-medium text-slate-900" for="contact-name">
+					Your name <span class="text-red-500" aria-hidden="true">*</span>
+				</label>
+				<input
+					class="mt-1 w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
+					type="text"
+					id="contact-name"
+					name="contact_name"
+					required
+					autocomplete="name"
+				/>
+			</div>
+
+			<div>
+				<label class="block text-sm font-medium text-slate-900" for="contact-email">
+					Email address <span class="text-red-500" aria-hidden="true">*</span>
+				</label>
+				<input
+					class="mt-1 w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
+					type="email"
+					id="contact-email"
+					name="contact_email"
+					required
+					autocomplete="email"
+				/>
+			</div>
+
+			<div>
+				<label class="block text-sm font-medium text-slate-900" for="contact-phone">
+					Phone number
+				</label>
+				<input
+					class="mt-1 w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
+					type="tel"
+					id="contact-phone"
+					name="contact_phone"
+					autocomplete="tel"
+				/>
+			</div>
+
+			<fieldset>
+				<legend class="text-sm font-medium text-slate-900">
+					Were you referred by a Cobras FC player or parent?
+				</legend>
+				<div class="mt-2 flex gap-6">
+					<label class="flex items-center gap-2 text-sm text-slate-700 cursor-pointer">
+						<input type="radio" name="referred" value="yes" id="referred-yes" />
+						Yes
+					</label>
+					<label class="flex items-center gap-2 text-sm text-slate-700 cursor-pointer">
+						<input type="radio" name="referred" value="no" id="referred-no" />
+						No
+					</label>
+				</div>
+			</fieldset>
+
+			<div id="referral-fields" class="space-y-5 rounded-xl bg-slate-50 p-4 ring-1 ring-black/5" style="display:none">
+				<p class="text-xs text-slate-500">We&#8217;ll use this to process their free rego reward.</p>
+				<div>
+					<label class="block text-sm font-medium text-slate-900" for="referrer-name">
+						Referrer&#8217;s name
+					</label>
+					<input
+						class="mt-1 w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
+						type="text"
+						id="referrer-name"
+						name="referrer_name"
+					/>
+				</div>
+				<div>
+					<label class="block text-sm font-medium text-slate-900" for="referrer-team">
+						Their team
+					</label>
+					<input
+						class="mt-1 w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
+						type="text"
+						id="referrer-team"
+						name="referrer_team"
+						placeholder="e.g. Under 8s, All Age Women&#8217;s"
+					/>
+				</div>
+			</div>
+
+			<div class="rounded-xl bg-slate-50 p-4 text-sm text-slate-600 ring-1 ring-black/5">
+				<strong class="text-slate-800">Logo:</strong> Email your logo file to
+				<a class="text-cobra-blue hover:underline" href={"mailto:" + SITE.contact.email}>{SITE.contact.email}</a>
+				&#8212; we&#8217;ll follow up if we need anything else.
+			</div>
+
+			<button type="submit" class="btn-primary w-full justify-center">
+				Submit my details
+			</button>
+		</form>
+
+		<!-- Success state (shown after Formspree redirect) -->
+		<div id="success-msg" class="mt-8 rounded-2xl bg-cobra-yellow p-6" style="display:none">
+			<h2 class="text-lg font-semibold text-cobra-blue">Details received &#8212; thank you!</h2>
+			<p class="mt-2 text-sm text-cobra-blue/80">
+				We&#8217;ve got everything we need. Someone from the club will be in touch within 2&#8211;3 business days to confirm your package and next steps.
+			</p>
+			<a class="mt-4 btn-primary" href={withBase('/sponsorship')}>Back to sponsorship &#8594;</a>
+		</div>
+	</section>
+</BaseLayout>
+
+<script is:inline>
+	(function () {
+		var yesRadio = document.getElementById('referred-yes');
+		var noRadio = document.getElementById('referred-no');
+		var referralFields = document.getElementById('referral-fields');
+
+		function updateReferral() {
+			if (!referralFields) return;
+			referralFields.style.display = (yesRadio && yesRadio.checked) ? 'block' : 'none';
+		}
+
+		if (yesRadio) yesRadio.addEventListener('change', updateReferral);
+		if (noRadio) noRadio.addEventListener('change', updateReferral);
+
+		if (window.location.search.indexOf('submitted=1') !== -1) {
+			var form = document.getElementById('sponsor-form');
+			var msg = document.getElementById('success-msg');
+			if (form) form.style.display = 'none';
+			if (msg) msg.style.display = 'block';
+		}
+	})();
+</script>

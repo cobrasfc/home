@@ -1,0 +1,171 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../utils/withBase';
+---
+
+<BaseLayout title="How to refer a sponsor" description="A simple guide for Metford Cobras FC players and parents on how to refer a local business as a club sponsor and earn free rego.">
+	<section class="container-page py-10 md:py-14">
+		<p class="kicker">Refer a sponsor</p>
+		<h1 class="page-title">How to ask a business to sponsor us</h1>
+		<p class="mt-4 max-w-2xl text-sm text-slate-700">
+			If you refer a business and they sign on as a sponsor, you get free rego for the season &#8212; worth up to $350. Here&#8217;s everything you need to make it happen.
+		</p>
+
+		<div class="mt-10 space-y-4">
+
+			<!-- Step 1 -->
+			<div class="card flex gap-4">
+				<div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-cobra-blue text-sm font-semibold text-white">1</div>
+				<div>
+					<h2 class="text-base font-semibold text-slate-900">Why it&#8217;s worth bringing up</h2>
+					<p class="mt-2 text-sm text-slate-700">
+						Sponsoring the Cobras isn&#8217;t just charity &#8212; it&#8217;s a genuine business opportunity. Sponsors get their brand in front of over 100 members and their families across the Hunter region, with logo placement on jerseys, signage at game days, and features on our Facebook page (15,000+ monthly views during the season).
+					</p>
+					<p class="mt-2 text-sm text-slate-700">
+						Local businesses that sponsor local clubs build real goodwill. People remember who supports their community.
+					</p>
+				</div>
+			</div>
+
+			<!-- Step 2 -->
+			<div class="card flex gap-4">
+				<div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-cobra-blue text-sm font-semibold text-white">2</div>
+				<div>
+					<h2 class="text-base font-semibold text-slate-900">Who to think about</h2>
+					<p class="mt-2 text-sm text-slate-700">The best leads are people who already know and like you. Consider:</p>
+					<ul class="mt-3 space-y-2 text-sm text-slate-700">
+						<li class="flex gap-2"><span class="mt-0.5 shrink-0 text-cobra-blue">&#8594;</span><span>Your employer or a manager at work &#8212; especially if the business is local</span></li>
+						<li class="flex gap-2"><span class="mt-0.5 shrink-0 text-cobra-blue">&#8594;</span><span>A local business you use regularly (tradie, cafe, gym, mechanic)</span></li>
+						<li class="flex gap-2"><span class="mt-0.5 shrink-0 text-cobra-blue">&#8594;</span><span>A family friend or neighbour who owns a business</span></li>
+						<li class="flex gap-2"><span class="mt-0.5 shrink-0 text-cobra-blue">&#8594;</span><span>A business that has sponsored local clubs or events before</span></li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Step 3 -->
+			<div class="card flex gap-4">
+				<div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-cobra-blue text-sm font-semibold text-white">3</div>
+				<div>
+					<h2 class="text-base font-semibold text-slate-900">How to start the conversation</h2>
+					<p class="mt-2 text-sm text-slate-700">Keep it casual. You don&#8217;t need a pitch &#8212; just mention it naturally:</p>
+					<ul class="mt-3 space-y-2 text-sm text-slate-700">
+						<li class="flex gap-2"><span class="mt-0.5 shrink-0 text-cobra-blue">&#8594;</span><span>&#8220;Hey, I play for the local soccer club &#8212; they&#8217;re looking for sponsors this season. Might be worth a look for the business?&#8221;</span></li>
+						<li class="flex gap-2"><span class="mt-0.5 shrink-0 text-cobra-blue">&#8594;</span><span>If they seem interested, send them one of the message templates below or share the link: <strong>metfordcobras.com.au/sponsorship</strong></span></li>
+						<li class="flex gap-2"><span class="mt-0.5 shrink-0 text-cobra-blue">&#8594;</span><span>You don&#8217;t need to know all the details &#8212; the club will follow up once they&#8217;re interested.</span></li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Message templates -->
+		<div class="mt-10">
+			<h2 class="text-xl font-medium text-slate-900">Ready-made message templates</h2>
+			<p class="mt-2 text-sm text-slate-700">Copy one of these and send it. Fill in the parts in [brackets] before you hit send.</p>
+
+			<div class="mt-6 space-y-4">
+
+				<!-- WhatsApp / SMS -->
+				<div class="card">
+					<div class="flex items-center justify-between gap-3">
+						<h3 class="text-sm font-semibold text-slate-900">WhatsApp / SMS</h3>
+						<button class="btn-secondary text-xs" data-copy-btn data-copy-target="tpl-whatsapp">Copy</button>
+					</div>
+					<pre id="tpl-whatsapp" class="mt-3 whitespace-pre-wrap rounded-xl bg-slate-50 p-4 font-sans text-sm text-slate-700 ring-1 ring-black/5">Hey! It&#8217;s [YOUR NAME]. I play for the Metford Cobras FC, a local soccer club in Metford.
+
+We&#8217;re looking for businesses to sponsor us this season. It&#8217;s a great way to get your brand in front of local families &#8212; sponsorship starts from $200 and goes up to full jersey logo placement.
+
+Details here: metfordcobras.com.au/sponsorship
+
+Would you be keen to have a look?</pre>
+				</div>
+
+				<!-- Email -->
+				<div class="card">
+					<div class="flex items-center justify-between gap-3">
+						<h3 class="text-sm font-semibold text-slate-900">Email</h3>
+						<button class="btn-secondary text-xs" data-copy-btn data-copy-target="tpl-email">Copy</button>
+					</div>
+					<pre id="tpl-email" class="mt-3 whitespace-pre-wrap rounded-xl bg-slate-50 p-4 font-sans text-sm text-slate-700 ring-1 ring-black/5">Hi [NAME],
+
+I&#8217;m reaching out as a member of the Metford Cobras FC, a community football club based in Metford, NSW.
+
+We&#8217;re looking for local businesses to partner with us for the 2026 season. It&#8217;s a genuine opportunity to get your brand seen by local families &#8212; over 100 registered members and their networks across Hunter, Newcastle and Lake Macquarie.
+
+Sponsorship options range from $200 (social media features) up to $2,000 (logo on every jersey and all signage). You can see the full breakdown at metfordcobras.com.au/sponsorship.
+
+Happy to chat if you&#8217;d like more info.
+
+Cheers,
+[YOUR NAME]</pre>
+				</div>
+
+				<!-- Facebook / Instagram DM -->
+				<div class="card">
+					<div class="flex items-center justify-between gap-3">
+						<h3 class="text-sm font-semibold text-slate-900">Facebook / Instagram DM</h3>
+						<button class="btn-secondary text-xs" data-copy-btn data-copy-target="tpl-social">Copy</button>
+					</div>
+					<pre id="tpl-social" class="mt-3 whitespace-pre-wrap rounded-xl bg-slate-50 p-4 font-sans text-sm text-slate-700 ring-1 ring-black/5">Hey [BUSINESS NAME]! I&#8217;m a member of the Metford Cobras FC, a local soccer club in Metford NSW.
+
+We&#8217;re looking for sponsors for the 2026 season &#8212; it&#8217;s a great way to support community sport and get some local exposure.
+
+Details: metfordcobras.com.au/sponsorship
+
+Happy to answer any questions!</pre>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- What happens next -->
+		<div class="mt-10 card">
+			<h2 class="text-base font-semibold text-slate-900">What happens next</h2>
+			<ol class="mt-4 space-y-3">
+				<li class="flex gap-3 text-sm text-slate-700">
+					<span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cobra-blue/10 text-xs font-semibold text-cobra-blue">1</span>
+					<span>You share the link or a message template with a business you know.</span>
+				</li>
+				<li class="flex gap-3 text-sm text-slate-700">
+					<span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cobra-blue/10 text-xs font-semibold text-cobra-blue">2</span>
+					<span>They visit the sponsorship page, choose a tier, and pay online &#8212; takes about 5 minutes.</span>
+				</li>
+				<li class="flex gap-3 text-sm text-slate-700">
+					<span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cobra-blue/10 text-xs font-semibold text-cobra-blue">3</span>
+					<span>The club contacts them to confirm their package and get their logo sorted.</span>
+				</li>
+				<li class="flex gap-3 text-sm text-slate-700">
+					<span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cobra-blue/10 text-xs font-semibold text-cobra-blue">4</span>
+					<span>You get free rego for the season &#8212; we&#8217;ll reach out to confirm once the sponsor is confirmed.</span>
+				</li>
+			</ol>
+		</div>
+
+		<!-- CTA back to sponsorship -->
+		<div class="mt-6 rounded-2xl bg-cobra-yellow p-5">
+			<h2 class="text-base font-semibold text-cobra-blue">Ready to refer?</h2>
+			<p class="mt-1 text-sm text-cobra-blue/80">Send a template or share the sponsorship page link directly.</p>
+			<a class="mt-4 btn-primary" href={withBase('/sponsorship')}>View sponsorship tiers &#8594;</a>
+		</div>
+	</section>
+</BaseLayout>
+
+<script is:inline>
+	(function () {
+		var btns = document.querySelectorAll('[data-copy-btn]');
+		btns.forEach(function (btn) {
+			btn.addEventListener('click', function () {
+				var targetId = btn.getAttribute('data-copy-target');
+				var el = document.getElementById(targetId);
+				if (!el) return;
+				var text = el.innerText || el.textContent || '';
+				if (navigator.clipboard && navigator.clipboard.writeText) {
+					navigator.clipboard.writeText(text).then(function () {
+						btn.textContent = 'Copied!';
+						setTimeout(function () { btn.textContent = 'Copy'; }, 2000);
+					});
+				}
+			});
+		});
+	})();
+</script>
