@@ -2,91 +2,71 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { withBase } from '../utils/withBase';
 
-type TierStatus = 'vacant' | 'filled';
-
 interface Tier {
 	id: string;
 	name: string;
 	price: string;
-	status: TierStatus;
 	tagline: string;
-	description: string;
+	benefits: string[];
 	premium?: boolean;
 	wide?: boolean;
-	sponsorLabel?: string;
-	isIndividualTeam?: boolean;
-}
-
-interface TeamSlot {
-	name: string;
-	status: TierStatus;
-	sponsorLabel?: string;
+	jerseyImage?: string;
+	jerseyImageAlt?: string;
 }
 
 const tiers: Tier[] = [
 	{
-		id: 'club',
-		name: 'Club',
-		price: '$2,000',
-		status: 'vacant',
-		tagline: 'The ultimate partnership',
-		description: 'Your logo on every jersey (junior and senior), all game day signage, and the club website. Maximum visibility across every single touchpoint all season long.',
-		premium: true,
-		wide: true,
+		id: 'digital',
+		name: 'Digital',
+		price: '$300',
+		tagline: 'Social media and email presence',
+		benefits: [
+			'Your logo on our social media posts and email newsletters',
+			'3 sponsor showcase posts on our Facebook page',
+			'Facebook averages approx. 15,000 views per month during the playing season',
+		],
 	},
 	{
-		id: 'senior',
-		name: 'Senior',
-		price: '$1,200',
-		status: 'filled',
-		tagline: 'Senior jersey logo',
-		description: 'Your logo on all senior men\u2019s and women\u2019s jerseys, worn every game day.',
-		sponsorLabel: '[PLACEHOLDER: Senior Sponsor Name]',
-	},
-	{
-		id: 'junior',
-		name: 'Junior',
-		price: '$1,200',
-		status: 'filled',
-		tagline: 'Junior jersey logo',
-		description: 'Your logo on all junior jerseys, worn by players from Under 6s to Under 12s.',
-		sponsorLabel: '[PLACEHOLDER: Junior Sponsor Name]',
+		id: 'field',
+		name: 'Field',
+		price: '$600',
+		tagline: 'All Digital benefits, plus ground presence',
+		benefits: [
+			'All Digital Sponsorship benefits',
+			'Your banner or A-Frame displayed at all home games, finals, gala days, and summer 6\u2019s events',
+			'Banner or A-Frame to be provided by your business',
+		],
 	},
 	{
 		id: 'team',
-		name: 'Individual Team',
-		price: '$600',
-		status: 'vacant',
-		tagline: 'Sponsor one team',
-		description: 'Your logo on one team\u2019s jerseys all season. A jersey can carry a team sponsor, a junior/senior sponsor, and a club sponsor \u2014 all at once.',
-		isIndividualTeam: true,
+		name: 'Team',
+		price: '$1,000',
+		tagline: 'All Digital and Field benefits, plus jersey logo',
+		benefits: [
+			'All Digital and Field Sponsorship benefits',
+			'Your logo on the chest of your nominated team\u2019s jersey',
+			'A framed team photo and thank you letter to display at your business',
+		],
+		jerseyImage: '/assets/sponsors/juniors-your-business-here.png',
+		jerseyImageAlt: 'Junior jersey showing sponsor logo placement',
 	},
 	{
-		id: 'gameday',
-		name: 'Game Day',
-		price: '$400',
-		status: 'vacant',
-		tagline: 'Ground signage and presence',
-		description: 'Your banner or A-frame displayed at all home games, finals, and events. Ground presence only \u2014 no jersey logo.',
+		id: 'club',
+		name: 'Club',
+		price: '$5,000',
+		tagline: 'The ultimate partnership',
+		benefits: [
+			'All Digital and Field Sponsorship benefits',
+			'Your logo on the back of all team jerseys for both junior and senior teams',
+			'A thank you video posted on our socials',
+			'A senior team jersey with your logo on the back',
+			'A thank you letter to display at your business',
+		],
+		premium: true,
+		wide: true,
+		jerseyImage: '/assets/sponsors/senior-women-your-business-here.png',
+		jerseyImageAlt: 'Senior women\u2019s jersey showing sponsor logo placement',
 	},
-	{
-		id: 'digital',
-		name: 'Digital',
-		price: '$200',
-		status: 'vacant',
-		tagline: 'Social media reach',
-		description: 'Dedicated shoutout posts and logo features on our Facebook page \u2014 reaching 15,000+ people per month during the season.',
-	},
-];
-
-const teamSlots: TeamSlot[] = [
-	{ name: 'All Age Men\u2019s', status: 'filled', sponsorLabel: '[PLACEHOLDER: All Age Men\u2019s Sponsor]' },
-	{ name: 'All Age Women\u2019s', status: 'vacant' },
-	{ name: 'Under 6s', status: 'vacant' },
-	{ name: 'Under 7s', status: 'vacant' },
-	{ name: 'Under 8s', status: 'vacant' },
-	{ name: 'Under 9/10s', status: 'vacant' },
-	{ name: 'Under 11/12s', status: 'vacant' },
 ];
 ---
 
@@ -157,9 +137,6 @@ const teamSlots: TeamSlot[] = [
 								<h3 class:list={['mt-0.5 text-base font-semibold', tier.premium ? 'text-white' : 'text-slate-900']}>
 									{tier.name} Sponsorship
 								</h3>
-								<p class:list={['mt-1 text-sm', tier.premium ? 'text-white/70' : 'text-slate-600']}>
-									{tier.description}
-								</p>
 							</div>
 							<span class:list={[
 								'shrink-0 rounded-full px-3 py-1 text-sm font-semibold',
@@ -169,80 +146,30 @@ const teamSlots: TeamSlot[] = [
 							</span>
 						</div>
 
-						{tier.isIndividualTeam && (
-							<div class="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
-								{teamSlots.map((slot) => (
-									<div class="rounded-xl bg-slate-50 p-3 ring-1 ring-black/5">
-										<div class="flex items-center justify-between gap-2">
-											<span class="text-sm font-medium text-slate-800">{slot.name}</span>
-											{slot.status === 'filled' ? (
-												<span class="rounded-full bg-slate-200 px-2 py-0.5 text-xs text-slate-500">Filled</span>
-											) : (
-												<span class="rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-700">Available</span>
-											)}
-										</div>
-										{slot.status === 'filled' && slot.sponsorLabel && (
-											<p class="mt-1 text-xs text-slate-500">{slot.sponsorLabel}</p>
-										)}
-										{slot.status === 'vacant' && (
-											<a class="mt-2 inline-block text-xs font-medium text-cobra-blue hover:underline" href="[SQUARE_URL_PLACEHOLDER]" target="_blank" rel="noreferrer noopener">
-												Sponsor this team &#8594;
-											</a>
-										)}
-									</div>
-								))}
-							</div>
-						)}
+						<ul class="mt-3 space-y-1.5">
+							{tier.benefits.map((benefit) => (
+								<li class:list={['flex gap-2 text-sm', tier.premium ? 'text-white/80' : 'text-slate-700']}>
+									<span class:list={['mt-0.5 shrink-0 font-bold', tier.premium ? 'text-cobra-yellow' : 'text-cobra-yellow']} aria-hidden="true">&#8212;</span>
+									{benefit}
+								</li>
+							))}
+						</ul>
 
-						{tier.isIndividualTeam && (
+						{tier.jerseyImage && (
 							<img
-								src={withBase('/assets/sponsors/juniors-your-business-here.png')}
-								alt="Junior jersey showing available sponsor logo placement"
+								src={withBase(tier.jerseyImage)}
+								alt={tier.jerseyImageAlt}
 								class="mt-4 w-full rounded-xl object-cover"
 								loading="lazy"
 								decoding="async"
 							/>
 						)}
 
-						{!tier.isIndividualTeam && tier.status === 'filled' && (
-							<div class="mt-4 flex items-center gap-3 rounded-xl bg-slate-100 p-4">
-								<div class="flex h-14 w-20 shrink-0 items-center justify-center rounded-lg bg-slate-200 text-xs font-medium text-slate-400">
-									Logo
-								</div>
-								<div>
-									<p class="text-xs font-medium uppercase tracking-wider text-slate-400">Thanks to our sponsor</p>
-									<p class="mt-0.5 text-sm font-medium text-slate-700">{tier.sponsorLabel}</p>
-								</div>
-							</div>
-						)}
-
-						{!tier.isIndividualTeam && tier.status === 'vacant' && tier.id !== 'club' && (
-							<div class="mt-4 flex flex-wrap items-center gap-3">
-								<span class="rounded-full bg-emerald-100 px-3 py-1 text-xs font-medium text-emerald-700">Available</span>
-								<a class="btn-accent" href="[SQUARE_URL_PLACEHOLDER]" target="_blank" rel="noreferrer noopener">
-									Sponsor this &#8594;
-								</a>
-							</div>
-						)}
-
-						{tier.id === 'club' && (
-							<div class="mt-4 flex flex-wrap items-center gap-3">
-								<span class="rounded-full bg-cobra-yellow/20 px-3 py-1 text-xs font-medium text-cobra-yellow">Available</span>
-								<a class="btn-accent" href="[SQUARE_URL_PLACEHOLDER]" target="_blank" rel="noreferrer noopener">
-									Become our Club Sponsor &#8594;
-								</a>
-							</div>
-						)}
-
-						{tier.id === 'club' && (
-							<img
-								src={withBase('/assets/sponsors/senior-women-your-business-here.png')}
-								alt="Senior women&#8217;s jersey showing sponsor logo placement"
-								class="mt-4 w-full rounded-xl object-cover"
-								loading="lazy"
-								decoding="async"
-							/>
-						)}
+						<div class="mt-4 flex flex-wrap items-center gap-3">
+							<a class="btn-accent" href={withBase('/contact-us')}>
+								Enquire &#8594;
+							</a>
+						</div>
 					</div>
 				))}
 			</div>
