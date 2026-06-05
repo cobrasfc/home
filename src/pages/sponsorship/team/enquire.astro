@@ -1,0 +1,194 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { SITE } from '../../../site.config';
+import { withBase } from '../../../utils/withBase';
+---
+
+<BaseLayout title="Team Sponsorship Enquiry &#8212; Metford Cobras FC" description="Enquire about sponsoring a Metford Cobras FC team for the 2026/27 season.">
+	<section class="container-page py-10 md:py-14 max-w-2xl">
+		<p class="kicker">Team Sponsorship</p>
+		<h1 class="page-title" id="team-heading">Team Sponsorship Enquiry</h1>
+		<p class="mt-4 text-sm text-slate-700" id="team-intro">
+			Fill in your details below and we&#8217;ll be in touch to confirm your sponsorship and arrange payment.
+		</p>
+
+		<div class="mt-6 card bg-cobra-blue/5 ring-0">
+			<h2 class="text-sm font-semibold text-slate-900">What you&#8217;re signing up for</h2>
+			<ul class="mt-3 space-y-2 text-sm text-slate-700">
+				<li class="flex gap-2"><span class="mt-0.5 shrink-0 text-cobra-blue">&#8594;</span><span>Your sponsorship covers the <strong class="text-slate-900">2026/27 season</strong>.</span></li>
+				<li class="flex gap-2"><span class="mt-0.5 shrink-0 text-cobra-blue">&#8594;</span><span>Your logo on the <strong class="text-slate-900">chest of your team&#8217;s jersey</strong> for the full season.</span></li>
+				<li class="flex gap-2"><span class="mt-0.5 shrink-0 text-cobra-blue">&#8594;</span><span>A <strong class="text-slate-900">framed team photo</strong> and thank you letter for display at your business.</span></li>
+				<li class="flex gap-2"><span class="mt-0.5 shrink-0 text-cobra-blue">&#8594;</span><span>All Digital and Field Sponsorship benefits included.</span></li>
+				<li class="flex gap-2"><span class="mt-0.5 shrink-0 text-cobra-blue">&#8594;</span><span>After submitting, we&#8217;ll confirm your package and arrange payment within 2&#8211;3 business days.</span></li>
+			</ul>
+		</div>
+
+		<form
+			id="team-sponsor-form"
+			class="mt-8 space-y-5"
+			novalidate
+		>
+			<input type="hidden" name="team" id="team-hidden" value="" />
+			<input type="hidden" name="_subject" id="subject-hidden" value="Team Sponsorship Enquiry" />
+
+			<div>
+				<label class="block text-sm font-medium text-slate-900" for="business-name">
+					Business name <span class="text-red-500" aria-hidden="true">*</span>
+				</label>
+				<input
+					class="mt-1 w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
+					type="text"
+					id="business-name"
+					name="business_name"
+					required
+					autocomplete="organization"
+				/>
+			</div>
+
+			<div>
+				<label class="block text-sm font-medium text-slate-900" for="contact-name">
+					Your name <span class="text-red-500" aria-hidden="true">*</span>
+				</label>
+				<input
+					class="mt-1 w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
+					type="text"
+					id="contact-name"
+					name="contact_name"
+					required
+					autocomplete="name"
+				/>
+			</div>
+
+			<div>
+				<label class="block text-sm font-medium text-slate-900" for="contact-email">
+					Email address <span class="text-red-500" aria-hidden="true">*</span>
+				</label>
+				<input
+					class="mt-1 w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
+					type="email"
+					id="contact-email"
+					name="contact_email"
+					required
+					autocomplete="email"
+				/>
+			</div>
+
+			<div>
+				<label class="block text-sm font-medium text-slate-900" for="contact-phone">
+					Phone number
+				</label>
+				<input
+					class="mt-1 w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
+					type="tel"
+					id="contact-phone"
+					name="contact_phone"
+					autocomplete="tel"
+				/>
+			</div>
+
+			<div>
+				<label class="block text-sm font-medium text-slate-900" for="message">
+					Anything else you&#8217;d like us to know? <span class="font-normal text-slate-500">(optional)</span>
+				</label>
+				<textarea
+					class="mt-1 w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
+					id="message"
+					name="message"
+					rows="3"
+				></textarea>
+			</div>
+
+			<div id="form-error" class="rounded-xl bg-red-50 p-4 text-sm text-red-700 ring-1 ring-red-200" style="display:none">
+				Something went wrong. Please try again or contact us at <a class="underline" href={"mailto:" + SITE.contact.email}>{SITE.contact.email}</a>.
+			</div>
+
+			<button type="submit" id="submit-btn" class="btn-primary w-full justify-center">
+				Submit enquiry &#8594;
+			</button>
+		</form>
+
+		<div id="success-msg" class="mt-8 rounded-2xl bg-cobra-yellow p-6" style="display:none">
+			<h2 class="text-lg font-semibold text-cobra-blue">Enquiry received &#8212; thank you!</h2>
+			<p class="mt-2 text-sm text-cobra-blue/80">
+				We&#8217;ll be in touch within 2&#8211;3 business days to confirm your sponsorship and arrange payment.
+			</p>
+			<a class="mt-4 btn-primary inline-flex" href={withBase('/sponsorship/team')}>Back to teams &#8594;</a>
+		</div>
+
+		<p class="mt-6 text-center text-sm text-slate-500">
+			Questions? <a class="text-cobra-blue hover:underline" href={"mailto:" + SITE.contact.email}>{SITE.contact.email}</a>
+		</p>
+	</section>
+</BaseLayout>
+
+<script is:inline>
+(function () {
+	var teamData = {
+		aam: { name: 'All Age Men', price: '$1,000' },
+		aaw: { name: 'All Age Women', price: '$1,000' },
+		u12: { name: 'Under 12/13s', price: '$1,000' },
+		u10: { name: 'Under 10/11s', price: '$800' },
+		u6: { name: "Under 6's", price: '$500' },
+		u7: { name: "Under 7's", price: '$500' },
+		u8: { name: "Under 8's", price: '$500' },
+		u9: { name: "Under 9's", price: '$500' }
+	};
+
+	var params = new URLSearchParams(window.location.search);
+	var teamId = params.get('team') || '';
+	var team = teamData[teamId];
+
+	if (team) {
+		var heading = document.getElementById('team-heading');
+		if (heading) heading.textContent = team.name + ' — Sponsorship Enquiry';
+
+		var intro = document.getElementById('team-intro');
+		if (intro) intro.textContent = 'Fill in your details below and we’ll be in touch to confirm your ' + team.name + ' sponsorship (' + team.price + ') and arrange payment.';
+
+		var teamHidden = document.getElementById('team-hidden');
+		if (teamHidden) teamHidden.value = team.name;
+
+		var subjectHidden = document.getElementById('subject-hidden');
+		if (subjectHidden) subjectHidden.value = 'Team Sponsorship Enquiry — ' + team.name;
+	}
+
+	var form = document.getElementById('team-sponsor-form');
+	var btn = document.getElementById('submit-btn');
+	var errorBox = document.getElementById('form-error');
+	var successMsg = document.getElementById('success-msg');
+
+	if (!form) return;
+
+	form.addEventListener('submit', function (e) {
+		e.preventDefault();
+		if (!form.checkValidity()) {
+			form.reportValidity();
+			return;
+		}
+		btn.disabled = true;
+		btn.textContent = 'Submitting...';
+		errorBox.style.display = 'none';
+
+		var data = new FormData(form);
+
+		fetch('https://formspree.io/f/mnjynorn', {
+			method: 'POST',
+			body: data,
+			headers: { 'Accept': 'application/json' }
+		}).then(function (res) {
+			if (res.ok) {
+				form.style.display = 'none';
+				successMsg.style.display = 'block';
+			} else {
+				errorBox.style.display = 'block';
+				btn.disabled = false;
+				btn.textContent = 'Submit enquiry →';
+			}
+		}).catch(function () {
+			errorBox.style.display = 'block';
+			btn.disabled = false;
+			btn.textContent = 'Submit enquiry →';
+		});
+	});
+})();
+</script>

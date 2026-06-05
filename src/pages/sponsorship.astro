@@ -9,47 +9,13 @@ interface Tier {
 	tagline: string;
 	benefits: string[];
 	premium?: boolean;
-	wide?: boolean;
 	jerseyImage?: string;
 	jerseyImageAlt?: string;
+	cta: string;
+	link: string;
 }
 
 const tiers: Tier[] = [
-	{
-		id: 'digital',
-		name: 'Digital',
-		price: '$300',
-		tagline: 'Social media and email presence',
-		benefits: [
-			'Your logo on our social media posts and email newsletters',
-			'3 sponsor showcase posts on our Facebook page',
-			'Facebook averages approx. 70,000 views per month during the playing season',
-		],
-	},
-	{
-		id: 'field',
-		name: 'Field',
-		price: '$600',
-		tagline: 'All Digital benefits, plus ground presence',
-		benefits: [
-			'All Digital Sponsorship benefits',
-			'Your banner or A-Frame displayed at all home games, finals, gala days, and summer 6\u2019s events',
-			'Banner or A-Frame to be provided by your business',
-		],
-	},
-	{
-		id: 'team',
-		name: 'Team',
-		price: '$1,000',
-		tagline: 'All Digital and Field benefits, plus jersey logo',
-		benefits: [
-			'All Digital and Field Sponsorship benefits',
-			'Your logo on the chest of your nominated team\u2019s jersey',
-			'A framed team photo and thank you letter to display at your business',
-		],
-		jerseyImage: '/assets/sponsors/juniors-your-business-here.png',
-		jerseyImageAlt: 'Junior jersey showing sponsor logo placement',
-	},
 	{
 		id: 'club',
 		name: 'Club',
@@ -63,9 +29,55 @@ const tiers: Tier[] = [
 			'A thank you letter to display at your business',
 		],
 		premium: true,
-		wide: true,
 		jerseyImage: '/assets/sponsors/senior-women-your-business-here.png',
 		jerseyImageAlt: 'Senior women\u2019s jersey showing sponsor logo placement',
+		cta: 'Express your interest',
+		link: '/sponsorship/club',
+	},
+	{
+		id: 'team',
+		name: 'Team',
+		price: '$500–$1,000',
+		tagline: 'All Digital and Field benefits, plus jersey logo',
+		benefits: [
+			'All Digital and Field Sponsorship benefits',
+			'Your logo on the chest of your nominated team\u2019s jersey',
+			'A framed team photo and thank you letter to display at your business',
+		],
+		jerseyImage: '/assets/sponsors/juniors-your-business-here.png',
+		jerseyImageAlt: 'Junior jersey showing sponsor logo placement',
+		cta: 'Choose a team',
+		link: '/sponsorship/team',
+	},
+	{
+		id: 'field',
+		name: 'Field',
+		price: '$600',
+		tagline: 'All Digital benefits, plus ground presence',
+		benefits: [
+			'All Digital Sponsorship benefits',
+			'Your banner or A-Frame displayed at all home games, finals, gala days, and summer 6\u2019s events',
+			'Banner or A-Frame to be provided by your business',
+		],
+		jerseyImage: '/assets/sponsors/field sponsorship (1).png',
+		jerseyImageAlt: 'Field sponsorship banner placement example',
+		cta: 'Sponsor now',
+		link: '/sponsorship/field',
+	},
+	{
+		id: 'digital',
+		name: 'Digital',
+		price: '$300',
+		tagline: 'Social media and email presence',
+		benefits: [
+			'Your logo on our social media posts and email newsletters',
+			'3 sponsor showcase posts on our Facebook page',
+			'Facebook averages approx. 70,000 views per month during the playing season',
+		],
+		jerseyImage: '/assets/sponsors/digital sponsorship (1).png',
+		jerseyImageAlt: 'Digital sponsorship social media placement example',
+		cta: 'Sponsor now',
+		link: '/sponsorship/digital',
 	},
 ];
 ---
@@ -80,20 +92,20 @@ const tiers: Tier[] = [
 
 		<div class="mt-6 grid grid-cols-2 gap-3 md:grid-cols-4">
 			<div class="rounded-xl bg-cobra-blue/5 p-4 text-center">
+				<div class="text-2xl font-medium text-cobra-blue">70k</div>
+				<div class="mt-1 text-xs text-slate-600">Monthly Facebook views</div>
+			</div>
+			<div class="rounded-xl bg-cobra-blue/5 p-4 text-center">
 				<div class="text-2xl font-medium text-cobra-blue">100</div>
 				<div class="mt-1 text-xs text-slate-600">Registered members</div>
 			</div>
 			<div class="rounded-xl bg-cobra-blue/5 p-4 text-center">
-				<div class="text-2xl font-medium text-cobra-blue">8</div>
-				<div class="mt-1 text-xs text-slate-600">Teams</div>
+				<div class="text-2xl font-medium text-cobra-blue">120</div>
+				<div class="mt-1 text-xs text-slate-600">Games per season</div>
 			</div>
 			<div class="rounded-xl bg-cobra-blue/5 p-4 text-center">
 				<div class="text-2xl font-medium text-cobra-blue">30+</div>
 				<div class="mt-1 text-xs text-slate-600">Years in the community</div>
-			</div>
-			<div class="rounded-xl bg-cobra-blue/5 p-4 text-center">
-				<div class="text-2xl font-medium text-cobra-blue">70k</div>
-				<div class="mt-1 text-xs text-slate-600">Monthly Facebook views</div>
 			</div>
 		</div>
 
@@ -179,19 +191,15 @@ const tiers: Tier[] = [
 			<h2 class="text-xl font-medium text-slate-900">Sponsorship tiers</h2>
 			<p class="mt-2 text-sm text-slate-700">Options for businesses of every size and budget.</p>
 
-			<div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
+			<div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
 				{tiers.map((tier) => (
 					<div class:list={[
 						'card flex flex-col',
 						tier.premium ? 'bg-cobra-blue ring-0' : '',
-						tier.wide ? 'md:col-span-2' : '',
 					]}>
 						<div class="flex items-start justify-between gap-4">
 							<div class="flex-1 min-w-0">
-								<p class:list={['text-xs font-medium uppercase tracking-wider', tier.premium ? 'text-cobra-yellow' : 'text-cobra-blue']}>
-									{tier.tagline}
-								</p>
-								<h3 class:list={['mt-0.5 text-base font-semibold', tier.premium ? 'text-white' : 'text-slate-900']}>
+								<h3 class:list={['text-base font-semibold', tier.premium ? 'text-white' : 'text-slate-900']}>
 									{tier.name} Sponsorship
 								</h3>
 							</div>
@@ -223,8 +231,12 @@ const tiers: Tier[] = [
 						)}
 
 						<div class="mt-4 flex flex-wrap items-center gap-3">
-							<a class="btn-accent" href={withBase('/contact-us')}>
-								Enquire &#8594;
+							<a
+								class="btn-accent"
+								href={tier.link.startsWith('http') ? tier.link : withBase(tier.link)}
+								{...(tier.link.startsWith('http') ? { target: '_blank', rel: 'noreferrer' } : {})}
+							>
+								{tier.cta} &#8594;
 							</a>
 						</div>
 					</div>

@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../site.config';
+---
+
+<BaseLayout title="Digital Sponsorship &#8212; Metford Cobras FC" description="Register your details to secure your Digital sponsorship with Metford Cobras FC for the 2026/27 season.">
+	<section class="container-page py-10 md:py-14 max-w-2xl">
+		<p class="kicker">Digital Sponsorship</p>
+		<h1 class="page-title">Let&#8217;s get you set up</h1>
+		<p class="mt-4 text-sm text-slate-700">
+			Fill in your details below, then you&#8217;ll be taken to our secure payment page to complete your $300 sponsorship.
+		</p>
+
+		<div class="mt-6 card bg-cobra-blue/5 ring-0">
+			<h2 class="text-sm font-semibold text-slate-900">What you&#8217;re signing up for</h2>
+			<ul class="mt-3 space-y-2 text-sm text-slate-700">
+				<li class="flex gap-2"><span class="mt-0.5 shrink-0 text-cobra-blue">&#8594;</span><span>Your sponsorship covers the <strong class="text-slate-900">2026/27 season</strong>.</span></li>
+				<li class="flex gap-2"><span class="mt-0.5 shrink-0 text-cobra-blue">&#8594;</span><span>After payment, we&#8217;ll be in touch to collect your <strong class="text-slate-900">logo</strong> and any <strong class="text-slate-900">website or social media links</strong> you&#8217;d like us to promote.</span></li>
+				<li class="flex gap-2"><span class="mt-0.5 shrink-0 text-cobra-blue">&#8594;</span><span>Your logo will appear on our social media posts and email newsletters throughout the season.</span></li>
+				<li class="flex gap-2"><span class="mt-0.5 shrink-0 text-cobra-blue">&#8594;</span><span>We&#8217;ll feature your business in 3 dedicated sponsor showcase posts on our Facebook page.</span></li>
+			</ul>
+		</div>
+
+		<form
+			id="digital-sponsor-form"
+			class="mt-8 space-y-5"
+			novalidate
+		>
+			<input type="hidden" name="_subject" value="New Digital Sponsor — Metford Cobras FC" />
+
+			<div>
+				<label class="block text-sm font-medium text-slate-900" for="business-name">
+					Business name <span class="text-red-500" aria-hidden="true">*</span>
+				</label>
+				<input
+					class="mt-1 w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
+					type="text"
+					id="business-name"
+					name="business_name"
+					required
+					autocomplete="organization"
+				/>
+			</div>
+
+			<div>
+				<label class="block text-sm font-medium text-slate-900" for="contact-name">
+					Your name <span class="text-red-500" aria-hidden="true">*</span>
+				</label>
+				<input
+					class="mt-1 w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
+					type="text"
+					id="contact-name"
+					name="contact_name"
+					required
+					autocomplete="name"
+				/>
+			</div>
+
+			<div>
+				<label class="block text-sm font-medium text-slate-900" for="contact-email">
+					Email address <span class="text-red-500" aria-hidden="true">*</span>
+				</label>
+				<input
+					class="mt-1 w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
+					type="email"
+					id="contact-email"
+					name="contact_email"
+					required
+					autocomplete="email"
+				/>
+			</div>
+
+			<div>
+				<label class="block text-sm font-medium text-slate-900" for="contact-phone">
+					Phone number
+				</label>
+				<input
+					class="mt-1 w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
+					type="tel"
+					id="contact-phone"
+					name="contact_phone"
+					autocomplete="tel"
+				/>
+			</div>
+
+			<div class="rounded-xl bg-slate-50 p-4 text-sm text-slate-600 ring-1 ring-black/5">
+				After submitting your details you&#8217;ll be redirected to our secure payment page to complete your $300 sponsorship. We&#8217;ll follow up within 2&#8211;3 business days to get your logo and links.
+			</div>
+
+			<div id="form-error" class="rounded-xl bg-red-50 p-4 text-sm text-red-700 ring-1 ring-red-200" style="display:none">
+				Something went wrong. Please try again or contact us at <a class="underline" href={"mailto:" + SITE.contact.email}>{SITE.contact.email}</a>.
+			</div>
+
+			<button type="submit" id="submit-btn" class="btn-primary w-full justify-center">
+				Continue to payment &#8594;
+			</button>
+		</form>
+
+		<p class="mt-6 text-center text-sm text-slate-500">
+			Questions? <a class="text-cobra-blue hover:underline" href={"mailto:" + SITE.contact.email}>{SITE.contact.email}</a>
+		</p>
+	</section>
+</BaseLayout>
+
+<script is:inline>
+(function () {
+	var form = document.getElementById('digital-sponsor-form');
+	var btn = document.getElementById('submit-btn');
+	var errorBox = document.getElementById('form-error');
+
+	if (!form) return;
+
+	form.addEventListener('submit', function (e) {
+		e.preventDefault();
+		if (!form.checkValidity()) {
+			form.reportValidity();
+			return;
+		}
+		btn.disabled = true;
+		btn.textContent = 'Submitting...';
+		errorBox.style.display = 'none';
+
+		var data = new FormData(form);
+
+		fetch('https://formspree.io/f/mnjynorn', {
+			method: 'POST',
+			body: data,
+			headers: { 'Accept': 'application/json' }
+		}).then(function (res) {
+			if (res.ok) {
+				window.location.href = 'https://square.link/u/RBK0ikK1';
+			} else {
+				errorBox.style.display = 'block';
+				btn.disabled = false;
+				btn.textContent = 'Continue to payment →';
+			}
+		}).catch(function () {
+			errorBox.style.display = 'block';
+			btn.disabled = false;
+			btn.textContent = 'Continue to payment →';
+		});
+	});
+})();
+</script>
