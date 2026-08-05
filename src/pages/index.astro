@@ -7,33 +7,33 @@ import { withBase } from '../utils/withBase';
 	<section class="bg-cobra-blue">
 		<!-- Mobile: stacked image above text -->
 		<div class="md:hidden">
-			<img
-				src={withBase('/assets/metford-rec.jpg')}
-				alt="Metford Recreation Reserve"
-				class="w-full aspect-video object-cover"
-				loading="eager"
-				decoding="async"
-			/>
+			<a href={withBase('/play-football/summer-eoi')}>
+				<img
+					src={withBase('/assets/summer6s/summer6s-hero.png')}
+					alt="Metford Cobras Summer 6's"
+					class="w-full aspect-video object-cover"
+					loading="eager"
+					decoding="async"
+				/>
+			</a>
 			<div class="px-4 py-8">
 				<div class="w-10 h-1 bg-cobra-yellow rounded mb-4"></div>
-				<p class="text-xs font-medium uppercase tracking-wider text-cobra-yellow">Community football • Metford</p>
-				<h1 class="mt-3 text-4xl font-medium leading-tight text-white">Home of the Cobras!</h1>
+				<p class="text-xs font-medium uppercase tracking-wider text-cobra-yellow">Summer Football • Metford</p>
+				<h1 class="mt-3 text-4xl font-medium leading-tight text-white">Summer 6&#8217;s is coming</h1>
 				<p class="mt-4 text-base text-white/85">
-					Metford Cobras is a club for players and families of all ages and skill levels. We're not just about football — we're about fun, friendship, community, and personal growth.
+					Small-sided, fast-paced football at Metford Rec oval. Register your interest now and we'll keep you posted as the competition comes together.
 				</p>
 				<div class="mt-6 flex flex-wrap gap-3">
-					<a class="btn-accent" href={withBase('/contact-us')}>Get involved →</a>
-					<a class="inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-white ring-1 ring-white/30 hover:bg-white/10 transition" href={withBase('/play-football/junior')}>Explore football →</a>
+					<a class="btn-accent" href={withBase('/play-football/summer-eoi')}>Register your interest →</a>
 				</div>
 			</div>
 		</div>
 
 		<!-- Desktop: photo overlay with text shadow -->
-		<div class="relative hidden overflow-hidden md:block">
+		<a href={withBase('/play-football/summer-eoi')} class="relative hidden overflow-hidden md:block">
 			<img
-				src={withBase('/assets/metford-rec.jpg')}
-				alt=""
-				aria-hidden="true"
+				src={withBase('/assets/summer6s/summer6s-hero.png')}
+				alt="Metford Cobras Summer 6's"
 				class="absolute inset-0 h-full w-full object-cover"
 				loading="eager"
 				decoding="async"
@@ -43,18 +43,17 @@ import { withBase } from '../utils/withBase';
 			<div class="container-page relative grid items-center gap-6 py-44">
 				<div class="w-1/2">
 					<div class="w-10 h-1 bg-cobra-yellow rounded mb-4"></div>
-					<p class="text-xs font-medium uppercase tracking-wider text-cobra-yellow" style="text-shadow: 0 1px 8px rgba(0,0,0,0.5);">Community football • Metford</p>
-					<h1 class="mt-3 text-5xl font-medium leading-tight text-white" style="text-shadow: 0 2px 16px rgba(0,0,0,0.55);">Home of the Cobras!</h1>
+					<p class="text-xs font-medium uppercase tracking-wider text-cobra-yellow" style="text-shadow: 0 1px 8px rgba(0,0,0,0.5);">Summer Football • Metford</p>
+					<h1 class="mt-3 text-5xl font-medium leading-tight text-white" style="text-shadow: 0 2px 16px rgba(0,0,0,0.55);">Summer 6&#8217;s is coming</h1>
 					<p class="mt-4 text-base text-white/90" style="text-shadow: 0 1px 8px rgba(0,0,0,0.5);">
-						Metford Cobras is a club for players and families of all ages and skill levels. We're not just about football — we're about fun, friendship, community, and personal growth.
+						Small-sided, fast-paced football at Metford Rec oval. Register your interest now and we'll keep you posted as the competition comes together.
 					</p>
 					<div class="mt-6 flex flex-wrap gap-3">
-					<a class="btn-accent" href={withBase('/contact-us')}>Get involved →</a>
-					<a class="inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-white ring-1 ring-white/30 hover:bg-white/10 transition" href={withBase('/play-football/junior')} style="text-shadow: 0 1px 8px rgba(0,0,0,0.5);">Explore football →</a>
+					<span class="btn-accent">Register your interest →</span>
 				</div>
 				</div>
 			</div>
-		</div>
+		</a>
 	</section>
 
 	<section>
