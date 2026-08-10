@@ -2,219 +2,35 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SITE } from '../../site.config';
 import { withBase } from '../../utils/withBase';
-
-const competitions = [
-	'U6', 'U7', 'U8', 'U9', 'U10', 'U11', 'U12', 'U13', 'U14', 'U15',
-	'All Age Men', 'All Age Women', 'Mixed'
-];
 ---
 
-<BaseLayout title="Summer 6&#8217;s Expression of Interest &#8212; Metford Cobras FC" description="Register your interest in the Metford Cobras FC Summer 6&#8217;s competition, starting October at Metford Rec oval.">
+<BaseLayout title="Summer 6&#8217;s &#8212; Metford Cobras FC" description="Summer 6's is happening at Metford Cobras FC. Full details will be posted on our website and socials soon.">
 	<section class="container-page py-10 md:py-14 max-w-2xl">
 		<p class="kicker">Summer Football</p>
-		<h1 class="page-title">Summer 6&#8217;s &#8212; Expression of Interest</h1>
-		<p class="mt-4 text-sm text-slate-700">
-			Register your interest below and we&#8217;ll keep you posted as the competition comes together.
-		</p>
+		<h1 class="page-title">Summer 6&#8217;s is happening!</h1>
 
 		<div class="mt-6 card bg-cobra-blue/5 ring-0">
-			<h2 class="text-sm font-semibold text-slate-900">What we know so far</h2>
-			<ul class="mt-3 space-y-2 text-sm text-slate-700">
-				<li class="flex gap-2"><span class="mt-0.5 shrink-0 text-cobra-blue">&#8594;</span><span>We&#8217;re projecting a start in <strong class="text-slate-900">October</strong>.</span></li>
-				<li class="flex gap-2"><span class="mt-0.5 shrink-0 text-cobra-blue">&#8594;</span><span>All games are played at <strong class="text-slate-900">Metford Rec oval</strong> &#8212; no travelling to different grounds each week.</span></li>
-				<li class="flex gap-2"><span class="mt-0.5 shrink-0 text-cobra-blue">&#8594;</span><span>We accept <strong class="text-slate-900">Active Kids vouchers</strong> for child registrations.</span></li>
-			</ul>
+			<p class="text-sm text-slate-700">
+				Wow &#8212; we&#8217;ve been absolutely inundated with enquiries about Summer 6&#8217;s, to the point where it&#8217;s
+				broken our inbox! Thank you for the incredible response.
+			</p>
 			<p class="mt-3 text-sm text-slate-700">
-				This form doesn&#8217;t register you for the competition &#8212; it just lets us know you&#8217;re interested, so we can plan numbers and reach out the moment registration opens.
+				Needless to say, <strong class="text-slate-900">we will be running a summer competition this year</strong>. We&#8217;re
+				working through the details and will post everything &#8212; dates, format, and how to register &#8212; on our
+				website and socials as soon as it&#8217;s finalised.
+			</p>
+			<p class="mt-3 text-sm text-slate-700">
+				Thanks for your patience, and stay tuned!
 			</p>
 		</div>
 
-		<form id="summer-eoi-form" class="mt-8 space-y-5" novalidate>
-			<input type="hidden" name="_subject" value="Summer 6's EOI" />
-
-			<div>
-				<label class="block text-sm font-medium text-slate-900" for="full-name">
-					Full name <span class="text-red-500" aria-hidden="true">*</span>
-				</label>
-				<input
-					class="mt-1 w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
-					type="text"
-					id="full-name"
-					name="full_name"
-					required
-					autocomplete="name"
-				/>
-			</div>
-
-			<fieldset>
-				<legend class="block text-sm font-medium text-slate-900">
-					Who is this for? <span class="text-red-500" aria-hidden="true">*</span>
-				</legend>
-				<div class="mt-2 flex flex-col gap-2 text-sm text-slate-700">
-					<label class="flex items-center gap-2">
-						<input type="radio" name="registering_for" value="Myself" required class="text-cobra-blue focus:ring-cobra-blue" />
-						Myself (adult player)
-					</label>
-					<label class="flex items-center gap-2">
-						<input type="radio" name="registering_for" value="My child/children" required class="text-cobra-blue focus:ring-cobra-blue" />
-						My child / children
-					</label>
-				</div>
-			</fieldset>
-
-			<fieldset>
-				<legend class="block text-sm font-medium text-slate-900">
-					Competition(s) interested in <span class="text-red-500" aria-hidden="true">*</span>
-				</legend>
-				<p class="mt-1 text-xs text-slate-500">Select all that apply &#8212; you can register interest in more than one (e.g. All Age Men and Mixed).</p>
-				<div id="competitions-group" class="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-3 text-sm text-slate-700">
-					{competitions.map((comp) => (
-						<label class="flex items-center gap-2">
-							<input type="checkbox" name="competitions" value={comp} class="rounded text-cobra-blue focus:ring-cobra-blue" />
-							{comp}
-						</label>
-					))}
-				</div>
-			</fieldset>
-
-			<fieldset>
-				<legend class="block text-sm font-medium text-slate-900">
-					Are you bringing a team, or registering as an individual? <span class="text-red-500" aria-hidden="true">*</span>
-				</legend>
-				<div class="mt-2 flex flex-col gap-2 text-sm text-slate-700">
-					<label class="flex items-center gap-2">
-						<input type="radio" name="team_or_individual" value="Bringing a team" required class="text-cobra-blue focus:ring-cobra-blue" />
-						Bringing a team
-					</label>
-					<label class="flex items-center gap-2">
-						<input type="radio" name="team_or_individual" value="Individual" required class="text-cobra-blue focus:ring-cobra-blue" />
-						Individual (happy to be placed in a team)
-					</label>
-				</div>
-			</fieldset>
-
-			<div>
-				<label class="block text-sm font-medium text-slate-900" for="preferred-night">
-					Preferred night to play
-				</label>
-				<select
-					class="mt-1 w-full rounded-lg border border-black/10 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
-					id="preferred-night"
-					name="preferred_night"
-				>
-					<option value="No preference">No preference</option>
-					<option value="Monday">Monday</option>
-					<option value="Tuesday">Tuesday</option>
-					<option value="Wednesday">Wednesday</option>
-					<option value="Thursday">Thursday</option>
-					<option value="Friday">Friday</option>
-					<option value="Saturday">Saturday</option>
-					<option value="Sunday">Sunday</option>
-				</select>
-			</div>
-
-			<div>
-				<label class="block text-sm font-medium text-slate-900" for="contact-phone">
-					Phone number <span class="text-red-500" aria-hidden="true">*</span>
-				</label>
-				<input
-					class="mt-1 w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
-					type="tel"
-					id="contact-phone"
-					name="contact_phone"
-					required
-					autocomplete="tel"
-				/>
-			</div>
-
-			<div>
-				<label class="block text-sm font-medium text-slate-900" for="contact-email">
-					Email address <span class="text-red-500" aria-hidden="true">*</span>
-				</label>
-				<input
-					class="mt-1 w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
-					type="email"
-					id="contact-email"
-					name="contact_email"
-					required
-					autocomplete="email"
-				/>
-			</div>
-
-			<div id="form-error" class="rounded-xl bg-red-50 p-4 text-sm text-red-700 ring-1 ring-red-200" style="display:none">
-				Something went wrong. Please try again or contact us at <a class="underline" href={"mailto:" + SITE.contact.email}>{SITE.contact.email}</a>.
-			</div>
-
-			<button type="submit" id="submit-btn" class="btn-primary w-full justify-center">
-				Register my interest &#8594;
-			</button>
-		</form>
-
-		<div id="success-msg" class="mt-8 rounded-2xl bg-cobra-yellow p-6" style="display:none">
-			<h2 class="text-lg font-semibold text-cobra-blue">Thanks &#8212; you&#8217;re on the list!</h2>
-			<p class="mt-2 text-sm text-cobra-blue/80">
-				We&#8217;ll be in touch when registration opens in September. In the meantime, keep an eye on our news page for updates.
-			</p>
-			<a class="mt-4 btn-primary inline-flex" href={withBase('/play-football/summer')}>Back to Summer Football &#8594;</a>
+		<div class="mt-6 flex flex-wrap gap-3">
+			<a class="btn-primary" href={SITE.facebookUrl} target="_blank" rel="noopener">Follow us on Facebook &#8594;</a>
+			<a class="btn-secondary" href={withBase('/subscribe')}>Subscribe for updates &#8594;</a>
 		</div>
 
 		<p class="mt-6 text-center text-sm text-slate-500">
-			Questions? <a class="text-cobra-blue hover:underline" href={"mailto:" + SITE.contact.email}>{SITE.contact.email}</a>
+			<a class="text-cobra-blue hover:underline" href={withBase('/play-football/summer')}>Back to Summer Football</a>
 		</p>
 	</section>
 </BaseLayout>
-
-<script is:inline>
-(function () {
-	var form = document.getElementById('summer-eoi-form');
-	var btn = document.getElementById('submit-btn');
-	var errorBox = document.getElementById('form-error');
-	var defaultErrorHTML = errorBox.innerHTML;
-	var successMsg = document.getElementById('success-msg');
-	var competitionsGroup = document.getElementById('competitions-group');
-
-	if (!form) return;
-
-	form.addEventListener('submit', function (e) {
-		e.preventDefault();
-		errorBox.innerHTML = defaultErrorHTML;
-
-		var anyCompChecked = competitionsGroup.querySelector('input[name="competitions"]:checked');
-		if (!anyCompChecked) {
-			errorBox.textContent = 'Please select at least one competition you\'re interested in.';
-			errorBox.style.display = 'block';
-			return;
-		}
-
-		if (!form.checkValidity()) {
-			form.reportValidity();
-			return;
-		}
-
-		btn.disabled = true;
-		btn.textContent = 'Submitting...';
-		errorBox.style.display = 'none';
-
-		var data = new FormData(form);
-
-		fetch('https://formspree.io/f/mnjynorn', {
-			method: 'POST',
-			body: data,
-			headers: { 'Accept': 'application/json' }
-		}).then(function (res) {
-			if (res.ok) {
-				form.style.display = 'none';
-				successMsg.style.display = 'block';
-			} else {
-				errorBox.style.display = 'block';
-				btn.disabled = false;
-				btn.textContent = 'Register my interest →';
-			}
-		}).catch(function () {
-			errorBox.style.display = 'block';
-			btn.disabled = false;
-			btn.textContent = 'Register my interest →';
-		});
-	});
-})();
-</script>
