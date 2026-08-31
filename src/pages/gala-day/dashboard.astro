@@ -5,10 +5,10 @@ import { GALA_DAY } from '../../site.config';
 const apiUrlJson = JSON.stringify(GALA_DAY.registrationApiUrl);
 ---
 
-<BaseLayout title="Gala Day Registrations (Committee)" description="Committee view of MiniRoos Gala Day team registrations." noindex>
+<BaseLayout title="Gala Day Dashboard (Committee)" description="Committee dashboard for the MiniRoos Gala Day — capacity, pools, and volunteer coverage." noindex>
 	<section class="container-page py-8 md:py-12">
 		<p class="kicker">Committee only</p>
-		<h1 class="page-title">Gala Day registrations</h1>
+		<h1 class="page-title">Gala Day dashboard</h1>
 
 		<div id="gate" class="mt-6 max-w-sm space-y-3">
 			<label class="block text-sm font-medium text-slate-900" for="dash-password">Password</label>
@@ -18,69 +18,176 @@ const apiUrlJson = JSON.stringify(GALA_DAY.registrationApiUrl);
 				id="dash-password"
 				autocomplete="current-password"
 			/>
-			<button type="button" id="unlock-btn" class="btn-primary w-full justify-center">View registrations &#8594;</button>
+			<button type="button" id="unlock-btn" class="btn-primary w-full justify-center">View dashboard &#8594;</button>
 			<p id="gate-error" class="hidden text-sm text-red-600">Incorrect password.</p>
 		</div>
 
-		<div id="dashboard" class="mt-6 hidden">
+		<div id="dashboard" class="mt-6 hidden space-y-10">
 			<div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-				<div class="flex flex-wrap gap-4 text-sm text-slate-700">
-					<span><strong id="stat-teams" class="text-slate-900">0</strong> teams</span>
-					<span><strong id="stat-players" class="text-slate-900">0</strong> players</span>
-					<span><strong id="stat-revenue" class="text-slate-900">$0</strong> paying entries</span>
-				</div>
+				<p class="text-xs text-slate-500">Live from the registration Sheet &#8212; refresh any time.</p>
 				<div class="flex gap-2">
 					<button type="button" id="refresh-btn" class="btn-secondary">Refresh</button>
 					<button type="button" id="export-btn" class="btn-secondary">Export CSV</button>
 				</div>
 			</div>
 
-			<input
-				class="mt-4 w-full max-w-sm rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
-				type="search"
-				id="search-input"
-				placeholder="Search by team, club, or official..."
-			/>
-
-			<p id="loading-msg" class="mt-4 text-sm text-slate-500">Loading...</p>
-			<p id="empty-msg" class="mt-4 hidden text-sm text-slate-500">No registrations yet.</p>
-			<p id="load-error" class="mt-4 hidden text-sm text-red-600">
+			<p id="loading-msg" class="text-sm text-slate-500">Loading...</p>
+			<p id="load-error" class="hidden rounded-xl bg-red-50 p-4 text-sm text-red-700 ring-1 ring-red-200">
 				Couldn't load registrations. Check the password and that the Apps Script API URL in
 				<code>site.config.ts</code> is deployed and set to "Anyone" access.
 			</p>
 
-			<div class="mt-4 overflow-x-auto">
-				<table id="reg-table" class="hidden w-full min-w-[1100px] border-collapse text-sm ring-1 ring-black/5">
-					<thead>
-						<tr class="bg-cobra-blue text-left text-white">
-							<th class="px-3 py-2 font-medium">Submitted</th>
-							<th class="px-3 py-2 font-medium">Club</th>
-							<th class="px-3 py-2 font-medium">Host?</th>
-							<th class="px-3 py-2 font-medium">Team</th>
-							<th class="px-3 py-2 font-medium">Age group</th>
-							<th class="px-3 py-2 font-medium">Fee</th>
-							<th class="px-3 py-2 font-medium">Players</th>
-							<th class="px-3 py-2 font-medium">Official</th>
-							<th class="px-3 py-2 font-medium">Duty officer</th>
-							<th class="px-3 py-2 font-medium">Canteen/BBQ</th>
-							<th class="px-3 py-2 font-medium">Game leaders</th>
-						</tr>
-					</thead>
-					<tbody id="reg-tbody" class="bg-white"></tbody>
-				</table>
+			<div id="dashboard-content" class="hidden space-y-10">
+				<!-- 1. Headline tiles -->
+				<section>
+					<div id="headline-tiles" class="grid grid-cols-2 gap-3 md:grid-cols-4"></div>
+				</section>
+
+				<!-- Plain-English summary -->
+				<section id="summary-box" class="card bg-cobra-blue/5 ring-0"></section>
+
+				<!-- 2. Fill by age group -->
+				<section>
+					<h2 class="text-lg font-medium text-slate-900">Fill by age group</h2>
+					<p class="mt-1 text-sm text-slate-600">Based on the planned pool structure. Teams whose exact age couldn't be confirmed aren't counted here &#8212; see "Needs age confirmation" below.</p>
+					<div id="age-group-fill" class="mt-4 space-y-3"></div>
+				</section>
+
+				<!-- 3. Fill by wave -->
+				<section>
+					<h2 class="text-lg font-medium text-slate-900">Fill by wave</h2>
+					<div id="wave-fill" class="mt-4 grid gap-3 md:grid-cols-3"></div>
+				</section>
+
+				<!-- 4. Pool board -->
+				<section>
+					<h2 class="text-lg font-medium text-slate-900">Pool board</h2>
+					<p class="mt-1 text-sm text-slate-600">Draft placements only, ordered by registration time &#8212; not the final draw.</p>
+					<div id="pool-board" class="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3"></div>
+					<div id="waiting-list" class="mt-4"></div>
+					<div id="unconfirmed-tray" class="mt-4"></div>
+				</section>
+
+				<!-- 5. Volunteer & official coverage -->
+				<section>
+					<h2 class="text-lg font-medium text-slate-900">Volunteer &amp; official coverage</h2>
+					<div id="coverage" class="mt-4 grid gap-4 md:grid-cols-2"></div>
+				</section>
+
+				<!-- 6. Clubs & contacts -->
+				<section>
+					<h2 class="text-lg font-medium text-slate-900">Clubs &amp; contacts</h2>
+					<input
+						class="mt-3 w-full max-w-sm rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
+						type="search"
+						id="clubs-search"
+						placeholder="Search by club, team, or contact..."
+					/>
+					<div class="mt-4 overflow-x-auto">
+						<table id="clubs-table" class="w-full min-w-[720px] border-collapse text-sm ring-1 ring-black/5">
+							<thead>
+								<tr class="bg-cobra-blue text-left text-white">
+									<th class="px-3 py-2 font-medium">Club</th>
+									<th class="px-3 py-2 font-medium">Teams entered</th>
+									<th class="px-3 py-2 font-medium">Contact</th>
+									<th class="px-3 py-2 font-medium">Expected fees</th>
+								</tr>
+							</thead>
+							<tbody id="clubs-tbody" class="bg-white"></tbody>
+						</table>
+					</div>
+				</section>
+
+				<!-- 7. Enquiries over time -->
+				<section>
+					<h2 class="text-lg font-medium text-slate-900">Enquiries over time</h2>
+					<div id="timeline" class="mt-4 space-y-1"></div>
+				</section>
+
+				<!-- All registrations (detail) -->
+				<section>
+					<h2 class="text-lg font-medium text-slate-900">All registrations (detail)</h2>
+					<div class="mt-4 overflow-x-auto">
+						<table id="reg-table" class="w-full min-w-[1100px] border-collapse text-sm ring-1 ring-black/5">
+							<thead>
+								<tr class="bg-cobra-blue text-left text-white">
+									<th class="px-3 py-2 font-medium">Submitted</th>
+									<th class="px-3 py-2 font-medium">Club</th>
+									<th class="px-3 py-2 font-medium">Host?</th>
+									<th class="px-3 py-2 font-medium">Team</th>
+									<th class="px-3 py-2 font-medium">Age group</th>
+									<th class="px-3 py-2 font-medium">Fee</th>
+									<th class="px-3 py-2 font-medium">Players</th>
+									<th class="px-3 py-2 font-medium">Official</th>
+									<th class="px-3 py-2 font-medium">Duty officer</th>
+									<th class="px-3 py-2 font-medium">Canteen/BBQ</th>
+									<th class="px-3 py-2 font-medium">Game leaders</th>
+								</tr>
+							</thead>
+							<tbody id="reg-tbody" class="bg-white"></tbody>
+						</table>
+					</div>
+				</section>
 			</div>
+
+			<p id="empty-msg" class="hidden text-sm text-slate-500">No registrations yet.</p>
 		</div>
 	</section>
 </BaseLayout>
 
 <style>
-	#reg-tbody tr:nth-child(even) {
+	#reg-tbody tr:nth-child(even),
+	#clubs-tbody tr:nth-child(even) {
 		background: #f8fafc;
 	}
-	#reg-tbody td {
+	#reg-tbody td,
+	#clubs-tbody td {
 		vertical-align: top;
 		padding: 0.5rem 0.75rem;
 		border-top: 1px solid rgba(0, 0, 0, 0.05);
+	}
+	.tile {
+		border-radius: 1rem;
+		background: white;
+		padding: 1rem;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+		ring: 1px solid rgba(0, 0, 0, 0.05);
+	}
+	.badge {
+		display: inline-flex;
+		align-items: center;
+		border-radius: 9999px;
+		padding: 0.125rem 0.625rem;
+		font-size: 0.7rem;
+		font-weight: 600;
+		white-space: nowrap;
+	}
+	.badge-ok { background: #dcfce7; color: #15803d; }
+	.badge-warn { background: #fef3c7; color: #92400e; }
+	.badge-bad { background: #fee2e2; color: #b91c1c; }
+	.fill-bar-track {
+		height: 0.5rem;
+		border-radius: 9999px;
+		background: #e2e8f0;
+		overflow: hidden;
+	}
+	.fill-bar-fill {
+		height: 100%;
+		border-radius: 9999px;
+	}
+	.pool-slot {
+		border-radius: 0.5rem;
+		padding: 0.5rem 0.625rem;
+		font-size: 0.8rem;
+	}
+	.pool-slot-filled { background: #f0fdf4; color: #14532d; }
+	.pool-slot-vacant { background: #f8fafc; color: #94a3b8; border: 1px dashed #cbd5e1; }
+	.timeline-row {
+		display: grid;
+		grid-template-columns: 90px 1fr 40px;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 0.8rem;
 	}
 </style>
 
@@ -90,6 +197,450 @@ const apiUrlJson = JSON.stringify(GALA_DAY.registrationApiUrl);
 	var STORAGE_KEY = 'galaDashboardKey';
 	var allRows = [];
 
+	// ---------- Capacity model (from the Gala Day plan) ----------
+	var PLAN_GROUPS = [
+		{ id: 'u6', label: 'Under 6', format: '4v4', pools: 1, places: 4, ages: [6] },
+		{ id: 'u7', label: 'Under 7', format: '4v4', pools: 2, places: 8, ages: [7] },
+		{ id: 'u8', label: 'Under 8', format: '7v7', pools: 1, places: 4, ages: [8] },
+		{ id: 'u9-10', label: 'Under 9/10', format: '9v9', pools: 2, places: 8, ages: [9, 10] },
+		{ id: 'u11-12', label: 'Under 11/12', format: 'Full size', pools: 1, places: 4, ages: [11, 12] }
+	];
+
+	// Which wave each group's pool(s) run in, in fill order (pool 1 first, etc).
+	var GROUP_WAVES = {
+		'u6': ['wave1'],
+		'u7': ['wave2', 'wave3'],
+		'u8': ['wave2'],
+		'u9-10': ['wave2', 'wave3'],
+		'u11-12': ['wave1']
+	};
+
+	var WAVES = [
+		{ id: 'wave1', label: 'Wave 1', time: '9:00–11:00am', games: 4 },
+		{ id: 'wave2', label: 'Wave 2', time: '11:30am–1:30pm', games: 6 },
+		{ id: 'wave3', label: 'Wave 3', time: '2:00–4:00pm', games: 4 }
+	];
+
+	// Registration form's broader age brackets, and which specific ages each could mean.
+	var REG_BUCKETS = {
+		'under 6s & 7s': [6, 7],
+		'under 8s & 9s': [8, 9],
+		'under 10s & 11s': [10, 11],
+		'under 12s': [12]
+	};
+
+	var AGE_TO_GROUP = { 6: 'u6', 7: 'u7', 8: 'u8', 9: 'u9-10', 10: 'u9-10', 11: 'u11-12', 12: 'u11-12' };
+
+	function normalizeBucket(ageGroup) {
+		return String(ageGroup || '').trim().toLowerCase();
+	}
+
+	// Use team_grade free text to pin down a specific age when the registration bracket spans more than one.
+	function classifyRow(row) {
+		var bucketKey = normalizeBucket(row.age_group);
+		var candidateAges = REG_BUCKETS[bucketKey];
+
+		if (!candidateAges) {
+			return { status: 'unknown-bracket', bucketLabel: row.age_group || '(blank)' };
+		}
+
+		if (candidateAges.length === 1) {
+			return { status: 'confirmed', age: candidateAges[0], groupId: AGE_TO_GROUP[candidateAges[0]] };
+		}
+
+		var gradeText = String(row.team_grade || '');
+		var foundNumbers = (gradeText.match(/\d+/g) || []).map(Number);
+		var matches = foundNumbers.filter(function (n) { return candidateAges.indexOf(n) !== -1; });
+		var uniqueMatches = matches.filter(function (n, i) { return matches.indexOf(n) === i; });
+
+		if (uniqueMatches.length === 1) {
+			return { status: 'confirmed', age: uniqueMatches[0], groupId: AGE_TO_GROUP[uniqueMatches[0]] };
+		}
+
+		return { status: 'unconfirmed', bucketLabel: row.age_group || '(blank)' };
+	}
+
+	function feeToNumber(feeText) {
+		var match = String(feeText || '').match(/\d+/);
+		return match ? Number(match[0]) : 0;
+	}
+
+	function countNames(text) {
+		var t = String(text || '').trim();
+		if (!t || t.toLowerCase() === 'none nominated') return 0;
+		return t.split(',').map(function (s) { return s.trim(); }).filter(Boolean).length;
+	}
+
+	function statusFor(enquired, places) {
+		if (enquired > places) return 'Over';
+		if (enquired > 0 && enquired % 4 === 0) return 'Full';
+		return 'Under';
+	}
+
+	function badgeClassFor(status) {
+		if (status === 'Over') return 'badge-bad';
+		if (status === 'Full') return 'badge-ok';
+		return 'badge-warn';
+	}
+
+	function barColorFor(status) {
+		if (status === 'Over') return '#dc2626';
+		if (status === 'Full') return '#16a34a';
+		return '#d97706';
+	}
+
+	// ---------- Compute the full model from raw rows ----------
+	function computeModel(rows) {
+		var classified = rows.map(function (r) { return { row: r, cls: classifyRow(r) }; });
+		var confirmed = classified.filter(function (c) { return c.cls.status === 'confirmed'; });
+		var unconfirmed = classified.filter(function (c) { return c.cls.status !== 'confirmed'; });
+
+		// Sort confirmed rows within each group by timestamp for draft pool ordering.
+		var byGroup = {};
+		PLAN_GROUPS.forEach(function (g) { byGroup[g.id] = []; });
+		confirmed.forEach(function (c) { byGroup[c.cls.groupId].push(c.row); });
+		Object.keys(byGroup).forEach(function (id) {
+			byGroup[id].sort(function (a, b) { return new Date(a.timestamp) - new Date(b.timestamp); });
+		});
+
+		// Age-group fill stats.
+		var groupStats = PLAN_GROUPS.map(function (g) {
+			var enquired = byGroup[g.id].length;
+			return {
+				group: g,
+				enquired: enquired,
+				status: statusFor(enquired, g.places)
+			};
+		});
+
+		// Wave fill stats: walk each group's rows into its waves in fill order.
+		var waveEnquired = { wave1: 0, wave2: 0, wave3: 0 };
+		var wavePlaces = { wave1: 0, wave2: 0, wave3: 0 };
+		var poolBoard = []; // { group, poolIndex, waveId, teams: [...4] }
+		var waitingList = [];
+
+		PLAN_GROUPS.forEach(function (g) {
+			var waves = GROUP_WAVES[g.id];
+			var teams = byGroup[g.id];
+			waves.forEach(function (waveId) { wavePlaces[waveId] += 4; });
+
+			for (var p = 0; p < g.pools; p++) {
+				var waveId = waves[p] || waves[waves.length - 1];
+				var slice = teams.slice(p * 4, p * 4 + 4);
+				poolBoard.push({ group: g, poolIndex: p + 1, waveId: waveId, teams: slice });
+				waveEnquired[waveId] += slice.length;
+			}
+
+			if (teams.length > g.pools * 4) {
+				waitingList.push({ group: g, teams: teams.slice(g.pools * 4) });
+			}
+		});
+
+		var waveStats = WAVES.map(function (w) {
+			return {
+				wave: w,
+				enquired: waveEnquired[w.id],
+				places: wavePlaces[w.id],
+				status: statusFor(waveEnquired[w.id], wavePlaces[w.id])
+			};
+		});
+
+		// Headline numbers.
+		var totalPlaces = PLAN_GROUPS.reduce(function (s, g) { return s + g.places; }, 0);
+		var totalConfirmedPlaced = groupStats.reduce(function (s, gs) { return s + Math.min(gs.enquired, gs.group.places); }, 0);
+		var totalPlayers = rows.reduce(function (s, r) { return s + (Number(r.player_count) || 0); }, 0);
+		var clubsSet = {};
+		rows.forEach(function (r) { if (r.club_name) clubsSet[r.club_name] = true; });
+		var hostTeams = rows.filter(function (r) { return String(r.is_host_club).toLowerCase() === 'yes'; }).length;
+		var visitingTeams = rows.length - hostTeams;
+		var totalFees = rows.reduce(function (s, r) { return s + feeToNumber(r.entry_fee); }, 0);
+		var missingOfficial = rows.filter(function (r) { return !r.official_name || !r.official_phone; });
+		var missingDuty = rows.filter(function (r) { return !r.duty_officer_name || !r.duty_officer_phone; });
+
+		var canteenOffered = rows.reduce(function (s, r) { return s + countNames(r.canteen_bbq_helpers); }, 0);
+		var gameLeadersOffered = rows.reduce(function (s, r) { return s + countNames(r.game_leaders); }, 0);
+
+		// Timeline by day.
+		var byDay = {};
+		rows.forEach(function (r) {
+			var d = new Date(r.timestamp);
+			if (isNaN(d.getTime())) return;
+			var key = d.toISOString().slice(0, 10);
+			byDay[key] = (byDay[key] || 0) + 1;
+		});
+		var timeline = Object.keys(byDay).sort().map(function (day) { return { day: day, count: byDay[day] }; });
+		var maxDayCount = timeline.reduce(function (m, t) { return Math.max(m, t.count); }, 0);
+
+		// Clubs & contacts.
+		var clubMap = {};
+		rows.forEach(function (r) {
+			var key = r.club_name || 'No affiliation';
+			if (!clubMap[key]) clubMap[key] = { club: key, teams: [], contacts: {}, fees: 0 };
+			clubMap[key].teams.push({ team_name: r.team_name, age_group: r.age_group });
+			if (r.registrant_name) clubMap[key].contacts[r.registrant_name] = true;
+			clubMap[key].fees += feeToNumber(r.entry_fee);
+		});
+		var clubs = Object.keys(clubMap).map(function (k) { return clubMap[k]; }).sort(function (a, b) { return a.club.localeCompare(b.club); });
+
+		return {
+			groupStats: groupStats,
+			waveStats: waveStats,
+			poolBoard: poolBoard,
+			waitingList: waitingList,
+			unconfirmed: unconfirmed,
+			headline: {
+				totalTeams: rows.length,
+				totalPlaces: totalPlaces,
+				totalConfirmedPlaced: totalConfirmedPlaced,
+				fillPct: totalPlaces > 0 ? Math.round((totalConfirmedPlaced / totalPlaces) * 100) : 0,
+				clubCount: Object.keys(clubsSet).length,
+				hostTeams: hostTeams,
+				visitingTeams: visitingTeams,
+				totalPlayers: totalPlayers,
+				totalFees: totalFees,
+				missingInfoCount: missingOfficial.length + missingDuty.length,
+				unconfirmedCount: unconfirmed.length
+			},
+			coverage: {
+				missingOfficial: missingOfficial,
+				missingDuty: missingDuty,
+				canteenOffered: canteenOffered,
+				gameLeadersOffered: gameLeadersOffered
+			},
+			timeline: timeline,
+			maxDayCount: maxDayCount,
+			clubs: clubs
+		};
+	}
+
+	// ---------- Rendering ----------
+	function esc(value) {
+		var div = document.createElement('div');
+		div.textContent = value === undefined || value === null ? '' : String(value);
+		return div.innerHTML;
+	}
+
+	function formatDate(value) {
+		var d = new Date(value);
+		if (isNaN(d.getTime())) return esc(value);
+		return d.toLocaleString('en-AU', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' });
+	}
+
+	function tile(label, value, sub) {
+		return '<div class="tile"><p class="text-xs font-medium uppercase tracking-wider text-slate-500">' + esc(label) + '</p>' +
+			'<p class="mt-1 text-2xl font-semibold text-slate-900">' + esc(value) + '</p>' +
+			(sub ? '<p class="mt-1 text-xs text-slate-500">' + esc(sub) + '</p>' : '') +
+			'</div>';
+	}
+
+	function renderHeadline(m) {
+		var h = m.headline;
+		var html = '';
+		html += tile('Teams enquired', h.totalTeams, h.totalConfirmedPlaced + ' of ' + h.totalPlaces + ' planned places confirmed (' + h.fillPct + '%)');
+		html += tile('Clubs', h.clubCount, h.hostTeams + ' host / ' + h.visitingTeams + ' visiting teams');
+		html += tile('Total players', h.totalPlayers);
+		html += tile('Expected fees', '$' + h.totalFees, 'For Treasurer review');
+		html += tile('Missing info', h.missingInfoCount, 'Official/duty officer details blank');
+		html += tile('Needs age confirmation', h.unconfirmedCount, 'Can\'t place until confirmed');
+		document.getElementById('headline-tiles').innerHTML = html;
+	}
+
+	function renderSummary(m) {
+		var under = m.groupStats.filter(function (g) { return g.status === 'Under'; }).map(function (g) { return g.group.label; });
+		var over = m.groupStats.filter(function (g) { return g.status === 'Over'; }).map(function (g) { return g.group.label; });
+		var full = m.groupStats.filter(function (g) { return g.status === 'Full'; }).map(function (g) { return g.group.label; });
+
+		var actions = [];
+		if (m.headline.unconfirmedCount > 0) actions.push('Confirm exact age/grade for ' + m.headline.unconfirmedCount + ' team(s) so they can be placed in a pool.');
+		if (over.length > 0) actions.push('Resolve over-subscription in ' + over.join(', ') + ' (extra pool, longer day, or second venue).');
+		if (m.coverage.missingOfficial.length > 0 || m.coverage.missingDuty.length > 0) actions.push('Chase up missing team official / duty officer details (' + (m.coverage.missingOfficial.length + m.coverage.missingDuty.length) + ' gaps).');
+		if (actions.length === 0) actions.push('No urgent actions — keep an eye on incoming enquiries.');
+
+		var text = 'Overall, ' + m.headline.totalConfirmedPlaced + ' of ' + m.headline.totalPlaces + ' planned places are filled (' + m.headline.fillPct + '%). ';
+		text += under.length ? ('Under-subscribed: ' + under.join(', ') + '. ') : '';
+		text += over.length ? ('Over-subscribed: ' + over.join(', ') + '. ') : '';
+		text += full.length ? ('Fully booked: ' + full.join(', ') + '. ') : '';
+
+		var html = '<p class="text-sm font-medium text-slate-900">Summary</p>';
+		html += '<p class="mt-2 text-sm text-slate-700">' + esc(text) + '</p>';
+		html += '<p class="mt-3 text-sm font-medium text-slate-900">Top actions</p>';
+		html += '<ul class="mt-1 list-disc space-y-1 pl-5 text-sm text-slate-700">' + actions.slice(0, 3).map(function (a) { return '<li>' + esc(a) + '</li>'; }).join('') + '</ul>';
+		document.getElementById('summary-box').innerHTML = html;
+	}
+
+	function fillBar(enquired, places, status) {
+		var pct = places > 0 ? Math.min(100, Math.round((enquired / places) * 100)) : 0;
+		return '<div class="fill-bar-track"><div class="fill-bar-fill" style="width:' + pct + '%; background:' + barColorFor(status) + '"></div></div>';
+	}
+
+	function renderAgeGroupFill(m) {
+		var sorted = m.groupStats.slice().sort(function (a, b) {
+			var order = { 'Over': 0, 'Under': 1, 'Full': 2 };
+			return order[a.status] - order[b.status];
+		});
+		var html = sorted.map(function (gs) {
+			return '<div class="card">' +
+				'<div class="flex items-center justify-between gap-3">' +
+				'<div><p class="font-medium text-slate-900">' + esc(gs.group.label) + '</p><p class="text-xs text-slate-500">' + esc(gs.group.format) + ' &#8226; ' + gs.group.pools + ' pool(s)</p></div>' +
+				'<span class="badge ' + badgeClassFor(gs.status) + '">' + gs.status + '</span>' +
+				'</div>' +
+				'<p class="mt-2 text-sm text-slate-700">' + gs.enquired + ' of ' + gs.group.places + ' places</p>' +
+				fillBar(gs.enquired, gs.group.places, gs.status) +
+				'</div>';
+		}).join('');
+		document.getElementById('age-group-fill').innerHTML = html;
+	}
+
+	function renderWaveFill(m) {
+		var html = m.waveStats.map(function (ws) {
+			return '<div class="card">' +
+				'<div class="flex items-center justify-between gap-3">' +
+				'<div><p class="font-medium text-slate-900">' + esc(ws.wave.label) + '</p><p class="text-xs text-slate-500">' + esc(ws.wave.time) + '</p></div>' +
+				'<span class="badge ' + badgeClassFor(ws.status) + '">' + ws.status + '</span>' +
+				'</div>' +
+				'<p class="mt-2 text-sm text-slate-700">' + ws.enquired + ' of ' + ws.places + ' places</p>' +
+				fillBar(ws.enquired, ws.places, ws.status) +
+				'<p class="mt-2 text-xs text-slate-500">~' + ws.wave.games + ' simultaneous games</p>' +
+				'</div>';
+		}).join('');
+		document.getElementById('wave-fill').innerHTML = html;
+	}
+
+	function renderPoolBoard(m) {
+		var html = m.poolBoard.map(function (pool) {
+			var slots = [];
+			for (var i = 0; i < 4; i++) {
+				var t = pool.teams[i];
+				if (t) {
+					slots.push('<div class="pool-slot pool-slot-filled"><strong>' + esc(t.team_name) + '</strong><br/>' + esc(t.club_name || 'No affiliation') + '</div>');
+				} else {
+					slots.push('<div class="pool-slot pool-slot-vacant">Vacant</div>');
+				}
+			}
+			return '<div class="card">' +
+				'<p class="font-medium text-slate-900">' + esc(pool.group.label) + ' &#8212; Pool ' + pool.poolIndex + '</p>' +
+				'<p class="text-xs text-slate-500">' + esc(pool.group.format) + '</p>' +
+				'<div class="mt-3 space-y-2">' + slots.join('') + '</div>' +
+				'</div>';
+		}).join('');
+		document.getElementById('pool-board').innerHTML = html;
+
+		var waitingHtml = '';
+		if (m.waitingList.length > 0) {
+			waitingHtml = '<div class="card bg-red-50 ring-0">' +
+				'<p class="font-medium text-slate-900">Waiting list &#8212; needs another pool</p>' +
+				m.waitingList.map(function (w) {
+					return '<p class="mt-2 text-sm text-slate-700"><strong>' + esc(w.group.label) + '</strong> (' + w.teams.length + ' team(s) over capacity): ' +
+						w.teams.map(function (t) { return esc(t.team_name) + ' (' + esc(t.club_name || 'No affiliation') + ')'; }).join(', ') +
+						'. Would need a free wave slot for a ' + esc(w.group.format) + ' pool &#8212; see expansion rules.</p>';
+				}).join('') +
+				'</div>';
+		}
+		document.getElementById('waiting-list').innerHTML = waitingHtml;
+
+		var unconfirmedHtml = '';
+		if (m.unconfirmed.length > 0) {
+			unconfirmedHtml = '<div class="card bg-amber-50 ring-0">' +
+				'<p class="font-medium text-slate-900">Needs age confirmation before placement</p>' +
+				'<p class="mt-1 text-xs text-slate-600">Registered bracket is too broad to know which pool these belong in. Ask the team official for their exact age/grade.</p>' +
+				'<ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-700">' +
+				m.unconfirmed.map(function (c) {
+					return '<li>' + esc(c.row.team_name) + ' (' + esc(c.row.club_name || 'No affiliation') + ') &#8212; registered as "' + esc(c.cls.bucketLabel) + '"' + (c.row.team_grade ? ', grade entered: "' + esc(c.row.team_grade) + '"' : '') + '</li>';
+				}).join('') +
+				'</ul></div>';
+		}
+		document.getElementById('unconfirmed-tray').innerHTML = unconfirmedHtml;
+	}
+
+	function renderCoverage(m) {
+		function list(rows, emptyText) {
+			if (rows.length === 0) return '<p class="text-sm text-emerald-700">' + emptyText + '</p>';
+			return '<ul class="list-disc space-y-1 pl-5 text-sm text-slate-700">' + rows.map(function (r) {
+				return '<li>' + esc(r.team_name) + ' (' + esc(r.club_name || 'No affiliation') + ')</li>';
+			}).join('') + '</ul>';
+		}
+
+		var html = '';
+		html += '<div class="card"><p class="font-medium text-slate-900">Missing team official</p><div class="mt-2">' + list(m.coverage.missingOfficial, 'All teams have a team official on file.') + '</div></div>';
+		html += '<div class="card"><p class="font-medium text-slate-900">Missing duty officer</p><div class="mt-2">' + list(m.coverage.missingDuty, 'All teams have a duty officer on file.') + '</div></div>';
+		html += '<div class="card md:col-span-2"><p class="font-medium text-slate-900">Canteen/BBQ &amp; game leader volunteers</p>' +
+			'<p class="mt-2 text-sm text-slate-700">' + m.coverage.canteenOffered + ' canteen/BBQ helper(s) offered &#8226; ' + m.coverage.gameLeadersOffered + ' game leader(s) offered.</p>' +
+			'<p class="mt-1 text-xs text-slate-500">Wave 2 runs ~6 simultaneous games (the day\'s peak) &#8212; that\'s the benchmark for how many game leaders/referees you\'ll want on hand.</p>' +
+			'</div>';
+		document.getElementById('coverage').innerHTML = html;
+	}
+
+	var lastClubs = [];
+	function renderClubs(clubs) {
+		lastClubs = clubs;
+		var tbody = document.getElementById('clubs-tbody');
+		tbody.innerHTML = clubs.map(function (c) {
+			var teamsHtml = c.teams.map(function (t) { return esc(t.team_name) + ' <span class="text-slate-500">(' + esc(t.age_group) + ')</span>'; }).join('<br/>');
+			return '<tr>' +
+				'<td class="font-medium text-slate-900">' + esc(c.club) + '</td>' +
+				'<td>' + teamsHtml + '</td>' +
+				'<td>' + esc(Object.keys(c.contacts).join(', ')) + '</td>' +
+				'<td>$' + c.fees + '</td>' +
+				'</tr>';
+		}).join('');
+	}
+
+	function renderTimeline(m) {
+		var html = m.timeline.map(function (t) {
+			var pct = m.maxDayCount > 0 ? Math.round((t.count / m.maxDayCount) * 100) : 0;
+			return '<div class="timeline-row">' +
+				'<span class="text-slate-600">' + t.day + '</span>' +
+				'<div class="fill-bar-track"><div class="fill-bar-fill" style="width:' + pct + '%; background:#253d97"></div></div>' +
+				'<span class="text-right text-slate-900">' + t.count + '</span>' +
+				'</div>';
+		}).join('');
+		document.getElementById('timeline').innerHTML = html || '<p class="text-sm text-slate-500">No dated enquiries yet.</p>';
+	}
+
+	function renderDetailTable(rows) {
+		var tbody = document.getElementById('reg-tbody');
+		tbody.innerHTML = rows.map(function (r) {
+			return '<tr>' +
+				'<td>' + formatDate(r.timestamp) + '</td>' +
+				'<td>' + esc(r.club_name) + '</td>' +
+				'<td>' + esc(r.is_host_club) + '</td>' +
+				'<td class="font-medium text-slate-900">' + esc(r.team_name) + (r.team_grade ? '<div class="text-xs text-slate-500">' + esc(r.team_grade) + '</div>' : '') + '</td>' +
+				'<td>' + esc(r.age_group) + '</td>' +
+				'<td>' + esc(r.entry_fee) + '</td>' +
+				'<td>' + esc(r.player_count) + '<div class="text-xs text-slate-500 whitespace-pre-line">' + esc(r.players_list) + '</div></td>' +
+				'<td>' + esc(r.official_name) + '<div class="text-xs text-slate-500">' + esc(r.official_phone) + '</div></td>' +
+				'<td>' + esc(r.duty_officer_name) + '<div class="text-xs text-slate-500">' + esc(r.duty_officer_phone) + '</div></td>' +
+				'<td>' + esc(r.canteen_bbq_helpers) + '</td>' +
+				'<td>' + esc(r.game_leaders) + '</td>' +
+				'</tr>';
+		}).join('');
+	}
+
+	function renderAll(rows) {
+		var contentEl = document.getElementById('dashboard-content');
+		var emptyMsg = document.getElementById('empty-msg');
+
+		if (rows.length === 0) {
+			contentEl.classList.add('hidden');
+			emptyMsg.classList.remove('hidden');
+			return;
+		}
+		contentEl.classList.remove('hidden');
+		emptyMsg.classList.add('hidden');
+
+		var m = computeModel(rows);
+		renderHeadline(m);
+		renderSummary(m);
+		renderAgeGroupFill(m);
+		renderWaveFill(m);
+		renderPoolBoard(m);
+		renderCoverage(m);
+		renderClubs(m.clubs);
+		renderTimeline(m);
+		renderDetailTable(rows);
+	}
+
+	// ---------- Gate + load (unchanged mechanics) ----------
 	var gate = document.getElementById('gate');
 	var dashboard = document.getElementById('dashboard');
 	var gateError = document.getElementById('gate-error');
@@ -121,14 +672,10 @@ const apiUrlJson = JSON.stringify(GALA_DAY.registrationApiUrl);
 
 	function load(password, callback) {
 		var loadingMsg = document.getElementById('loading-msg');
-		var emptyMsg = document.getElementById('empty-msg');
 		var errorMsg = document.getElementById('load-error');
-		var table = document.getElementById('reg-table');
 
 		loadingMsg.classList.remove('hidden');
-		emptyMsg.classList.add('hidden');
 		errorMsg.classList.add('hidden');
-		table.classList.add('hidden');
 
 		fetch(API_URL + '?key=' + encodeURIComponent(password))
 			.then(function (res) { return res.json(); })
@@ -140,7 +687,7 @@ const apiUrlJson = JSON.stringify(GALA_DAY.registrationApiUrl);
 					return;
 				}
 				allRows = json;
-				renderRows(allRows);
+				renderAll(allRows);
 				callback(true);
 			})
 			.catch(function () {
@@ -150,70 +697,16 @@ const apiUrlJson = JSON.stringify(GALA_DAY.registrationApiUrl);
 			});
 	}
 
-	function esc(value) {
-		var div = document.createElement('div');
-		div.textContent = value === undefined || value === null ? '' : String(value);
-		return div.innerHTML;
-	}
-
-	function formatDate(value) {
-		var d = new Date(value);
-		if (isNaN(d.getTime())) return esc(value);
-		return d.toLocaleString('en-AU', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' });
-	}
-
-	function renderRows(rows) {
-		var tbody = document.getElementById('reg-tbody');
-		var table = document.getElementById('reg-table');
-		var emptyMsg = document.getElementById('empty-msg');
-
-		tbody.innerHTML = '';
-
-		if (rows.length === 0) {
-			table.classList.add('hidden');
-			emptyMsg.classList.remove('hidden');
-		} else {
-			table.classList.remove('hidden');
-			emptyMsg.classList.add('hidden');
-			rows.forEach(function (r) {
-				var tr = document.createElement('tr');
-				tr.innerHTML =
-					'<td>' + formatDate(r.timestamp) + '</td>' +
-					'<td>' + esc(r.club_name) + '</td>' +
-					'<td>' + esc(r.is_host_club) + '</td>' +
-					'<td class="font-medium text-slate-900">' + esc(r.team_name) + (r.team_grade ? '<div class="text-xs text-slate-500">' + esc(r.team_grade) + '</div>' : '') + '</td>' +
-					'<td>' + esc(r.age_group) + '</td>' +
-					'<td>' + esc(r.entry_fee) + '</td>' +
-					'<td>' + esc(r.player_count) + '<div class="text-xs text-slate-500 whitespace-pre-line">' + esc(r.players_list) + '</div></td>' +
-					'<td>' + esc(r.official_name) + '<div class="text-xs text-slate-500">' + esc(r.official_phone) + '</div></td>' +
-					'<td>' + esc(r.duty_officer_name) + '<div class="text-xs text-slate-500">' + esc(r.duty_officer_phone) + '</div></td>' +
-					'<td>' + esc(r.canteen_bbq_helpers) + '</td>' +
-					'<td>' + esc(r.game_leaders) + '</td>';
-				tbody.appendChild(tr);
-			});
-		}
-
-		var totalPlayers = rows.reduce(function (sum, r) { return sum + (Number(r.player_count) || 0); }, 0);
-		var revenue = rows.reduce(function (sum, r) {
-			var match = String(r.entry_fee || '').match(/\d+/);
-			return sum + (match ? Number(match[0]) : 0);
-		}, 0);
-
-		document.getElementById('stat-teams').textContent = String(rows.length);
-		document.getElementById('stat-players').textContent = String(totalPlayers);
-		document.getElementById('stat-revenue').textContent = '$' + revenue;
-	}
-
-	document.getElementById('search-input').addEventListener('input', function (e) {
+	document.getElementById('clubs-search').addEventListener('input', function (e) {
 		var term = e.target.value.trim().toLowerCase();
 		if (!term) {
-			renderRows(allRows);
+			renderClubs(lastClubs);
 			return;
 		}
-		renderRows(allRows.filter(function (r) {
-			return ['club_name', 'team_name', 'official_name', 'age_group'].some(function (key) {
-				return String(r[key] || '').toLowerCase().indexOf(term) !== -1;
-			});
+		renderClubs(lastClubs.filter(function (c) {
+			if (c.club.toLowerCase().indexOf(term) !== -1) return true;
+			if (Object.keys(c.contacts).join(' ').toLowerCase().indexOf(term) !== -1) return true;
+			return c.teams.some(function (t) { return String(t.team_name || '').toLowerCase().indexOf(term) !== -1; });
 		}));
 	});
 
