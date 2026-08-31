@@ -1,0 +1,706 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { GALA_DAY, SITE } from '../../site.config';
+import { GALA_DAY_CLUBS, HOST_CLUB_NAME } from '../../data/gala-day-clubs';
+import { withBase } from '../../utils/withBase';
+
+const perPerson = (fee: number, maxPlayers: number) => (fee / maxPlayers).toFixed(2);
+const ageGroupsJson = JSON.stringify(GALA_DAY.ageGroups);
+const clubNamesJson = JSON.stringify(GALA_DAY_CLUBS.map((c) => c.name));
+---
+
+<!-- Committee draft: unlinked from nav/homepage and noindexed until launch approved. -->
+<BaseLayout
+	title="Register your team — MiniRoos Gala Day"
+	description={`Register a team for the Metford Cobras MiniRoos Gala Day — ${GALA_DAY.dateLabel}.`}
+	noindex
+>
+	<section class="container-page py-8 md:py-12">
+		<p class="kicker">MiniRoos Gala Day &#8226; {GALA_DAY.dateLabel}</p>
+		<h1 class="page-title">Register your team</h1>
+		<p class="mt-3 max-w-2xl text-sm text-slate-700">
+			This registers a <strong class="text-slate-900">team</strong>, not individual players. It takes about
+			5 minutes &#8212; have your player names and team official's details handy.
+		</p>
+
+		<!-- Progress -->
+		<ol id="progress" class="mt-8 grid grid-cols-4 gap-2 text-center" aria-label="Registration steps">
+			<li data-progress-step="1" class="step-pill">
+				<span class="step-dot">1</span>
+				<span class="step-label">Club</span>
+			</li>
+			<li data-progress-step="2" class="step-pill">
+				<span class="step-dot">2</span>
+				<span class="step-label">Age group</span>
+			</li>
+			<li data-progress-step="3" class="step-pill">
+				<span class="step-dot">3</span>
+				<span class="step-label">Team</span>
+			</li>
+			<li data-progress-step="4" class="step-pill">
+				<span class="step-dot">4</span>
+				<span class="step-label">Review</span>
+			</li>
+		</ol>
+
+		<form id="gala-form" class="mt-8" novalidate>
+			<div style="position:absolute; left:-9999px;" aria-hidden="true">
+				<label for="website">Leave this field blank</label>
+				<input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+			</div>
+
+			<!-- STEP 1: Registrant + club -->
+			<fieldset data-step="1" class="step space-y-5">
+				<legend class="text-lg font-medium text-slate-900">Your details</legend>
+
+				<div>
+					<label class="block text-sm font-medium text-slate-900" for="registrant-name">
+						Your name <span class="text-red-500" aria-hidden="true">*</span>
+					</label>
+					<input
+						class="mt-1 w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
+						type="text"
+						id="registrant-name"
+						name="registrant_name"
+						autocomplete="name"
+						required
+					/>
+				</div>
+
+				<div>
+					<label class="block text-sm font-medium text-slate-900" for="club-name">
+						Which club are you registering from? <span class="text-red-500" aria-hidden="true">*</span>
+					</label>
+					<p class="mt-1 text-xs text-slate-500">
+						Start typing to search. Your club must be a current member of Hunter Valley Football or Macquarie
+						Football.
+					</p>
+					<input
+						class="mt-2 w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
+						type="text"
+						id="club-name"
+						name="club_name"
+						list="club-list"
+						autocomplete="off"
+						required
+					/>
+					<datalist id="club-list">
+						{GALA_DAY_CLUBS.map((club) => <option value={club.name} />)}
+					</datalist>
+					<p id="club-error" class="mt-2 hidden text-sm text-red-600">
+						Please select a club from the list &#8212; it must be a current Hunter Valley or Macquarie Football
+						member club. Can't find your club?
+						<a class="underline" href={`mailto:${SITE.contact.email}`}>Contact us</a>.
+					</p>
+				</div>
+
+				<div id="host-club-banner" class="hidden card bg-cobra-yellow ring-0">
+					<p class="text-sm text-cobra-blue">
+						<strong>Good news &#8212; your registration is FREE!</strong> As the host club, {HOST_CLUB_NAME} teams
+						don't pay an entry fee.
+					</p>
+				</div>
+			</fieldset>
+
+			<!-- STEP 2: Age group -->
+			<fieldset data-step="2" class="step hidden space-y-4">
+				<legend class="text-lg font-medium text-slate-900">Which age group are you registering?</legend>
+				<div id="age-group-options" class="grid gap-3 sm:grid-cols-2">
+					{GALA_DAY.ageGroups.map((group) => (
+						<label class="age-group-card card cursor-pointer ring-1 ring-black/5" data-age-card={group.id}>
+							<input
+								class="sr-only"
+								type="radio"
+								name="age_group"
+								value={group.id}
+								data-fee={group.fee}
+								data-max={group.maxPlayers}
+								data-label={group.label}
+								required
+							/>
+							<p class="text-base font-semibold text-slate-900">{group.label}</p>
+							<p class="mt-1 text-sm text-slate-700">
+								${group.fee} <span class="text-slate-500">(from ${perPerson(group.fee, group.maxPlayers)} per person)</span>
+							</p>
+							<p class="mt-1 text-xs text-slate-500">Max {group.maxPlayers} players</p>
+						</label>
+					))}
+				</div>
+				<p id="age-group-error" class="hidden text-sm text-red-600">Please select an age group to continue.</p>
+			</fieldset>
+
+			<!-- STEP 3: Team details -->
+			<fieldset data-step="3" class="step hidden space-y-6">
+				<legend class="text-lg font-medium text-slate-900">Team details</legend>
+
+				<div>
+					<label class="block text-sm font-medium text-slate-900" for="team-name">
+						Team name <span class="text-red-500" aria-hidden="true">*</span>
+					</label>
+					<input
+						class="mt-1 w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
+						type="text"
+						id="team-name"
+						name="team_name"
+						required
+					/>
+				</div>
+
+				<div>
+					<label class="block text-sm font-medium text-slate-900" for="team-grade">
+						Age &amp; grade <span class="font-normal text-slate-500">(e.g. "U12s D" &#8212; optional if you're
+						not sure)</span>
+					</label>
+					<input
+						class="mt-1 w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
+						type="text"
+						id="team-grade"
+						name="team_grade"
+					/>
+				</div>
+
+				<div>
+					<div class="flex items-baseline justify-between">
+						<span class="block text-sm font-medium text-slate-900">
+							Players <span class="text-red-500" aria-hidden="true">*</span>
+						</span>
+						<span id="player-count-label" class="text-xs text-slate-500">0 of 0 added</span>
+					</div>
+					<p class="mt-1 text-xs text-slate-500">First and last name for every player on the team.</p>
+					<div id="player-rows" class="mt-3 space-y-2"></div>
+					<button type="button" id="add-player-btn" class="btn-secondary mt-3">+ Add a player</button>
+					<p id="players-error" class="mt-2 hidden text-sm text-red-600">Please add at least one player.</p>
+				</div>
+
+				<div class="grid gap-5 sm:grid-cols-2">
+					<div>
+						<label class="block text-sm font-medium text-slate-900" for="official-name">
+							Team official name (coach / manager) <span class="text-red-500" aria-hidden="true">*</span>
+						</label>
+						<input
+							class="mt-1 w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
+							type="text"
+							id="official-name"
+							name="official_name"
+							required
+						/>
+					</div>
+					<div>
+						<label class="block text-sm font-medium text-slate-900" for="official-phone">
+							Team official phone number <span class="text-red-500" aria-hidden="true">*</span>
+						</label>
+						<input
+							class="mt-1 w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
+							type="tel"
+							id="official-phone"
+							name="official_phone"
+							autocomplete="tel"
+							required
+						/>
+					</div>
+				</div>
+
+				<div>
+					<label class="block text-sm font-medium text-slate-900" for="duty-officer-name">
+						Duty officer name <span class="text-red-500" aria-hidden="true">*</span>
+					</label>
+					<p class="mt-1 text-xs text-slate-500">
+						Every team must bring a <strong>vested duty officer</strong> on the day to help uphold the Metford
+						Cobras code of conduct for spectators and players.
+					</p>
+					<input
+						class="mt-2 w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
+						type="text"
+						id="duty-officer-name"
+						name="duty_officer_name"
+						required
+					/>
+				</div>
+
+				<div id="canteen-bbq-section" class="hidden">
+					<div class="card bg-cobra-yellow ring-0">
+						<p class="text-sm text-cobra-blue">
+							As the host club, we'll ask your team to help out on the day with field set up, pack down, and
+							support in the canteen and BBQ.
+						</p>
+					</div>
+					<label class="mt-4 block text-sm font-medium text-slate-900" for="canteen-rows">
+						Parents assisting with Canteen &amp; BBQ <span class="text-red-500" aria-hidden="true">*</span>
+					</label>
+					<p class="mt-1 text-xs text-slate-500">
+						Please provide at least one parent to help in the canteen and BBQ on the day.
+					</p>
+					<div id="canteen-rows" class="mt-3 space-y-2"></div>
+					<button type="button" id="add-canteen-btn" class="btn-secondary mt-3">+ Add a name</button>
+					<p id="canteen-error" class="mt-2 hidden text-sm text-red-600">
+						Please add at least one parent to help with canteen &amp; BBQ.
+					</p>
+				</div>
+
+				<div>
+					<span class="block text-sm font-medium text-slate-900">
+						Are any of your players open to being a Game Leader for the younger kids on the day?
+					</span>
+					<div class="mt-2 flex gap-4">
+						<label class="inline-flex items-center gap-2 text-sm text-slate-700">
+							<input type="radio" name="has_game_leaders" value="yes" id="game-leaders-yes" />
+							Yes
+						</label>
+						<label class="inline-flex items-center gap-2 text-sm text-slate-700">
+							<input type="radio" name="has_game_leaders" value="no" id="game-leaders-no" checked />
+							No
+						</label>
+					</div>
+					<div id="game-leader-picker" class="mt-3 hidden">
+						<p class="text-xs text-slate-500">Select which players are open to it:</p>
+						<div id="game-leader-options" class="mt-2 space-y-1"></div>
+						<p id="game-leader-empty" class="text-xs text-slate-500">Add player names above first.</p>
+					</div>
+				</div>
+			</fieldset>
+
+			<!-- STEP 4: Review -->
+			<fieldset data-step="4" class="step hidden space-y-5">
+				<legend class="text-lg font-medium text-slate-900">Review &amp; submit</legend>
+				<div id="review-summary" class="card space-y-4 ring-1 ring-black/5"></div>
+
+				<div id="form-error" class="hidden rounded-xl bg-red-50 p-4 text-sm text-red-700 ring-1 ring-red-200">
+					Something went wrong submitting your registration. Please try again, or contact us directly at
+					<a class="underline" href={`mailto:${SITE.contact.email}`}>{SITE.contact.email}</a>.
+				</div>
+			</fieldset>
+
+			<!-- Nav -->
+			<div class="sticky bottom-0 mt-8 flex items-center justify-between gap-3 border-t border-black/5 bg-white/95 py-4 backdrop-blur">
+				<button type="button" id="back-btn" class="btn-secondary hidden">&#8592; Back</button>
+				<div class="flex-1"></div>
+				<button type="button" id="next-btn" class="btn-primary">Continue &#8594;</button>
+				<button type="submit" id="submit-btn" class="btn-primary hidden">Submit registration &#8594;</button>
+			</div>
+		</form>
+
+		<!-- Success -->
+		<div id="success-panel" class="mt-8 hidden rounded-2xl bg-cobra-yellow p-6">
+			<h2 class="text-lg font-semibold text-cobra-blue">Registration received &#8212; thank you!</h2>
+			<p class="mt-2 text-sm text-cobra-blue/80">
+				We've received your team's registration for the MiniRoos Gala Day. We'll be in touch about payment once
+				we've confirmed you have an available spot for your team.
+			</p>
+			<a class="mt-4 btn-primary inline-flex" href={withBase('/gala-day')}>Back to Gala Day info &#8594;</a>
+		</div>
+	</section>
+</BaseLayout>
+
+<style>
+	.step-pill {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.25rem;
+	}
+	.step-dot {
+		display: inline-flex;
+		height: 1.75rem;
+		width: 1.75rem;
+		align-items: center;
+		justify-content: center;
+		border-radius: 9999px;
+		background: color-mix(in srgb, var(--cobra-blue) 10%, white);
+		color: var(--cobra-blue);
+		font-size: 0.75rem;
+		font-weight: 600;
+	}
+	.step-label {
+		font-size: 0.7rem;
+		color: #64748b;
+	}
+	.step-pill[data-active="true"] .step-dot {
+		background: var(--cobra-blue);
+		color: white;
+	}
+	.step-pill[data-active="true"] .step-label {
+		color: var(--cobra-blue);
+		font-weight: 600;
+	}
+	.step-pill[data-done="true"] .step-dot {
+		background: var(--cobra-blue);
+		color: white;
+	}
+	.age-group-card.selected {
+		box-shadow: 0 0 0 2px var(--cobra-blue);
+	}
+	.player-row,
+	.canteen-row {
+		display: flex;
+		gap: 0.5rem;
+		align-items: center;
+	}
+</style>
+
+<script is:inline define:vars={{ ageGroupsJson, clubNamesJson, hostClubName: HOST_CLUB_NAME, registrationApiUrl: GALA_DAY.registrationApiUrl, galaDayName: GALA_DAY.name, galaDayDate: GALA_DAY.dateLabel }}>
+(function () {
+	var AGE_GROUPS = JSON.parse(ageGroupsJson);
+	var CLUB_NAMES = JSON.parse(clubNamesJson);
+	var CLUB_NAMES_LOWER = CLUB_NAMES.map(function (n) { return n.toLowerCase(); });
+	var HOST_CLUB_NAME = hostClubName;
+
+	var form = document.getElementById('gala-form');
+	if (!form) return;
+
+	var TOTAL_STEPS = 4;
+	var currentStep = 1;
+	var rowIdCounter = 0;
+
+	var state = {
+		isMetford: false,
+		ageGroup: null // { id, label, fee, maxPlayers }
+	};
+
+	// ---------- Step navigation ----------
+	function showStep(step) {
+		currentStep = step;
+		document.querySelectorAll('.step').forEach(function (el) {
+			el.classList.toggle('hidden', Number(el.getAttribute('data-step')) !== step);
+		});
+		document.querySelectorAll('[data-progress-step]').forEach(function (el) {
+			var n = Number(el.getAttribute('data-progress-step'));
+			el.setAttribute('data-active', String(n === step));
+			el.setAttribute('data-done', String(n < step));
+		});
+		document.getElementById('back-btn').classList.toggle('hidden', step === 1);
+		document.getElementById('next-btn').classList.toggle('hidden', step === TOTAL_STEPS);
+		document.getElementById('submit-btn').classList.toggle('hidden', step !== TOTAL_STEPS);
+		if (step === TOTAL_STEPS) renderReview();
+		window.scrollTo({ top: form.offsetTop - 20, behavior: 'smooth' });
+	}
+
+	function validateStep(step) {
+		if (step === 1) {
+			var registrant = document.getElementById('registrant-name');
+			var clubInput = document.getElementById('club-name');
+			var clubError = document.getElementById('club-error');
+			var valid = true;
+
+			if (!registrant.checkValidity()) {
+				registrant.reportValidity();
+				valid = false;
+			}
+
+			var clubValue = clubInput.value.trim();
+			var matched = CLUB_NAMES_LOWER.indexOf(clubValue.toLowerCase()) !== -1;
+			if (valid && (!clubValue || !matched)) {
+				clubError.classList.remove('hidden');
+				clubInput.focus();
+				valid = false;
+			} else {
+				clubError.classList.add('hidden');
+			}
+
+			if (valid) {
+				state.isMetford = clubValue.toLowerCase() === HOST_CLUB_NAME.toLowerCase();
+				document.getElementById('host-club-banner').classList.toggle('hidden', !state.isMetford);
+				document.getElementById('canteen-bbq-section').classList.toggle('hidden', !state.isMetford);
+			}
+			return valid;
+		}
+
+		if (step === 2) {
+			var checked = form.querySelector('input[name="age_group"]:checked');
+			var err = document.getElementById('age-group-error');
+			if (!checked) {
+				err.classList.remove('hidden');
+				return false;
+			}
+			err.classList.add('hidden');
+			state.ageGroup = {
+				id: checked.value,
+				label: checked.getAttribute('data-label'),
+				fee: Number(checked.getAttribute('data-fee')),
+				maxPlayers: Number(checked.getAttribute('data-max'))
+			};
+			applyMaxPlayers();
+			return true;
+		}
+
+		if (step === 3) {
+			var valid3 = true;
+			['team-name', 'official-name', 'official-phone', 'duty-officer-name'].forEach(function (id) {
+				var el = document.getElementById(id);
+				if (!el.checkValidity()) {
+					el.reportValidity();
+					valid3 = false;
+				}
+			});
+
+			var players = getPlayers();
+			var playersErr = document.getElementById('players-error');
+			if (valid3 && players.length === 0) {
+				playersErr.classList.remove('hidden');
+				valid3 = false;
+			} else {
+				playersErr.classList.add('hidden');
+			}
+
+			if (valid3 && state.isMetford) {
+				var canteenNames = getCanteenNames();
+				var canteenErr = document.getElementById('canteen-error');
+				if (canteenNames.length === 0) {
+					canteenErr.classList.remove('hidden');
+					valid3 = false;
+				} else {
+					canteenErr.classList.add('hidden');
+				}
+			}
+
+			return valid3;
+		}
+
+		return true;
+	}
+
+	document.getElementById('next-btn').addEventListener('click', function () {
+		if (validateStep(currentStep) && currentStep < TOTAL_STEPS) {
+			showStep(currentStep + 1);
+		}
+	});
+
+	document.getElementById('back-btn').addEventListener('click', function () {
+		if (currentStep > 1) showStep(currentStep - 1);
+	});
+
+	// ---------- Step 1: club detection while typing ----------
+	document.getElementById('club-name').addEventListener('input', function () {
+		document.getElementById('club-error').classList.add('hidden');
+	});
+
+	// ---------- Step 2: age group card styling ----------
+	document.querySelectorAll('.age-group-card').forEach(function (card) {
+		card.addEventListener('click', function () {
+			document.querySelectorAll('.age-group-card').forEach(function (c) { c.classList.remove('selected'); });
+			card.classList.add('selected');
+			document.getElementById('age-group-error').classList.add('hidden');
+		});
+	});
+
+	// ---------- Step 3: dynamic player rows ----------
+	var playerRows = document.getElementById('player-rows');
+	var playerCountLabel = document.getElementById('player-count-label');
+
+	function applyMaxPlayers() {
+		var max = state.ageGroup ? state.ageGroup.maxPlayers : 0;
+		playerCountLabel.textContent = playerRows.children.length + ' of ' + max + ' added';
+		var addBtn = document.getElementById('add-player-btn');
+		addBtn.disabled = playerRows.children.length >= max;
+		addBtn.classList.toggle('opacity-50', addBtn.disabled);
+		// trim excess rows if max shrank
+		while (state.ageGroup && playerRows.children.length > max) {
+			playerRows.removeChild(playerRows.lastElementChild);
+		}
+		updatePlayerCountLabel();
+	}
+
+	function updatePlayerCountLabel() {
+		var max = state.ageGroup ? state.ageGroup.maxPlayers : 0;
+		playerCountLabel.textContent = playerRows.children.length + ' of ' + max + ' added';
+		var addBtn = document.getElementById('add-player-btn');
+		addBtn.disabled = !!state.ageGroup && playerRows.children.length >= max;
+		addBtn.classList.toggle('opacity-50', addBtn.disabled);
+	}
+
+	function addPlayerRow() {
+		if (state.ageGroup && playerRows.children.length >= state.ageGroup.maxPlayers) return;
+		var id = 'row-' + (++rowIdCounter);
+		var row = document.createElement('div');
+		row.className = 'player-row';
+		row.setAttribute('data-row-id', id);
+		row.innerHTML =
+			'<input type="text" placeholder="First name" class="player-first w-1/2 rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue" />' +
+			'<input type="text" placeholder="Last name" class="player-last w-1/2 rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue" />' +
+			'<button type="button" class="remove-player-btn shrink-0 rounded-lg px-2 py-2 text-slate-400 hover:bg-red-50 hover:text-red-600" aria-label="Remove player">&#10005;</button>';
+		playerRows.appendChild(row);
+
+		row.querySelector('.remove-player-btn').addEventListener('click', function () {
+			playerRows.removeChild(row);
+			updatePlayerCountLabel();
+			renderGameLeaderOptions();
+		});
+		row.querySelector('.player-first').addEventListener('input', renderGameLeaderOptions);
+		row.querySelector('.player-last').addEventListener('input', renderGameLeaderOptions);
+
+		updatePlayerCountLabel();
+		renderGameLeaderOptions();
+	}
+
+	document.getElementById('add-player-btn').addEventListener('click', addPlayerRow);
+
+	function getPlayers() {
+		return Array.prototype.slice.call(playerRows.children).map(function (row) {
+			var first = row.querySelector('.player-first').value.trim();
+			var last = row.querySelector('.player-last').value.trim();
+			return { id: row.getAttribute('data-row-id'), first: first, last: last, full: (first + ' ' + last).trim() };
+		}).filter(function (p) { return p.first || p.last; });
+	}
+
+	// ---------- Step 3: canteen/BBQ rows (Metford only) ----------
+	var canteenRows = document.getElementById('canteen-rows');
+
+	function addCanteenRow() {
+		var row = document.createElement('div');
+		row.className = 'canteen-row';
+		row.innerHTML =
+			'<input type="text" placeholder="Parent full name" class="canteen-name w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue" />' +
+			'<button type="button" class="remove-canteen-btn shrink-0 rounded-lg px-2 py-2 text-slate-400 hover:bg-red-50 hover:text-red-600" aria-label="Remove name">&#10005;</button>';
+		canteenRows.appendChild(row);
+		row.querySelector('.remove-canteen-btn').addEventListener('click', function () {
+			canteenRows.removeChild(row);
+		});
+	}
+
+	document.getElementById('add-canteen-btn').addEventListener('click', addCanteenRow);
+	addCanteenRow();
+
+	function getCanteenNames() {
+		return Array.prototype.slice.call(canteenRows.children).map(function (row) {
+			return row.querySelector('.canteen-name').value.trim();
+		}).filter(Boolean);
+	}
+
+	// ---------- Step 3: game leaders ----------
+	var gameLeaderPicker = document.getElementById('game-leader-picker');
+	var gameLeaderOptions = document.getElementById('game-leader-options');
+	var gameLeaderEmpty = document.getElementById('game-leader-empty');
+	var checkedLeaderIds = {};
+
+	document.getElementById('game-leaders-yes').addEventListener('change', function () {
+		gameLeaderPicker.classList.remove('hidden');
+		renderGameLeaderOptions();
+	});
+	document.getElementById('game-leaders-no').addEventListener('change', function () {
+		gameLeaderPicker.classList.add('hidden');
+	});
+
+	function renderGameLeaderOptions() {
+		if (gameLeaderPicker.classList.contains('hidden')) return;
+		var players = getPlayers();
+		gameLeaderOptions.innerHTML = '';
+		gameLeaderEmpty.classList.toggle('hidden', players.length > 0);
+
+		players.forEach(function (p) {
+			var label = document.createElement('label');
+			label.className = 'flex items-center gap-2 text-sm text-slate-700';
+			var checkbox = document.createElement('input');
+			checkbox.type = 'checkbox';
+			checkbox.value = p.id;
+			checkbox.checked = !!checkedLeaderIds[p.id];
+			checkbox.addEventListener('change', function () {
+				checkedLeaderIds[p.id] = checkbox.checked;
+			});
+			label.appendChild(checkbox);
+			label.appendChild(document.createTextNode(' ' + (p.full || 'Unnamed player')));
+			gameLeaderOptions.appendChild(label);
+		});
+	}
+
+	// ---------- Step 4: review ----------
+	function feeDisplay() {
+		if (state.isMetford) return 'FREE (host club)';
+		if (!state.ageGroup) return '';
+		return '$' + state.ageGroup.fee;
+	}
+
+	function renderReview() {
+		var players = getPlayers();
+		var leaderNames = players.filter(function (p) { return checkedLeaderIds[p.id]; }).map(function (p) { return p.full; });
+		var registrant = document.getElementById('registrant-name').value.trim();
+		var club = document.getElementById('club-name').value.trim();
+		var teamName = document.getElementById('team-name').value.trim();
+		var grade = document.getElementById('team-grade').value.trim();
+		var official = document.getElementById('official-name').value.trim();
+		var officialPhone = document.getElementById('official-phone').value.trim();
+		var dutyOfficer = document.getElementById('duty-officer-name').value.trim();
+		var canteenNames = state.isMetford ? getCanteenNames() : [];
+
+		function row(label, value) {
+			return '<div><p class="text-xs font-semibold uppercase tracking-wider text-slate-500">' + label + '</p><p class="mt-0.5 text-sm text-slate-900">' + (value || '&#8212;') + '</p></div>';
+		}
+
+		var html = '';
+		html += row('Registered by', registrant);
+		html += row('Club', club);
+		html += row('Age group', state.ageGroup ? state.ageGroup.label : '');
+		html += row('Entry fee', feeDisplay());
+		html += row('Team name', teamName);
+		if (grade) html += row('Age & grade', grade);
+		html += row('Players (' + players.length + ')', players.map(function (p) { return p.full; }).join(', '));
+		html += row('Team official', official + (officialPhone ? ' &#8212; ' + officialPhone : ''));
+		html += row('Duty officer', dutyOfficer);
+		if (state.isMetford) html += row('Canteen & BBQ helpers', canteenNames.join(', '));
+		html += row('Game leaders', leaderNames.length ? leaderNames.join(', ') : 'None nominated');
+
+		document.getElementById('review-summary').innerHTML = html;
+	}
+
+	// ---------- Submit ----------
+	form.addEventListener('submit', function (e) {
+		e.preventDefault();
+		if (!validateStep(3)) {
+			showStep(3);
+			return;
+		}
+
+		var submitBtn = document.getElementById('submit-btn');
+		var errorBox = document.getElementById('form-error');
+		errorBox.classList.add('hidden');
+		submitBtn.disabled = true;
+		submitBtn.textContent = 'Submitting...';
+
+		var players = getPlayers();
+		var leaderNames = players.filter(function (p) { return checkedLeaderIds[p.id]; }).map(function (p) { return p.full; });
+
+		var payload = {
+			website: document.getElementById('website').value, // honeypot — real users never fill this in
+			event: galaDayName + ' (' + galaDayDate + ')',
+			registrant_name: document.getElementById('registrant-name').value.trim(),
+			club_name: document.getElementById('club-name').value.trim(),
+			is_host_club: state.isMetford ? 'Yes' : 'No',
+			age_group: state.ageGroup ? state.ageGroup.label : '',
+			entry_fee: feeDisplay(),
+			team_name: document.getElementById('team-name').value.trim(),
+			team_grade: document.getElementById('team-grade').value.trim(),
+			player_count: players.length,
+			players_list: players.map(function (p, i) { return (i + 1) + '. ' + p.full; }).join('; '),
+			official_name: document.getElementById('official-name').value.trim(),
+			official_phone: document.getElementById('official-phone').value.trim(),
+			duty_officer_name: document.getElementById('duty-officer-name').value.trim(),
+			canteen_bbq_helpers: state.isMetford ? getCanteenNames().join(', ') : '',
+			game_leaders: leaderNames.length ? leaderNames.join(', ') : 'None nominated'
+		};
+
+		fetch(registrationApiUrl, {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify(payload)
+		}).then(function (res) {
+			return res.json();
+		}).then(function (json) {
+			if (json && json.ok) {
+				form.classList.add('hidden');
+				document.getElementById('progress').classList.add('hidden');
+				document.getElementById('success-panel').classList.remove('hidden');
+				document.getElementById('success-panel').scrollIntoView({ behavior: 'smooth' });
+			} else {
+				errorBox.classList.remove('hidden');
+				submitBtn.disabled = false;
+				submitBtn.textContent = 'Submit registration →';
+			}
+		}).catch(function () {
+			errorBox.classList.remove('hidden');
+			submitBtn.disabled = false;
+			submitBtn.textContent = 'Submit registration →';
+		});
+	});
+
+	for (var i = 0; i < 5; i++) addPlayerRow();
+	showStep(1);
+})();
+</script>

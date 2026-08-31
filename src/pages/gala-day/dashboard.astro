@@ -1,0 +1,246 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { GALA_DAY } from '../../site.config';
+
+const apiUrlJson = JSON.stringify(GALA_DAY.registrationApiUrl);
+---
+
+<BaseLayout title="Gala Day Registrations (Committee)" description="Committee view of MiniRoos Gala Day team registrations." noindex>
+	<section class="container-page py-8 md:py-12">
+		<p class="kicker">Committee only</p>
+		<h1 class="page-title">Gala Day registrations</h1>
+
+		<div id="gate" class="mt-6 max-w-sm space-y-3">
+			<label class="block text-sm font-medium text-slate-900" for="dash-password">Password</label>
+			<input
+				class="w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
+				type="password"
+				id="dash-password"
+				autocomplete="current-password"
+			/>
+			<button type="button" id="unlock-btn" class="btn-primary w-full justify-center">View registrations &#8594;</button>
+			<p id="gate-error" class="hidden text-sm text-red-600">Incorrect password.</p>
+		</div>
+
+		<div id="dashboard" class="mt-6 hidden">
+			<div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+				<div class="flex flex-wrap gap-4 text-sm text-slate-700">
+					<span><strong id="stat-teams" class="text-slate-900">0</strong> teams</span>
+					<span><strong id="stat-players" class="text-slate-900">0</strong> players</span>
+					<span><strong id="stat-revenue" class="text-slate-900">$0</strong> paying entries</span>
+				</div>
+				<div class="flex gap-2">
+					<button type="button" id="refresh-btn" class="btn-secondary">Refresh</button>
+					<button type="button" id="export-btn" class="btn-secondary">Export CSV</button>
+				</div>
+			</div>
+
+			<input
+				class="mt-4 w-full max-w-sm rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
+				type="search"
+				id="search-input"
+				placeholder="Search by team, club, or official..."
+			/>
+
+			<p id="loading-msg" class="mt-4 text-sm text-slate-500">Loading...</p>
+			<p id="empty-msg" class="mt-4 hidden text-sm text-slate-500">No registrations yet.</p>
+			<p id="load-error" class="mt-4 hidden text-sm text-red-600">
+				Couldn't load registrations. Check the password and that the Apps Script API URL in
+				<code>site.config.ts</code> is deployed and set to "Anyone" access.
+			</p>
+
+			<div class="mt-4 overflow-x-auto">
+				<table id="reg-table" class="hidden w-full min-w-[1100px] border-collapse text-sm ring-1 ring-black/5">
+					<thead>
+						<tr class="bg-cobra-blue text-left text-white">
+							<th class="px-3 py-2 font-medium">Submitted</th>
+							<th class="px-3 py-2 font-medium">Club</th>
+							<th class="px-3 py-2 font-medium">Host?</th>
+							<th class="px-3 py-2 font-medium">Team</th>
+							<th class="px-3 py-2 font-medium">Age group</th>
+							<th class="px-3 py-2 font-medium">Fee</th>
+							<th class="px-3 py-2 font-medium">Players</th>
+							<th class="px-3 py-2 font-medium">Official</th>
+							<th class="px-3 py-2 font-medium">Duty officer</th>
+							<th class="px-3 py-2 font-medium">Canteen/BBQ</th>
+							<th class="px-3 py-2 font-medium">Game leaders</th>
+						</tr>
+					</thead>
+					<tbody id="reg-tbody" class="bg-white"></tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+</BaseLayout>
+
+<style>
+	#reg-tbody tr:nth-child(even) {
+		background: #f8fafc;
+	}
+	#reg-tbody td {
+		vertical-align: top;
+		padding: 0.5rem 0.75rem;
+		border-top: 1px solid rgba(0, 0, 0, 0.05);
+	}
+</style>
+
+<script is:inline define:vars={{ apiUrlJson }}>
+(function () {
+	var API_URL = JSON.parse(apiUrlJson);
+	var STORAGE_KEY = 'galaDashboardKey';
+	var allRows = [];
+
+	var gate = document.getElementById('gate');
+	var dashboard = document.getElementById('dashboard');
+	var gateError = document.getElementById('gate-error');
+
+	function unlock(password) {
+		gateError.classList.add('hidden');
+		load(password, function (ok) {
+			if (ok) {
+				sessionStorage.setItem(STORAGE_KEY, password);
+				gate.classList.add('hidden');
+				dashboard.classList.remove('hidden');
+			} else {
+				gateError.classList.remove('hidden');
+			}
+		});
+	}
+
+	document.getElementById('unlock-btn').addEventListener('click', function () {
+		unlock(document.getElementById('dash-password').value);
+	});
+	document.getElementById('dash-password').addEventListener('keydown', function (e) {
+		if (e.key === 'Enter') unlock(document.getElementById('dash-password').value);
+	});
+
+	document.getElementById('refresh-btn').addEventListener('click', function () {
+		var pw = sessionStorage.getItem(STORAGE_KEY);
+		if (pw) load(pw, function () {});
+	});
+
+	function load(password, callback) {
+		var loadingMsg = document.getElementById('loading-msg');
+		var emptyMsg = document.getElementById('empty-msg');
+		var errorMsg = document.getElementById('load-error');
+		var table = document.getElementById('reg-table');
+
+		loadingMsg.classList.remove('hidden');
+		emptyMsg.classList.add('hidden');
+		errorMsg.classList.add('hidden');
+		table.classList.add('hidden');
+
+		fetch(API_URL + '?key=' + encodeURIComponent(password))
+			.then(function (res) { return res.json(); })
+			.then(function (json) {
+				loadingMsg.classList.add('hidden');
+				if (!Array.isArray(json)) {
+					errorMsg.classList.remove('hidden');
+					callback(false);
+					return;
+				}
+				allRows = json;
+				renderRows(allRows);
+				callback(true);
+			})
+			.catch(function () {
+				loadingMsg.classList.add('hidden');
+				errorMsg.classList.remove('hidden');
+				callback(false);
+			});
+	}
+
+	function esc(value) {
+		var div = document.createElement('div');
+		div.textContent = value === undefined || value === null ? '' : String(value);
+		return div.innerHTML;
+	}
+
+	function formatDate(value) {
+		var d = new Date(value);
+		if (isNaN(d.getTime())) return esc(value);
+		return d.toLocaleString('en-AU', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' });
+	}
+
+	function renderRows(rows) {
+		var tbody = document.getElementById('reg-tbody');
+		var table = document.getElementById('reg-table');
+		var emptyMsg = document.getElementById('empty-msg');
+
+		tbody.innerHTML = '';
+
+		if (rows.length === 0) {
+			table.classList.add('hidden');
+			emptyMsg.classList.remove('hidden');
+		} else {
+			table.classList.remove('hidden');
+			emptyMsg.classList.add('hidden');
+			rows.forEach(function (r) {
+				var tr = document.createElement('tr');
+				tr.innerHTML =
+					'<td>' + formatDate(r.timestamp) + '</td>' +
+					'<td>' + esc(r.club_name) + '</td>' +
+					'<td>' + esc(r.is_host_club) + '</td>' +
+					'<td class="font-medium text-slate-900">' + esc(r.team_name) + (r.team_grade ? '<div class="text-xs text-slate-500">' + esc(r.team_grade) + '</div>' : '') + '</td>' +
+					'<td>' + esc(r.age_group) + '</td>' +
+					'<td>' + esc(r.entry_fee) + '</td>' +
+					'<td>' + esc(r.player_count) + '<div class="text-xs text-slate-500 whitespace-pre-line">' + esc(r.players_list) + '</div></td>' +
+					'<td>' + esc(r.official_name) + '<div class="text-xs text-slate-500">' + esc(r.official_phone) + '</div></td>' +
+					'<td>' + esc(r.duty_officer_name) + '</td>' +
+					'<td>' + esc(r.canteen_bbq_helpers) + '</td>' +
+					'<td>' + esc(r.game_leaders) + '</td>';
+				tbody.appendChild(tr);
+			});
+		}
+
+		var totalPlayers = rows.reduce(function (sum, r) { return sum + (Number(r.player_count) || 0); }, 0);
+		var revenue = rows.reduce(function (sum, r) {
+			var match = String(r.entry_fee || '').match(/\d+/);
+			return sum + (match ? Number(match[0]) : 0);
+		}, 0);
+
+		document.getElementById('stat-teams').textContent = String(rows.length);
+		document.getElementById('stat-players').textContent = String(totalPlayers);
+		document.getElementById('stat-revenue').textContent = '$' + revenue;
+	}
+
+	document.getElementById('search-input').addEventListener('input', function (e) {
+		var term = e.target.value.trim().toLowerCase();
+		if (!term) {
+			renderRows(allRows);
+			return;
+		}
+		renderRows(allRows.filter(function (r) {
+			return ['club_name', 'team_name', 'official_name', 'age_group'].some(function (key) {
+				return String(r[key] || '').toLowerCase().indexOf(term) !== -1;
+			});
+		}));
+	});
+
+	document.getElementById('export-btn').addEventListener('click', function () {
+		if (allRows.length === 0) return;
+		var headers = Object.keys(allRows[0]);
+		var csvRows = [headers.join(',')].concat(allRows.map(function (r) {
+			return headers.map(function (h) {
+				var value = String(r[h] === undefined || r[h] === null ? '' : r[h]).replace(/"/g, '""');
+				return '"' + value + '"';
+			}).join(',');
+		}));
+		var blob = new Blob([csvRows.join('\n')], { type: 'text/csv;charset=utf-8;' });
+		var url = URL.createObjectURL(blob);
+		var a = document.createElement('a');
+		a.href = url;
+		a.download = 'gala-day-registrations.csv';
+		document.body.appendChild(a);
+		a.click();
+		document.body.removeChild(a);
+		URL.revokeObjectURL(url);
+	});
+
+	var savedPassword = sessionStorage.getItem(STORAGE_KEY);
+	if (savedPassword) {
+		document.getElementById('dash-password').value = savedPassword;
+		unlock(savedPassword);
+	}
+})();
+</script>

@@ -8,9 +8,10 @@ import { withBase } from '../utils/withBase';
 type Props = {
 	title?: string;
 	description?: string;
+	noindex?: boolean;
 };
 
-const { title, description } = Astro.props;
+const { title, description, noindex } = Astro.props;
 const fullTitle = title ? `${title} | ${SITE.name}` : SITE.name;
 const metaDescription = description ?? SITE.description;
 const ogImageUrl = new URL(withBase('/assets/metford-rec.jpg'), Astro.url).toString();
@@ -24,6 +25,7 @@ const ogImageUrl = new URL(withBase('/assets/metford-rec.jpg'), Astro.url).toStr
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="description" content={metaDescription} />
 		<meta name="generator" content={Astro.generator} />
+		{noindex && <meta name="robots" content="noindex, nofollow" />}
 
 		<meta property="og:title" content={fullTitle} />
 		<meta property="og:description" content={metaDescription} />

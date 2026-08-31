@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { GALA_DAY } from '../../site.config';
+import { withBase } from '../../utils/withBase';
+
+const perPerson = (fee: number, maxPlayers: number) => (fee / maxPlayers).toFixed(2);
+---
+
+<!-- Committee draft: unlinked from nav/homepage and noindexed until launch approved. Remove `noindex` and re-add the nav/homepage links in Header.astro and index.astro when ready to go public. -->
+<BaseLayout
+	title="MiniRoos Gala Day"
+	description={`Register your team for the Metford Cobras MiniRoos Gala Day — ${GALA_DAY.dateLabel} at ${GALA_DAY.groundName}.`}
+	noindex
+>
+	<section class="bg-cobra-blue">
+		<div class="container-page py-14 md:py-20">
+			<p class="text-xs font-medium uppercase tracking-wider text-cobra-yellow">MiniRoos Gala Day • Metford Cobras FC</p>
+			<h1 class="mt-3 max-w-2xl text-4xl font-medium leading-tight text-white md:text-5xl">
+				A day of football, fun, and community.
+			</h1>
+			<p class="mt-4 max-w-xl text-base text-white/85">
+				{GALA_DAY.dateLabel} at {GALA_DAY.groundName}. Bring your team down for a minimum of {GALA_DAY.minGames} games,
+				a jumping castle, activities for the kids, and a medallion for every single player.
+			</p>
+			<div class="mt-6 flex flex-wrap gap-3">
+				<a class="btn-accent" href={withBase('/gala-day/register')}>Register your team &#8594;</a>
+				<a class="btn-secondary bg-transparent text-white ring-white/30 hover:bg-white/10" href={`mailto:${'metfordcobrasfootballclub@gmail.com'}`}>
+					Ask a question
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="container-page py-10 md:py-14">
+		<div class="grid gap-4 md:grid-cols-3">
+			<div class="card">
+				<p class="kicker">When</p>
+				<p class="mt-2 text-lg font-medium text-slate-900">{GALA_DAY.dateLabel}</p>
+			</div>
+			<div class="card">
+				<p class="kicker">Where</p>
+				<p class="mt-2 text-lg font-medium text-slate-900">{GALA_DAY.groundName}</p>
+				<p class="mt-1 text-sm text-slate-600">{GALA_DAY.addressLine}</p>
+			</div>
+			<div class="card">
+				<p class="kicker">On the day</p>
+				<p class="mt-2 text-lg font-medium text-slate-900">Minimum {GALA_DAY.minGames} games per team</p>
+				<p class="mt-1 text-sm text-slate-600">Plus a jumping castle, activities, and a medallion for every child.</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="container-page pb-10 md:pb-14">
+		<h2 class="text-xl font-medium text-slate-900">Entry fees</h2>
+		<p class="mt-2 max-w-2xl text-sm text-slate-700">
+			One fee per team, covering every player.
+		</p>
+
+		<div class="mt-6 overflow-x-auto">
+			<table class="w-full min-w-[520px] border-collapse overflow-hidden rounded-2xl text-sm ring-1 ring-black/5">
+				<thead>
+					<tr class="bg-cobra-blue text-left text-white">
+						<th class="px-4 py-3 font-medium">Age group</th>
+						<th class="px-4 py-3 font-medium">Team entry fee</th>
+						<th class="px-4 py-3 font-medium">Max players per team</th>
+					</tr>
+				</thead>
+				<tbody class="bg-white">
+					{GALA_DAY.ageGroups.map((group, i) => (
+						<tr class={i % 2 === 1 ? 'bg-slate-50' : ''}>
+							<td class="px-4 py-3 font-medium text-slate-900">{group.label}</td>
+							<td class="px-4 py-3 text-slate-700">
+								${group.fee}
+								<span class="text-slate-500"> (from ${perPerson(group.fee, group.maxPlayers)} per person)</span>
+							</td>
+							<td class="px-4 py-3 text-slate-700">{group.maxPlayers} players</td>
+						</tr>
+					))}
+				</tbody>
+			</table>
+		</div>
+
+		<div class="mt-4 card bg-cobra-yellow ring-0">
+			<p class="text-sm text-cobra-blue">
+				<strong>Metford Cobras FC teams play free</strong> as the host club.
+			</p>
+		</div>
+	</section>
+
+	<section class="container-page pb-10 md:pb-14">
+		<h2 class="text-xl font-medium text-slate-900">What every team needs to bring</h2>
+		<ul class="mt-4 grid gap-3 md:grid-cols-2">
+			<li class="card">
+				<p class="font-medium text-slate-900">A team official</p>
+				<p class="mt-1 text-sm text-slate-700">A coach or manager we can contact on the day.</p>
+			</li>
+			<li class="card">
+				<p class="font-medium text-slate-900">A vested duty officer</p>
+				<p class="mt-1 text-sm text-slate-700">
+					Every team must bring a vested duty officer to help uphold the Metford Cobras code of conduct for
+					spectators and players.
+				</p>
+			</li>
+		</ul>
+	</section>
+
+	<section class="container-page pb-14 md:pb-20">
+		<div class="card bg-cobra-blue/5 ring-0 md:flex md:items-center md:justify-between md:gap-6">
+			<div>
+				<h2 class="text-lg font-medium text-slate-900">Ready to register your team?</h2>
+				<p class="mt-2 max-w-xl text-sm text-slate-700">
+					Takes about 5 minutes. We'll confirm your spot in the draw and be in touch about payment once it's
+					locked in.
+				</p>
+			</div>
+			<a class="mt-4 btn-primary md:mt-0" href={withBase('/gala-day/register')}>Register your team &#8594;</a>
+		</div>
+	</section>
+</BaseLayout>
