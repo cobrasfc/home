@@ -200,34 +200,38 @@ const clubNamesJson = JSON.stringify(GALA_DAY_CLUBS.map((c) => c.name));
 				</div>
 
 				<div>
-					<label class="block text-sm font-medium text-slate-900" for="duty-officer-name">
-						Duty officer name <span class="text-red-500" aria-hidden="true">*</span>
-					</label>
+					<p class="text-sm font-medium text-slate-900">Duty officer</p>
 					<p class="mt-1 text-xs text-slate-500">
 						Every team must bring a <strong>vested duty officer</strong> on the day to help uphold the Metford
 						Cobras <a class="text-cobra-blue underline hover:no-underline" href={withBase('/gala-day/code-of-conduct')} target="_blank" rel="noopener">code of conduct</a> for spectators and players.
 					</p>
-					<input
-						class="mt-2 w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
-						type="text"
-						id="duty-officer-name"
-						name="duty_officer_name"
-						required
-					/>
-				</div>
-
-				<div>
-					<label class="block text-sm font-medium text-slate-900" for="duty-officer-phone">
-						Duty officer phone number <span class="text-red-500" aria-hidden="true">*</span>
-					</label>
-					<input
-						class="mt-2 w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
-						type="tel"
-						id="duty-officer-phone"
-						name="duty_officer_phone"
-						autocomplete="tel"
-						required
-					/>
+					<div class="mt-2 grid gap-5 sm:grid-cols-2">
+						<div>
+							<label class="block text-sm font-medium text-slate-900" for="duty-officer-name">
+								Duty officer name <span class="text-red-500" aria-hidden="true">*</span>
+							</label>
+							<input
+								class="mt-1 w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
+								type="text"
+								id="duty-officer-name"
+								name="duty_officer_name"
+								required
+							/>
+						</div>
+						<div>
+							<label class="block text-sm font-medium text-slate-900" for="duty-officer-phone">
+								Duty officer phone number <span class="text-red-500" aria-hidden="true">*</span>
+							</label>
+							<input
+								class="mt-1 w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
+								type="tel"
+								id="duty-officer-phone"
+								name="duty_officer_phone"
+								autocomplete="tel"
+								required
+							/>
+						</div>
+					</div>
 				</div>
 
 				<div id="canteen-bbq-section" class="hidden">
