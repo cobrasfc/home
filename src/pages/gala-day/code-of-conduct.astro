@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../utils/withBase';
+---
+
+<!-- Committee draft: unlinked from nav/homepage and noindexed until launch approved, matching the other gala-day pages. -->
+<BaseLayout
+	title="Gala Day Code of Conduct"
+	description="Gala Day Behaviour Summary — how the Metford Cobras FC Behaviour & Conduct Policy applies at the MiniRoos Gala Day."
+	noindex
+>
+	<section class="container-page py-10 md:py-14 max-w-3xl">
+		<p class="kicker">MiniRoos Gala Day</p>
+		<h1 class="page-title">Gala Day Behaviour Summary</h1>
+		<p class="mt-4 text-sm text-slate-700">
+			This summary explains how the Metford Cobras FC Behaviour &amp; Conduct Policy applies to any player,
+			parent, guardian, spectator, visitor or other person attending a Gala Day with the Club. A Gala Day is a
+			Club activity, so everyone attending is expected to support a safe, respectful and inclusive football
+			environment.
+		</p>
+
+		<div class="mt-8 card">
+			<h2 class="text-lg font-medium text-slate-900">Expected Behaviour</h2>
+			<ul class="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-700">
+				<li>Show respect to players, coaches, referees, Game Leaders, volunteers, Club officials and other spectators.</li>
+				<li>Follow all reasonable directions from Club officials, coaches, Ground Marshals and venue representatives.</li>
+				<li>Support players positively and encourage good sportsmanship.</li>
+				<li>Remain outside the field of play unless given permission to enter.</li>
+				<li>Use appropriate language and avoid behaviour that may intimidate, upset or place others at risk.</li>
+			</ul>
+		</div>
+
+		<div class="mt-6 card">
+			<h2 class="text-lg font-medium text-slate-900">Unacceptable Behaviour</h2>
+			<ul class="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-700">
+				<li>Swearing, abusive, insulting, threatening or discriminatory language.</li>
+				<li>Arguing with, abusing or intimidating referees, Game Leaders, coaches, volunteers or Club officials.</li>
+				<li>Fighting, physical aggression, threats of violence or behaviour that places another person at risk.</li>
+				<li>Bullying, harassment, intimidation, belittling children or publicly criticising players.</li>
+				<li>Entering the field of play to confront a player, coach, official or referee.</li>
+				<li>Encouraging poor sportsmanship, provoking others, or creating conflict between Club members or visitors.</li>
+				<li>Recording or publishing incidents involving children without appropriate consent.</li>
+			</ul>
+		</div>
+
+		<div class="mt-6 card bg-cobra-blue/5 ring-0">
+			<h2 class="text-lg font-medium text-slate-900">On-Day Action at Gala Day</h2>
+			<ul class="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-700">
+				<li>For Gala Day attendance, the Club will not use staged warnings, follow-up emails, Behaviour Improvement Plans, suspensions or appeals as the immediate on-day response.</li>
+				<li>If a person's behaviour is unacceptable, unsafe, aggressive, discriminatory, disruptive or contrary to Club values, they may be directed to leave the grounds immediately.</li>
+				<li>The direction to leave may be given by an authorised Club official, Ground Marshal, committee member or venue representative.</li>
+				<li>A person directed to leave must do so promptly and respectfully.</li>
+				<li>If a person refuses to leave, the Club may seek assistance from the Police where required to maintain safety. Misconduct may also be reported to the offender's registered club to be dealt with via their own internal disciplinary policy.</li>
+			</ul>
+		</div>
+
+		<p class="mt-8 text-center text-sm text-slate-500">
+			<a class="text-cobra-blue hover:underline" href={withBase('/gala-day/register')}>Back to registration &#8594;</a>
+		</p>
+	</section>
+</BaseLayout>

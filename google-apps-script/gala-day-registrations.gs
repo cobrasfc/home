@@ -26,6 +26,7 @@ var COLUMNS = [
 	'official_name',
 	'official_phone',
 	'duty_officer_name',
+	'duty_officer_phone',
 	'canteen_bbq_helpers',
 	'game_leaders'
 ];

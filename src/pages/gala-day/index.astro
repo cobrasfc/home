@@ -19,7 +19,7 @@ const perPerson = (fee: number, maxPlayers: number) => (fee / maxPlayers).toFixe
 				A day of football, fun, and community.
 			</h1>
 			<p class="mt-4 max-w-xl text-base text-white/85">
-				{GALA_DAY.dateLabel} at {GALA_DAY.groundName}. Bring your team down for a minimum of {GALA_DAY.minGames} games,
+				{GALA_DAY.dateLabel} at {GALA_DAY.groundName}. Bring your team down for approx. {GALA_DAY.minGames} games,
 				a jumping castle, activities for the kids, and a medallion for every single player.
 			</p>
 			<div class="mt-6 flex flex-wrap gap-3">
@@ -44,7 +44,7 @@ const perPerson = (fee: number, maxPlayers: number) => (fee / maxPlayers).toFixe
 			</div>
 			<div class="card">
 				<p class="kicker">On the day</p>
-				<p class="mt-2 text-lg font-medium text-slate-900">Minimum {GALA_DAY.minGames} games per team</p>
+				<p class="mt-2 text-lg font-medium text-slate-900">Approx. {GALA_DAY.minGames} games per team</p>
 				<p class="mt-1 text-sm text-slate-600">Plus a jumping castle, activities, and a medallion for every child.</p>
 			</div>
 		</div>
@@ -97,8 +97,9 @@ const perPerson = (fee: number, maxPlayers: number) => (fee / maxPlayers).toFixe
 			<li class="card">
 				<p class="font-medium text-slate-900">A vested duty officer</p>
 				<p class="mt-1 text-sm text-slate-700">
-					Every team must bring a vested duty officer to help uphold the Metford Cobras code of conduct for
-					spectators and players.
+					Every team must bring a vested duty officer to help uphold the Metford Cobras
+					<a class="text-cobra-blue underline hover:no-underline" href={withBase('/gala-day/code-of-conduct')}>code of conduct</a>
+					for spectators and players.
 				</p>
 			</li>
 		</ul>

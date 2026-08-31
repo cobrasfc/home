@@ -69,11 +69,10 @@ const clubNamesJson = JSON.stringify(GALA_DAY_CLUBS.map((c) => c.name));
 
 				<div>
 					<label class="block text-sm font-medium text-slate-900" for="club-name">
-						Which club are you registering from? <span class="text-red-500" aria-hidden="true">*</span>
+						Which club are you registering from? <span class="font-normal text-slate-500">(optional)</span>
 					</label>
 					<p class="mt-1 text-xs text-slate-500">
-						Start typing to search. Your club must be a current member of Hunter Valley Football or Macquarie
-						Football.
+						Start typing to search, or choose "No affiliation" if you're not registering through a club.
 					</p>
 					<input
 						class="mt-2 w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
@@ -82,14 +81,14 @@ const clubNamesJson = JSON.stringify(GALA_DAY_CLUBS.map((c) => c.name));
 						name="club_name"
 						list="club-list"
 						autocomplete="off"
-						required
 					/>
 					<datalist id="club-list">
+						<option value="No affiliation" />
 						{GALA_DAY_CLUBS.map((club) => <option value={club.name} />)}
 					</datalist>
 					<p id="club-error" class="mt-2 hidden text-sm text-red-600">
-						Please select a club from the list &#8212; it must be a current Hunter Valley or Macquarie Football
-						member club. Can't find your club?
+						Please select a club from the list, or "No affiliation" if you're not registering through a club.
+						Can't find your club?
 						<a class="underline" href={`mailto:${SITE.contact.email}`}>Contact us</a>.
 					</p>
 				</div>
@@ -206,13 +205,27 @@ const clubNamesJson = JSON.stringify(GALA_DAY_CLUBS.map((c) => c.name));
 					</label>
 					<p class="mt-1 text-xs text-slate-500">
 						Every team must bring a <strong>vested duty officer</strong> on the day to help uphold the Metford
-						Cobras code of conduct for spectators and players.
+						Cobras <a class="text-cobra-blue underline hover:no-underline" href={withBase('/gala-day/code-of-conduct')} target="_blank" rel="noopener">code of conduct</a> for spectators and players.
 					</p>
 					<input
 						class="mt-2 w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
 						type="text"
 						id="duty-officer-name"
 						name="duty_officer_name"
+						required
+					/>
+				</div>
+
+				<div>
+					<label class="block text-sm font-medium text-slate-900" for="duty-officer-phone">
+						Duty officer phone number <span class="text-red-500" aria-hidden="true">*</span>
+					</label>
+					<input
+						class="mt-2 w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue"
+						type="tel"
+						id="duty-officer-phone"
+						name="duty_officer_phone"
+						autocomplete="tel"
 						required
 					/>
 				</div>
@@ -262,6 +275,7 @@ const clubNamesJson = JSON.stringify(GALA_DAY_CLUBS.map((c) => c.name));
 			<!-- STEP 4: Review -->
 			<fieldset data-step="4" class="step hidden space-y-5">
 				<legend class="text-lg font-medium text-slate-900">Review &amp; submit</legend>
+				<div id="payment-summary" class="card bg-cobra-yellow ring-0"></div>
 				<div id="review-summary" class="card space-y-4 ring-1 ring-black/5"></div>
 
 				<div id="form-error" class="hidden rounded-xl bg-red-50 p-4 text-sm text-red-700 ring-1 ring-red-200">
@@ -387,8 +401,8 @@ const clubNamesJson = JSON.stringify(GALA_DAY_CLUBS.map((c) => c.name));
 			}
 
 			var clubValue = clubInput.value.trim();
-			var matched = CLUB_NAMES_LOWER.indexOf(clubValue.toLowerCase()) !== -1;
-			if (valid && (!clubValue || !matched)) {
+			var matched = !clubValue || clubValue.toLowerCase() === 'no affiliation' || CLUB_NAMES_LOWER.indexOf(clubValue.toLowerCase()) !== -1;
+			if (valid && !matched) {
 				clubError.classList.remove('hidden');
 				clubInput.focus();
 				valid = false;
@@ -424,7 +438,7 @@ const clubNamesJson = JSON.stringify(GALA_DAY_CLUBS.map((c) => c.name));
 
 		if (step === 3) {
 			var valid3 = true;
-			['team-name', 'official-name', 'official-phone', 'duty-officer-name'].forEach(function (id) {
+			['team-name', 'official-name', 'official-phone', 'duty-officer-name', 'duty-officer-phone'].forEach(function (id) {
 				var el = document.getElementById(id);
 				if (!el.checkValidity()) {
 					el.reportValidity();
@@ -618,6 +632,7 @@ const clubNamesJson = JSON.stringify(GALA_DAY_CLUBS.map((c) => c.name));
 		var official = document.getElementById('official-name').value.trim();
 		var officialPhone = document.getElementById('official-phone').value.trim();
 		var dutyOfficer = document.getElementById('duty-officer-name').value.trim();
+		var dutyOfficerPhone = document.getElementById('duty-officer-phone').value.trim();
 		var canteenNames = state.isMetford ? getCanteenNames() : [];
 
 		function row(label, value) {
@@ -626,18 +641,33 @@ const clubNamesJson = JSON.stringify(GALA_DAY_CLUBS.map((c) => c.name));
 
 		var html = '';
 		html += row('Registered by', registrant);
-		html += row('Club', club);
+		html += row('Club', club || 'No affiliation');
 		html += row('Age group', state.ageGroup ? state.ageGroup.label : '');
 		html += row('Entry fee', feeDisplay());
 		html += row('Team name', teamName);
 		if (grade) html += row('Age & grade', grade);
 		html += row('Players (' + players.length + ')', players.map(function (p) { return p.full; }).join(', '));
 		html += row('Team official', official + (officialPhone ? ' &#8212; ' + officialPhone : ''));
-		html += row('Duty officer', dutyOfficer);
+		html += row('Duty officer', dutyOfficer + (dutyOfficerPhone ? ' &#8212; ' + dutyOfficerPhone : ''));
 		if (state.isMetford) html += row('Canteen & BBQ helpers', canteenNames.join(', '));
 		html += row('Game leaders', leaderNames.length ? leaderNames.join(', ') : 'None nominated');
 
 		document.getElementById('review-summary').innerHTML = html;
+
+		var paymentHtml =
+			'<p class="text-sm text-cobra-blue">' +
+			'You\'re registering <strong>' + (teamName || 'your team') + '</strong> in the <strong>' + (state.ageGroup ? state.ageGroup.label : '') + '</strong> ' +
+			'division for the ' + galaDayName + ' on ' + galaDayDate + '.' +
+			'</p>' +
+			'<p class="mt-2 text-sm text-cobra-blue">' +
+			(state.isMetford
+				? 'As the host club, your entry is <strong>FREE</strong> &#8212; we\'ll be in touch about the volunteer roster (field set up, pack down, canteen &amp; BBQ).'
+				: 'Entry fee: <strong>' + feeDisplay() + '</strong>.') +
+			'</p>' +
+			'<p class="mt-2 text-sm text-cobra-blue">' +
+			'We\'ll be in touch to confirm your team has a spot in the draw' + (state.isMetford ? '' : ', and follow up on payment once teams are locked in') + '.' +
+			'</p>';
+		document.getElementById('payment-summary').innerHTML = paymentHtml;
 	}
 
 	// ---------- Submit ----------
@@ -661,7 +691,7 @@ const clubNamesJson = JSON.stringify(GALA_DAY_CLUBS.map((c) => c.name));
 			website: document.getElementById('website').value, // honeypot — real users never fill this in
 			event: galaDayName + ' (' + galaDayDate + ')',
 			registrant_name: document.getElementById('registrant-name').value.trim(),
-			club_name: document.getElementById('club-name').value.trim(),
+			club_name: document.getElementById('club-name').value.trim() || 'No affiliation',
 			is_host_club: state.isMetford ? 'Yes' : 'No',
 			age_group: state.ageGroup ? state.ageGroup.label : '',
 			entry_fee: feeDisplay(),
@@ -672,13 +702,15 @@ const clubNamesJson = JSON.stringify(GALA_DAY_CLUBS.map((c) => c.name));
 			official_name: document.getElementById('official-name').value.trim(),
 			official_phone: document.getElementById('official-phone').value.trim(),
 			duty_officer_name: document.getElementById('duty-officer-name').value.trim(),
+			duty_officer_phone: document.getElementById('duty-officer-phone').value.trim(),
 			canteen_bbq_helpers: state.isMetford ? getCanteenNames().join(', ') : '',
 			game_leaders: leaderNames.length ? leaderNames.join(', ') : 'None nominated'
 		};
 
+		// No custom headers: a plain-string body defaults to a CORS-safe "simple request", which
+		// Google Apps Script Web Apps need (they don't handle CORS preflight OPTIONS requests).
 		fetch(registrationApiUrl, {
 			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(payload)
 		}).then(function (res) {
 			return res.json();
