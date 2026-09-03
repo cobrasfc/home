@@ -121,7 +121,7 @@ const clubNamesJson = JSON.stringify(GALA_DAY_CLUBS.map((c) => c.name));
 							<p class="mt-1 text-sm text-slate-700">
 								${group.fee} <span class="text-slate-500">(from ${perPerson(group.fee, group.maxPlayers)} per person)</span>
 							</p>
-							<p class="mt-1 text-xs text-slate-500">Max {group.maxPlayers} players</p>
+							<p class="mt-1 text-xs text-slate-500">Squad size guide: {group.maxPlayers} players</p>
 						</label>
 					))}
 				</div>
@@ -163,7 +163,7 @@ const clubNamesJson = JSON.stringify(GALA_DAY_CLUBS.map((c) => c.name));
 						<span class="block text-sm font-medium text-slate-900">
 							Players <span class="text-red-500" aria-hidden="true">*</span>
 						</span>
-						<span id="player-count-label" class="text-xs text-slate-500">0 of 0 added</span>
+						<span id="player-count-label" class="text-xs text-slate-500">0 players added</span>
 					</div>
 					<p class="mt-1 text-xs text-slate-500">First and last name for every player on the team.</p>
 					<div id="player-rows" class="mt-3 space-y-2"></div>
@@ -505,28 +505,15 @@ const clubNamesJson = JSON.stringify(GALA_DAY_CLUBS.map((c) => c.name));
 	var playerCountLabel = document.getElementById('player-count-label');
 
 	function applyMaxPlayers() {
-		var max = state.ageGroup ? state.ageGroup.maxPlayers : 0;
-		playerCountLabel.textContent = playerRows.children.length + ' of ' + max + ' added';
-		var addBtn = document.getElementById('add-player-btn');
-		addBtn.disabled = playerRows.children.length >= max;
-		addBtn.classList.toggle('opacity-50', addBtn.disabled);
-		// trim excess rows if max shrank
-		while (state.ageGroup && playerRows.children.length > max) {
-			playerRows.removeChild(playerRows.lastElementChild);
-		}
 		updatePlayerCountLabel();
 	}
 
 	function updatePlayerCountLabel() {
-		var max = state.ageGroup ? state.ageGroup.maxPlayers : 0;
-		playerCountLabel.textContent = playerRows.children.length + ' of ' + max + ' added';
-		var addBtn = document.getElementById('add-player-btn');
-		addBtn.disabled = !!state.ageGroup && playerRows.children.length >= max;
-		addBtn.classList.toggle('opacity-50', addBtn.disabled);
+		var count = playerRows.children.length;
+		playerCountLabel.textContent = count + ' player' + (count === 1 ? '' : 's') + ' added';
 	}
 
 	function addPlayerRow() {
-		if (state.ageGroup && playerRows.children.length >= state.ageGroup.maxPlayers) return;
 		var id = 'row-' + (++rowIdCounter);
 		var row = document.createElement('div');
 		row.className = 'player-row';
