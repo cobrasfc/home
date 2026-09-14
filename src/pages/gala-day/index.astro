@@ -9,7 +9,7 @@ const perPerson = (fee: number, maxPlayers: number) => (fee / maxPlayers).toFixe
 <!-- Committee draft: unlinked from nav/homepage and noindexed until launch approved. Remove `noindex` and re-add the nav/homepage links in Header.astro and index.astro when ready to go public. -->
 <BaseLayout
 	title="MiniRoos Gala Day"
-	description={`Register your team for the Metford Cobras MiniRoos Gala Day — ${GALA_DAY.dateLabel} at ${GALA_DAY.groundName}.`}
+	description={`Metford Cobras MiniRoos Gala Day — ${GALA_DAY.dateLabel} at ${GALA_DAY.groundName}. Registrations are now closed.`}
 	noindex
 >
 	<section class="bg-cobra-blue">
@@ -22,8 +22,10 @@ const perPerson = (fee: number, maxPlayers: number) => (fee / maxPlayers).toFixe
 				{GALA_DAY.dateLabel} at {GALA_DAY.groundName}. Bring your team down for approx. {GALA_DAY.minGames} games,
 				a jumping castle, activities for the kids, and a medallion for every single player.
 			</p>
-			<div class="mt-6 flex flex-wrap gap-3">
-				<a class="btn-accent" href={withBase('/gala-day/register')}>Register your team &#8594;</a>
+			<div class="mt-6 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white ring-1 ring-white/20">
+				Registrations are now closed
+			</div>
+			<div class="mt-4 flex flex-wrap gap-3">
 				<a class="btn-secondary bg-transparent text-white ring-white/30 hover:bg-white/10" href={`mailto:${'metfordcobrasfootballclub@gmail.com'}`}>
 					Ask a question
 				</a>
@@ -108,13 +110,13 @@ const perPerson = (fee: number, maxPlayers: number) => (fee / maxPlayers).toFixe
 	<section class="container-page pb-14 md:pb-20">
 		<div class="card bg-cobra-blue/5 ring-0 md:flex md:items-center md:justify-between md:gap-6">
 			<div>
-				<h2 class="text-lg font-medium text-slate-900">Ready to register your team?</h2>
+				<h2 class="text-lg font-medium text-slate-900">Registrations are now closed</h2>
 				<p class="mt-2 max-w-xl text-sm text-slate-700">
-					Takes about 5 minutes. We'll confirm your spot in the draw and be in touch about payment once it's
-					locked in.
+					Thanks to everyone who registered a team &#8212; we've had a great response. Teams and the draw are
+					being finalised. If you have any questions, get in touch below.
 				</p>
 			</div>
-			<a class="mt-4 btn-primary md:mt-0" href={withBase('/gala-day/register')}>Register your team &#8594;</a>
+			<a class="mt-4 btn-primary md:mt-0" href={`mailto:${'metfordcobrasfootballclub@gmail.com'}`}>Contact us &#8594;</a>
 		</div>
 	</section>
 </BaseLayout>
