@@ -1,95 +1,138 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE, SUMMER_COMP, SUMMER_DUAL_REGISTRATION } from '../../site.config';
 import { withBase } from '../../utils/withBase';
+
+const regoGroups = [
+	{ key: 'registered', title: 'Registered players', note: 'Played in Winter 2026' },
+	{ key: 'unregistered', title: 'Unregistered players', note: 'Did not play in Winter 2026' }
+] as const;
 ---
 
-<BaseLayout title="Summer Football" description="Summer football at Metford Cobras FC — social, fast, and fun.">
+<BaseLayout
+	title="Summer Comp 2026"
+	description="Metford Cobras Summer Comp 2026 registrations are open — 10 weeks of 6-a-side football for juniors and adults. Adults Mondays from 12 October, juniors Tuesdays from 13 October."
+>
 	<section class="container-page py-10">
 		<div class="grid gap-8 md:grid-cols-2 md:items-center">
 			<div>
-				<p class="kicker">Play Football</p>
-				<h1 class="page-title">Summer Football at Metford Cobras</h1>
+				<p class="kicker">Summer Football</p>
+				<h1 class="page-title">Summer Comp 2026 registrations are open!</h1>
 				<p class="mt-4 max-w-3xl text-sm text-slate-700">
-					Our Summer Football competition is a fun, fast-paced way to stay connected, stay fit, and keep enjoying
-					football during the off-season.
+					{SUMMER_COMP.weeks} weeks of summer football at Metford. Whether you&#8217;re playing with your mates or flying
+					solo, there&#8217;s a division for everyone &#8212; and most importantly, this one is all about having fun.
 				</p>
-				<p class="mt-3 max-w-3xl text-sm text-slate-700">
-					Whether you’re returning with your regular team, playing socially with friends, or trying football for the
-					first time, summer football offers a relaxed and welcoming environment with a strong community focus.
-				</p>
+				<div class="mt-5 grid grid-cols-2 gap-3 max-w-md">
+					<div class="rounded-xl bg-cobra-blue/5 p-3">
+						<p class="text-xs font-medium uppercase tracking-wider text-cobra-blue">Adults</p>
+						<p class="mt-1 text-sm font-medium text-slate-900">{SUMMER_COMP.adultsStart}</p>
+					</div>
+					<div class="rounded-xl bg-cobra-blue/5 p-3">
+						<p class="text-xs font-medium uppercase tracking-wider text-cobra-blue">Juniors</p>
+						<p class="mt-1 text-sm font-medium text-slate-900">{SUMMER_COMP.juniorsStart}</p>
+					</div>
+				</div>
+				<div class="mt-6 flex flex-wrap gap-3">
+					<a class="btn-secondary" href={SITE.facebookUrl} target="_blank" rel="noopener">Read the FAQs on Facebook</a>
+				</div>
 			</div>
 			<img
-				src={withBase('/assets/summer6s/06c94ace-3738-41a8-8b7d-85e636a6dbaf.png')}
-				alt="Summer Soccer coming soon"
-				class="mx-auto h-auto w-full max-w-sm rounded-lg shadow-md"
+				src={withBase('/assets/summer6s/summer6s-hero.png')}
+				alt="Two Metford Cobras players in club kit relaxing on pool floats"
+				class="mx-auto h-auto w-full rounded-lg shadow-md"
 				loading="eager"
 				decoding="async"
 			/>
 		</div>
 
-		<div class="mt-8 grid gap-4 md:grid-cols-2">
+		<div class="mt-10 grid gap-4 md:grid-cols-2">
 			<div class="card">
-				<h2 class="text-lg font-medium text-slate-900">What Is Summer Football?</h2>
-				<p class="mt-2 text-sm text-slate-700">Summer football at Metford Cobras is played as:</p>
-				<ul class="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-700">
-					<li>Six-a-side</li>
-					<li>On a smaller-sized field</li>
-					<li>With games running at half the length of a normal match</li>
+				<h2 class="text-lg font-medium text-slate-900">Divisions &amp; fees</h2>
+				<ul class="mt-3 divide-y divide-black/5">
+					{SUMMER_COMP.divisions.map((d) => (
+						<li class="flex items-center justify-between py-2 text-sm">
+							<span class="text-slate-700">{d.label}</span>
+							<span class="font-medium text-cobra-blue">${d.fee}</span>
+						</li>
+					))}
 				</ul>
-				<p class="mt-3 text-sm text-slate-700">
-					The shorter format makes games quicker, more social, and easier to fit around summer schedules—while still
-					delivering plenty of action and touches on the ball.
-				</p>
 			</div>
 			<div class="card">
-				<h2 class="text-lg font-medium text-slate-900">Who Can Play?</h2>
-				<p class="mt-2 text-sm text-slate-700">Our summer competition is open to:</p>
+				<h2 class="text-lg font-medium text-slate-900">How it works</h2>
 				<ul class="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-700">
-					<li>Junior players</li>
-					<li>Senior players</li>
-					<li>Adult mixed teams</li>
+					<li>{SUMMER_COMP.weeks} weeks of 6-a-side football</li>
+					<li>Enter as a team or register solo &#8212; we&#8217;ll find you a team</li>
+					<li>Unlimited substitutions</li>
+					<li>No ladder or points recorded &#8212; no pressure</li>
+					<li>Family-friendly: just football, mates and a great way to spend your summer</li>
 				</ul>
-				<p class="mt-3 text-sm text-slate-700">
-					The mixed competition is a popular option for adults looking for a social, inclusive way to play, with an
-					emphasis on enjoyment and participation rather than results.
-				</p>
-				<a class="mt-4 inline-block text-sm font-medium text-cobra-blue" href={withBase('/subscribe')}>Get dates first →</a>
 			</div>
 		</div>
 
-		<div class="mt-4 card">
-			<h2 class="text-lg font-medium text-slate-900">A Great Way to Try Football</h2>
+		<div id="register" class="mt-10 scroll-mt-24">
+			<h2 class="text-2xl font-medium text-cobra-blue">Ready to play? Register via PlayFootball</h2>
 			<p class="mt-2 text-sm text-slate-700">
-				Summer football is also a great entry point for new players who are thinking about joining the club for the
-				winter season.
+				Choose the link that matches whether you played with a club in Winter 2026, then pick your age division.
 			</p>
-			<p class="mt-3 text-sm text-slate-700">The smaller teams, shorter games, and relaxed atmosphere make it an ideal way to:</p>
-			<ul class="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-700">
-				<li>Try football without a big commitment</li>
-				<li>Meet teammates and coaches</li>
-				<li>Get a feel for the club and community</li>
-			</ul>
-			<p class="mt-3 text-sm text-slate-700">Please note that places in the summer competition are subject to availability.</p>
+
+			<div class="mt-5 grid gap-4 md:grid-cols-2">
+				{regoGroups.map((group) => (
+					<div class="card">
+						<h3 class="text-base font-semibold text-slate-900">{group.title}</h3>
+						<p class="text-xs text-slate-500">{group.note}</p>
+						<div class="mt-4 flex flex-col gap-2">
+							{SUMMER_COMP.divisions.map((d) => {
+								const url = SUMMER_COMP.registration[group.key][d.id].url;
+								return url ? (
+									<a class="btn-secondary justify-between" href={url} target="_blank" rel="noopener">
+										<span>{d.label} &#183; ${d.fee}</span>
+										<span aria-hidden="true">&#8594;</span>
+									</a>
+								) : (
+									<span class="inline-flex items-center justify-between rounded-lg bg-slate-50 px-4 py-2 text-sm text-slate-500 ring-1 ring-inset ring-black/5">
+										<span>{d.label} &#183; ${d.fee}</span>
+										<span class="text-xs">Link coming shortly</span>
+									</span>
+								);
+							})}
+						</div>
+					</div>
+				))}
+			</div>
+
+			<div class="mt-4 card flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+				<div>
+					<h3 class="text-base font-semibold text-slate-900">Playing Men&#8217;s/Women&#8217;s <em>and</em> Mixed?</h3>
+					<p class="mt-1 text-sm text-slate-700">
+						Once you&#8217;ve registered through PlayFootball, pay the ${SUMMER_DUAL_REGISTRATION.fee} dual registration fee
+						online to play in both competitions.
+					</p>
+					<p class="mt-1 text-xs text-slate-500">
+						Problem paying online or prefer bank transfer?
+						<a class="text-cobra-blue hover:underline" href={withBase('/contact-us')}>Contact us directly</a>.
+					</p>
+				</div>
+				<a class="btn-primary shrink-0" href={withBase('/play-football/summer-dual-registration')}>Pay dual registration &#8594;</a>
+			</div>
+
+			<div class="mt-4 rounded-2xl bg-cobra-yellow p-5">
+				<p class="text-sm font-semibold text-cobra-blue">Places are limited and team numbers are capped &#8212; get your registration in early!</p>
+				<p class="mt-1 text-sm text-cobra-blue/80">Get your mates together. Pick your team name. Choose your colour. Let&#8217;s play!</p>
+			</div>
 		</div>
 
-		<div class="mt-4 card">
-			<h2 class="text-lg font-medium text-slate-900">Keep Playing, Stay Connected</h2>
-			<p class="mt-2 text-sm text-slate-700">Summer football is about:</p>
-			<ul class="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-700">
-				<li>Staying active over the off-season</li>
-				<li>Keeping in touch with teammates</li>
-				<li>Welcoming new players into the club</li>
-				<li>Enjoying football in a relaxed, social format</li>
-			</ul>
-			<p class="mt-4 text-sm text-slate-700">
-				If you’re looking to keep playing through summer—or thinking about joining us for the winter season—our
-				summer competition is a great place to start.
-			</p>
-		</div>
-
-		<div class="mt-8 flex flex-wrap gap-3">
-			<a class="btn-primary" href={withBase('/play-football/summer-eoi')}>Summer 6&#8217;s update</a>
-			<a class="btn-secondary" href={withBase('/subscribe')}>Subscribe</a>
+		<div class="mt-4">
+			<div class="card">
+				<h2 class="text-lg font-medium text-slate-900">Got questions?</h2>
+				<p class="mt-2 text-sm text-slate-700">
+					Our FAQs cover who can play, team sizes, uniforms, referees, rules, behaviour, registering solo and what you
+					need ready. Have a scroll through before sending us a message &#8212; your question might already be answered!
+				</p>
+				<div class="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm font-medium">
+					<a class="text-cobra-blue" href={SITE.facebookUrl} target="_blank" rel="noopener">FAQs on Facebook &#8594;</a>
+					<a class="text-cobra-blue" href={withBase('/contact-us')}>Contact us &#8594;</a>
+				</div>
+			</div>
 		</div>
 	</section>
 </BaseLayout>

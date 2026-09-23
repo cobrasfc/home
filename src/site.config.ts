@@ -37,3 +37,45 @@ export const GALA_DAY = {
 } as const;
 
 export type GalaDayAgeGroup = (typeof GALA_DAY.ageGroups)[number];
+
+// Summer Comp 2026 — registrations are through PlayFootball (one product per division, separate products for
+// players who were / weren't registered in Winter 2026). Each `url` is that division's PlayFootball product page;
+// a division with an empty url shows "Link coming shortly" instead of a button.
+export const SUMMER_COMP = {
+	name: 'Metford Cobras Summer Comp 2026',
+	weeks: 10,
+	adultsStart: 'Mondays from 12 October',
+	juniorsStart: 'Tuesdays from 13 October',
+	divisions: [
+		{ id: '5-7', label: '5–7 years', fee: 80 },
+		{ id: '8-11', label: '8–11 years', fee: 90 },
+		{ id: '12-18', label: '12–18 years', fee: 120 },
+		{ id: 'seniors', label: 'Seniors 19+', fee: 130 }
+	],
+	registration: {
+		// Played in Winter 2026
+		registered: {
+			'5-7': { url: 'https://registration.playfootball.com.au/participant/product-details/66200101' },
+			'8-11': { url: 'https://registration.playfootball.com.au/participant/product-details/66200103' },
+			'12-18': { url: 'https://registration.playfootball.com.au/participant/product-details/66200104' },
+			seniors: { url: 'https://registration.playfootball.com.au/participant/product-details/66200047' }
+		},
+		// Did not play in Winter 2026
+		unregistered: {
+			'5-7': { url: 'https://registration.playfootball.com.au/participant/product-details/66200100' },
+			'8-11': { url: 'https://registration.playfootball.com.au/participant/product-details/66200102' },
+			'12-18': { url: 'https://registration.playfootball.com.au/participant/product-details/66200105' },
+			seniors: { url: 'https://registration.playfootball.com.au/participant/product-details/66200046' }
+		}
+	}
+} as const;
+
+// Summer 6's dual registration — extra fee for players already registered (via the separate rego service)
+// who also want to play in the Mixed comp alongside Men's/Women's. Payment is a Square payment link
+// (Square Dashboard → Payment Links). Square's checkout collects name, email and phone, plus two custom
+// fields for the team names. Payments + details appear in Square Dashboard → Transactions / Orders.
+export const SUMMER_DUAL_REGISTRATION = {
+	name: 'Summer Soccer Dual Registration',
+	fee: 30,
+	paymentLinkUrl: 'https://square.link/u/qDqSM5TA'
+} as const;
