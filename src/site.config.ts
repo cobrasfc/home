@@ -72,10 +72,10 @@ export const SUMMER_COMP = {
 
 // Summer 6's dual registration — extra fee for players already registered (via the separate rego service)
 // who also want to play in the Mixed comp alongside Men's/Women's. Payment is a Square payment link
-// (Square Dashboard → Payment Links). Square's checkout collects name, email and phone, plus two custom
+// created in Square Dashboard → Payment Links (API-created links are single-use, so don't replace it with one). Square's checkout collects name, email and phone, plus two custom
 // fields for the team names. Payments + details appear in Square Dashboard → Transactions / Orders.
 export const SUMMER_DUAL_REGISTRATION = {
 	name: 'Summer Soccer Dual Registration',
 	fee: 30,
-	paymentLinkUrl: 'https://square.link/u/qDqSM5TA'
+	paymentLinkUrl: 'https://square.link/u/HBIuX44e'
 } as const;
