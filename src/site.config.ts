@@ -79,3 +79,35 @@ export const SUMMER_DUAL_REGISTRATION = {
 	fee: 30,
 	paymentLinkUrl: 'https://square.link/u/HBIuX44e'
 } as const;
+
+// Summer Soccer schedule tracker — /summer-soccer/schedule (setup: README "Summer Soccer schedule tracker").
+// Fixtures are read at runtime from a Google Sheet the club maintains, so fixture changes never need a rebuild.
+export const SUMMER_SCHEDULE = {
+	seasonName: 'Summer Soccer 2026',
+	// Google Sheet → File → Share → Publish to web → pick the fixtures tab → "Comma-separated values (.csv)" → Publish.
+	// Paste that link here. While this is empty the page shows clearly-labelled SAMPLE fixtures instead.
+	sheetCsvUrl: '',
+	sampleCsvPath: '/summer-soccer/sample-fixtures.csv',
+	timeZone: 'Australia/Sydney',
+	// How often an open page re-checks the sheet for changes
+	refreshMinutes: 5,
+	// A time typed without am/pm (e.g. "6:30") is read as pm — every Summer Soccer game is in the evening.
+	// A warning is still logged in the browser console so the sheet can be fixed.
+	bareTimesArePm: true,
+	venue: {
+		// Used in calendar events. Replace if Summer Soccer moves grounds.
+		name: SITE.location.groundName,
+		address: SITE.location.addressLine
+	},
+	support: {
+		// "Something doesn't look right?" contacts. Swap in dedicated Summer Soccer contacts when supplied.
+		email: SITE.contact.email,
+		facebookUrl: SITE.facebookUrl
+	},
+	acknowledgement: {
+		text: 'Supported by Northern NSW Football',
+		// Optional link/logo for the footer acknowledgement (kept deliberately small). Leave empty for text only.
+		url: '',
+		logoPath: ''
+	}
+} as const;

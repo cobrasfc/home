@@ -62,6 +62,45 @@ Event details, entry fees, and max players per age group are configured in the `
 `src/site.config.ts`. The searchable club list (Hunter Valley Football + Macquarie Football members) lives in
 `src/data/gala-day-clubs.ts` — update it if zone membership changes.
 
+## Summer Soccer schedule tracker
+
+`/summer-soccer/schedule` shows each player/parent their next game (when, where, who, opponent colour, field map),
+then everything coming up. No accounts: chosen teams are remembered on the device and kept in the URL, e.g.
+`/summer-soccer/schedule?teams=all-age-mixed-grasshoppers,mens-cobras` — hand these links out per team.
+
+Fixtures are read **in the browser from a Google Sheet** every time the page opens (and every few minutes while
+it's open), so editing the sheet updates the site — no rebuild or deploy.
+
+**Set up the sheet (once):**
+
+1. Import the Excel draw into Google Sheets (File → Import). Row 1 must be the headers:
+   `Round, Division, Date, Start Time, Finish Time, Field, Team 1, Team 1 Colour, Team 2, Team 2 Colour, Status, Note`
+   ([`public/summer-soccer/sample-fixtures.csv`](public/summer-soccer/sample-fixtures.csv) is a working example).
+2. File → Share → **Publish to web** → choose the fixtures tab → **Comma-separated values (.csv)** → Publish.
+3. Paste the link into `sheetCsvUrl` in the `SUMMER_SCHEDULE` block of `src/site.config.ts`, then deploy once.
+   Until this is set, the page shows the sample fixtures with a "Sample fixtures" banner.
+
+Google caches published sheets for up to ~5 minutes, so edits appear within a few minutes.
+
+**Editing fixtures:** dates are day/month/year. Times like `6:30 PM`, `18:30` or `6.30pm` all work (a bare `6:30`
+is read as pm). Fields: `Field 4`, `4`, `Minis 1`. Colours are free text (`Sky Blue`, `navy`); unknown colours
+still show as text. **Status** is blank/`Scheduled`, `Cancelled` or `Postponed`; **Note** is shown on the fixture
+(e.g. `Postponed — new date to be advised`). To reschedule, change the date/time and clear the status. A team
+with no game that round can be listed against `Bye`. Don't rename teams mid-season — the name is part of the saved
+link. Add `?debug` to the page URL to see sheet warnings (unreadable dates, unknown fields…) in the browser console.
+
+**Check the page at another moment:** add `&now=2026-10-19T18:50` (Sydney time) to preview game night.
+
+**Field map:** [`src/summer-soccer/fields.ts`](src/summer-soccer/fields.ts) builds the map from geometry: two
+equal full-size winter pitches placed between their goal posts (positions from the club's satellite image), each
+split into four identical summer fields with an alley between them, plus two identical, slightly smaller minis
+beside the right-hand pitch. Adjust `PITCH`, `ALLEY`, `MINIS_SCALE` or the goal-post positions there — every field
+is derived from them. Support contacts, venue and the Northern NSW Football acknowledgement (optional logo/link)
+are in `SUMMER_SCHEDULE`.
+
+Code layout: `src/summer-soccer/data` (sheet adapter, CSV + fixture parsing), `domain` (team IDs, next-game and
+date logic), `utils` (timezone, `.ics`, URL/local storage), `ui` (rendering), `app.ts` (wiring).
+
 ## Replace placeholder images
 
 Placeholders live in:
