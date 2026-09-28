@@ -169,7 +169,8 @@ export function parseSchedule(rows: string[][], now: Date = new Date()): Schedul
 			team = { id, name, division, colour };
 			teams.set(id, team);
 		}
-		if (colour.name) {
+		// Bibs are a one-off for a clash, not the team's colour
+		if (colour.name && !/\bbibs?\b/i.test(colour.name)) {
 			const votes = teamColourVotes.get(id) ?? new Map();
 			const key = colour.name.toLowerCase();
 			votes.set(key, { colour, count: (votes.get(key)?.count ?? 0) + 1 });
@@ -214,7 +215,7 @@ export function parseSchedule(rows: string[][], now: Date = new Date()): Schedul
 			}
 			if (isByeName(name)) return { team: null, name: 'Bye', colour: { name: '', swatch: null } };
 			const colour = normaliseColour(colourRaw);
-			if (colourRaw && !colour.swatch) warn(rowNumber, `Colour "${colourRaw}" has no swatch — the name is still shown`);
+			if (colourRaw && !colour.swatch && !/\bbibs?\b/i.test(colourRaw)) warn(rowNumber, `Colour "${colourRaw}" has no swatch — the name is still shown`);
 			const team = getTeam(division!, name, colour);
 			return { team, name: team.name, colour };
 		};

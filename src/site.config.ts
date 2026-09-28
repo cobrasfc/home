@@ -85,9 +85,11 @@ export const SUMMER_DUAL_REGISTRATION = {
 export const SUMMER_SCHEDULE = {
 	seasonName: 'Summer Soccer 2026',
 	// Google Sheet → File → Share → Publish to web → pick the fixtures tab → "Comma-separated values (.csv)" → Publish.
-	// Paste that link here. While this is empty the page shows clearly-labelled SAMPLE fixtures instead.
+	// Paste that link here. While this is empty the page shows the preview fixtures below, with a banner.
 	sheetCsvUrl: '',
-	sampleCsvPath: '/summer-soccer/sample-fixtures.csv',
+	// Preview fixtures (the draft draw from generate_draw.py) + the banner shown above them
+	sampleCsvPath: '/summer-soccer/draft-fixtures.csv',
+	sampleNotice: '<strong>Draft draw.</strong> These fixtures are a draft and may change before the season starts.',
 	timeZone: 'Australia/Sydney',
 	// How often an open page re-checks the sheet for changes
 	refreshMinutes: 5,

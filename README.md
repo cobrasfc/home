@@ -78,7 +78,8 @@ it's open), so editing the sheet updates the site — no rebuild or deploy.
    ([`public/summer-soccer/sample-fixtures.csv`](public/summer-soccer/sample-fixtures.csv) is a working example).
 2. File → Share → **Publish to web** → choose the fixtures tab → **Comma-separated values (.csv)** → Publish.
 3. Paste the link into `sheetCsvUrl` in the `SUMMER_SCHEDULE` block of `src/site.config.ts`, then deploy once.
-   Until this is set, the page shows the sample fixtures with a "Sample fixtures" banner.
+   Until this is set, the page shows the preview fixtures in `sampleCsvPath` (currently the draft draw,
+   `public/summer-soccer/draft-fixtures.csv`) under the `sampleNotice` banner.
 
 Google caches published sheets for up to ~5 minutes, so edits appear within a few minutes.
 

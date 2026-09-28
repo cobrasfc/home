@@ -109,7 +109,8 @@ function resolveSelection(schedule: Schedule): Team[] {
 function statusBar(): string {
 	const bits: string[] = [];
 	if (state.source?.isSample) {
-		bits.push('<p class="ss-banner ss-banner--sample"><strong>Sample fixtures.</strong> The real Summer Soccer draw hasn\'t been published yet — these games are examples only.</p>');
+		// Trusted HTML from site config
+		bits.push(`<p class="ss-banner ss-banner--sample">${SUMMER_SCHEDULE.sampleNotice}</p>`);
 	}
 	if (previewNow) {
 		bits.push(`<p class="ss-banner ss-banner--preview">Previewing the page as at ${esc(formatStamp(now()))} (Sydney time).</p>`);
