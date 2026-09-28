@@ -50,7 +50,24 @@ function cells(s: Scenario, wave: Wave) {
 
 const waveUse = (s: Scenario, night: string) =>
 	s.nights.find((n) => n.night === night)!.waves.map((w) => `W${w.wave} ${w.mainAllocated}/${s.mainFields}`).join(' · ');
-const mondayPeak = (s: Scenario) => Math.max(...s.nights.find((n) => n.night === 'Monday')!.waves.map((w) => w.gamesPeak));
+/** Most refereed games on at once on a night (U6/7s use game leaders, not referees) */
+function refsPeak(s: Scenario, night: string) {
+	const perSlot = new Map<string, number>();
+	for (const f of s.fixtures) {
+		if (f.night !== night || f.comp === 'u67') continue;
+		const key = `${f.week}-${f.wave}`;
+		perSlot.set(key, (perSlot.get(key) ?? 0) + 1);
+	}
+	return Math.max(0, ...perSlot.values());
+}
+/** Refereed games per wave on a night, e.g. "6 + 6" */
+function refsByWave(s: Scenario, night: string) {
+	const waves = s.nights.find((n) => n.night === night)!.waves.map((w) => w.wave);
+	return waves
+		.map((w) => Math.max(0, ...Array.from({ length: data.weeks }, (_, i) =>
+			s.fixtures.filter((f) => f.night === night && f.comp !== 'u67' && f.wave === w && f.week === i + 1).length)))
+		.join(' + ');
+}
 
 /** Shared-contact clashes grouped by the teams involved */
 function contactSummary(s: Scenario) {
@@ -86,7 +103,7 @@ const leaderText = (s: Scenario) =>
 		: 'No U10–13 or U12–15 teams are resting while the U6/7s play';
 
 const splitText = (s: Scenario) => {
-	const entries = Object.entries(s.waveSplit);
+	const entries = Object.entries(s.waveSplit).filter(([id]) => comp[id]?.night === 'Monday');
 	if (!entries.length) return 'Fixed: Mixed always 6:30 pm; Men’s and Women’s always 7:20 pm';
 	return `Alternates: each team plays ${Math.min(...entries.map(([, v]) => v.earlyMin))}–${Math.max(...entries.map(([, v]) => v.earlyMax))} of its games at 6:30 pm, the rest at 7:20 pm`;
 };
@@ -201,7 +218,15 @@ const weeks = Array.from({ length: data.weeks }, (_, i) => i + 1);
 							<tr><th scope="row">Field size (approx.)</th>{data.scenarios.map((s) => <td>{FIELD_SIZE[s.layout]}</td>)}</tr>
 							<tr><th scope="row">Monday pitches used</th>{data.scenarios.map((s) => <td>{waveUse(s, 'Monday')}</td>)}</tr>
 							<tr><th scope="row">Tuesday pitches used</th>{data.scenarios.map((s) => <td>{waveUse(s, 'Tuesday')} <span class="ad-muted">(+ both minis for the U6/7s)</span></td>)}</tr>
-							<tr><th scope="row">Referees needed at once (Monday)</th>{data.scenarios.map((s) => <td><strong>{mondayPeak(s)}</strong> games at the busiest wave</td>)}</tr>
+							<tr>
+								<th scope="row">Referees needed</th>
+								{data.scenarios.map((s) => (
+									<td>
+										Monday <strong>{refsPeak(s, 'Monday')}</strong> <span class="ad-muted">({refsByWave(s, 'Monday')} games by wave)</span><br />
+										Tuesday <strong>{refsPeak(s, 'Tuesday')}</strong> <span class="ad-muted">({refsByWave(s, 'Tuesday')} games by wave; U6/7s use game leaders)</span>
+									</td>
+								))}
+							</tr>
 							<tr><th scope="row">Monday kick-off times</th>{data.scenarios.map((s) => <td>{splitText(s)}</td>)}</tr>
 							<tr>
 								<th scope="row">Dual-registered players (Mixed + Men’s/Women’s)</th>
