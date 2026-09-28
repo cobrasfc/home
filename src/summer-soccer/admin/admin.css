@@ -1,0 +1,521 @@
+/* Summer Soccer planning portal — committee view. Builds on the schedule tracker's tokens (schedule.css). */
+
+.ad-body {
+	--ad-ink-2: #4b5563;
+	--ad-line: #d9deea;
+	--ad-card: #fff;
+	--ad-good: #0f7a3a;
+	--ad-warn: #8a4b08;
+	--ad-bad: #b42318;
+	--ad-info: #253d97;
+}
+
+.ad-wrap {
+	width: 100%;
+	max-width: 1480px;
+	margin: 0 auto;
+	box-sizing: border-box;
+	padding-left: max(16px, env(safe-area-inset-left));
+	padding-right: max(16px, env(safe-area-inset-right));
+}
+.ad-headlink {
+	display: inline-flex;
+	align-items: center;
+	text-decoration: none;
+}
+.ad-main {
+	padding-top: 20px;
+	padding-bottom: 48px;
+}
+.ad-muted {
+	color: var(--ad-ink-2);
+	font-weight: 400;
+}
+.ad-nowrap {
+	white-space: nowrap;
+}
+
+.ad-intro {
+	margin-bottom: 16px;
+}
+.ad-title {
+	margin: 0;
+	font-size: 1.75rem;
+	font-weight: 700;
+	color: var(--ss-blue);
+}
+.ad-lede {
+	margin-top: 6px !important;
+	max-width: 70ch;
+	font-size: 0.9375rem;
+	line-height: 1.55;
+	color: var(--ss-ink);
+}
+.ad-meta,
+.ad-note {
+	margin-top: 6px !important;
+	font-size: 0.8125rem;
+	line-height: 1.5;
+	color: var(--ad-ink-2);
+}
+
+/* ---------- Tabs ---------- */
+.ad-tabs {
+	display: flex;
+	gap: 4px;
+	overflow-x: auto;
+	border-bottom: 2px solid var(--ad-line);
+	margin-bottom: 20px;
+	scrollbar-width: thin;
+}
+.ad-tabs [role="tab"] {
+	flex: none;
+	min-height: 44px;
+	padding: 0 16px;
+	border: 0;
+	border-bottom: 3px solid transparent;
+	margin-bottom: -2px;
+	background: none;
+	font: inherit;
+	font-size: 0.9375rem;
+	font-weight: 600;
+	color: var(--ad-ink-2);
+	cursor: pointer;
+}
+.ad-tabs [role="tab"][aria-selected="true"] {
+	color: var(--ss-blue);
+	border-bottom-color: var(--ss-yellow);
+}
+.ad-tabs__sub {
+	font-weight: 400;
+}
+
+/* ---------- Headings / cards ---------- */
+.ad-h2 {
+	margin: 28px 0 8px;
+	font-size: 1.1875rem;
+	font-weight: 700;
+	color: var(--ss-blue);
+}
+.ad-panel > .ad-h2:first-child,
+.ad-panel > .ad-legend + .ad-h2 {
+	margin-top: 12px;
+}
+.ad-h3 {
+	margin: 0 0 10px;
+	font-size: 1rem;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	flex-wrap: wrap;
+}
+.ad-h4 {
+	margin: 14px 0 6px;
+	font-size: 0.8125rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--ad-ink-2);
+}
+.ad-card {
+	background: var(--ad-card);
+	border-radius: 14px;
+	padding: 16px;
+	box-shadow: 0 0 0 1px var(--ad-line);
+	min-width: 0;
+}
+.ad-block {
+	margin-top: 24px;
+}
+
+/* ---------- Legend & chips (colour always paired with text) ---------- */
+.ad-legend {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px 16px;
+	padding: 12px 14px;
+	border-radius: 12px;
+	background: var(--ad-card);
+	box-shadow: 0 0 0 1px var(--ad-line);
+}
+.ad-legend__item {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 0.8125rem;
+}
+.ad-chip {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 44px;
+	height: 24px;
+	padding: 0 8px;
+	border-radius: 6px;
+	background: color-mix(in srgb, var(--plan) 22%, white);
+	box-shadow: inset 0 0 0 2px var(--plan);
+	color: var(--ss-ink);
+	font-size: 0.75rem;
+	font-weight: 700;
+	white-space: nowrap;
+}
+.ad-chip--sm {
+	min-width: 0;
+	height: 20px;
+	padding: 0 6px;
+	font-size: 0.6875rem;
+}
+.ad-chip--free {
+	background: repeating-linear-gradient(-45deg, #fff 0 4px, #eef1f6 4px 8px);
+	box-shadow: inset 0 0 0 1px var(--ad-line);
+	color: var(--ad-ink-2);
+	font-weight: 500;
+}
+
+/* ---------- Pitch strip chart ---------- */
+.ad-compare-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 16px;
+}
+.ad-wave {
+	display: grid;
+	grid-template-columns: 78px 1fr 44px;
+	align-items: center;
+	gap: 10px;
+	padding: 6px 0;
+	border-top: 1px solid #eef1f6;
+}
+.ad-wave__time {
+	font-size: 0.75rem;
+	line-height: 1.35;
+	font-variant-numeric: tabular-nums;
+}
+.ad-wave__free {
+	font-size: 0.75rem;
+	color: var(--ad-ink-2);
+	text-align: right;
+}
+.ad-strip {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(38px, 1fr));
+	gap: 2px; /* surface gap between fills */
+}
+.ad-cell {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 44px;
+	border-radius: 6px;
+	background: color-mix(in srgb, var(--plan) 22%, white);
+	box-shadow: inset 0 0 0 2px var(--plan);
+	line-height: 1.1;
+}
+.ad-cell.is-mini {
+	border-radius: 999px / 12px;
+}
+.ad-cell.is-free {
+	background: repeating-linear-gradient(-45deg, #fff 0 4px, #eef1f6 4px 8px);
+	box-shadow: inset 0 0 0 1px var(--ad-line);
+}
+.ad-cell__num {
+	font-size: 0.8125rem;
+	font-weight: 700;
+	color: var(--ss-ink);
+}
+.ad-cell__tag {
+	font-size: 0.625rem;
+	font-weight: 600;
+	color: var(--ss-ink);
+}
+.ad-cell.is-free .ad-cell__num,
+.ad-cell.is-free .ad-cell__tag {
+	color: #7a8190;
+	font-weight: 500;
+}
+
+/* ---------- Status labels (icon + text, never colour alone) ---------- */
+.ad-status {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-weight: 600;
+}
+.ad-status > span[aria-hidden] {
+	display: inline-grid;
+	place-items: center;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	font-size: 0.6875rem;
+	font-weight: 700;
+	color: #fff;
+}
+.ad-status.is-good {
+	color: var(--ad-good);
+}
+.ad-status.is-good > span[aria-hidden] {
+	background: var(--ad-good);
+}
+.ad-status.is-warn {
+	color: var(--ad-warn);
+}
+.ad-status.is-warn > span[aria-hidden] {
+	background: #d98b16;
+}
+.ad-status.is-bad {
+	color: var(--ad-bad);
+}
+.ad-status.is-bad > span[aria-hidden] {
+	background: var(--ad-bad);
+}
+.ad-status.is-info {
+	color: var(--ad-info);
+}
+.ad-status.is-info > span[aria-hidden] {
+	background: var(--ad-info);
+}
+
+/* ---------- Tables ---------- */
+.ad-tablewrap {
+	overflow-x: auto;
+	border-radius: 12px;
+	box-shadow: 0 0 0 1px var(--ad-line);
+	background: var(--ad-card);
+	margin-top: 10px;
+}
+.ad-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 0.875rem;
+}
+.ad-table caption {
+	text-align: left;
+	padding: 12px 14px 4px;
+	font-weight: 700;
+	color: var(--ss-blue);
+}
+.ad-table th,
+.ad-table td {
+	padding: 9px 14px;
+	text-align: left;
+	vertical-align: top;
+	border-top: 1px solid #eef1f6;
+}
+.ad-table thead th {
+	border-top: 0;
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: var(--ad-ink-2);
+	white-space: nowrap;
+}
+.ad-table tbody th {
+	font-weight: 600;
+}
+.ad-table--compare tbody th {
+	width: 26%;
+	min-width: 180px;
+}
+.ad-table--compare td {
+	min-width: 220px;
+	line-height: 1.45;
+}
+.ad-num {
+	text-align: right !important;
+	font-variant-numeric: tabular-nums;
+	white-space: nowrap;
+}
+.ad-table--teams {
+	font-size: 0.8125rem;
+}
+.ad-table--teams th,
+.ad-table--teams td {
+	padding: 6px 8px;
+}
+.ad-flag {
+	margin-left: 6px;
+	padding: 1px 6px;
+	border-radius: 999px;
+	background: var(--ss-amber-bg);
+	color: var(--ss-amber);
+	font-size: 0.6875rem;
+	font-weight: 600;
+}
+
+/* ---------- Scenario maps ---------- */
+.ad-maps {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 16px;
+}
+.ad-map {
+	margin: 0;
+	background: var(--ad-card);
+	border-radius: 14px;
+	padding: 12px;
+	box-shadow: 0 0 0 1px var(--ad-line);
+}
+.ad-map__cap {
+	margin-bottom: 8px;
+	font-size: 0.875rem;
+}
+.ss-plan__pitch {
+	fill: #f3f6f4;
+	stroke: #c5d3c9;
+	stroke-width: 1.25;
+}
+.ss-plan__field.is-used .ss-plan__pitch {
+	fill: color-mix(in srgb, var(--plan) 24%, white);
+	stroke: var(--plan);
+	stroke-width: 3;
+}
+.ss-plan .ss-map__lines {
+	stroke: rgb(11 16 32 / 0.12);
+}
+.ss-plan__num {
+	fill: #8a93a3;
+	font-family: var(--font-sans);
+	font-weight: 700;
+}
+.ss-plan__tag {
+	fill: #8a93a3;
+	font-family: var(--font-sans);
+	font-weight: 600;
+}
+.ss-plan__field.is-used .ss-plan__num,
+.ss-plan__field.is-used .ss-plan__tag {
+	fill: var(--ss-ink);
+}
+
+.ad-checks {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	font-size: 0.875rem;
+	line-height: 1.5;
+}
+.ad-checks li {
+	padding: 10px 14px;
+	border-radius: 10px;
+	background: var(--ad-card);
+	box-shadow: 0 0 0 1px var(--ad-line);
+}
+
+.ad-drawhead {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+}
+.ad-drawhead .ad-h3 {
+	margin: 0;
+}
+.ad-weeks {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+}
+.ad-week {
+	min-width: 40px;
+	height: 40px;
+	border: 0;
+	border-radius: 8px;
+	background: var(--ad-card);
+	box-shadow: inset 0 0 0 1px var(--ad-line);
+	font: inherit;
+	font-size: 0.875rem;
+	font-weight: 600;
+	cursor: pointer;
+}
+.ad-week[aria-pressed="true"] {
+	background: var(--ss-blue);
+	color: #fff;
+	box-shadow: none;
+}
+
+.ad-teamgrid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 16px;
+}
+.ad-list {
+	margin: 8px 0 0;
+	padding-left: 20px;
+	font-size: 0.875rem;
+	line-height: 1.6;
+}
+.ad-list--issues li {
+	margin-bottom: 4px;
+}
+
+/* From tablet width up, every pitch in a wave sits on one line */
+@media (min-width: 720px) {
+	.ad-strip {
+		grid-template-columns: repeat(var(--cells), minmax(0, 1fr));
+	}
+	.ad-maps,
+	.ad-teamgrid {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+/* Scenarios side by side only once there's room for 10 pitches per line in each */
+@media (min-width: 1240px) {
+	.ad-compare-grid {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+@media (min-width: 1000px) {
+	.ad-teamgrid {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}
+
+/* ---------- Pros / cons (marker + text, never colour alone) ---------- */
+.ad-pc {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+.ad-pc li {
+	display: grid;
+	grid-template-columns: 22px 1fr;
+	gap: 8px;
+	align-items: start;
+	line-height: 1.45;
+}
+.ad-pc__mark {
+	display: inline-grid;
+	place-items: center;
+	width: 20px;
+	height: 20px;
+	margin-top: 1px;
+	border-radius: 50%;
+	font-weight: 700;
+	font-size: 0.875rem;
+	line-height: 1;
+	color: #fff;
+}
+.ad-pc--pro .ad-pc__mark {
+	background: var(--ad-good);
+}
+.ad-pc--con .ad-pc__mark {
+	background: var(--ad-bad);
+}
+.ad-pc-row + .ad-pc-row td,
+.ad-pc-row + .ad-pc-row th {
+	padding-bottom: 14px;
+}

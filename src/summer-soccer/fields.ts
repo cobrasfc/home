@@ -128,6 +128,32 @@ export const GROUND = {
 	] satisfies Landmark[]
 };
 
+export type Ground = { viewBox: typeof GROUND.viewBox; fields: FieldDef[]; landmarks: Landmark[] };
+
+// Alternative layout (planning only — the public map uses GROUND): each winter pitch split into three even fields
+// running across it, so each field's goals sit on the winter pitch's sidelines. Fields 1–3 on the left pitch
+// (north → south), 4–6 on the right (north-west → south-east). Minis unchanged.
+const THIRD = { w: (PITCH.length - 2 * ALLEY) / 3, h: PITCH.width };
+
+function third(pitch: ReturnType<typeof frame>, index: -1 | 0 | 1, meta: Meta): FieldDef {
+	const c = pitch.at(index * (THIRD.w + ALLEY), 0);
+	return { ...meta, cx: round(c.x), cy: round(c.y), w: round(THIRD.w), h: round(THIRD.h), rotate: round(pitch.angle) };
+}
+
+export const GROUND_THIRDS: Ground = {
+	viewBox: GROUND.viewBox,
+	fields: [
+		third(left, -1, { id: 'field-1', label: 'Field 1', short: '1', area: 'left-hand pitch, north end', aliases: [] }),
+		third(left, 0, { id: 'field-2', label: 'Field 2', short: '2', area: 'left-hand pitch, middle', aliases: [] }),
+		third(left, 1, { id: 'field-3', label: 'Field 3', short: '3', area: 'left-hand pitch, south end', aliases: [] }),
+		third(right, -1, { id: 'field-4', label: 'Field 4', short: '4', area: 'right-hand pitch, north-west end', aliases: [] }),
+		third(right, 0, { id: 'field-5', label: 'Field 5', short: '5', area: 'right-hand pitch, middle', aliases: [] }),
+		third(right, 1, { id: 'field-6', label: 'Field 6', short: '6', area: 'right-hand pitch, south-east end', aliases: [] }),
+		...GROUND.fields.filter((f) => f.id.startsWith('minis'))
+	],
+	landmarks: GROUND.landmarks
+};
+
 const key = (value: string) => value.toLowerCase().replace(/[^a-z0-9]/g, '');
 
 const LOOKUP = new Map<string, FieldDef>();

@@ -1,0 +1,419 @@
+---
+// Summer Soccer planning portal (committee): compares field-layout scenarios at a high level.
+// Data comes from plan_scenarios.py (run on the club's computer next to the player list) → scenarios.json.
+// Contains team-level information only — no player names, FFA numbers or contact details.
+import '../../styles/global.css';
+import '../../summer-soccer/schedule.css';
+import '../../summer-soccer/admin/admin.css';
+import data from '../../summer-soccer/admin/scenarios.json';
+import { GROUND, GROUND_THIRDS } from '../../summer-soccer/fields';
+import { GroundPlan, type PlanAssignment } from '../../summer-soccer/ui/FieldMap';
+import { SITE } from '../../site.config';
+import { withBase } from '../../utils/withBase';
+
+type Scenario = (typeof data.scenarios)[number];
+type Wave = Scenario['nights'][number]['waves'][number];
+
+// Categorical palette (dataviz reference, slots 1–7 in fixed order) — always paired with a text tag
+const COMP_COLOURS: Record<string, string> = {
+	mixed: '#2a78d6',
+	aam: '#eb6834',
+	aaw: '#1baf7a',
+	u67: '#eda100',
+	u89: '#e87ba4',
+	u1013: '#008300',
+	u1215: '#4a3aa7'
+};
+const comp = Object.fromEntries(data.comps.map((c) => [c.id, c]));
+const compName = (id: string) => comp[id]?.name ?? id;
+const fieldLabel = (id: string) => (id.startsWith('minis') ? `Minis ${id.slice(-1)}` : `Field ${id.split('-')[1]}`);
+const groundFor = (s: Scenario) => (s.layout === 'thirds' ? GROUND_THIRDS : GROUND);
+const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? '' : 's'}`;
+const nightDate = (iso: string) =>
+	new Date(`${iso}T12:00:00`).toLocaleDateString('en-AU', { weekday: 'short', day: 'numeric', month: 'short' });
+
+// Approximate field sizes, assuming ~100 m × 64 m winter pitches split with ~2.8 m alleys
+const FIELD_SIZE: Record<string, string> = { quarters: 'about 49 × 31 m', thirds: 'about 64 × 32 m' };
+
+function assignments(wave: Wave): Record<string, PlanAssignment> {
+	const out: Record<string, PlanAssignment> = {};
+	for (const a of wave.allocations) for (const f of a.fields) out[f] = { tag: comp[a.comp].short, colour: COMP_COLOURS[a.comp] };
+	return out;
+}
+
+/** Pitch cells for the strip chart: every main field then the minis, each used-by-comp or free */
+function cells(s: Scenario, wave: Wave) {
+	const a = assignments(wave);
+	const ids = [...Array.from({ length: s.mainFields }, (_, i) => `field-${i + 1}`), 'minis-1', 'minis-2'];
+	return ids.map((id) => ({ id, label: id.startsWith('minis') ? `M${id.slice(-1)}` : id.split('-')[1], use: a[id] ?? null }));
+}
+
+const waveUse = (s: Scenario, night: string) =>
+	s.nights.find((n) => n.night === night)!.waves.map((w) => `W${w.wave} ${w.mainAllocated}/${s.mainFields}`).join(' · ');
+const mondayPeak = (s: Scenario) => Math.max(...s.nights.find((n) => n.night === 'Monday')!.waves.map((w) => w.gamesPeak));
+
+/** Shared-contact clashes grouped by the teams involved */
+function contactSummary(s: Scenario) {
+	const byTeams = new Map<string, { teams: string[]; weeks: Set<number>; night: string; wave: number[] }>();
+	for (const c of s.contactClashes) {
+		const group = new Set(c.teams);
+		const involved = [...new Set(c.games.flat().filter((t) => group.has(t)))].sort();
+		const key = involved.join(' + ');
+		const entry = byTeams.get(key) ?? { teams: involved, weeks: new Set<number>(), night: c.night, wave: [] };
+		entry.weeks.add(c.week);
+		if (!entry.wave.includes(c.wave)) entry.wave.push(c.wave);
+		byTeams.set(key, entry);
+	}
+	return [...byTeams.values()];
+}
+const teamComp = Object.fromEntries(data.teams.map((t) => [t.name, t.comp]));
+const sameComp = (teams: string[]) => new Set(teams.map((t) => teamComp[t])).size === 1;
+
+// Every shared-contact pairing that clashes in either scenario, for the comparison table
+const contactRows = (() => {
+	const keys = new Map<string, string[]>();
+	for (const s of data.scenarios) for (const c of contactSummary(s)) keys.set(c.teams.join(' + '), c.teams);
+	return [...keys.values()].map((teams) => ({
+		teams,
+		same: sameComp(teams),
+		per: data.scenarios.map((s) => contactSummary(s).find((c) => c.teams.join(' + ') === teams.join(' + '))?.weeks.size ?? 0)
+	}));
+})();
+
+const leaderText = (s: Scenario) =>
+	s.gameLeaderComps.length
+		? `${s.gameLeaderComps.map(compName).join(', ')} teams are resting (they play the other wave)`
+		: 'No U10–13 or U12–15 teams are resting while the U6/7s play';
+
+const splitText = (s: Scenario) => {
+	const entries = Object.entries(s.waveSplit);
+	if (!entries.length) return 'Fixed: Mixed always 6:30 pm; Men’s and Women’s always 7:20 pm';
+	return `Alternates: each team plays ${Math.min(...entries.map(([, v]) => v.earlyMin))}–${Math.max(...entries.map(([, v]) => v.earlyMax))} of its games at 6:30 pm, the rest at 7:20 pm`;
+};
+
+const compsInOrder = data.comps;
+const generated = new Date(data.generatedAt).toLocaleString('en-AU', { dateStyle: 'medium', timeStyle: 'short' });
+const weeks = Array.from({ length: data.weeks }, (_, i) => i + 1);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="noindex, nofollow" />
+		<meta name="theme-color" content="#253d97" />
+		<link rel="icon" type="image/png" href={withBase('/assets/favicon.png')} />
+		<title>Summer Soccer planning | {SITE.name}</title>
+	</head>
+	<body class="ss-body ad-body">
+		<header class="ss-header">
+			<div class="ad-wrap ss-header__inner">
+				<a class="ss-brand" href={withBase('/')} aria-label={`${SITE.name} home`}>
+					<img src={withBase('/assets/logo-shield.svg')} width="34" height="40" alt="" />
+					<span class="ss-brand__text">
+						<span class="ss-brand__title">Summer Soccer planning</span>
+						<span class="ss-brand__club">Committee view · draft</span>
+					</span>
+				</a>
+				<a class="ss-header__action ad-headlink" href={withBase('/summer-soccer/schedule')}>Public schedule</a>
+			</div>
+		</header>
+
+		<main class="ad-wrap ad-main">
+			<div class="ad-intro">
+				<h1 class="ad-title">Compare the field layouts</h1>
+				<p class="ad-lede">
+					Two ways to run Summer Soccer 2026 at Metford: {data.teams.length} teams in {data.comps.length} competitions over {data.weeks} weeks.
+					Both scenarios use identical match-ups, so only the fields, waves and times differ.
+				</p>
+				<p class="ad-meta">Generated {generated} from the club’s player list. Team-level information only.</p>
+			</div>
+
+			<div class="ad-tabs" role="tablist" aria-label="Views">
+				<button type="button" role="tab" id="tab-compare" aria-controls="panel-compare" aria-selected="true" data-tab="compare">Compare</button>
+				{data.scenarios.map((s) => (
+					<button type="button" role="tab" id={`tab-${s.id}`} aria-controls={`panel-${s.id}`} aria-selected="false" tabindex="-1" data-tab={s.id}>
+						{s.name}<span class="ad-tabs__sub"> · {s.title}</span>
+					</button>
+				))}
+				<button type="button" role="tab" id="tab-teams" aria-controls="panel-teams" aria-selected="false" tabindex="-1" data-tab="teams">Teams &amp; data</button>
+			</div>
+
+			<!-- ============================== COMPARE ============================== -->
+			<section class="ad-panel" id="panel-compare" role="tabpanel" aria-labelledby="tab-compare">
+				<div class="ad-legend" aria-label="Competition colours">
+					{compsInOrder.map((c) => (
+						<span class="ad-legend__item"><span class="ad-chip" style={`--plan:${COMP_COLOURS[c.id]}`}>{c.short}</span>{c.name}</span>
+					))}
+					<span class="ad-legend__item"><span class="ad-chip ad-chip--free">free</span>Unused pitch</span>
+				</div>
+
+				<h2 class="ad-h2">Pitch use by wave</h2>
+				<p class="ad-note">Each square is one pitch: the number is the field, the letters are the competition using it. Hatched squares are free.</p>
+				<div class="ad-compare-grid">
+					{data.scenarios.map((s) => (
+						<article class="ad-card">
+							<h3 class="ad-h3">{s.name} <span class="ad-muted">· {s.title}</span></h3>
+							{s.nights.map((n) => (
+								<div class="ad-night">
+									<h4 class="ad-h4">{n.night}</h4>
+									{n.waves.map((w) => (
+										<div class="ad-wave">
+											<p class="ad-wave__time"><strong>Wave {w.wave}</strong><br />{w.start}–{w.end}</p>
+											<ol class="ad-strip" style={`--cells:${cells(s, w).length}`} aria-label={`${s.name}, ${n.night} wave ${w.wave}: ${w.allocations.map((a) => `${compName(a.comp)} ${plural(a.pitches, 'pitch')}`).join(', ')}; ${plural(w.mainEmpty, 'main pitch')} free`}>
+												{cells(s, w).map((c) => (
+													<li class={`ad-cell${c.use ? '' : ' is-free'}${c.id.startsWith('minis') ? ' is-mini' : ''}`} style={c.use ? `--plan:${c.use.colour}` : undefined} title={`${fieldLabel(c.id)}: ${c.use ? compName(Object.keys(comp).find((k) => comp[k].short === c.use!.tag)!) : 'free'}`}>
+														<span class="ad-cell__num">{c.label}</span>
+														<span class="ad-cell__tag">{c.use ? c.use.tag : 'free'}</span>
+													</li>
+												))}
+											</ol>
+											<p class="ad-wave__free">{w.mainEmpty === 0 ? 'Full' : `${w.mainEmpty} free`}</p>
+										</div>
+									))}
+								</div>
+							))}
+						</article>
+					))}
+				</div>
+
+				<h2 class="ad-h2">Side by side</h2>
+				<div class="ad-tablewrap">
+					<table class="ad-table ad-table--compare">
+						<thead>
+							<tr><th scope="col">What matters</th>{data.scenarios.map((s) => <th scope="col">{s.name}<br /><span class="ad-muted">{s.title}</span></th>)}</tr>
+						</thead>
+						<tbody>
+							<tr class="ad-pc-row">
+								<th scope="row">Pros</th>
+								{data.scenarios.map((s) => (
+									<td><ul class="ad-pc ad-pc--pro">{s.pros.map((p) => <li><span class="ad-pc__mark" aria-hidden="true">+</span><span class="sr-only">Pro: </span>{p}</li>)}</ul></td>
+								))}
+							</tr>
+							<tr class="ad-pc-row">
+								<th scope="row">Cons</th>
+								{data.scenarios.map((s) => (
+									<td><ul class="ad-pc ad-pc--con">{s.cons.map((c) => <li><span class="ad-pc__mark" aria-hidden="true">−</span><span class="sr-only">Con: </span>{c}</li>)}</ul></td>
+								))}
+							</tr>
+							<tr><th scope="row">Field layout</th>{data.scenarios.map((s) => <td>{s.description}</td>)}</tr>
+							<tr><th scope="row">Field size (approx.)</th>{data.scenarios.map((s) => <td>{FIELD_SIZE[s.layout]}</td>)}</tr>
+							<tr><th scope="row">Monday pitches used</th>{data.scenarios.map((s) => <td>{waveUse(s, 'Monday')}</td>)}</tr>
+							<tr><th scope="row">Tuesday pitches used</th>{data.scenarios.map((s) => <td>{waveUse(s, 'Tuesday')} <span class="ad-muted">(+ both minis for the U6/7s)</span></td>)}</tr>
+							<tr><th scope="row">Referees needed at once (Monday)</th>{data.scenarios.map((s) => <td><strong>{mondayPeak(s)}</strong> games at the busiest wave</td>)}</tr>
+							<tr><th scope="row">Monday kick-off times</th>{data.scenarios.map((s) => <td>{splitText(s)}</td>)}</tr>
+							<tr>
+								<th scope="row">Dual-registered players (Mixed + Men’s/Women’s)</th>
+								{data.scenarios.map((s) => (
+									<td>
+										<span class={`ad-status ${s.dualClashes.length ? 'is-bad' : 'is-good'}`}>
+											<span aria-hidden="true">{s.dualClashes.length ? '✕' : '✓'}</span>
+											{s.dualClashes.length ? `${plural(s.dualClashes.length, 'clash')}` : 'No clashes'}
+										</span>
+										<span class="ad-muted"> {Object.keys(s.waveSplit).length ? '— games scheduled around them each week' : '— Mixed has its own wave'}</span>
+									</td>
+								))}
+							</tr>
+							<tr><th scope="row">Game leaders for the U6/7s</th>{data.scenarios.map((s) => <td>{leaderText(s)}</td>)}</tr>
+							{contactRows.map((r) => (
+								<tr>
+									<th scope="row">Shared coach/contact: {r.teams.join(' & ')}{r.same && <span class="ad-muted"> (same competition)</span>}</th>
+									{r.per.map((n) => (
+										<td>
+											<span class={`ad-status ${n ? 'is-warn' : 'is-good'}`}><span aria-hidden="true">{n ? '!' : '✓'}</span>{n ? `Same wave in ${n} of ${data.weeks} weeks` : 'Never in the same wave'}</span>
+										</td>
+									))}
+								</tr>
+							))}
+							<tr><th scope="row">Colour clashes (one team in bibs)</th>{data.scenarios.map((s) => <td>{s.bibGames} games</td>)}</tr>
+						</tbody>
+					</table>
+				</div>
+				{contactRows.some((r) => r.same) && (
+					<p class="ad-note">Teams in the same competition always play in the same wave, so a shared contact there can only be avoided by moving a team to a different competition.</p>
+				)}
+			</section>
+
+			<!-- ============================== SCENARIOS ============================== -->
+			{data.scenarios.map((s) => (
+				<section class="ad-panel" id={`panel-${s.id}`} role="tabpanel" aria-labelledby={`tab-${s.id}`} hidden>
+					<h2 class="ad-h2">{s.name}: {s.title}</h2>
+					<p class="ad-lede">{s.description} Fields shown are each competition’s pitches; games rotate around them week to week.</p>
+
+					{s.nights.map((n) => (
+						<div class="ad-block">
+							<h3 class="ad-h3">{n.night}</h3>
+							<div class="ad-maps">
+								{n.waves.map((w) => (
+									<figure class="ad-map">
+										<figcaption class="ad-map__cap">
+											<strong>Wave {w.wave}</strong> · {w.start}–{w.end}
+											<span class="ad-muted"> · {w.allocations.map((a) => `${comp[a.comp].short} ${a.pitches}`).join(', ')} · {w.mainEmpty === 0 ? 'full' : `${w.mainEmpty} free`}</span>
+										</figcaption>
+										<Fragment set:html={GroundPlan(groundFor(s), assignments(w), `${s.name} ${n.night} wave ${w.wave}`, `${s.id}-${n.night}-${w.wave}`)} />
+									</figure>
+								))}
+							</div>
+						</div>
+					))}
+
+					<div class="ad-block">
+						<h3 class="ad-h3">Checks</h3>
+						<ul class="ad-checks">
+							<li>
+								<span class={`ad-status ${s.dualClashes.length ? 'is-bad' : 'is-good'}`}><span aria-hidden="true">{s.dualClashes.length ? '✕' : '✓'}</span>Dual-registered players</span>
+								{s.dualClashes.length
+									? ` ${plural(s.dualClashes.length, 'week')} where a player's two teams play at the same time.`
+									: ` No player's Mixed and Men's/Women's teams ever play at the same time (${data.dualLinks.map((l) => `${l.senior} ↔ ${l.mixed}`).join('; ')}).`}
+							</li>
+							{contactSummary(s).map((c) => (
+								<li>
+									<span class="ad-status is-warn"><span aria-hidden="true">!</span>Shared contact</span>
+									{' '}{c.teams.join(' & ')} play in the same wave ({c.night}) in {c.weeks.size} of {data.weeks} weeks{sameComp(c.teams) ? ' — same competition' : ''}.
+								</li>
+							))}
+							<li><span class="ad-status is-info"><span aria-hidden="true">i</span>Game leaders</span> {leaderText(s)}.</li>
+						</ul>
+					</div>
+
+					<div class="ad-block">
+						<div class="ad-drawhead">
+							<h3 class="ad-h3">Draw</h3>
+							<div class="ad-weeks" role="group" aria-label={`${s.name} week`}>
+								{weeks.map((w) => (
+									<button type="button" class="ad-week" data-scenario={s.id} data-week={w} aria-pressed={w === 1 ? 'true' : 'false'}>{w}</button>
+								))}
+							</div>
+						</div>
+						{weeks.map((wk) => (
+							<div data-week-panel={`${s.id}-${wk}`} hidden={wk !== 1}>
+								{s.nights.map((n) => {
+									const games = s.fixtures.filter((f) => f.week === wk && f.night === n.night)
+										.sort((a, b) => a.wave - b.wave || a.field.localeCompare(b.field, 'en', { numeric: true }));
+									return (
+										<div class="ad-tablewrap">
+											<table class="ad-table ad-table--draw">
+												<caption>Week {wk} · {n.night} {games[0] ? nightDate(games[0].date) : ''}</caption>
+												<thead><tr><th scope="col">Time</th><th scope="col">Field</th><th scope="col">Competition</th><th scope="col">Match</th><th scope="col">Note</th></tr></thead>
+												<tbody>
+													{games.map((g) => (
+														<tr>
+															<td class="ad-nowrap">{g.start}</td>
+															<td class="ad-nowrap">{fieldLabel(g.field)}</td>
+															<td class="ad-nowrap"><span class="ad-chip ad-chip--sm" style={`--plan:${COMP_COLOURS[g.comp]}`}>{comp[g.comp].short}</span></td>
+															<td>{g.team1} <span class="ad-muted">v</span> {g.team2}</td>
+															<td class="ad-muted">{g.note.replace(/^Colour clash: /, '')}</td>
+														</tr>
+													))}
+												</tbody>
+											</table>
+										</div>
+									);
+								})}
+							</div>
+						))}
+					</div>
+				</section>
+			))}
+
+			<!-- ============================== TEAMS & DATA ============================== -->
+			<section class="ad-panel" id="panel-teams" role="tabpanel" aria-labelledby="tab-teams" hidden>
+				<h2 class="ad-h2">Competitions</h2>
+				<div class="ad-tablewrap">
+					<table class="ad-table">
+						<thead><tr><th scope="col">Competition</th><th scope="col">Night</th><th scope="col">Teams</th><th scope="col">Games a week</th><th scope="col">Games per team</th><th scope="col">Match length</th></tr></thead>
+						<tbody>
+							{compsInOrder.map((c) => {
+								const ts = data.teams.filter((t) => t.comp === c.id);
+								const g = ts.map((t) => t.games);
+								return (
+									<tr>
+										<th scope="row"><span class="ad-chip ad-chip--sm" style={`--plan:${COMP_COLOURS[c.id]}`}>{c.short}</span> {c.name}</th>
+										<td>{c.night}</td>
+										<td>{ts.length}{ts.length % 2 ? <span class="ad-muted"> (bye each week)</span> : ''}</td>
+										<td>{Math.floor(ts.length / 2)}</td>
+										<td>{Math.min(...g) === Math.max(...g) ? Math.min(...g) : `${Math.min(...g)}–${Math.max(...g)}`}</td>
+										<td>{c.minutes} min</td>
+									</tr>
+								);
+							})}
+						</tbody>
+					</table>
+				</div>
+
+				<h2 class="ad-h2">Teams</h2>
+				<div class="ad-teamgrid">
+					{compsInOrder.map((c) => (
+						<div class="ad-card">
+							<h3 class="ad-h3"><span class="ad-chip ad-chip--sm" style={`--plan:${COMP_COLOURS[c.id]}`}>{c.short}</span> {c.name}</h3>
+							<table class="ad-table ad-table--teams">
+								<thead><tr><th scope="col">Team</th><th scope="col">Shirt</th><th scope="col" class="ad-num">Players</th><th scope="col" class="ad-num">Games</th></tr></thead>
+								<tbody>
+									{data.teams.filter((t) => t.comp === c.id).map((t) => (
+										<tr>
+											<td>{t.name}{t.placeholder && <span class="ad-flag">placeholder</span>}</td>
+											<td class="ad-muted">{t.colour || 'TBC'}</td>
+											<td class="ad-num">{t.players}{t.dualIn ? <span class="ad-muted"> +{t.dualIn} dual</span> : ''}</td>
+											<td class="ad-num">{t.games}</td>
+										</tr>
+									))}
+								</tbody>
+							</table>
+						</div>
+					))}
+				</div>
+
+				<h2 class="ad-h2">Dual registrations</h2>
+				<p class="ad-note">Players registered in a Mixed team and a Men’s/Women’s team (matched by FFA number). Both scenarios keep these pairs of teams apart.</p>
+				<ul class="ad-list">
+					{data.dualLinks.map((l) => <li><strong>{l.senior}</strong> <span class="ad-muted">({compName(l.seniorComp)})</span> ↔ <strong>{l.mixed}</strong> <span class="ad-muted">(Mixed)</span> · {plural(l.players, 'player')}</li>)}
+				</ul>
+
+				<h2 class="ad-h2">Shared coaches / contacts</h2>
+				<p class="ad-note">Teams whose registrations list the same contact phone number.</p>
+				<ul class="ad-list">
+					{data.contactGroups.map((g) => <li>{g.join(' · ')}</li>)}
+				</ul>
+
+				<h2 class="ad-h2">Data to check</h2>
+				<ul class="ad-list ad-list--issues">
+					{data.issues.map((i) => <li><strong>{i.kind}:</strong> {i.detail}</li>)}
+				</ul>
+			</section>
+		</main>
+
+		<script>
+			// Tabs (hash-linkable) and per-scenario week pickers
+			const tabs = [...document.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
+			function show(id: string, focus = false) {
+				const tab = tabs.find((t) => t.dataset.tab === id) ?? tabs[0];
+				for (const t of tabs) {
+					const on = t === tab;
+					t.setAttribute('aria-selected', String(on));
+					t.tabIndex = on ? 0 : -1;
+					document.getElementById(t.getAttribute('aria-controls')!)!.hidden = !on;
+				}
+				if (focus) tab.focus();
+				history.replaceState(null, '', `#${tab.dataset.tab}`);
+			}
+			tabs.forEach((t, i) => {
+				t.addEventListener('click', () => show(t.dataset.tab!));
+				t.addEventListener('keydown', (e) => {
+					const step = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+					if (step) show(tabs[(i + step + tabs.length) % tabs.length].dataset.tab!, true);
+				});
+			});
+			if (location.hash) show(location.hash.slice(1));
+			addEventListener('hashchange', () => show(location.hash.slice(1)));
+
+			document.addEventListener('click', (e) => {
+				const btn = (e.target as HTMLElement).closest<HTMLButtonElement>('.ad-week');
+				if (!btn) return;
+				const { scenario, week } = btn.dataset;
+				document.querySelectorAll<HTMLButtonElement>(`.ad-week[data-scenario="${scenario}"]`).forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+				document.querySelectorAll<HTMLElement>(`[data-week-panel^="${scenario}-"]`).forEach((p) => (p.hidden = p.dataset.weekPanel !== `${scenario}-${week}`));
+			});
+		</script>
+	</body>
+</html>

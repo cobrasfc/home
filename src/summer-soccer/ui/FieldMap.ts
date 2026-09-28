@@ -1,7 +1,7 @@
 // Coded ground map (SVG), laid out from the satellite image. Every field is drawn; the game's field is highlighted
 // with a gentle pulse. Landmarks (canteen, winter goal posts, railway) help people get their bearings.
 // The map is never the only place the field is named — the card always says "Field 6" in text too.
-import { GROUND, fieldById, type FieldDef, type Landmark } from '../fields';
+import { GROUND, fieldById, type FieldDef, type Ground, type Landmark } from '../fields';
 import { esc } from '../utils/html';
 
 const rotation = (r: { cx: number; cy: number; rotate: number }) => `rotate(${r.rotate} ${r.cx} ${r.cy})`;
@@ -94,4 +94,50 @@ export function MapKey(): string {
 		<span><svg viewBox="0 0 24 14" width="20" height="12" aria-hidden="true"><path class="ss-map__goal" d="M3 13 V2 H21 V13"/></svg> Winter goal posts</span>
 		<span><span class="ss-map__key-canteen" aria-hidden="true"></span> Canteen</span>
 	</p>`;
+}
+
+export interface PlanAssignment {
+	/** Short text drawn under the field number, e.g. "AAM" */
+	tag: string;
+	/** CSS colour identifying the competition (always paired with the text tag) */
+	colour: string;
+}
+
+/**
+ * Planning view of the ground: every field drawn, fields in use tinted by competition and tagged in text,
+ * unused fields left plain and marked "free". Used by the admin portal to compare layouts.
+ */
+export function GroundPlan(ground: Ground, assignments: Record<string, PlanAssignment>, title: string, idPrefix: string): string {
+	const vb = ground.viewBox;
+	const fields = ground.fields
+		.map((f) => {
+			const a = assignments[f.id];
+			const isMini = f.id.startsWith('minis');
+			const num = isMini ? `M${f.id.slice(-1)}` : f.short;
+			const style = a ? ` style="--plan:${esc(a.colour)}"` : '';
+			const size = Math.min(f.w, f.h);
+			const numSize = Math.round(size * (isMini ? 0.34 : 0.3));
+			const tagSize = Math.round(size * (isMini ? 0.2 : 0.17));
+			return `<g class="ss-plan__field${a ? ' is-used' : ''}"${style}>
+				<g transform="${rotation(f)}">
+					<rect class="ss-plan__pitch" x="${f.cx - f.w / 2}" y="${f.cy - f.h / 2}" width="${f.w}" height="${f.h}" rx="10"/>
+					${pitchMarkings(f)}
+				</g>
+				<text class="ss-plan__num" x="${f.cx}" y="${f.cy - tagSize * 0.35}" font-size="${numSize}" text-anchor="middle">${esc(num)}</text>
+				<text class="ss-plan__tag" x="${f.cx}" y="${f.cy + tagSize * 1.25}" font-size="${tagSize}" text-anchor="middle">${esc(a ? a.tag : 'free')}</text>
+			</g>`;
+		})
+		.join('');
+	const used = ground.fields.filter((f) => assignments[f.id]);
+	const desc = used.length
+		? `${used.map((f) => `${f.label}: ${assignments[f.id].tag}`).join('; ')}. Other fields free.`
+		: 'No fields in use.';
+	return `<svg class="ss-map__svg ss-plan" viewBox="${vb.x} ${vb.y} ${vb.w} ${vb.h}" role="img" aria-labelledby="${idPrefix}-t ${idPrefix}-d" focusable="false">
+		<title id="${idPrefix}-t">${esc(title)}</title>
+		<desc id="${idPrefix}-d">${esc(desc)}</desc>
+		<rect class="ss-map__grass" x="${vb.x}" y="${vb.y}" width="${vb.w}" height="${vb.h}" rx="36"/>
+		${ground.landmarks.filter((l) => l.kind !== 'goal').map(landmark).join('')}
+		${fields}
+		${ground.landmarks.filter((l) => l.kind === 'goal').map(landmark).join('')}
+	</svg>`;
 }

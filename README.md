@@ -102,6 +102,17 @@ are in `SUMMER_SCHEDULE`.
 Code layout: `src/summer-soccer/data` (sheet adapter, CSV + fixture parsing), `domain` (team IDs, next-game and
 date logic), `utils` (timezone, `.ics`, URL/local storage), `ui` (rendering), `app.ts` (wiring).
 
+## Summer Soccer planning portal
+
+`/summer-soccer/admin` (not linked, not indexed) compares field-layout scenarios for the committee: pitch use per
+wave, ground maps, referees needed, dual-registration and shared-contact clashes, and the full draw per scenario.
+
+It's built from `src/summer-soccer/admin/scenarios.json`, which is generated on the club computer by
+`plan_scenarios.py` in the "Summer Soccer 2026 Draw" folder (it reads the player list and `teams.tsv`). Only
+team-level data is written to the JSON — no player names, FFA numbers or phone numbers — so the player list itself
+never goes into this repo. To update: edit the scenarios / dual registrations at the top of `plan_scenarios.py`,
+run it, then build and push the site.
+
 ## Replace placeholder images
 
 Placeholders live in:
