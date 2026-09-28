@@ -30,6 +30,8 @@ const state = {
 	source: null as SourceResult | null,
 	/** Showing a saved copy because the latest fetch failed */
 	stale: false,
+	/** Showing the saved copy while the first fetch is still in flight */
+	fromCache: false,
 	refreshing: false,
 	error: null as string | null,
 	selectedIds: readTeamIdsFromUrl() ?? readSavedTeamIds(),
@@ -73,6 +75,7 @@ async function load() {
 		else state.error = error instanceof Error ? error.message : String(error);
 	} finally {
 		state.refreshing = false;
+		state.fromCache = false;
 		state.lastFetch = Date.now();
 		render(true);
 	}
@@ -194,13 +197,19 @@ function signature(): string {
 }
 
 function render(dataChanged = false) {
-	changeTeamsButton?.toggleAttribute('hidden', true);
-	root.setAttribute('aria-busy', 'false');
-
 	if (!state.schedule) {
-		if (state.error) root.innerHTML = `<div data-status-bar>${statusBar()}</div>${ErrorState(state.error)}`;
+		if (state.error) {
+			root.setAttribute('aria-busy', 'false');
+			root.innerHTML = `<div data-status-bar>${statusBar()}</div>${ErrorState(state.error)}`;
+		}
 		return;
 	}
+	// A saved copy may predate the team in the link (e.g. fixtures changed since this phone last visited) —
+	// keep the loading state rather than wrongly saying the team can't be found; fresh data decides.
+	if (state.fromCache && resolveTeams(state.schedule, state.selectedIds).unknownIds.length) return;
+
+	changeTeamsButton?.toggleAttribute('hidden', true);
+	root.setAttribute('aria-busy', 'false');
 	// Don't rebuild the picker under someone's thumb when a background refresh lands
 	if (state.view === 'picker' && dataChanged && root.querySelector('.ss-picker')) {
 		updateStatusBar();
@@ -342,6 +351,7 @@ if (cached) {
 	try {
 		applyRows(cached);
 		state.refreshing = true;
+		state.fromCache = true;
 		render();
 	} catch {
 		state.schedule = null;

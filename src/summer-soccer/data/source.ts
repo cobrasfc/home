@@ -65,6 +65,9 @@ export function defaultSource(): FixtureSource {
 // (clearly labelled with when it was saved) while a fresh copy is fetched.
 const CACHE_KEY = 'cobras-summer-fixtures-cache-v1';
 
+/** A saved copy only counts for the source it came from (switching sheet or preview file discards it). */
+const sourceKey = () => SUMMER_SCHEDULE.sheetCsvUrl || SUMMER_SCHEDULE.sampleCsvPath;
+
 interface CachedRows {
 	rows: string[][];
 	fetchedAt: string;
@@ -74,7 +77,7 @@ interface CachedRows {
 
 export function readCachedRows(): SourceResult | null {
 	const cached = readJson<CachedRows>(CACHE_KEY);
-	if (!cached || !Array.isArray(cached.rows) || cached.source !== SUMMER_SCHEDULE.sheetCsvUrl) return null;
+	if (!cached || !Array.isArray(cached.rows) || cached.source !== sourceKey()) return null;
 	return { rows: cached.rows, fetchedAt: new Date(cached.fetchedAt), isSample: cached.isSample };
 }
 
@@ -83,6 +86,6 @@ export function writeCachedRows(result: SourceResult): void {
 		rows: result.rows,
 		fetchedAt: result.fetchedAt.toISOString(),
 		isSample: result.isSample,
-		source: SUMMER_SCHEDULE.sheetCsvUrl
+		source: sourceKey()
 	});
 }
