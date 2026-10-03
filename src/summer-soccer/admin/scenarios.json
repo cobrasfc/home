@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-03T23:17",
+ "generatedAt": "2026-10-03T23:28",
  "weeks": 10,
  "comps": [
   {
@@ -16,7 +16,7 @@
    "short": "AAM",
    "night": "Monday",
    "minutes": 40,
-   "teams": 6
+   "teams": 7
   },
   {
    "id": "aaw",
@@ -117,8 +117,8 @@
    "players": 4,
    "dualIn": 0,
    "placeholder": false,
-   "games": 10,
-   "byes": 0
+   "games": 9,
+   "byes": 1
   },
   {
    "name": "Dongos / Rutherford Dragons",
@@ -127,8 +127,18 @@
    "players": 9,
    "dualIn": 0,
    "placeholder": false,
-   "games": 10,
-   "byes": 0
+   "games": 9,
+   "byes": 1
+  },
+  {
+   "name": "Goal Diggers",
+   "comp": "aam",
+   "colour": "Red",
+   "players": 4,
+   "dualIn": 0,
+   "placeholder": false,
+   "games": 9,
+   "byes": 1
   },
   {
    "name": "Gooners FC",
@@ -137,8 +147,8 @@
    "players": 4,
    "dualIn": 0,
    "placeholder": false,
-   "games": 10,
-   "byes": 0
+   "games": 8,
+   "byes": 2
   },
   {
    "name": "Metford AAM",
@@ -147,8 +157,8 @@
    "players": 7,
    "dualIn": 1,
    "placeholder": false,
-   "games": 10,
-   "byes": 0
+   "games": 8,
+   "byes": 2
   },
   {
    "name": "Muppets",
@@ -157,8 +167,8 @@
    "players": 7,
    "dualIn": 0,
    "placeholder": false,
-   "games": 10,
-   "byes": 0
+   "games": 9,
+   "byes": 1
   },
   {
    "name": "PXG",
@@ -167,8 +177,8 @@
    "players": 7,
    "dualIn": 0,
    "placeholder": false,
-   "games": 10,
-   "byes": 0
+   "games": 8,
+   "byes": 2
   },
   {
    "name": "Clangers",
@@ -523,7 +533,7 @@
   },
   {
    "kind": "Player list out of date",
-   "detail": "The player list still has players in teams that aren't in the current team list (Goal Diggers, U7s New team, Violet Vipers). Dual-registration and shared-contact checks use the player list, so export a fresh All Players tab to refresh them."
+   "detail": "The player list still has players in teams that aren't in the current team list (U7s New team, Violet Vipers). Dual-registration and shared-contact checks use the player list, so export a fresh All Players tab to refresh them."
   },
   {
    "kind": "Placeholder team",
@@ -594,20 +604,7 @@
      "start": "7:20 PM",
      "end": "8:00 PM",
      "field": "field-1",
-     "team1": "PXG",
-     "team2": "Dongos / Rutherford Dragons",
-     "note": ""
-    },
-    {
-     "week": 1,
-     "date": "2026-10-12",
-     "night": "Monday",
-     "wave": 2,
-     "comp": "aam",
-     "start": "7:20 PM",
-     "end": "8:00 PM",
-     "field": "field-2",
-     "team1": "Metford AAM",
+     "team1": "Dongos / Rutherford Dragons",
      "team2": "Muppets",
      "note": ""
     },
@@ -619,9 +616,22 @@
      "comp": "aam",
      "start": "7:20 PM",
      "end": "8:00 PM",
+     "field": "field-2",
+     "team1": "Goal Diggers",
+     "team2": "Metford AAM",
+     "note": ""
+    },
+    {
+     "week": 1,
+     "date": "2026-10-12",
+     "night": "Monday",
+     "wave": 2,
+     "comp": "aam",
+     "start": "7:20 PM",
+     "end": "8:00 PM",
      "field": "field-3",
-     "team1": "Gooners FC",
-     "team2": "Banjo's Team",
+     "team1": "Banjo's Team",
+     "team2": "Gooners FC",
      "note": ""
     },
     {
@@ -711,7 +721,7 @@
      "start": "7:20 PM",
      "end": "8:00 PM",
      "field": "field-2",
-     "team1": "Metford AAM",
+     "team1": "Dongos / Rutherford Dragons",
      "team2": "PXG",
      "note": ""
     },
@@ -724,8 +734,8 @@
      "start": "7:20 PM",
      "end": "8:00 PM",
      "field": "field-3",
-     "team1": "Dongos / Rutherford Dragons",
-     "team2": "Banjo's Team",
+     "team1": "Banjo's Team",
+     "team2": "Muppets",
      "note": ""
     },
     {
@@ -737,8 +747,8 @@
      "start": "7:20 PM",
      "end": "8:00 PM",
      "field": "field-1",
-     "team1": "Gooners FC",
-     "team2": "Muppets",
+     "team1": "Goal Diggers",
+     "team2": "Gooners FC",
      "note": ""
     },
     {
@@ -829,19 +839,6 @@
      "end": "8:00 PM",
      "field": "field-3",
      "team1": "PXG",
-     "team2": "Banjo's Team",
-     "note": ""
-    },
-    {
-     "week": 3,
-     "date": "2026-10-26",
-     "night": "Monday",
-     "wave": 2,
-     "comp": "aam",
-     "start": "7:20 PM",
-     "end": "8:00 PM",
-     "field": "field-1",
-     "team1": "Gooners FC",
      "team2": "Metford AAM",
      "note": ""
     },
@@ -853,8 +850,21 @@
      "comp": "aam",
      "start": "7:20 PM",
      "end": "8:00 PM",
+     "field": "field-1",
+     "team1": "Banjo's Team",
+     "team2": "Dongos / Rutherford Dragons",
+     "note": ""
+    },
+    {
+     "week": 3,
+     "date": "2026-10-26",
+     "night": "Monday",
+     "wave": 2,
+     "comp": "aam",
+     "start": "7:20 PM",
+     "end": "8:00 PM",
      "field": "field-2",
-     "team1": "Dongos / Rutherford Dragons",
+     "team1": "Goal Diggers",
      "team2": "Muppets",
      "note": ""
     },
@@ -945,9 +955,9 @@
      "start": "7:20 PM",
      "end": "8:00 PM",
      "field": "field-1",
-     "team1": "Gooners FC",
+     "team1": "Banjo's Team",
      "team2": "PXG",
-     "note": "Colour clash: Gooners FC to wear bibs (supplied by Cobras)"
+     "note": ""
     },
     {
      "week": 4,
@@ -958,8 +968,8 @@
      "start": "7:20 PM",
      "end": "8:00 PM",
      "field": "field-2",
-     "team1": "Banjo's Team",
-     "team2": "Muppets",
+     "team1": "Metford AAM",
+     "team2": "Gooners FC",
      "note": ""
     },
     {
@@ -971,8 +981,8 @@
      "start": "7:20 PM",
      "end": "8:00 PM",
      "field": "field-3",
-     "team1": "Dongos / Rutherford Dragons",
-     "team2": "Metford AAM",
+     "team1": "Goal Diggers",
+     "team2": "Dongos / Rutherford Dragons",
      "note": ""
     },
     {
@@ -1063,8 +1073,8 @@
      "end": "8:00 PM",
      "field": "field-2",
      "team1": "PXG",
-     "team2": "Muppets",
-     "note": ""
+     "team2": "Gooners FC",
+     "note": "Colour clash: PXG to wear bibs (supplied by Cobras)"
     },
     {
      "week": 5,
@@ -1075,8 +1085,8 @@
      "start": "7:20 PM",
      "end": "8:00 PM",
      "field": "field-3",
-     "team1": "Dongos / Rutherford Dragons",
-     "team2": "Gooners FC",
+     "team1": "Goal Diggers",
+     "team2": "Banjo's Team",
      "note": ""
     },
     {
@@ -1088,8 +1098,8 @@
      "start": "7:20 PM",
      "end": "8:00 PM",
      "field": "field-1",
-     "team1": "Banjo's Team",
-     "team2": "Metford AAM",
+     "team1": "Metford AAM",
+     "team2": "Muppets",
      "note": ""
     },
     {
@@ -1179,7 +1189,7 @@
      "start": "7:20 PM",
      "end": "8:00 PM",
      "field": "field-3",
-     "team1": "Dongos / Rutherford Dragons",
+     "team1": "Goal Diggers",
      "team2": "PXG",
      "note": ""
     },
@@ -1192,8 +1202,8 @@
      "start": "7:20 PM",
      "end": "8:00 PM",
      "field": "field-1",
-     "team1": "Muppets",
-     "team2": "Metford AAM",
+     "team1": "Gooners FC",
+     "team2": "Muppets",
      "note": ""
     },
     {
@@ -1205,8 +1215,8 @@
      "start": "7:20 PM",
      "end": "8:00 PM",
      "field": "field-2",
-     "team1": "Banjo's Team",
-     "team2": "Gooners FC",
+     "team1": "Metford AAM",
+     "team2": "Dongos / Rutherford Dragons",
      "note": ""
     },
     {
@@ -1297,7 +1307,7 @@
      "end": "8:00 PM",
      "field": "field-1",
      "team1": "PXG",
-     "team2": "Metford AAM",
+     "team2": "Muppets",
      "note": ""
     },
     {
@@ -1309,7 +1319,7 @@
      "start": "7:20 PM",
      "end": "8:00 PM",
      "field": "field-2",
-     "team1": "Banjo's Team",
+     "team1": "Gooners FC",
      "team2": "Dongos / Rutherford Dragons",
      "note": ""
     },
@@ -1322,8 +1332,8 @@
      "start": "7:20 PM",
      "end": "8:00 PM",
      "field": "field-3",
-     "team1": "Muppets",
-     "team2": "Gooners FC",
+     "team1": "Metford AAM",
+     "team2": "Banjo's Team",
      "note": ""
     },
     {
@@ -1413,8 +1423,8 @@
      "start": "7:20 PM",
      "end": "8:00 PM",
      "field": "field-2",
-     "team1": "Banjo's Team",
-     "team2": "PXG",
+     "team1": "Muppets",
+     "team2": "Dongos / Rutherford Dragons",
      "note": ""
     },
     {
@@ -1427,7 +1437,7 @@
      "end": "8:00 PM",
      "field": "field-3",
      "team1": "Metford AAM",
-     "team2": "Gooners FC",
+     "team2": "Goal Diggers",
      "note": ""
     },
     {
@@ -1439,8 +1449,8 @@
      "start": "7:20 PM",
      "end": "8:00 PM",
      "field": "field-1",
-     "team1": "Muppets",
-     "team2": "Dongos / Rutherford Dragons",
+     "team1": "Gooners FC",
+     "team2": "Banjo's Team",
      "note": ""
     },
     {
@@ -1531,8 +1541,8 @@
      "end": "8:00 PM",
      "field": "field-3",
      "team1": "PXG",
-     "team2": "Gooners FC",
-     "note": "Colour clash: Gooners FC to wear bibs (supplied by Cobras)"
+     "team2": "Dongos / Rutherford Dragons",
+     "note": ""
     },
     {
      "week": 9,
@@ -1556,8 +1566,8 @@
      "start": "7:20 PM",
      "end": "8:00 PM",
      "field": "field-2",
-     "team1": "Metford AAM",
-     "team2": "Dongos / Rutherford Dragons",
+     "team1": "Gooners FC",
+     "team2": "Goal Diggers",
      "note": ""
     },
     {
@@ -1647,7 +1657,7 @@
      "start": "7:20 PM",
      "end": "8:00 PM",
      "field": "field-1",
-     "team1": "Muppets",
+     "team1": "Metford AAM",
      "team2": "PXG",
      "note": ""
     },
@@ -1660,8 +1670,8 @@
      "start": "7:20 PM",
      "end": "8:00 PM",
      "field": "field-2",
-     "team1": "Gooners FC",
-     "team2": "Dongos / Rutherford Dragons",
+     "team1": "Dongos / Rutherford Dragons",
+     "team2": "Banjo's Team",
      "note": ""
     },
     {
@@ -1673,8 +1683,8 @@
      "start": "7:20 PM",
      "end": "8:00 PM",
      "field": "field-3",
-     "team1": "Metford AAM",
-     "team2": "Banjo's Team",
+     "team1": "Muppets",
+     "team2": "Goal Diggers",
      "note": ""
     },
     {
@@ -1727,7 +1737,7 @@
      "field": "field-5",
      "team1": "Clangers",
      "team2": "Zero Pace United",
-     "note": "Colour clash: Clangers to wear bibs (supplied by Cobras)"
+     "note": "Colour clash: Zero Pace United to wear bibs (supplied by Cobras)"
     },
     {
      "week": 1,
@@ -3157,7 +3167,7 @@
      "field": "field-1",
      "team1": "Chaos FC",
      "team2": "Mayhem FC",
-     "note": "Colour clash: Mayhem FC to wear bibs (supplied by Cobras)"
+     "note": "Colour clash: Chaos FC to wear bibs (supplied by Cobras)"
     }
    ],
    "nights": [
@@ -3320,12 +3330,12 @@
      ],
      "games": [
       [
-       "Cobras Gold",
-       "Golden Ballers"
-      ],
-      [
        "U8s New Team",
        "Wild Warriors"
+      ],
+      [
+       "Cobras Gold",
+       "Golden Ballers"
       ]
      ]
     },
@@ -3339,12 +3349,12 @@
      ],
      "games": [
       [
-       "Chaos FC",
-       "Phoenix Flyers"
-      ],
-      [
        "Magpies",
        "Mayhem FC"
+      ],
+      [
+       "Chaos FC",
+       "Phoenix Flyers"
       ]
      ]
     },
@@ -3398,12 +3408,12 @@
      ],
      "games": [
       [
-       "Golden Ballers",
-       "U7 Goal Diggers"
-      ],
-      [
        "U8s Metford",
        "Wild Warriors"
+      ],
+      [
+       "Golden Ballers",
+       "U7 Goal Diggers"
       ]
      ]
     },
@@ -3418,12 +3428,12 @@
      ],
      "games": [
       [
-       "Cobras Gold",
-       "Golden Ballers"
-      ],
-      [
        "Metford U10s",
        "Wild Warriors"
+      ],
+      [
+       "Cobras Gold",
+       "Golden Ballers"
       ]
      ]
     },
@@ -3496,12 +3506,12 @@
      ],
      "games": [
       [
-       "Golden Ballers",
-       "U7 Goal Diggers"
-      ],
-      [
        "U8s New Team",
        "Wild Warriors"
+      ],
+      [
+       "Golden Ballers",
+       "U7 Goal Diggers"
       ]
      ]
     },
@@ -3515,12 +3525,12 @@
      ],
      "games": [
       [
-       "Chaos FC",
-       "Rutherford Greens"
-      ],
-      [
        "Mayhem FC",
        "Metford U12s"
+      ],
+      [
+       "Chaos FC",
+       "Rutherford Greens"
       ]
      ]
     },
@@ -3554,12 +3564,12 @@
      ],
      "games": [
       [
-       "Chaos FC",
-       "Metford U12s"
-      ],
-      [
        "Grass Goblins",
        "Mayhem FC"
+      ],
+      [
+       "Chaos FC",
+       "Metford U12s"
       ]
      ]
     },
@@ -3593,12 +3603,12 @@
      ],
      "games": [
       [
-       "Chaos FC",
-       "Phoenix Flyers"
-      ],
-      [
        "Magpies",
        "Mayhem FC"
+      ],
+      [
+       "Chaos FC",
+       "Phoenix Flyers"
       ]
      ]
     },
@@ -3613,12 +3623,12 @@
      ],
      "games": [
       [
-       "Golden Ballers",
-       "U7 Goal Diggers"
-      ],
-      [
        "Metford U10s",
        "Wild Warriors"
+      ],
+      [
+       "Golden Ballers",
+       "U7 Goal Diggers"
       ]
      ]
     },
@@ -3652,12 +3662,12 @@
      ],
      "games": [
       [
-       "Cobras Gold",
-       "Golden Ballers"
-      ],
-      [
        "Rutherford Reds",
        "Wild Warriors"
+      ],
+      [
+       "Cobras Gold",
+       "Golden Ballers"
       ]
      ]
     }
@@ -3666,7 +3676,7 @@
     "u1213"
    ],
    "waveSplit": {},
-   "bibGames": 19
+   "bibGames": 18
   },
   {
    "id": "s2",
@@ -3724,8 +3734,8 @@
      "start": "6:30 PM",
      "end": "7:10 PM",
      "field": "field-3",
-     "team1": "PXG",
-     "team2": "Dongos / Rutherford Dragons",
+     "team1": "Dongos / Rutherford Dragons",
+     "team2": "Muppets",
      "note": ""
     },
     {
@@ -3763,8 +3773,8 @@
      "start": "7:20 PM",
      "end": "8:00 PM",
      "field": "field-1",
-     "team1": "Metford AAM",
-     "team2": "Muppets",
+     "team1": "Goal Diggers",
+     "team2": "Metford AAM",
      "note": ""
     },
     {
@@ -3776,8 +3786,8 @@
      "start": "7:20 PM",
      "end": "8:00 PM",
      "field": "field-3",
-     "team1": "Gooners FC",
-     "team2": "Banjo's Team",
+     "team1": "Banjo's Team",
+     "team2": "Gooners FC",
      "note": ""
     },
     {
@@ -3829,7 +3839,7 @@
      "end": "7:10 PM",
      "field": "field-4",
      "team1": "Dongos / Rutherford Dragons",
-     "team2": "Banjo's Team",
+     "team2": "PXG",
      "note": ""
     },
     {
@@ -3841,8 +3851,8 @@
      "start": "6:30 PM",
      "end": "7:10 PM",
      "field": "field-6",
-     "team1": "Gooners FC",
-     "team2": "Muppets",
+     "team1": "Goal Diggers",
+     "team2": "Gooners FC",
      "note": ""
     },
     {
@@ -3893,8 +3903,8 @@
      "start": "7:20 PM",
      "end": "8:00 PM",
      "field": "field-6",
-     "team1": "Metford AAM",
-     "team2": "PXG",
+     "team1": "Banjo's Team",
+     "team2": "Muppets",
      "note": ""
     },
     {
@@ -3931,9 +3941,9 @@
      "comp": "aam",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-1",
+     "field": "field-3",
      "team1": "PXG",
-     "team2": "Banjo's Team",
+     "team2": "Metford AAM",
      "note": ""
     },
     {
@@ -3944,9 +3954,9 @@
      "comp": "aam",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-3",
-     "team1": "Gooners FC",
-     "team2": "Metford AAM",
+     "field": "field-1",
+     "team1": "Banjo's Team",
+     "team2": "Dongos / Rutherford Dragons",
      "note": ""
     },
     {
@@ -4010,7 +4020,7 @@
      "start": "7:20 PM",
      "end": "8:00 PM",
      "field": "field-2",
-     "team1": "Dongos / Rutherford Dragons",
+     "team1": "Goal Diggers",
      "team2": "Muppets",
      "note": ""
     },
@@ -4076,7 +4086,7 @@
      "end": "7:10 PM",
      "field": "field-6",
      "team1": "Banjo's Team",
-     "team2": "Muppets",
+     "team2": "PXG",
      "note": ""
     },
     {
@@ -4114,9 +4124,9 @@
      "start": "7:20 PM",
      "end": "8:00 PM",
      "field": "field-4",
-     "team1": "Gooners FC",
-     "team2": "PXG",
-     "note": "Colour clash: Gooners FC to wear bibs (supplied by Cobras)"
+     "team1": "Metford AAM",
+     "team2": "Gooners FC",
+     "note": ""
     },
     {
      "week": 4,
@@ -4127,8 +4137,8 @@
      "start": "7:20 PM",
      "end": "8:00 PM",
      "field": "field-6",
-     "team1": "Dongos / Rutherford Dragons",
-     "team2": "Metford AAM",
+     "team1": "Goal Diggers",
+     "team2": "Dongos / Rutherford Dragons",
      "note": ""
     },
     {
@@ -4179,8 +4189,8 @@
      "start": "6:30 PM",
      "end": "7:10 PM",
      "field": "field-2",
-     "team1": "PXG",
-     "team2": "Muppets",
+     "team1": "Goal Diggers",
+     "team2": "Banjo's Team",
      "note": ""
     },
     {
@@ -4192,8 +4202,8 @@
      "start": "6:30 PM",
      "end": "7:10 PM",
      "field": "field-3",
-     "team1": "Banjo's Team",
-     "team2": "Metford AAM",
+     "team1": "Metford AAM",
+     "team2": "Muppets",
      "note": ""
     },
     {
@@ -4244,9 +4254,9 @@
      "start": "7:20 PM",
      "end": "8:00 PM",
      "field": "field-3",
-     "team1": "Dongos / Rutherford Dragons",
+     "team1": "PXG",
      "team2": "Gooners FC",
-     "note": ""
+     "note": "Colour clash: PXG to wear bibs (supplied by Cobras)"
     },
     {
      "week": 5,
@@ -4309,8 +4319,8 @@
      "start": "6:30 PM",
      "end": "7:10 PM",
      "field": "field-6",
-     "team1": "Dongos / Rutherford Dragons",
-     "team2": "PXG",
+     "team1": "Gooners FC",
+     "team2": "Muppets",
      "note": ""
     },
     {
@@ -4347,9 +4357,9 @@
      "comp": "aam",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-4",
-     "team1": "Muppets",
-     "team2": "Metford AAM",
+     "field": "field-6",
+     "team1": "Goal Diggers",
+     "team2": "PXG",
      "note": ""
     },
     {
@@ -4360,9 +4370,9 @@
      "comp": "aam",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-6",
-     "team1": "Banjo's Team",
-     "team2": "Gooners FC",
+     "field": "field-4",
+     "team1": "Metford AAM",
+     "team2": "Dongos / Rutherford Dragons",
      "note": ""
     },
     {
@@ -4396,12 +4406,12 @@
      "date": "2026-11-23",
      "night": "Monday",
      "wave": 1,
-     "comp": "mixed",
+     "comp": "aam",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-3",
-     "team1": "What's with this outdoor shite?",
-     "team2": "Mixed Cobras, name TBC",
+     "field": "field-1",
+     "team1": "Gooners FC",
+     "team2": "Dongos / Rutherford Dragons",
      "note": ""
     },
     {
@@ -4412,9 +4422,9 @@
      "comp": "aam",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-1",
-     "team1": "Muppets",
-     "team2": "Gooners FC",
+     "field": "field-3",
+     "team1": "Metford AAM",
+     "team2": "Banjo's Team",
      "note": ""
     },
     {
@@ -4451,6 +4461,19 @@
      "comp": "mixed",
      "start": "7:20 PM",
      "end": "8:00 PM",
+     "field": "field-2",
+     "team1": "What's with this outdoor shite?",
+     "team2": "Mixed Cobras, name TBC",
+     "note": ""
+    },
+    {
+     "week": 7,
+     "date": "2026-11-23",
+     "night": "Monday",
+     "wave": 2,
+     "comp": "mixed",
+     "start": "7:20 PM",
+     "end": "8:00 PM",
      "field": "field-1",
      "team1": "Dribbling Morons",
      "team2": "Team Gene",
@@ -4464,22 +4487,9 @@
      "comp": "aam",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-2",
-     "team1": "PXG",
-     "team2": "Metford AAM",
-     "note": ""
-    },
-    {
-     "week": 7,
-     "date": "2026-11-23",
-     "night": "Monday",
-     "wave": 2,
-     "comp": "aam",
-     "start": "7:20 PM",
-     "end": "8:00 PM",
      "field": "field-3",
-     "team1": "Banjo's Team",
-     "team2": "Dongos / Rutherford Dragons",
+     "team1": "PXG",
+     "team2": "Muppets",
      "note": ""
     },
     {
@@ -4513,12 +4523,12 @@
      "date": "2026-11-30",
      "night": "Monday",
      "wave": 1,
-     "comp": "aam",
+     "comp": "mixed",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-4",
-     "team1": "Metford AAM",
-     "team2": "Gooners FC",
+     "field": "field-3",
+     "team1": "Mixed Cobras, name TBC",
+     "team2": "Team Gene",
      "note": ""
     },
     {
@@ -4532,6 +4542,19 @@
      "field": "field-6",
      "team1": "Muppets",
      "team2": "Dongos / Rutherford Dragons",
+     "note": ""
+    },
+    {
+     "week": 8,
+     "date": "2026-11-30",
+     "night": "Monday",
+     "wave": 1,
+     "comp": "aam",
+     "start": "6:30 PM",
+     "end": "7:10 PM",
+     "field": "field-4",
+     "team1": "Metford AAM",
+     "team2": "Goal Diggers",
      "note": ""
     },
     {
@@ -4555,7 +4578,7 @@
      "comp": "aaw",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-3",
+     "field": "field-2",
      "team1": "Pitch Please",
      "team2": "Zero Pace United",
      "note": "Colour clash: Pitch Please to wear bibs (supplied by Cobras)"
@@ -4578,25 +4601,12 @@
      "date": "2026-11-30",
      "night": "Monday",
      "wave": 2,
-     "comp": "mixed",
-     "start": "7:20 PM",
-     "end": "8:00 PM",
-     "field": "field-5",
-     "team1": "Mixed Cobras, name TBC",
-     "team2": "Team Gene",
-     "note": ""
-    },
-    {
-     "week": 8,
-     "date": "2026-11-30",
-     "night": "Monday",
-     "wave": 2,
      "comp": "aam",
      "start": "7:20 PM",
      "end": "8:00 PM",
      "field": "field-6",
-     "team1": "Banjo's Team",
-     "team2": "PXG",
+     "team1": "Gooners FC",
+     "team2": "Banjo's Team",
      "note": ""
     },
     {
@@ -4660,9 +4670,9 @@
      "start": "6:30 PM",
      "end": "7:10 PM",
      "field": "field-3",
-     "team1": "PXG",
-     "team2": "Gooners FC",
-     "note": "Colour clash: Gooners FC to wear bibs (supplied by Cobras)"
+     "team1": "Gooners FC",
+     "team2": "Goal Diggers",
+     "note": ""
     },
     {
      "week": 9,
@@ -4699,8 +4709,8 @@
      "start": "7:20 PM",
      "end": "8:00 PM",
      "field": "field-1",
-     "team1": "Muppets",
-     "team2": "Banjo's Team",
+     "team1": "PXG",
+     "team2": "Dongos / Rutherford Dragons",
      "note": ""
     },
     {
@@ -4712,8 +4722,8 @@
      "start": "7:20 PM",
      "end": "8:00 PM",
      "field": "field-3",
-     "team1": "Metford AAM",
-     "team2": "Dongos / Rutherford Dragons",
+     "team1": "Muppets",
+     "team2": "Banjo's Team",
      "note": ""
     },
     {
@@ -4750,9 +4760,9 @@
      "comp": "aam",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-4",
-     "team1": "Gooners FC",
-     "team2": "Dongos / Rutherford Dragons",
+     "field": "field-6",
+     "team1": "Metford AAM",
+     "team2": "PXG",
      "note": ""
     },
     {
@@ -4763,9 +4773,9 @@
      "comp": "aam",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-6",
-     "team1": "Metford AAM",
-     "team2": "Banjo's Team",
+     "field": "field-4",
+     "team1": "Muppets",
+     "team2": "Goal Diggers",
      "note": ""
     },
     {
@@ -4792,7 +4802,7 @@
      "field": "field-3",
      "team1": "Clangers",
      "team2": "Zero Pace United",
-     "note": "Colour clash: Clangers to wear bibs (supplied by Cobras)"
+     "note": "Colour clash: Zero Pace United to wear bibs (supplied by Cobras)"
     },
     {
      "week": 10,
@@ -4829,8 +4839,8 @@
      "start": "7:20 PM",
      "end": "8:00 PM",
      "field": "field-4",
-     "team1": "Muppets",
-     "team2": "PXG",
+     "team1": "Dongos / Rutherford Dragons",
+     "team2": "Banjo's Team",
      "note": ""
     },
     {
@@ -6287,7 +6297,7 @@
      "field": "field-3",
      "team1": "Chaos FC",
      "team2": "Mayhem FC",
-     "note": "Colour clash: Mayhem FC to wear bibs (supplied by Cobras)"
+     "note": "Colour clash: Chaos FC to wear bibs (supplied by Cobras)"
     }
    ],
    "nights": [
@@ -6476,12 +6486,12 @@
      ],
      "games": [
       [
-       "Cobras Gold",
-       "Golden Ballers"
-      ],
-      [
        "U8s New Team",
        "Wild Warriors"
+      ],
+      [
+       "Cobras Gold",
+       "Golden Ballers"
       ]
      ]
     },
@@ -6495,12 +6505,12 @@
      ],
      "games": [
       [
-       "Chaos FC",
-       "Phoenix Flyers"
-      ],
-      [
        "Magpies",
        "Mayhem FC"
+      ],
+      [
+       "Chaos FC",
+       "Phoenix Flyers"
       ]
      ]
     },
@@ -6554,12 +6564,12 @@
      ],
      "games": [
       [
-       "Golden Ballers",
-       "U7 Goal Diggers"
-      ],
-      [
        "U8s Metford",
        "Wild Warriors"
+      ],
+      [
+       "Golden Ballers",
+       "U7 Goal Diggers"
       ]
      ]
     },
@@ -6574,12 +6584,12 @@
      ],
      "games": [
       [
-       "Cobras Gold",
-       "Golden Ballers"
-      ],
-      [
        "Metford U10s",
        "Wild Warriors"
+      ],
+      [
+       "Cobras Gold",
+       "Golden Ballers"
       ]
      ]
     },
@@ -6652,12 +6662,12 @@
      ],
      "games": [
       [
-       "Golden Ballers",
-       "U7 Goal Diggers"
-      ],
-      [
        "U8s New Team",
        "Wild Warriors"
+      ],
+      [
+       "Golden Ballers",
+       "U7 Goal Diggers"
       ]
      ]
     },
@@ -6671,12 +6681,12 @@
      ],
      "games": [
       [
-       "Chaos FC",
-       "Rutherford Greens"
-      ],
-      [
        "Mayhem FC",
        "Metford U12s"
+      ],
+      [
+       "Chaos FC",
+       "Rutherford Greens"
       ]
      ]
     },
@@ -6710,12 +6720,12 @@
      ],
      "games": [
       [
-       "Chaos FC",
-       "Metford U12s"
-      ],
-      [
        "Grass Goblins",
        "Mayhem FC"
+      ],
+      [
+       "Chaos FC",
+       "Metford U12s"
       ]
      ]
     },
@@ -6749,12 +6759,12 @@
      ],
      "games": [
       [
-       "Chaos FC",
-       "Phoenix Flyers"
-      ],
-      [
        "Magpies",
        "Mayhem FC"
+      ],
+      [
+       "Chaos FC",
+       "Phoenix Flyers"
       ]
      ]
     },
@@ -6769,12 +6779,12 @@
      ],
      "games": [
       [
-       "Golden Ballers",
-       "U7 Goal Diggers"
-      ],
-      [
        "Metford U10s",
        "Wild Warriors"
+      ],
+      [
+       "Golden Ballers",
+       "U7 Goal Diggers"
       ]
      ]
     },
@@ -6808,12 +6818,12 @@
      ],
      "games": [
       [
-       "Cobras Gold",
-       "Golden Ballers"
-      ],
-      [
        "Rutherford Reds",
        "Wild Warriors"
+      ],
+      [
+       "Cobras Gold",
+       "Golden Ballers"
       ]
      ]
     }
@@ -6824,10 +6834,10 @@
    "waveSplit": {
     "aam": {
      "earlyMin": 4,
-     "earlyMax": 6
+     "earlyMax": 5
     },
     "mixed": {
-     "earlyMin": 4,
+     "earlyMin": 3,
      "earlyMax": 5
     },
     "aaw": {
@@ -6835,7 +6845,7 @@
      "earlyMax": 6
     }
    },
-   "bibGames": 19
+   "bibGames": 18
   }
  ]
 }
