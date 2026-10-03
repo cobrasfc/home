@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-03T21:18",
+ "generatedAt": "2026-10-03T22:54",
  "weeks": 10,
  "comps": [
   {
@@ -1732,10 +1732,10 @@
      "week": 1,
      "date": "2026-10-13",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-1",
      "team1": "Golden Ballers",
      "team2": "Cobras Gold",
@@ -1745,10 +1745,10 @@
      "week": 1,
      "date": "2026-10-13",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-2",
      "team1": "U7s New team",
      "team2": "U7 Goal Diggers",
@@ -1875,10 +1875,10 @@
      "week": 2,
      "date": "2026-10-20",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-2",
      "team1": "U7s New team",
      "team2": "Golden Ballers",
@@ -1888,10 +1888,10 @@
      "week": 2,
      "date": "2026-10-20",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-1",
      "team1": "Cobras Gold",
      "team2": "U7 Goal Diggers",
@@ -2018,10 +2018,10 @@
      "week": 3,
      "date": "2026-10-27",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-1",
      "team1": "Golden Ballers",
      "team2": "U7 Goal Diggers",
@@ -2031,10 +2031,10 @@
      "week": 3,
      "date": "2026-10-27",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-2",
      "team1": "Cobras Gold",
      "team2": "U7s New team",
@@ -2161,10 +2161,10 @@
      "week": 4,
      "date": "2026-11-03",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-2",
      "team1": "Cobras Gold",
      "team2": "Golden Ballers",
@@ -2174,10 +2174,10 @@
      "week": 4,
      "date": "2026-11-03",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-1",
      "team1": "U7 Goal Diggers",
      "team2": "U7s New team",
@@ -2304,10 +2304,10 @@
      "week": 5,
      "date": "2026-11-10",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-1",
      "team1": "Golden Ballers",
      "team2": "U7s New team",
@@ -2317,10 +2317,10 @@
      "week": 5,
      "date": "2026-11-10",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-2",
      "team1": "U7 Goal Diggers",
      "team2": "Cobras Gold",
@@ -2447,10 +2447,10 @@
      "week": 6,
      "date": "2026-11-17",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-2",
      "team1": "U7 Goal Diggers",
      "team2": "Golden Ballers",
@@ -2460,10 +2460,10 @@
      "week": 6,
      "date": "2026-11-17",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-1",
      "team1": "U7s New team",
      "team2": "Cobras Gold",
@@ -2590,10 +2590,10 @@
      "week": 7,
      "date": "2026-11-24",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-1",
      "team1": "Cobras Gold",
      "team2": "Golden Ballers",
@@ -2603,10 +2603,10 @@
      "week": 7,
      "date": "2026-11-24",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-2",
      "team1": "U7 Goal Diggers",
      "team2": "U7s New team",
@@ -2733,10 +2733,10 @@
      "week": 8,
      "date": "2026-12-01",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-2",
      "team1": "Golden Ballers",
      "team2": "U7s New team",
@@ -2746,10 +2746,10 @@
      "week": 8,
      "date": "2026-12-01",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-1",
      "team1": "U7 Goal Diggers",
      "team2": "Cobras Gold",
@@ -2876,10 +2876,10 @@
      "week": 9,
      "date": "2026-12-08",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-1",
      "team1": "U7 Goal Diggers",
      "team2": "Golden Ballers",
@@ -2889,10 +2889,10 @@
      "week": 9,
      "date": "2026-12-08",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-2",
      "team1": "U7s New team",
      "team2": "Cobras Gold",
@@ -3019,10 +3019,10 @@
      "week": 10,
      "date": "2026-12-15",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-2",
      "team1": "Cobras Gold",
      "team2": "Golden Ballers",
@@ -3032,10 +3032,10 @@
      "week": 10,
      "date": "2026-12-15",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-1",
      "team1": "U7 Goal Diggers",
      "team2": "U7s New team",
@@ -3229,6 +3229,16 @@
        "end": "6:00 PM",
        "allocations": [
         {
+         "comp": "u67",
+         "pitches": 2,
+         "fields": [
+          "minis-1",
+          "minis-2"
+         ],
+         "gamesMin": 2,
+         "gamesMax": 2
+        },
+        {
          "comp": "u811",
          "pitches": 3,
          "fields": [
@@ -3251,25 +3261,15 @@
         }
        ],
        "mainAllocated": 5,
-       "miniAllocated": 0,
+       "miniAllocated": 2,
        "mainEmpty": 3,
-       "gamesPeak": 5
+       "gamesPeak": 7
       },
       {
        "wave": 2,
        "start": "6:15 PM",
        "end": "6:45 PM",
        "allocations": [
-        {
-         "comp": "u67",
-         "pitches": 2,
-         "fields": [
-          "minis-1",
-          "minis-2"
-         ],
-         "gamesMin": 2,
-         "gamesMax": 2
-        },
         {
          "comp": "u1213",
          "pitches": 4,
@@ -3284,15 +3284,35 @@
         }
        ],
        "mainAllocated": 4,
-       "miniAllocated": 2,
+       "miniAllocated": 0,
        "mainEmpty": 4,
-       "gamesPeak": 6
+       "gamesPeak": 4
       }
      ]
     }
    ],
    "dualClashes": [],
    "contactClashes": [
+    {
+     "week": 1,
+     "night": "Tuesday",
+     "wave": 1,
+     "teams": [
+      "Clangers",
+      "Golden Ballers",
+      "Wild Warriors"
+     ],
+     "games": [
+      [
+       "Cobras Gold",
+       "Golden Ballers"
+      ],
+      [
+       "U8s New Team",
+       "Wild Warriors"
+      ]
+     ]
+    },
     {
      "week": 1,
      "night": "Tuesday",
@@ -3303,12 +3323,32 @@
      ],
      "games": [
       [
-       "Chaos FC",
-       "Phoenix Flyers"
-      ],
-      [
        "Magpies",
        "Mayhem FC"
+      ],
+      [
+       "Chaos FC",
+       "Phoenix Flyers"
+      ]
+     ]
+    },
+    {
+     "week": 2,
+     "night": "Tuesday",
+     "wave": 1,
+     "teams": [
+      "Clangers",
+      "Golden Ballers",
+      "Wild Warriors"
+     ],
+     "games": [
+      [
+       "Golden Ballers",
+       "U7s New team"
+      ],
+      [
+       "8/3 Thornton Devils",
+       "Wild Warriors"
       ]
      ]
     },
@@ -3332,6 +3372,46 @@
      ]
     },
     {
+     "week": 3,
+     "night": "Tuesday",
+     "wave": 1,
+     "teams": [
+      "Clangers",
+      "Golden Ballers",
+      "Wild Warriors"
+     ],
+     "games": [
+      [
+       "Golden Ballers",
+       "U7 Goal Diggers"
+      ],
+      [
+       "U8s Metford",
+       "Wild Warriors"
+      ]
+     ]
+    },
+    {
+     "week": 4,
+     "night": "Tuesday",
+     "wave": 1,
+     "teams": [
+      "Clangers",
+      "Golden Ballers",
+      "Wild Warriors"
+     ],
+     "games": [
+      [
+       "Metford U10s",
+       "Wild Warriors"
+      ],
+      [
+       "Cobras Gold",
+       "Golden Ballers"
+      ]
+     ]
+    },
+    {
      "week": 4,
      "night": "Tuesday",
      "wave": 2,
@@ -3341,12 +3421,32 @@
      ],
      "games": [
       [
-       "Chaos FC",
-       "Grass Goblins"
-      ],
-      [
        "Mayhem FC",
        "Phoenix Flyers"
+      ],
+      [
+       "Chaos FC",
+       "Grass Goblins"
+      ]
+     ]
+    },
+    {
+     "week": 5,
+     "night": "Tuesday",
+     "wave": 1,
+     "teams": [
+      "Clangers",
+      "Golden Ballers",
+      "Wild Warriors"
+     ],
+     "games": [
+      [
+       "Rutherford Reds",
+       "Wild Warriors"
+      ],
+      [
+       "Golden Ballers",
+       "U7s New team"
       ]
      ]
     },
@@ -3360,12 +3460,32 @@
      ],
      "games": [
       [
-       "Chaos FC",
-       "Magpies"
-      ],
-      [
        "Mayhem FC",
        "Messi Business"
+      ],
+      [
+       "Chaos FC",
+       "Magpies"
+      ]
+     ]
+    },
+    {
+     "week": 6,
+     "night": "Tuesday",
+     "wave": 1,
+     "teams": [
+      "Clangers",
+      "Golden Ballers",
+      "Wild Warriors"
+     ],
+     "games": [
+      [
+       "Golden Ballers",
+       "U7 Goal Diggers"
+      ],
+      [
+       "U8s New Team",
+       "Wild Warriors"
       ]
      ]
     },
@@ -3391,6 +3511,26 @@
     {
      "week": 7,
      "night": "Tuesday",
+     "wave": 1,
+     "teams": [
+      "Clangers",
+      "Golden Ballers",
+      "Wild Warriors"
+     ],
+     "games": [
+      [
+       "Cobras Gold",
+       "Golden Ballers"
+      ],
+      [
+       "8/3 Thornton Devils",
+       "Wild Warriors"
+      ]
+     ]
+    },
+    {
+     "week": 7,
+     "night": "Tuesday",
      "wave": 2,
      "teams": [
       "Chaos FC",
@@ -3410,6 +3550,26 @@
     {
      "week": 8,
      "night": "Tuesday",
+     "wave": 1,
+     "teams": [
+      "Clangers",
+      "Golden Ballers",
+      "Wild Warriors"
+     ],
+     "games": [
+      [
+       "U8s Metford",
+       "Wild Warriors"
+      ],
+      [
+       "Golden Ballers",
+       "U7s New team"
+      ]
+     ]
+    },
+    {
+     "week": 8,
+     "night": "Tuesday",
      "wave": 2,
      "teams": [
       "Chaos FC",
@@ -3417,12 +3577,32 @@
      ],
      "games": [
       [
-       "Chaos FC",
-       "Phoenix Flyers"
-      ],
-      [
        "Magpies",
        "Mayhem FC"
+      ],
+      [
+       "Chaos FC",
+       "Phoenix Flyers"
+      ]
+     ]
+    },
+    {
+     "week": 9,
+     "night": "Tuesday",
+     "wave": 1,
+     "teams": [
+      "Clangers",
+      "Golden Ballers",
+      "Wild Warriors"
+     ],
+     "games": [
+      [
+       "Golden Ballers",
+       "U7 Goal Diggers"
+      ],
+      [
+       "Metford U10s",
+       "Wild Warriors"
       ]
      ]
     },
@@ -3444,10 +3624,30 @@
        "Rutherford Greens"
       ]
      ]
+    },
+    {
+     "week": 10,
+     "night": "Tuesday",
+     "wave": 1,
+     "teams": [
+      "Clangers",
+      "Golden Ballers",
+      "Wild Warriors"
+     ],
+     "games": [
+      [
+       "Rutherford Reds",
+       "Wild Warriors"
+      ],
+      [
+       "Cobras Gold",
+       "Golden Ballers"
+      ]
+     ]
     }
    ],
    "gameLeaderComps": [
-    "u811"
+    "u1213"
    ],
    "waveSplit": {},
    "bibGames": 19
@@ -4646,10 +4846,10 @@
      "week": 1,
      "date": "2026-10-13",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-1",
      "team1": "Golden Ballers",
      "team2": "Cobras Gold",
@@ -4659,10 +4859,10 @@
      "week": 1,
      "date": "2026-10-13",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-2",
      "team1": "U7s New team",
      "team2": "U7 Goal Diggers",
@@ -4789,10 +4989,10 @@
      "week": 2,
      "date": "2026-10-20",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-2",
      "team1": "U7s New team",
      "team2": "Golden Ballers",
@@ -4802,10 +5002,10 @@
      "week": 2,
      "date": "2026-10-20",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-1",
      "team1": "Cobras Gold",
      "team2": "U7 Goal Diggers",
@@ -4932,10 +5132,10 @@
      "week": 3,
      "date": "2026-10-27",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-1",
      "team1": "Golden Ballers",
      "team2": "U7 Goal Diggers",
@@ -4945,10 +5145,10 @@
      "week": 3,
      "date": "2026-10-27",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-2",
      "team1": "Cobras Gold",
      "team2": "U7s New team",
@@ -5075,10 +5275,10 @@
      "week": 4,
      "date": "2026-11-03",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-2",
      "team1": "Cobras Gold",
      "team2": "Golden Ballers",
@@ -5088,10 +5288,10 @@
      "week": 4,
      "date": "2026-11-03",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-1",
      "team1": "U7 Goal Diggers",
      "team2": "U7s New team",
@@ -5218,10 +5418,10 @@
      "week": 5,
      "date": "2026-11-10",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-1",
      "team1": "Golden Ballers",
      "team2": "U7s New team",
@@ -5231,10 +5431,10 @@
      "week": 5,
      "date": "2026-11-10",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-2",
      "team1": "U7 Goal Diggers",
      "team2": "Cobras Gold",
@@ -5361,10 +5561,10 @@
      "week": 6,
      "date": "2026-11-17",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-2",
      "team1": "U7 Goal Diggers",
      "team2": "Golden Ballers",
@@ -5374,10 +5574,10 @@
      "week": 6,
      "date": "2026-11-17",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-1",
      "team1": "U7s New team",
      "team2": "Cobras Gold",
@@ -5504,10 +5704,10 @@
      "week": 7,
      "date": "2026-11-24",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-1",
      "team1": "Cobras Gold",
      "team2": "Golden Ballers",
@@ -5517,10 +5717,10 @@
      "week": 7,
      "date": "2026-11-24",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-2",
      "team1": "U7 Goal Diggers",
      "team2": "U7s New team",
@@ -5647,10 +5847,10 @@
      "week": 8,
      "date": "2026-12-01",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-2",
      "team1": "Golden Ballers",
      "team2": "U7s New team",
@@ -5660,10 +5860,10 @@
      "week": 8,
      "date": "2026-12-01",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-1",
      "team1": "U7 Goal Diggers",
      "team2": "Cobras Gold",
@@ -5790,10 +5990,10 @@
      "week": 9,
      "date": "2026-12-08",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-1",
      "team1": "U7 Goal Diggers",
      "team2": "Golden Ballers",
@@ -5803,10 +6003,10 @@
      "week": 9,
      "date": "2026-12-08",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-2",
      "team1": "U7s New team",
      "team2": "Cobras Gold",
@@ -5933,10 +6133,10 @@
      "week": 10,
      "date": "2026-12-15",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-2",
      "team1": "Cobras Gold",
      "team2": "Golden Ballers",
@@ -5946,10 +6146,10 @@
      "week": 10,
      "date": "2026-12-15",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u67",
-     "start": "6:15 PM",
-     "end": "6:39 PM",
+     "start": "5:30 PM",
+     "end": "5:54 PM",
      "field": "minis-1",
      "team1": "U7 Goal Diggers",
      "team2": "U7s New team",
@@ -6170,6 +6370,16 @@
        "end": "6:00 PM",
        "allocations": [
         {
+         "comp": "u67",
+         "pitches": 2,
+         "fields": [
+          "minis-1",
+          "minis-2"
+         ],
+         "gamesMin": 2,
+         "gamesMax": 2
+        },
+        {
          "comp": "u811",
          "pitches": 3,
          "fields": [
@@ -6192,25 +6402,15 @@
         }
        ],
        "mainAllocated": 5,
-       "miniAllocated": 0,
+       "miniAllocated": 2,
        "mainEmpty": 1,
-       "gamesPeak": 5
+       "gamesPeak": 7
       },
       {
        "wave": 2,
        "start": "6:15 PM",
        "end": "6:45 PM",
        "allocations": [
-        {
-         "comp": "u67",
-         "pitches": 2,
-         "fields": [
-          "minis-1",
-          "minis-2"
-         ],
-         "gamesMin": 2,
-         "gamesMax": 2
-        },
         {
          "comp": "u1213",
          "pitches": 4,
@@ -6225,15 +6425,35 @@
         }
        ],
        "mainAllocated": 4,
-       "miniAllocated": 2,
+       "miniAllocated": 0,
        "mainEmpty": 2,
-       "gamesPeak": 6
+       "gamesPeak": 4
       }
      ]
     }
    ],
    "dualClashes": [],
    "contactClashes": [
+    {
+     "week": 1,
+     "night": "Tuesday",
+     "wave": 1,
+     "teams": [
+      "Clangers",
+      "Golden Ballers",
+      "Wild Warriors"
+     ],
+     "games": [
+      [
+       "Cobras Gold",
+       "Golden Ballers"
+      ],
+      [
+       "U8s New Team",
+       "Wild Warriors"
+      ]
+     ]
+    },
     {
      "week": 1,
      "night": "Tuesday",
@@ -6244,12 +6464,32 @@
      ],
      "games": [
       [
-       "Chaos FC",
-       "Phoenix Flyers"
-      ],
-      [
        "Magpies",
        "Mayhem FC"
+      ],
+      [
+       "Chaos FC",
+       "Phoenix Flyers"
+      ]
+     ]
+    },
+    {
+     "week": 2,
+     "night": "Tuesday",
+     "wave": 1,
+     "teams": [
+      "Clangers",
+      "Golden Ballers",
+      "Wild Warriors"
+     ],
+     "games": [
+      [
+       "Golden Ballers",
+       "U7s New team"
+      ],
+      [
+       "8/3 Thornton Devils",
+       "Wild Warriors"
       ]
      ]
     },
@@ -6273,6 +6513,46 @@
      ]
     },
     {
+     "week": 3,
+     "night": "Tuesday",
+     "wave": 1,
+     "teams": [
+      "Clangers",
+      "Golden Ballers",
+      "Wild Warriors"
+     ],
+     "games": [
+      [
+       "Golden Ballers",
+       "U7 Goal Diggers"
+      ],
+      [
+       "U8s Metford",
+       "Wild Warriors"
+      ]
+     ]
+    },
+    {
+     "week": 4,
+     "night": "Tuesday",
+     "wave": 1,
+     "teams": [
+      "Clangers",
+      "Golden Ballers",
+      "Wild Warriors"
+     ],
+     "games": [
+      [
+       "Metford U10s",
+       "Wild Warriors"
+      ],
+      [
+       "Cobras Gold",
+       "Golden Ballers"
+      ]
+     ]
+    },
+    {
      "week": 4,
      "night": "Tuesday",
      "wave": 2,
@@ -6282,12 +6562,32 @@
      ],
      "games": [
       [
-       "Chaos FC",
-       "Grass Goblins"
-      ],
-      [
        "Mayhem FC",
        "Phoenix Flyers"
+      ],
+      [
+       "Chaos FC",
+       "Grass Goblins"
+      ]
+     ]
+    },
+    {
+     "week": 5,
+     "night": "Tuesday",
+     "wave": 1,
+     "teams": [
+      "Clangers",
+      "Golden Ballers",
+      "Wild Warriors"
+     ],
+     "games": [
+      [
+       "Rutherford Reds",
+       "Wild Warriors"
+      ],
+      [
+       "Golden Ballers",
+       "U7s New team"
       ]
      ]
     },
@@ -6301,12 +6601,32 @@
      ],
      "games": [
       [
-       "Chaos FC",
-       "Magpies"
-      ],
-      [
        "Mayhem FC",
        "Messi Business"
+      ],
+      [
+       "Chaos FC",
+       "Magpies"
+      ]
+     ]
+    },
+    {
+     "week": 6,
+     "night": "Tuesday",
+     "wave": 1,
+     "teams": [
+      "Clangers",
+      "Golden Ballers",
+      "Wild Warriors"
+     ],
+     "games": [
+      [
+       "Golden Ballers",
+       "U7 Goal Diggers"
+      ],
+      [
+       "U8s New Team",
+       "Wild Warriors"
       ]
      ]
     },
@@ -6332,6 +6652,26 @@
     {
      "week": 7,
      "night": "Tuesday",
+     "wave": 1,
+     "teams": [
+      "Clangers",
+      "Golden Ballers",
+      "Wild Warriors"
+     ],
+     "games": [
+      [
+       "Cobras Gold",
+       "Golden Ballers"
+      ],
+      [
+       "8/3 Thornton Devils",
+       "Wild Warriors"
+      ]
+     ]
+    },
+    {
+     "week": 7,
+     "night": "Tuesday",
      "wave": 2,
      "teams": [
       "Chaos FC",
@@ -6351,6 +6691,26 @@
     {
      "week": 8,
      "night": "Tuesday",
+     "wave": 1,
+     "teams": [
+      "Clangers",
+      "Golden Ballers",
+      "Wild Warriors"
+     ],
+     "games": [
+      [
+       "U8s Metford",
+       "Wild Warriors"
+      ],
+      [
+       "Golden Ballers",
+       "U7s New team"
+      ]
+     ]
+    },
+    {
+     "week": 8,
+     "night": "Tuesday",
      "wave": 2,
      "teams": [
       "Chaos FC",
@@ -6358,12 +6718,32 @@
      ],
      "games": [
       [
-       "Chaos FC",
-       "Phoenix Flyers"
-      ],
-      [
        "Magpies",
        "Mayhem FC"
+      ],
+      [
+       "Chaos FC",
+       "Phoenix Flyers"
+      ]
+     ]
+    },
+    {
+     "week": 9,
+     "night": "Tuesday",
+     "wave": 1,
+     "teams": [
+      "Clangers",
+      "Golden Ballers",
+      "Wild Warriors"
+     ],
+     "games": [
+      [
+       "Golden Ballers",
+       "U7 Goal Diggers"
+      ],
+      [
+       "Metford U10s",
+       "Wild Warriors"
       ]
      ]
     },
@@ -6385,23 +6765,43 @@
        "Rutherford Greens"
       ]
      ]
+    },
+    {
+     "week": 10,
+     "night": "Tuesday",
+     "wave": 1,
+     "teams": [
+      "Clangers",
+      "Golden Ballers",
+      "Wild Warriors"
+     ],
+     "games": [
+      [
+       "Rutherford Reds",
+       "Wild Warriors"
+      ],
+      [
+       "Cobras Gold",
+       "Golden Ballers"
+      ]
+     ]
     }
    ],
    "gameLeaderComps": [
-    "u811"
+    "u1213"
    ],
    "waveSplit": {
-    "mixed": {
+    "aam": {
      "earlyMin": 4,
-     "earlyMax": 5
+     "earlyMax": 6
     },
     "aaw": {
      "earlyMin": 4,
      "earlyMax": 6
     },
-    "aam": {
+    "mixed": {
      "earlyMin": 4,
-     "earlyMax": 6
+     "earlyMax": 5
     }
    },
    "bibGames": 19
