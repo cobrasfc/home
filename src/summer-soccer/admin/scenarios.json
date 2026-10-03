@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-03T23:36",
+ "generatedAt": "2026-10-03T23:44",
  "weeks": 10,
  "comps": [
   {
@@ -538,10 +538,6 @@
   {
    "kind": "Unassigned players",
    "detail": "4 in U8-9s — not yet in a team (player list)"
-  },
-  {
-   "kind": "Match length",
-   "detail": "U14–18s mixes U14–15s (2 × 15 min) and U16–18s (2 × 20 min) — planned as 2 × 15. Confirm."
   }
  ],
  "scenarios": [
@@ -3195,12 +3191,12 @@
      ],
      "games": [
       [
-       "Rutherford Reds",
-       "Wild Warriors"
-      ],
-      [
        "Cobras Gold",
        "Golden Ballers"
+      ],
+      [
+       "Rutherford Reds",
+       "Wild Warriors"
       ]
      ]
     },
@@ -3253,12 +3249,12 @@
      ],
      "games": [
       [
-       "Golden Ballers",
-       "U7 Goal Diggers"
-      ],
-      [
        "8/3 Thornton Devils",
        "Wild Warriors"
+      ],
+      [
+       "Golden Ballers",
+       "U7 Goal Diggers"
       ]
      ]
     },
@@ -3273,12 +3269,12 @@
      ],
      "games": [
       [
-       "U8s Metford",
-       "Wild Warriors"
-      ],
-      [
        "Cobras Gold",
        "Golden Ballers"
+      ],
+      [
+       "U8s Metford",
+       "Wild Warriors"
       ]
      ]
     },
@@ -3370,12 +3366,12 @@
      ],
      "games": [
       [
-       "Mayhem FC",
-       "Metford U12s"
-      ],
-      [
        "Chaos FC",
        "Rutherford Greens"
+      ],
+      [
+       "Mayhem FC",
+       "Metford U12s"
       ]
      ]
     },
@@ -3389,12 +3385,12 @@
      ],
      "games": [
       [
-       "Grass Goblins",
-       "Mayhem FC"
-      ],
-      [
        "Chaos FC",
        "Metford U12s"
+      ],
+      [
+       "Grass Goblins",
+       "Mayhem FC"
       ]
      ]
     },
@@ -3448,12 +3444,12 @@
      ],
      "games": [
       [
-       "Golden Ballers",
-       "U7 Goal Diggers"
-      ],
-      [
        "U8s Metford",
        "Wild Warriors"
+      ],
+      [
+       "Golden Ballers",
+       "U7 Goal Diggers"
       ]
      ]
     },
@@ -3487,12 +3483,12 @@
      ],
      "games": [
       [
-       "Cobras Gold",
-       "Golden Ballers"
-      ],
-      [
        "Metford U10s",
        "Wild Warriors"
+      ],
+      [
+       "Cobras Gold",
+       "Golden Ballers"
       ]
      ]
     }
@@ -6181,12 +6177,12 @@
      ],
      "games": [
       [
-       "Rutherford Reds",
-       "Wild Warriors"
-      ],
-      [
        "Cobras Gold",
        "Golden Ballers"
+      ],
+      [
+       "Rutherford Reds",
+       "Wild Warriors"
       ]
      ]
     },
@@ -6239,12 +6235,12 @@
      ],
      "games": [
       [
-       "Golden Ballers",
-       "U7 Goal Diggers"
-      ],
-      [
        "8/3 Thornton Devils",
        "Wild Warriors"
+      ],
+      [
+       "Golden Ballers",
+       "U7 Goal Diggers"
       ]
      ]
     },
@@ -6259,12 +6255,12 @@
      ],
      "games": [
       [
-       "U8s Metford",
-       "Wild Warriors"
-      ],
-      [
        "Cobras Gold",
        "Golden Ballers"
+      ],
+      [
+       "U8s Metford",
+       "Wild Warriors"
       ]
      ]
     },
@@ -6356,12 +6352,12 @@
      ],
      "games": [
       [
-       "Mayhem FC",
-       "Metford U12s"
-      ],
-      [
        "Chaos FC",
        "Rutherford Greens"
+      ],
+      [
+       "Mayhem FC",
+       "Metford U12s"
       ]
      ]
     },
@@ -6375,12 +6371,12 @@
      ],
      "games": [
       [
-       "Grass Goblins",
-       "Mayhem FC"
-      ],
-      [
        "Chaos FC",
        "Metford U12s"
+      ],
+      [
+       "Grass Goblins",
+       "Mayhem FC"
       ]
      ]
     },
@@ -6434,12 +6430,12 @@
      ],
      "games": [
       [
-       "Golden Ballers",
-       "U7 Goal Diggers"
-      ],
-      [
        "U8s Metford",
        "Wild Warriors"
+      ],
+      [
+       "Golden Ballers",
+       "U7 Goal Diggers"
       ]
      ]
     },
@@ -6473,12 +6469,12 @@
      ],
      "games": [
       [
-       "Cobras Gold",
-       "Golden Ballers"
-      ],
-      [
        "Metford U10s",
        "Wild Warriors"
+      ],
+      [
+       "Cobras Gold",
+       "Golden Ballers"
       ]
      ]
     }
@@ -6491,13 +6487,13 @@
      "earlyMin": 4,
      "earlyMax": 6
     },
-    "mixed": {
-     "earlyMin": 4,
-     "earlyMax": 5
-    },
     "aam": {
      "earlyMin": 3,
      "earlyMax": 6
+    },
+    "mixed": {
+     "earlyMin": 4,
+     "earlyMax": 5
     }
    },
    "bibGames": 18
