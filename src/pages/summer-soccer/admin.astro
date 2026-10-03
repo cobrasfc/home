@@ -48,8 +48,13 @@ function cells(s: Scenario, wave: Wave) {
 	return ids.map((id) => ({ id, label: id.startsWith('minis') ? `M${id.slice(-1)}` : id.split('-')[1], use: a[id] ?? null }));
 }
 
+const range = (a: number, b: number) => (a === b ? `${a}` : `${a}–${b}`);
+const usedText = (s: Scenario, w: Wave) => `${range(w.mainUsedMin, w.mainUsedMax)}/${s.mainFields}`;
+const freeText = (s: Scenario, w: Wave) =>
+	w.mainUsedMin === s.mainFields ? 'Full' : `${range(s.mainFields - w.mainUsedMax, s.mainFields - w.mainUsedMin)} free`;
+const gamesText = (a: Wave['allocations'][number]) => `${comp[a.comp].short} ${range(a.gamesMin, a.gamesMax)}`;
 const waveUse = (s: Scenario, night: string) =>
-	s.nights.find((n) => n.night === night)!.waves.map((w) => `W${w.wave} ${w.mainAllocated}/${s.mainFields}`).join(' · ');
+	s.nights.find((n) => n.night === night)!.waves.map((w) => `W${w.wave} ${usedText(s, w)}`).join(' · ');
 /** Most refereed games on at once on a night (U6/7s use game leaders, not referees) */
 function refsPeak(s: Scenario, night: string) {
 	const perSlot = new Map<string, number>();
@@ -172,13 +177,14 @@ const weeks = Array.from({ length: data.weeks }, (_, i) => i + 1);
 					{data.scenarios.map((s) => (
 						<article class="ad-card">
 							<h3 class="ad-h3">{s.name} <span class="ad-muted">· {s.title}</span></h3>
+							{s.fieldNote && <p class="ad-note ad-note--card">{s.fieldNote}</p>}
 							{s.nights.map((n) => (
 								<div class="ad-night">
 									<h4 class="ad-h4">{n.night}</h4>
 									{n.waves.map((w) => (
 										<div class="ad-wave">
 											<p class="ad-wave__time"><strong>Wave {w.wave}</strong><br />{w.start}–{w.end}</p>
-											<ol class="ad-strip" style={`--cells:${cells(s, w).length}`} aria-label={`${s.name}, ${n.night} wave ${w.wave}: ${w.allocations.map((a) => `${compName(a.comp)} ${plural(a.pitches, 'pitch')}`).join(', ')}; ${plural(w.mainEmpty, 'main pitch')} free`}>
+											<ol class="ad-strip" style={`--cells:${cells(s, w).length}`} aria-label={`${s.name}, ${n.night} wave ${w.wave}: ${w.allocations.map((a) => `${compName(a.comp)} ${range(a.gamesMin, a.gamesMax)} games`).join(', ')}; ${freeText(s, w)}`}>
 												{cells(s, w).map((c) => (
 													<li class={`ad-cell${c.use ? '' : ' is-free'}${c.id.startsWith('minis') ? ' is-mini' : ''}`} style={c.use ? `--plan:${c.use.colour}` : undefined} title={`${fieldLabel(c.id)}: ${c.use ? compName(Object.keys(comp).find((k) => comp[k].short === c.use!.tag)!) : 'free'}`}>
 														<span class="ad-cell__num">{c.label}</span>
@@ -186,7 +192,7 @@ const weeks = Array.from({ length: data.weeks }, (_, i) => i + 1);
 													</li>
 												))}
 											</ol>
-											<p class="ad-wave__free">{w.mainEmpty === 0 ? 'Full' : `${w.mainEmpty} free`}</p>
+											<p class="ad-wave__free">{freeText(s, w)}</p>
 										</div>
 									))}
 								</div>
@@ -264,7 +270,7 @@ const weeks = Array.from({ length: data.weeks }, (_, i) => i + 1);
 			{data.scenarios.map((s) => (
 				<section class="ad-panel" id={`panel-${s.id}`} role="tabpanel" aria-labelledby={`tab-${s.id}`} hidden>
 					<h2 class="ad-h2">{s.name}: {s.title}</h2>
-					<p class="ad-lede">{s.description} Fields shown are each competition’s pitches; games rotate around them week to week.</p>
+					<p class="ad-lede">{s.description} {s.fieldNote || 'Fields shown are each competition’s pitches; games rotate around them week to week.'}</p>
 
 					{s.nights.map((n) => (
 						<div class="ad-block">
@@ -274,7 +280,7 @@ const weeks = Array.from({ length: data.weeks }, (_, i) => i + 1);
 									<figure class="ad-map">
 										<figcaption class="ad-map__cap">
 											<strong>Wave {w.wave}</strong> · {w.start}–{w.end}
-											<span class="ad-muted"> · {w.allocations.map((a) => `${comp[a.comp].short} ${a.pitches}`).join(', ')} · {w.mainEmpty === 0 ? 'full' : `${w.mainEmpty} free`}</span>
+											<span class="ad-muted"> · {w.allocations.map((a) => `${gamesText(a)} game${a.gamesMax === 1 ? '' : 's'}`).join(', ')} · {freeText(s, w).toLowerCase()}</span>
 										</figcaption>
 										<Fragment set:html={GroundPlan(groundFor(s), assignments(w), `${s.name} ${n.night} wave ${w.wave}`, `${s.id}-${n.night}-${w.wave}`)} />
 									</figure>
