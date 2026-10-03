@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-03T22:54",
+ "generatedAt": "2026-10-03T23:08",
  "weeks": 10,
  "comps": [
   {
@@ -251,10 +251,20 @@
    "byes": 0
   },
   {
+   "name": "Cobras Blue",
+   "comp": "u67",
+   "colour": "",
+   "players": 9,
+   "dualIn": 0,
+   "placeholder": false,
+   "games": 10,
+   "byes": 0
+  },
+  {
    "name": "Cobras Gold",
    "comp": "u67",
    "colour": "Gold",
-   "players": 9,
+   "players": 8,
    "dualIn": 0,
    "placeholder": false,
    "games": 10,
@@ -281,16 +291,6 @@
    "byes": 0
   },
   {
-   "name": "U7s New team",
-   "comp": "u67",
-   "colour": "",
-   "players": 8,
-   "dualIn": 0,
-   "placeholder": false,
-   "games": 10,
-   "byes": 0
-  },
-  {
    "name": "8/3 Thornton Devils",
    "comp": "u811",
    "colour": "Red",
@@ -304,7 +304,7 @@
    "name": "Metford U10s",
    "comp": "u811",
    "colour": "Black",
-   "players": 6,
+   "players": 10,
    "dualIn": 0,
    "placeholder": false,
    "games": 10,
@@ -324,7 +324,7 @@
    "name": "U8s Metford",
    "comp": "u811",
    "colour": "Blue and Yellow",
-   "players": 8,
+   "players": 7,
    "dualIn": 0,
    "placeholder": false,
    "games": 10,
@@ -334,9 +334,9 @@
    "name": "U8s New Team",
    "comp": "u811",
    "colour": "",
-   "players": 6,
+   "players": 0,
    "dualIn": 0,
-   "placeholder": false,
+   "placeholder": true,
    "games": 10,
    "byes": 0
   },
@@ -522,12 +522,12 @@
    "detail": "1 in U8-9s — not yet in a team (player list)"
   },
   {
-   "kind": "Duplicate FFA number",
-   "detail": "One FFA number is used by 2 different players: Metford AAM (All Age Men) and Phoenix Flyers (U12-13s). Check the registrations — FFA numbers should be unique."
+   "kind": "Player list out of date",
+   "detail": "The player list still has players in teams that aren't in the current team list (Goal Diggers, U7s New team, Violet Vipers). Dual-registration and shared-contact checks use the player list, so export a fresh All Players tab to refresh them."
   },
   {
-   "kind": "Player list out of date",
-   "detail": "The player list still has players in teams that aren't in the current team list (Goal Diggers, Violet Vipers). Dual-registration and shared-contact checks use the player list, so export a fresh All Players tab to refresh them."
+   "kind": "Placeholder team",
+   "detail": "U8s New Team (U8–11s) has no players yet."
   },
   {
    "kind": "Match length",
@@ -1750,7 +1750,7 @@
      "start": "5:30 PM",
      "end": "5:54 PM",
      "field": "minis-2",
-     "team1": "U7s New team",
+     "team1": "Cobras Blue",
      "team2": "U7 Goal Diggers",
      "note": ""
     },
@@ -1880,7 +1880,7 @@
      "start": "5:30 PM",
      "end": "5:54 PM",
      "field": "minis-2",
-     "team1": "U7s New team",
+     "team1": "Cobras Blue",
      "team2": "Golden Ballers",
      "note": ""
     },
@@ -2037,7 +2037,7 @@
      "end": "5:54 PM",
      "field": "minis-2",
      "team1": "Cobras Gold",
-     "team2": "U7s New team",
+     "team2": "Cobras Blue",
      "note": ""
     },
     {
@@ -2180,7 +2180,7 @@
      "end": "5:54 PM",
      "field": "minis-1",
      "team1": "U7 Goal Diggers",
-     "team2": "U7s New team",
+     "team2": "Cobras Blue",
      "note": ""
     },
     {
@@ -2310,7 +2310,7 @@
      "end": "5:54 PM",
      "field": "minis-1",
      "team1": "Golden Ballers",
-     "team2": "U7s New team",
+     "team2": "Cobras Blue",
      "note": ""
     },
     {
@@ -2465,7 +2465,7 @@
      "start": "5:30 PM",
      "end": "5:54 PM",
      "field": "minis-1",
-     "team1": "U7s New team",
+     "team1": "Cobras Blue",
      "team2": "Cobras Gold",
      "note": ""
     },
@@ -2609,7 +2609,7 @@
      "end": "5:54 PM",
      "field": "minis-2",
      "team1": "U7 Goal Diggers",
-     "team2": "U7s New team",
+     "team2": "Cobras Blue",
      "note": ""
     },
     {
@@ -2739,7 +2739,7 @@
      "end": "5:54 PM",
      "field": "minis-2",
      "team1": "Golden Ballers",
-     "team2": "U7s New team",
+     "team2": "Cobras Blue",
      "note": ""
     },
     {
@@ -2894,7 +2894,7 @@
      "start": "5:30 PM",
      "end": "5:54 PM",
      "field": "minis-2",
-     "team1": "U7s New team",
+     "team1": "Cobras Blue",
      "team2": "Cobras Gold",
      "note": ""
     },
@@ -3038,7 +3038,7 @@
      "end": "5:54 PM",
      "field": "minis-1",
      "team1": "U7 Goal Diggers",
-     "team2": "U7s New team",
+     "team2": "Cobras Blue",
      "note": ""
     },
     {
@@ -3323,12 +3323,12 @@
      ],
      "games": [
       [
-       "Magpies",
-       "Mayhem FC"
-      ],
-      [
        "Chaos FC",
        "Phoenix Flyers"
+      ],
+      [
+       "Magpies",
+       "Mayhem FC"
       ]
      ]
     },
@@ -3343,12 +3343,12 @@
      ],
      "games": [
       [
-       "Golden Ballers",
-       "U7s New team"
-      ],
-      [
        "8/3 Thornton Devils",
        "Wild Warriors"
+      ],
+      [
+       "Cobras Blue",
+       "Golden Ballers"
       ]
      ]
     },
@@ -3362,12 +3362,12 @@
      ],
      "games": [
       [
-       "Chaos FC",
-       "Messi Business"
-      ],
-      [
        "Mayhem FC",
        "Rutherford Greens"
+      ],
+      [
+       "Chaos FC",
+       "Messi Business"
       ]
      ]
     },
@@ -3402,12 +3402,12 @@
      ],
      "games": [
       [
-       "Metford U10s",
-       "Wild Warriors"
-      ],
-      [
        "Cobras Gold",
        "Golden Ballers"
+      ],
+      [
+       "Metford U10s",
+       "Wild Warriors"
       ]
      ]
     },
@@ -3421,12 +3421,12 @@
      ],
      "games": [
       [
-       "Mayhem FC",
-       "Phoenix Flyers"
-      ],
-      [
        "Chaos FC",
        "Grass Goblins"
+      ],
+      [
+       "Mayhem FC",
+       "Phoenix Flyers"
       ]
      ]
     },
@@ -3445,8 +3445,8 @@
        "Wild Warriors"
       ],
       [
-       "Golden Ballers",
-       "U7s New team"
+       "Cobras Blue",
+       "Golden Ballers"
       ]
      ]
     },
@@ -3538,12 +3538,12 @@
      ],
      "games": [
       [
-       "Grass Goblins",
-       "Mayhem FC"
-      ],
-      [
        "Chaos FC",
        "Metford U12s"
+      ],
+      [
+       "Grass Goblins",
+       "Mayhem FC"
       ]
      ]
     },
@@ -3562,8 +3562,8 @@
        "Wild Warriors"
       ],
       [
-       "Golden Ballers",
-       "U7s New team"
+       "Cobras Blue",
+       "Golden Ballers"
       ]
      ]
     },
@@ -3577,12 +3577,12 @@
      ],
      "games": [
       [
-       "Magpies",
-       "Mayhem FC"
-      ],
-      [
        "Chaos FC",
        "Phoenix Flyers"
+      ],
+      [
+       "Magpies",
+       "Mayhem FC"
       ]
      ]
     },
@@ -3616,12 +3616,12 @@
      ],
      "games": [
       [
-       "Chaos FC",
-       "Messi Business"
-      ],
-      [
        "Mayhem FC",
        "Rutherford Greens"
+      ],
+      [
+       "Chaos FC",
+       "Messi Business"
       ]
      ]
     },
@@ -3636,12 +3636,12 @@
      ],
      "games": [
       [
-       "Rutherford Reds",
-       "Wild Warriors"
-      ],
-      [
        "Cobras Gold",
        "Golden Ballers"
+      ],
+      [
+       "Rutherford Reds",
+       "Wild Warriors"
       ]
      ]
     }
@@ -4864,7 +4864,7 @@
      "start": "5:30 PM",
      "end": "5:54 PM",
      "field": "minis-2",
-     "team1": "U7s New team",
+     "team1": "Cobras Blue",
      "team2": "U7 Goal Diggers",
      "note": ""
     },
@@ -4994,7 +4994,7 @@
      "start": "5:30 PM",
      "end": "5:54 PM",
      "field": "minis-2",
-     "team1": "U7s New team",
+     "team1": "Cobras Blue",
      "team2": "Golden Ballers",
      "note": ""
     },
@@ -5151,7 +5151,7 @@
      "end": "5:54 PM",
      "field": "minis-2",
      "team1": "Cobras Gold",
-     "team2": "U7s New team",
+     "team2": "Cobras Blue",
      "note": ""
     },
     {
@@ -5294,7 +5294,7 @@
      "end": "5:54 PM",
      "field": "minis-1",
      "team1": "U7 Goal Diggers",
-     "team2": "U7s New team",
+     "team2": "Cobras Blue",
      "note": ""
     },
     {
@@ -5424,7 +5424,7 @@
      "end": "5:54 PM",
      "field": "minis-1",
      "team1": "Golden Ballers",
-     "team2": "U7s New team",
+     "team2": "Cobras Blue",
      "note": ""
     },
     {
@@ -5579,7 +5579,7 @@
      "start": "5:30 PM",
      "end": "5:54 PM",
      "field": "minis-1",
-     "team1": "U7s New team",
+     "team1": "Cobras Blue",
      "team2": "Cobras Gold",
      "note": ""
     },
@@ -5723,7 +5723,7 @@
      "end": "5:54 PM",
      "field": "minis-2",
      "team1": "U7 Goal Diggers",
-     "team2": "U7s New team",
+     "team2": "Cobras Blue",
      "note": ""
     },
     {
@@ -5853,7 +5853,7 @@
      "end": "5:54 PM",
      "field": "minis-2",
      "team1": "Golden Ballers",
-     "team2": "U7s New team",
+     "team2": "Cobras Blue",
      "note": ""
     },
     {
@@ -6008,7 +6008,7 @@
      "start": "5:30 PM",
      "end": "5:54 PM",
      "field": "minis-2",
-     "team1": "U7s New team",
+     "team1": "Cobras Blue",
      "team2": "Cobras Gold",
      "note": ""
     },
@@ -6152,7 +6152,7 @@
      "end": "5:54 PM",
      "field": "minis-1",
      "team1": "U7 Goal Diggers",
-     "team2": "U7s New team",
+     "team2": "Cobras Blue",
      "note": ""
     },
     {
@@ -6464,12 +6464,12 @@
      ],
      "games": [
       [
-       "Magpies",
-       "Mayhem FC"
-      ],
-      [
        "Chaos FC",
        "Phoenix Flyers"
+      ],
+      [
+       "Magpies",
+       "Mayhem FC"
       ]
      ]
     },
@@ -6484,12 +6484,12 @@
      ],
      "games": [
       [
-       "Golden Ballers",
-       "U7s New team"
-      ],
-      [
        "8/3 Thornton Devils",
        "Wild Warriors"
+      ],
+      [
+       "Cobras Blue",
+       "Golden Ballers"
       ]
      ]
     },
@@ -6503,12 +6503,12 @@
      ],
      "games": [
       [
-       "Chaos FC",
-       "Messi Business"
-      ],
-      [
        "Mayhem FC",
        "Rutherford Greens"
+      ],
+      [
+       "Chaos FC",
+       "Messi Business"
       ]
      ]
     },
@@ -6543,12 +6543,12 @@
      ],
      "games": [
       [
-       "Metford U10s",
-       "Wild Warriors"
-      ],
-      [
        "Cobras Gold",
        "Golden Ballers"
+      ],
+      [
+       "Metford U10s",
+       "Wild Warriors"
       ]
      ]
     },
@@ -6562,12 +6562,12 @@
      ],
      "games": [
       [
-       "Mayhem FC",
-       "Phoenix Flyers"
-      ],
-      [
        "Chaos FC",
        "Grass Goblins"
+      ],
+      [
+       "Mayhem FC",
+       "Phoenix Flyers"
       ]
      ]
     },
@@ -6586,8 +6586,8 @@
        "Wild Warriors"
       ],
       [
-       "Golden Ballers",
-       "U7s New team"
+       "Cobras Blue",
+       "Golden Ballers"
       ]
      ]
     },
@@ -6679,12 +6679,12 @@
      ],
      "games": [
       [
-       "Grass Goblins",
-       "Mayhem FC"
-      ],
-      [
        "Chaos FC",
        "Metford U12s"
+      ],
+      [
+       "Grass Goblins",
+       "Mayhem FC"
       ]
      ]
     },
@@ -6703,8 +6703,8 @@
        "Wild Warriors"
       ],
       [
-       "Golden Ballers",
-       "U7s New team"
+       "Cobras Blue",
+       "Golden Ballers"
       ]
      ]
     },
@@ -6718,12 +6718,12 @@
      ],
      "games": [
       [
-       "Magpies",
-       "Mayhem FC"
-      ],
-      [
        "Chaos FC",
        "Phoenix Flyers"
+      ],
+      [
+       "Magpies",
+       "Mayhem FC"
       ]
      ]
     },
@@ -6757,12 +6757,12 @@
      ],
      "games": [
       [
-       "Chaos FC",
-       "Messi Business"
-      ],
-      [
        "Mayhem FC",
        "Rutherford Greens"
+      ],
+      [
+       "Chaos FC",
+       "Messi Business"
       ]
      ]
     },
@@ -6777,12 +6777,12 @@
      ],
      "games": [
       [
-       "Rutherford Reds",
-       "Wild Warriors"
-      ],
-      [
        "Cobras Gold",
        "Golden Ballers"
+      ],
+      [
+       "Rutherford Reds",
+       "Wild Warriors"
       ]
      ]
     }
@@ -6791,17 +6791,17 @@
     "u1213"
    ],
    "waveSplit": {
-    "aam": {
+    "mixed": {
      "earlyMin": 4,
-     "earlyMax": 6
+     "earlyMax": 5
     },
     "aaw": {
      "earlyMin": 4,
      "earlyMax": 6
     },
-    "mixed": {
+    "aam": {
      "earlyMin": 4,
-     "earlyMax": 5
+     "earlyMax": 6
     }
    },
    "bibGames": 19
