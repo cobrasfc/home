@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-03T21:03",
+ "generatedAt": "2026-10-03T21:18",
  "weeks": 10,
  "comps": [
   {
@@ -3360,12 +3360,12 @@
      ],
      "games": [
       [
-       "Mayhem FC",
-       "Messi Business"
-      ],
-      [
        "Chaos FC",
        "Magpies"
+      ],
+      [
+       "Mayhem FC",
+       "Messi Business"
       ]
      ]
     },
@@ -3398,12 +3398,12 @@
      ],
      "games": [
       [
-       "Chaos FC",
-       "Metford U12s"
-      ],
-      [
        "Grass Goblins",
        "Mayhem FC"
+      ],
+      [
+       "Chaos FC",
+       "Metford U12s"
       ]
      ]
     },
@@ -4776,11 +4776,11 @@
      "week": 1,
      "date": "2026-10-13",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u1418",
-     "start": "6:15 PM",
-     "end": "6:45 PM",
-     "field": "field-6",
+     "start": "5:30 PM",
+     "end": "6:00 PM",
+     "field": "field-2",
      "team1": "Cucumber Munchers",
      "team2": "Grasshopper United",
      "note": ""
@@ -4910,7 +4910,7 @@
      "comp": "u1418",
      "start": "5:30 PM",
      "end": "6:00 PM",
-     "field": "field-1",
+     "field": "field-2",
      "team1": "The Ghosts",
      "team2": "Goggins FC",
      "note": ""
@@ -4919,11 +4919,11 @@
      "week": 2,
      "date": "2026-10-20",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u1418",
-     "start": "6:15 PM",
-     "end": "6:45 PM",
-     "field": "field-6",
+     "start": "5:30 PM",
+     "end": "6:00 PM",
+     "field": "field-1",
      "team1": "Cucumber Munchers",
      "team2": "New U14-15s team",
      "note": ""
@@ -5062,11 +5062,11 @@
      "week": 3,
      "date": "2026-10-27",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u1418",
-     "start": "6:15 PM",
-     "end": "6:45 PM",
-     "field": "field-6",
+     "start": "5:30 PM",
+     "end": "6:00 PM",
+     "field": "field-2",
      "team1": "Cucumber Munchers",
      "team2": "The Ghosts",
      "note": ""
@@ -5196,7 +5196,7 @@
      "comp": "u1418",
      "start": "5:30 PM",
      "end": "6:00 PM",
-     "field": "field-1",
+     "field": "field-2",
      "team1": "Cucumber Munchers",
      "team2": "Goggins FC",
      "note": ""
@@ -5205,11 +5205,11 @@
      "week": 4,
      "date": "2026-11-03",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u1418",
-     "start": "6:15 PM",
-     "end": "6:45 PM",
-     "field": "field-6",
+     "start": "5:30 PM",
+     "end": "6:00 PM",
+     "field": "field-1",
      "team1": "Grasshopper United",
      "team2": "New U14-15s team",
      "note": ""
@@ -5335,11 +5335,11 @@
      "week": 5,
      "date": "2026-11-10",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u1418",
-     "start": "6:15 PM",
-     "end": "6:45 PM",
-     "field": "field-6",
+     "start": "5:30 PM",
+     "end": "6:00 PM",
+     "field": "field-1",
      "team1": "Goggins FC",
      "team2": "New U14-15s team",
      "note": ""
@@ -5352,7 +5352,7 @@
      "comp": "u1418",
      "start": "5:30 PM",
      "end": "6:00 PM",
-     "field": "field-1",
+     "field": "field-2",
      "team1": "Grasshopper United",
      "team2": "The Ghosts",
      "note": ""
@@ -5478,11 +5478,11 @@
      "week": 6,
      "date": "2026-11-17",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u1418",
-     "start": "6:15 PM",
-     "end": "6:45 PM",
-     "field": "field-6",
+     "start": "5:30 PM",
+     "end": "6:00 PM",
+     "field": "field-2",
      "team1": "New U14-15s team",
      "team2": "The Ghosts",
      "note": ""
@@ -5621,11 +5621,11 @@
      "week": 7,
      "date": "2026-11-24",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u1418",
-     "start": "6:15 PM",
-     "end": "6:45 PM",
-     "field": "field-6",
+     "start": "5:30 PM",
+     "end": "6:00 PM",
+     "field": "field-1",
      "team1": "Goggins FC",
      "team2": "The Ghosts",
      "note": ""
@@ -5638,7 +5638,7 @@
      "comp": "u1418",
      "start": "5:30 PM",
      "end": "6:00 PM",
-     "field": "field-1",
+     "field": "field-2",
      "team1": "New U14-15s team",
      "team2": "Cucumber Munchers",
      "note": ""
@@ -5768,7 +5768,7 @@
      "comp": "u1418",
      "start": "5:30 PM",
      "end": "6:00 PM",
-     "field": "field-1",
+     "field": "field-2",
      "team1": "Grasshopper United",
      "team2": "Goggins FC",
      "note": ""
@@ -5777,11 +5777,11 @@
      "week": 8,
      "date": "2026-12-01",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u1418",
-     "start": "6:15 PM",
-     "end": "6:45 PM",
-     "field": "field-6",
+     "start": "5:30 PM",
+     "end": "6:00 PM",
+     "field": "field-1",
      "team1": "The Ghosts",
      "team2": "Cucumber Munchers",
      "note": ""
@@ -5907,11 +5907,11 @@
      "week": 9,
      "date": "2026-12-08",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u1418",
-     "start": "6:15 PM",
-     "end": "6:45 PM",
-     "field": "field-6",
+     "start": "5:30 PM",
+     "end": "6:00 PM",
+     "field": "field-1",
      "team1": "Goggins FC",
      "team2": "Cucumber Munchers",
      "note": ""
@@ -5924,7 +5924,7 @@
      "comp": "u1418",
      "start": "5:30 PM",
      "end": "6:00 PM",
-     "field": "field-1",
+     "field": "field-2",
      "team1": "New U14-15s team",
      "team2": "Grasshopper United",
      "note": ""
@@ -6054,7 +6054,7 @@
      "comp": "u1418",
      "start": "5:30 PM",
      "end": "6:00 PM",
-     "field": "field-1",
+     "field": "field-2",
      "team1": "New U14-15s team",
      "team2": "Goggins FC",
      "note": ""
@@ -6063,11 +6063,11 @@
      "week": 10,
      "date": "2026-12-15",
      "night": "Tuesday",
-     "wave": 2,
+     "wave": 1,
      "comp": "u1418",
-     "start": "6:15 PM",
-     "end": "6:45 PM",
-     "field": "field-6",
+     "start": "5:30 PM",
+     "end": "6:00 PM",
+     "field": "field-1",
      "team1": "The Ghosts",
      "team2": "Grasshopper United",
      "note": ""
@@ -6182,18 +6182,19 @@
         },
         {
          "comp": "u1418",
-         "pitches": 1,
+         "pitches": 2,
          "fields": [
-          "field-1"
+          "field-1",
+          "field-2"
          ],
-         "gamesMin": 1,
-         "gamesMax": 1
+         "gamesMin": 2,
+         "gamesMax": 2
         }
        ],
-       "mainAllocated": 4,
+       "mainAllocated": 5,
        "miniAllocated": 0,
-       "mainEmpty": 2,
-       "gamesPeak": 4
+       "mainEmpty": 1,
+       "gamesPeak": 5
       },
       {
        "wave": 2,
@@ -6221,21 +6222,12 @@
          ],
          "gamesMin": 4,
          "gamesMax": 4
-        },
-        {
-         "comp": "u1418",
-         "pitches": 1,
-         "fields": [
-          "field-6"
-         ],
-         "gamesMin": 1,
-         "gamesMax": 1
         }
        ],
-       "mainAllocated": 5,
+       "mainAllocated": 4,
        "miniAllocated": 2,
-       "mainEmpty": 1,
-       "gamesPeak": 7
+       "mainEmpty": 2,
+       "gamesPeak": 6
       }
      ]
     }
@@ -6309,12 +6301,12 @@
      ],
      "games": [
       [
-       "Mayhem FC",
-       "Messi Business"
-      ],
-      [
        "Chaos FC",
        "Magpies"
+      ],
+      [
+       "Mayhem FC",
+       "Messi Business"
       ]
      ]
     },
@@ -6347,12 +6339,12 @@
      ],
      "games": [
       [
-       "Chaos FC",
-       "Metford U12s"
-      ],
-      [
        "Grass Goblins",
        "Mayhem FC"
+      ],
+      [
+       "Chaos FC",
+       "Metford U12s"
       ]
      ]
     },
@@ -6403,17 +6395,13 @@
      "earlyMin": 4,
      "earlyMax": 5
     },
-    "aam": {
-     "earlyMin": 4,
-     "earlyMax": 6
-    },
     "aaw": {
      "earlyMin": 4,
      "earlyMax": 6
     },
-    "u1418": {
-     "earlyMin": 3,
-     "earlyMax": 5
+    "aam": {
+     "earlyMin": 4,
+     "earlyMax": 6
     }
    },
    "bibGames": 19
