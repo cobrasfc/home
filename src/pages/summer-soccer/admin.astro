@@ -20,9 +20,9 @@ const COMP_COLOURS: Record<string, string> = {
 	aam: '#eb6834',
 	aaw: '#1baf7a',
 	u67: '#eda100',
-	u89: '#e87ba4',
-	u1013: '#008300',
-	u1215: '#4a3aa7'
+	u811: '#e87ba4',
+	u1213: '#008300',
+	u1418: '#4a3aa7'
 };
 const comp = Object.fromEntries(data.comps.map((c) => [c.id, c]));
 const compName = (id: string) => comp[id]?.name ?? id;
@@ -100,7 +100,7 @@ const contactRows = (() => {
 const leaderText = (s: Scenario) =>
 	s.gameLeaderComps.length
 		? `${s.gameLeaderComps.map(compName).join(', ')} teams are resting (they play the other wave)`
-		: 'No U10–13 or U12–15 teams are resting while the U6/7s play';
+		: 'No older junior teams are resting while the U6/7s play';
 
 const splitText = (s: Scenario) => {
 	const entries = Object.entries(s.waveSplit).filter(([id]) => comp[id]?.night === 'Monday');
