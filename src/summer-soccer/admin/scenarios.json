@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-03T23:44",
+ "generatedAt": "2026-10-03T23:48",
  "weeks": 10,
  "comps": [
   {
@@ -3098,7 +3098,10 @@
        "mainEmpty": 1,
        "gamesPeak": 7
       }
-     ]
+     ],
+     "shownWeek": 1,
+     "shownWeeks": 10,
+     "varies": false
     },
     {
      "night": "Tuesday",
@@ -3175,7 +3178,10 @@
        "mainEmpty": 4,
        "gamesPeak": 4
       }
-     ]
+     ],
+     "shownWeek": 1,
+     "shownWeeks": 10,
+     "varies": false
     }
    ],
    "dualClashes": [],
@@ -3191,12 +3197,12 @@
      ],
      "games": [
       [
-       "Cobras Gold",
-       "Golden Ballers"
-      ],
-      [
        "Rutherford Reds",
        "Wild Warriors"
+      ],
+      [
+       "Cobras Gold",
+       "Golden Ballers"
       ]
      ]
     },
@@ -3210,12 +3216,12 @@
      ],
      "games": [
       [
-       "Chaos FC",
-       "Phoenix Flyers"
-      ],
-      [
        "Magpies",
        "Mayhem FC"
+      ],
+      [
+       "Chaos FC",
+       "Phoenix Flyers"
       ]
      ]
     },
@@ -3249,12 +3255,12 @@
      ],
      "games": [
       [
-       "8/3 Thornton Devils",
-       "Wild Warriors"
-      ],
-      [
        "Golden Ballers",
        "U7 Goal Diggers"
+      ],
+      [
+       "8/3 Thornton Devils",
+       "Wild Warriors"
       ]
      ]
     },
@@ -3269,12 +3275,12 @@
      ],
      "games": [
       [
-       "Cobras Gold",
-       "Golden Ballers"
-      ],
-      [
        "U8s Metford",
        "Wild Warriors"
+      ],
+      [
+       "Cobras Gold",
+       "Golden Ballers"
       ]
      ]
     },
@@ -3308,12 +3314,12 @@
      ],
      "games": [
       [
-       "Metford U10s",
-       "Wild Warriors"
-      ],
-      [
        "Cobras Blue",
        "Golden Ballers"
+      ],
+      [
+       "Metford U10s",
+       "Wild Warriors"
       ]
      ]
     },
@@ -3327,12 +3333,12 @@
      ],
      "games": [
       [
-       "Chaos FC",
-       "Magpies"
-      ],
-      [
        "Mayhem FC",
        "Messi Business"
+      ],
+      [
+       "Chaos FC",
+       "Magpies"
       ]
      ]
     },
@@ -3347,12 +3353,12 @@
      ],
      "games": [
       [
-       "Golden Ballers",
-       "U7 Goal Diggers"
-      ],
-      [
        "Rutherford Reds",
        "Wild Warriors"
+      ],
+      [
+       "Golden Ballers",
+       "U7 Goal Diggers"
       ]
      ]
     },
@@ -3366,12 +3372,12 @@
      ],
      "games": [
       [
-       "Chaos FC",
-       "Rutherford Greens"
-      ],
-      [
        "Mayhem FC",
        "Metford U12s"
+      ],
+      [
+       "Chaos FC",
+       "Rutherford Greens"
       ]
      ]
     },
@@ -3385,12 +3391,12 @@
      ],
      "games": [
       [
-       "Chaos FC",
-       "Metford U12s"
-      ],
-      [
        "Grass Goblins",
        "Mayhem FC"
+      ],
+      [
+       "Chaos FC",
+       "Metford U12s"
       ]
      ]
     },
@@ -3405,12 +3411,12 @@
      ],
      "games": [
       [
-       "8/3 Thornton Devils",
-       "Wild Warriors"
-      ],
-      [
        "Cobras Blue",
        "Golden Ballers"
+      ],
+      [
+       "8/3 Thornton Devils",
+       "Wild Warriors"
       ]
      ]
     },
@@ -3424,12 +3430,12 @@
      ],
      "games": [
       [
-       "Chaos FC",
-       "Phoenix Flyers"
-      ],
-      [
        "Magpies",
        "Mayhem FC"
+      ],
+      [
+       "Chaos FC",
+       "Phoenix Flyers"
       ]
      ]
     },
@@ -3444,12 +3450,12 @@
      ],
      "games": [
       [
-       "U8s Metford",
-       "Wild Warriors"
-      ],
-      [
        "Golden Ballers",
        "U7 Goal Diggers"
+      ],
+      [
+       "U8s Metford",
+       "Wild Warriors"
       ]
      ]
     },
@@ -3483,12 +3489,12 @@
      ],
      "games": [
       [
-       "Metford U10s",
-       "Wild Warriors"
-      ],
-      [
        "Cobras Gold",
        "Golden Ballers"
+      ],
+      [
+       "Metford U10s",
+       "Wild Warriors"
       ]
      ]
     }
@@ -3515,7 +3521,7 @@
     "Different field size to what was communicated to some players",
     "Fields don't get as much of a break (though there are fewer people per m²)"
    ],
-   "fieldNote": "Fields are chosen each week to keep the middle fields (2 and 5) free where possible, so the layout shown is the most common week.",
+   "fieldNote": "Fields are chosen each week to keep the middle fields (2 and 5) free where possible, so the maps show one typical week (named on each night).",
    "layout": "thirds",
    "mainFields": 6,
    "minis": 2,
@@ -6004,7 +6010,6 @@
          "comp": "mixed",
          "pitches": 2,
          "fields": [
-          "field-1",
           "field-2"
          ],
          "minis": false,
@@ -6015,7 +6020,8 @@
          "comp": "aam",
          "pitches": 2,
          "fields": [
-          "field-3"
+          "field-4",
+          "field-6"
          ],
          "minis": false,
          "gamesMin": 1,
@@ -6025,8 +6031,8 @@
          "comp": "aaw",
          "pitches": 2,
          "fields": [
-          "field-4",
-          "field-6"
+          "field-1",
+          "field-3"
          ],
          "minis": false,
          "gamesMin": 2,
@@ -6084,7 +6090,10 @@
        "mainEmpty": 1,
        "gamesPeak": 5
       }
-     ]
+     ],
+     "shownWeek": 2,
+     "shownWeeks": 5,
+     "varies": true
     },
     {
      "night": "Tuesday",
@@ -6161,7 +6170,10 @@
        "mainEmpty": 2,
        "gamesPeak": 4
       }
-     ]
+     ],
+     "shownWeek": 1,
+     "shownWeeks": 10,
+     "varies": false
     }
    ],
    "dualClashes": [],
@@ -6177,12 +6189,12 @@
      ],
      "games": [
       [
-       "Cobras Gold",
-       "Golden Ballers"
-      ],
-      [
        "Rutherford Reds",
        "Wild Warriors"
+      ],
+      [
+       "Cobras Gold",
+       "Golden Ballers"
       ]
      ]
     },
@@ -6196,12 +6208,12 @@
      ],
      "games": [
       [
-       "Chaos FC",
-       "Phoenix Flyers"
-      ],
-      [
        "Magpies",
        "Mayhem FC"
+      ],
+      [
+       "Chaos FC",
+       "Phoenix Flyers"
       ]
      ]
     },
@@ -6235,12 +6247,12 @@
      ],
      "games": [
       [
-       "8/3 Thornton Devils",
-       "Wild Warriors"
-      ],
-      [
        "Golden Ballers",
        "U7 Goal Diggers"
+      ],
+      [
+       "8/3 Thornton Devils",
+       "Wild Warriors"
       ]
      ]
     },
@@ -6255,12 +6267,12 @@
      ],
      "games": [
       [
-       "Cobras Gold",
-       "Golden Ballers"
-      ],
-      [
        "U8s Metford",
        "Wild Warriors"
+      ],
+      [
+       "Cobras Gold",
+       "Golden Ballers"
       ]
      ]
     },
@@ -6294,12 +6306,12 @@
      ],
      "games": [
       [
-       "Metford U10s",
-       "Wild Warriors"
-      ],
-      [
        "Cobras Blue",
        "Golden Ballers"
+      ],
+      [
+       "Metford U10s",
+       "Wild Warriors"
       ]
      ]
     },
@@ -6313,12 +6325,12 @@
      ],
      "games": [
       [
-       "Chaos FC",
-       "Magpies"
-      ],
-      [
        "Mayhem FC",
        "Messi Business"
+      ],
+      [
+       "Chaos FC",
+       "Magpies"
       ]
      ]
     },
@@ -6333,12 +6345,12 @@
      ],
      "games": [
       [
-       "Golden Ballers",
-       "U7 Goal Diggers"
-      ],
-      [
        "Rutherford Reds",
        "Wild Warriors"
+      ],
+      [
+       "Golden Ballers",
+       "U7 Goal Diggers"
       ]
      ]
     },
@@ -6352,12 +6364,12 @@
      ],
      "games": [
       [
-       "Chaos FC",
-       "Rutherford Greens"
-      ],
-      [
        "Mayhem FC",
        "Metford U12s"
+      ],
+      [
+       "Chaos FC",
+       "Rutherford Greens"
       ]
      ]
     },
@@ -6371,12 +6383,12 @@
      ],
      "games": [
       [
-       "Chaos FC",
-       "Metford U12s"
-      ],
-      [
        "Grass Goblins",
        "Mayhem FC"
+      ],
+      [
+       "Chaos FC",
+       "Metford U12s"
       ]
      ]
     },
@@ -6391,12 +6403,12 @@
      ],
      "games": [
       [
-       "8/3 Thornton Devils",
-       "Wild Warriors"
-      ],
-      [
        "Cobras Blue",
        "Golden Ballers"
+      ],
+      [
+       "8/3 Thornton Devils",
+       "Wild Warriors"
       ]
      ]
     },
@@ -6410,12 +6422,12 @@
      ],
      "games": [
       [
-       "Chaos FC",
-       "Phoenix Flyers"
-      ],
-      [
        "Magpies",
        "Mayhem FC"
+      ],
+      [
+       "Chaos FC",
+       "Phoenix Flyers"
       ]
      ]
     },
@@ -6430,12 +6442,12 @@
      ],
      "games": [
       [
-       "U8s Metford",
-       "Wild Warriors"
-      ],
-      [
        "Golden Ballers",
        "U7 Goal Diggers"
+      ],
+      [
+       "U8s Metford",
+       "Wild Warriors"
       ]
      ]
     },
@@ -6469,12 +6481,12 @@
      ],
      "games": [
       [
-       "Metford U10s",
-       "Wild Warriors"
-      ],
-      [
        "Cobras Gold",
        "Golden Ballers"
+      ],
+      [
+       "Metford U10s",
+       "Wild Warriors"
       ]
      ]
     }
@@ -6483,6 +6495,10 @@
     "u1213"
    ],
    "waveSplit": {
+    "mixed": {
+     "earlyMin": 4,
+     "earlyMax": 5
+    },
     "aaw": {
      "earlyMin": 4,
      "earlyMax": 6
@@ -6490,10 +6506,6 @@
     "aam": {
      "earlyMin": 3,
      "earlyMax": 6
-    },
-    "mixed": {
-     "earlyMin": 4,
-     "earlyMax": 5
     }
    },
    "bibGames": 18

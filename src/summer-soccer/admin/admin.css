@@ -523,3 +523,9 @@
 .ad-note--card {
 	margin: -4px 0 6px !important;
 }
+
+.ad-h4__week {
+	font-weight: 500;
+	letter-spacing: 0;
+	text-transform: none;
+}

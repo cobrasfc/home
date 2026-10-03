@@ -180,7 +180,7 @@ const weeks = Array.from({ length: data.weeks }, (_, i) => i + 1);
 							{s.fieldNote && <p class="ad-note ad-note--card">{s.fieldNote}</p>}
 							{s.nights.map((n) => (
 								<div class="ad-night">
-									<h4 class="ad-h4">{n.night}</h4>
+									<h4 class="ad-h4">{n.night}{n.varies && <span class="ad-h4__week"> · week {n.shownWeek} shown · {n.shownWeeks} of {data.weeks} weeks have the same games per wave</span>}</h4>
 									{n.waves.map((w) => (
 										<div class="ad-wave">
 											<p class="ad-wave__time"><strong>Wave {w.wave}</strong><br />{w.start}–{w.end}</p>
@@ -274,7 +274,7 @@ const weeks = Array.from({ length: data.weeks }, (_, i) => i + 1);
 
 					{s.nights.map((n) => (
 						<div class="ad-block">
-							<h3 class="ad-h3">{n.night}</h3>
+							<h3 class="ad-h3">{n.night}{n.varies && <span class="ad-muted"> · week {n.shownWeek} shown · {n.shownWeeks} of {data.weeks} weeks have the same games per wave; the draw below has every week</span>}</h3>
 							<div class="ad-maps">
 								{n.waves.map((w) => (
 									<figure class="ad-map">
