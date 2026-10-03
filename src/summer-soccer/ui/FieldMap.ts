@@ -101,6 +101,41 @@ export interface PlanAssignment {
 	tag: string;
 	/** CSS colour identifying the competition (always paired with the text tag) */
 	colour: string;
+	/** When set, the field shows this match (team names shortened to fit; full names in the hover tooltip) */
+	match?: { team1: string; team2: string; note?: string };
+}
+
+/** Widest horizontal line through a rotated field's centre — the room available for upright text */
+function textRoom(f: FieldDef): number {
+	const a = (f.rotate * Math.PI) / 180;
+	const cos = Math.abs(Math.cos(a));
+	const sin = Math.abs(Math.sin(a));
+	return Math.min(cos > 0.01 ? f.w / cos : Infinity, sin > 0.01 ? f.h / sin : Infinity);
+}
+
+function fit(text: string, maxChars: number): string {
+	return text.length <= maxChars ? text : `${text.slice(0, Math.max(1, maxChars - 1)).trimEnd()}…`;
+}
+
+/** Field number + competition, then "Team 1 / v / Team 2", centred on the field */
+function matchLabel(f: FieldDef, num: string, a: PlanAssignment): string {
+	const base = Math.max(17, Math.min(25, Math.min(f.w, f.h) * 0.13));
+	const maxChars = Math.max(6, Math.floor((textRoom(f) * 0.82) / (base * 0.56)));
+	const lines = [
+		{ text: `${num} · ${a.tag}`, size: base * 0.85, cls: 'ss-plan__mhead' },
+		{ text: fit(a.match!.team1, maxChars), size: base, cls: 'ss-plan__mteam' },
+		{ text: 'v', size: base * 0.75, cls: 'ss-plan__mv' },
+		{ text: fit(a.match!.team2, maxChars), size: base, cls: 'ss-plan__mteam' }
+	];
+	const lineH = (l: { size: number }) => l.size * 1.18;
+	const total = lines.reduce((t, l) => t + lineH(l), 0);
+	let y = f.cy - total / 2;
+	return lines
+		.map((l) => {
+			y += lineH(l);
+			return `<text class="${l.cls}" x="${f.cx}" y="${(y - l.size * 0.28).toFixed(1)}" font-size="${l.size.toFixed(1)}" text-anchor="middle">${esc(l.text)}</text>`;
+		})
+		.join('');
 }
 
 /**
@@ -118,19 +153,30 @@ export function GroundPlan(ground: Ground, assignments: Record<string, PlanAssig
 			const size = Math.min(f.w, f.h);
 			const numSize = Math.round(size * (isMini ? 0.34 : 0.3));
 			const tagSize = Math.round(size * (isMini ? 0.2 : 0.17));
-			return `<g class="ss-plan__field${a ? ' is-used' : ''}"${style}>
+			const tip = a?.match
+				? `<title>${esc(`${f.label} · ${a.tag}: ${a.match.team1} v ${a.match.team2}${a.match.note ? ` — ${a.match.note}` : ''}`)}</title>`
+				: '';
+			const label = a?.match
+				? matchLabel(f, num, a)
+				: `<text class="ss-plan__num" x="${f.cx}" y="${f.cy - tagSize * 0.35}" font-size="${numSize}" text-anchor="middle">${esc(num)}</text>
+				<text class="ss-plan__tag" x="${f.cx}" y="${f.cy + tagSize * 1.25}" font-size="${tagSize}" text-anchor="middle">${esc(a ? a.tag : 'free')}</text>`;
+			return `<g class="ss-plan__field${a ? ' is-used' : ''}${a?.match ? ' has-match' : ''}"${style}>${tip}
 				<g transform="${rotation(f)}">
 					<rect class="ss-plan__pitch" x="${f.cx - f.w / 2}" y="${f.cy - f.h / 2}" width="${f.w}" height="${f.h}" rx="10"/>
 					${pitchMarkings(f)}
 				</g>
-				<text class="ss-plan__num" x="${f.cx}" y="${f.cy - tagSize * 0.35}" font-size="${numSize}" text-anchor="middle">${esc(num)}</text>
-				<text class="ss-plan__tag" x="${f.cx}" y="${f.cy + tagSize * 1.25}" font-size="${tagSize}" text-anchor="middle">${esc(a ? a.tag : 'free')}</text>
+				${label}
 			</g>`;
 		})
 		.join('');
 	const used = ground.fields.filter((f) => assignments[f.id]);
 	const desc = used.length
-		? `${used.map((f) => `${f.label}: ${assignments[f.id].tag}`).join('; ')}. Other fields free.`
+		? `${used
+				.map((f) => {
+					const a = assignments[f.id];
+					return `${f.label}: ${a.tag}${a.match ? ` — ${a.match.team1} v ${a.match.team2}` : ''}`;
+				})
+				.join('; ')}. Other fields free.`
 		: 'No fields in use.';
 	return `<svg class="ss-map__svg ss-plan" viewBox="${vb.x} ${vb.y} ${vb.w} ${vb.h}" role="img" aria-labelledby="${idPrefix}-t ${idPrefix}-d" focusable="false">
 		<title id="${idPrefix}-t">${esc(title)}</title>

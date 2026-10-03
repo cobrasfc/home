@@ -529,3 +529,36 @@
 	letter-spacing: 0;
 	text-transform: none;
 }
+
+/* ---------- Round-by-round maps ---------- */
+.ss-plan__mhead,
+.ss-plan__mteam,
+.ss-plan__mv {
+	font-family: var(--font-sans);
+	fill: var(--ss-ink);
+}
+.ss-plan__mhead {
+	font-weight: 700;
+}
+.ss-plan__mteam {
+	font-weight: 600;
+}
+.ss-plan__mv {
+	fill: var(--ad-ink-2);
+}
+.ss-plan__field.has-match {
+	cursor: help;
+}
+.ad-round {
+	margin-top: 18px;
+}
+.ad-round__title {
+	margin: 0 0 8px;
+	font-size: 0.9375rem;
+	font-weight: 700;
+	color: var(--ss-blue);
+}
+.ad-bye td {
+	background: #f7f8fb;
+	font-style: italic;
+}
