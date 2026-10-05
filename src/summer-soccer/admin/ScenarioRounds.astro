@@ -1,0 +1,101 @@
+---
+// A scenario's checks and round-by-round maps + draw (one round picker drives both).
+import { COMP_COLOURS, fieldLabel, groundFor, makeView, nightDate, plural, type PlanData, type Scenario } from './view';
+import { GroundPlan } from '../ui/FieldMap';
+
+interface Props {
+	data: PlanData;
+	scenario: Scenario;
+	/** Unique key for this instance's round picker and SVG ids (e.g. "live", "hist-s1") */
+	uid: string;
+}
+const { data, scenario: s, uid: key } = Astro.props;
+const v = makeView(data);
+---
+
+<div class="ad-block">
+	<h3 class="ad-h3">Checks</h3>
+	<ul class="ad-checks">
+		<li>
+			<span class={`ad-status ${s.dualClashes.length ? 'is-bad' : 'is-good'}`}><span aria-hidden="true">{s.dualClashes.length ? '✕' : '✓'}</span>Dual-registered players</span>
+			{s.dualClashes.length
+				? ` ${plural(s.dualClashes.length, 'week')} where a player's two teams play at the same time.`
+				: ` No player's Mixed and Men's/Women's teams ever play at the same time (${data.dualLinks.map((l: any) => `${l.senior} ↔ ${l.mixed}`).join('; ')}).`}
+		</li>
+		{v.contactSummary(s).map((c) => (
+			<li>
+				<span class="ad-status is-warn"><span aria-hidden="true">!</span>Shared contact</span>
+				{' '}{c.teams.join(' & ')} play in the same wave ({c.night}) in {c.weeks.size} of {data.weeks} weeks{v.sameComp(c.teams) ? ' — same competition' : ''}.
+			</li>
+		))}
+		<li><span class="ad-status is-info"><span aria-hidden="true">i</span>Game leaders</span> {v.leaderText(s)}.</li>
+	</ul>
+</div>
+
+<div class="ad-block">
+	<div class="ad-drawhead">
+		<h3 class="ad-h3">Round by round</h3>
+		<div class="ad-weeks" role="group" aria-label={`${s.name} round`}>
+			{v.weeks.map((w) => (
+				<button type="button" class="ad-week" data-scenario={key} data-week={w} aria-pressed={w === 1 ? 'true' : 'false'} aria-label={`Round ${w}`}>{w}</button>
+			))}
+		</div>
+	</div>
+	<p class="ad-note">Pick a round to see every game on the ground: each field shows its two teams (hover or tap a field for full names and bib notes).</p>
+	{v.weeks.map((wk) => (
+		<div data-week-panel={`${key}-${wk}`} hidden={wk !== 1}>
+			{s.nights.map((n: any) => {
+				const games = s.fixtures
+					.filter((f: any) => f.week === wk && f.night === n.night)
+					.sort((a: any, b: any) => a.wave - b.wave || a.field.localeCompare(b.field, 'en', { numeric: true }));
+				const playing = new Set(games.flatMap((g: any) => [g.team1, g.team2]));
+				const byes = data.teams.filter((t: any) => v.comp[t.comp]?.night === n.night && !playing.has(t.name));
+				return (
+					<div class="ad-round">
+						<h4 class="ad-round__title">Round {wk} · {n.night} {games[0] ? nightDate(games[0].date) : ''}</h4>
+						<div class="ad-maps">
+							{n.waves.map((w: any) => {
+								const wg = games.filter((g: any) => g.wave === w.wave);
+								return (
+									<figure class="ad-map">
+										<figcaption class="ad-map__cap">
+											<strong>Wave {w.wave}</strong> · {w.start}–{w.end}
+											<span class="ad-muted"> · {plural(wg.length, 'game')}</span>
+										</figcaption>
+										<Fragment set:html={GroundPlan(groundFor(s), v.roundAssignments(s, n.night, w.wave, wk), `${s.name} round ${wk} ${n.night} wave ${w.wave}`, `${key}-r${wk}-${n.night}-${w.wave}`)} />
+									</figure>
+								);
+							})}
+						</div>
+						<div class="ad-tablewrap">
+							<table class="ad-table ad-table--draw">
+								<caption>Round {wk} · {n.night} games</caption>
+								<thead><tr><th scope="col">Time</th><th scope="col">Field</th><th scope="col">Competition</th><th scope="col">Match</th><th scope="col">Note</th></tr></thead>
+								<tbody>
+									{games.map((g: any) => (
+										<tr>
+											<td class="ad-nowrap">{g.start}</td>
+											<td class="ad-nowrap">{fieldLabel(g.field)}</td>
+											<td class="ad-nowrap"><span class="ad-chip ad-chip--sm" style={`--plan:${COMP_COLOURS[g.comp]}`}>{v.comp[g.comp].short}</span></td>
+											<td>{g.team1} <span class="ad-muted">v</span> {g.team2}</td>
+											<td class="ad-muted">{g.note.replace(/^Colour clash: /, '')}</td>
+										</tr>
+									))}
+									{byes.map((t: any) => (
+										<tr class="ad-bye">
+											<td class="ad-muted">—</td>
+											<td class="ad-muted">—</td>
+											<td class="ad-nowrap"><span class="ad-chip ad-chip--sm" style={`--plan:${COMP_COLOURS[t.comp]}`}>{v.comp[t.comp].short}</span></td>
+											<td>{t.name} <span class="ad-muted">— bye</span></td>
+											<td class="ad-muted">No game this round</td>
+										</tr>
+									))}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				);
+			})}
+		</div>
+	))}
+</div>

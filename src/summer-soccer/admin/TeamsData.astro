@@ -1,0 +1,72 @@
+---
+// Competitions, teams, dual registrations, shared contacts and data issues for a plan data file.
+import { COMP_COLOURS, makeView, plural, type PlanData } from './view';
+
+interface Props {
+	data: PlanData;
+}
+const { data } = Astro.props;
+const v = makeView(data);
+---
+
+<h2 class="ad-h2">Competitions</h2>
+<div class="ad-tablewrap">
+	<table class="ad-table">
+		<thead><tr><th scope="col">Competition</th><th scope="col">Night</th><th scope="col">Teams</th><th scope="col">Games a week</th><th scope="col">Games per team</th><th scope="col">Match length</th></tr></thead>
+		<tbody>
+			{data.comps.map((c: any) => {
+				const ts = data.teams.filter((t: any) => t.comp === c.id);
+				const g = ts.map((t: any) => t.games);
+				return (
+					<tr>
+						<th scope="row"><span class="ad-chip ad-chip--sm" style={`--plan:${COMP_COLOURS[c.id]}`}>{c.short}</span> {c.name}</th>
+						<td>{c.night}</td>
+						<td>{ts.length}{ts.length % 2 ? <span class="ad-muted"> (bye each week)</span> : ''}</td>
+						<td>{Math.floor(ts.length / 2)}</td>
+						<td>{Math.min(...g) === Math.max(...g) ? Math.min(...g) : `${Math.min(...g)}–${Math.max(...g)}`}</td>
+						<td>{c.minutes} min</td>
+					</tr>
+				);
+			})}
+		</tbody>
+	</table>
+</div>
+
+<h2 class="ad-h2">Teams</h2>
+<div class="ad-teamgrid">
+	{data.comps.map((c: any) => (
+		<div class="ad-card">
+			<h3 class="ad-h3"><span class="ad-chip ad-chip--sm" style={`--plan:${COMP_COLOURS[c.id]}`}>{c.short}</span> {c.name}</h3>
+			<table class="ad-table ad-table--teams">
+				<thead><tr><th scope="col">Team</th><th scope="col">Shirt</th><th scope="col" class="ad-num">Players</th><th scope="col" class="ad-num">Games</th></tr></thead>
+				<tbody>
+					{data.teams.filter((t: any) => t.comp === c.id).map((t: any) => (
+						<tr>
+							<td>{t.name}{t.placeholder && <span class="ad-flag">placeholder</span>}</td>
+							<td class="ad-muted">{t.colour || 'TBC'}</td>
+							<td class="ad-num">{t.players}{t.dualIn ? <span class="ad-muted"> +{t.dualIn} dual</span> : ''}</td>
+							<td class="ad-num">{t.games}</td>
+						</tr>
+					))}
+				</tbody>
+			</table>
+		</div>
+	))}
+</div>
+
+<h2 class="ad-h2">Dual registrations</h2>
+<p class="ad-note">Players registered in a Mixed team and a Men’s/Women’s team (matched by FFA number). The schedule keeps these pairs of teams apart.</p>
+<ul class="ad-list">
+	{data.dualLinks.map((l: any) => <li><strong>{l.senior}</strong> <span class="ad-muted">({v.compName(l.seniorComp)})</span> ↔ <strong>{l.mixed}</strong> <span class="ad-muted">(Mixed)</span> · {plural(l.players, 'player')}</li>)}
+</ul>
+
+<h2 class="ad-h2">Shared coaches / contacts</h2>
+<p class="ad-note">Teams whose registrations list the same contact phone number.</p>
+<ul class="ad-list">
+	{data.contactGroups.map((g: string[]) => <li>{g.join(' · ')}</li>)}
+</ul>
+
+<h2 class="ad-h2">Data to check</h2>
+<ul class="ad-list ad-list--issues">
+	{data.issues.length ? data.issues.map((i: any) => <li><strong>{i.kind}:</strong> {i.detail}</li>) : <li>Nothing outstanding.</li>}
+</ul>

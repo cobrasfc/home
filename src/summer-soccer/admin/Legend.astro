@@ -1,0 +1,16 @@
+---
+// Competition colour key (colour always paired with the competition's short name)
+import { COMP_COLOURS, type PlanData } from './view';
+
+interface Props {
+	data: PlanData;
+}
+const { data } = Astro.props;
+---
+
+<div class="ad-legend" aria-label="Competition colours">
+	{data.comps.map((c: any) => (
+		<span class="ad-legend__item"><span class="ad-chip" style={`--plan:${COMP_COLOURS[c.id]}`}>{c.short}</span>{c.name}</span>
+	))}
+	<span class="ad-legend__item"><span class="ad-chip ad-chip--free">free</span>Unused pitch</span>
+</div>

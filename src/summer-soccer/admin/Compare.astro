@@ -1,0 +1,85 @@
+---
+// Side-by-side comparison of every scenario in a plan data file (used for the frozen decision snapshot).
+import { FIELD_SIZE, makeView, plural, type PlanData } from './view';
+import Legend from './Legend.astro';
+import PitchStrip from './PitchStrip.astro';
+
+interface Props {
+	data: PlanData;
+}
+const { data } = Astro.props;
+const v = makeView(data);
+const contactRows = v.contactRows();
+---
+
+<Legend data={data} />
+
+<h3 class="ad-h2">Pitch use by wave</h3>
+<p class="ad-note">Each square is one pitch: the number is the field, the letters are the competition using it. Hatched squares are free.</p>
+<div class="ad-compare-grid">
+	{data.scenarios.map((s: any) => <PitchStrip data={data} scenario={s} />)}
+</div>
+
+<h3 class="ad-h2">Side by side</h3>
+<div class="ad-tablewrap">
+	<table class="ad-table ad-table--compare">
+		<thead>
+			<tr><th scope="col">What matters</th>{data.scenarios.map((s: any) => <th scope="col">{s.name}<br /><span class="ad-muted">{s.title}</span></th>)}</tr>
+		</thead>
+		<tbody>
+			<tr class="ad-pc-row">
+				<th scope="row">Pros</th>
+				{data.scenarios.map((s: any) => (
+					<td><ul class="ad-pc ad-pc--pro">{s.pros.map((p: string) => <li><span class="ad-pc__mark" aria-hidden="true">+</span><span class="sr-only">Pro: </span>{p}</li>)}</ul></td>
+				))}
+			</tr>
+			<tr class="ad-pc-row">
+				<th scope="row">Cons</th>
+				{data.scenarios.map((s: any) => (
+					<td><ul class="ad-pc ad-pc--con">{s.cons.map((c: string) => <li><span class="ad-pc__mark" aria-hidden="true">−</span><span class="sr-only">Con: </span>{c}</li>)}</ul></td>
+				))}
+			</tr>
+			<tr><th scope="row">Field layout</th>{data.scenarios.map((s: any) => <td>{s.description}</td>)}</tr>
+			<tr><th scope="row">Field size (approx.)</th>{data.scenarios.map((s: any) => <td>{FIELD_SIZE[s.layout]}</td>)}</tr>
+			<tr><th scope="row">Monday pitches used</th>{data.scenarios.map((s: any) => <td>{v.waveUse(s, 'Monday')}</td>)}</tr>
+			<tr><th scope="row">Tuesday pitches used</th>{data.scenarios.map((s: any) => <td>{v.waveUse(s, 'Tuesday')} <span class="ad-muted">(+ minis for the U6/7s)</span></td>)}</tr>
+			<tr>
+				<th scope="row">Referees needed</th>
+				{data.scenarios.map((s: any) => (
+					<td>
+						Monday <strong>{v.refsPeak(s, 'Monday')}</strong> <span class="ad-muted">({v.refsByWave(s, 'Monday')} games by wave)</span><br />
+						Tuesday <strong>{v.refsPeak(s, 'Tuesday')}</strong> <span class="ad-muted">({v.refsByWave(s, 'Tuesday')} games by wave; U6/7s use game leaders)</span>
+					</td>
+				))}
+			</tr>
+			<tr><th scope="row">Monday kick-off times</th>{data.scenarios.map((s: any) => <td>{v.splitText(s)}</td>)}</tr>
+			<tr>
+				<th scope="row">Dual-registered players (Mixed + Men’s/Women’s)</th>
+				{data.scenarios.map((s: any) => (
+					<td>
+						<span class={`ad-status ${s.dualClashes.length ? 'is-bad' : 'is-good'}`}>
+							<span aria-hidden="true">{s.dualClashes.length ? '✕' : '✓'}</span>
+							{s.dualClashes.length ? plural(s.dualClashes.length, 'clash') : 'No clashes'}
+						</span>
+						<span class="ad-muted"> {Object.keys(s.waveSplit).length ? '— games scheduled around them each week' : '— Mixed has its own wave'}</span>
+					</td>
+				))}
+			</tr>
+			<tr><th scope="row">Game leaders for the U6/7s</th>{data.scenarios.map((s: any) => <td>{v.leaderText(s)}</td>)}</tr>
+			{contactRows.map((r) => (
+				<tr>
+					<th scope="row">Shared coach/contact: {r.teams.join(' & ')}{r.same && <span class="ad-muted"> (same competition)</span>}</th>
+					{r.per.map((n: number) => (
+						<td>
+							<span class={`ad-status ${n ? 'is-warn' : 'is-good'}`}><span aria-hidden="true">{n ? '!' : '✓'}</span>{n ? `Same wave in ${n} of ${data.weeks} weeks` : 'Never in the same wave'}</span>
+						</td>
+					))}
+				</tr>
+			))}
+			<tr><th scope="row">Colour clashes (one team in bibs)</th>{data.scenarios.map((s: any) => <td>{s.bibGames} games</td>)}</tr>
+		</tbody>
+	</table>
+</div>
+{contactRows.some((r) => r.same) && (
+	<p class="ad-note">Teams in the same competition always play in the same wave, so a shared contact there can only be avoided by moving a team to a different competition.</p>
+)}

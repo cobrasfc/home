@@ -104,14 +104,16 @@ date logic), `utils` (timezone, `.ics`, URL/local storage), `ui` (rendering), `a
 
 ## Summer Soccer planning portal
 
-`/summer-soccer/admin` (not linked, not indexed) compares field-layout scenarios for the committee: pitch use per
-wave, ground maps, referees needed, dual-registration and shared-contact clashes, and the full draw per scenario.
+`/summer-soccer/admin` (not linked, not indexed) is the committee's view of the Summer Soccer schedule. It shows the
+chosen layout, **Scenario 2: 6 fields + 2 minis** (decided 5 Oct 2026): pitch use by wave, referees, checks
+(dual registrations, shared contacts, game leaders) and round-by-round maps showing every game. The **History** tab
+keeps the frozen Scenario 1 vs Scenario 2 comparison from the decision (`src/summer-soccer/admin/history-2026-10-05.json`).
 
-It's built from `src/summer-soccer/admin/scenarios.json`, which is generated on the club computer by
-`plan_scenarios.py` in the "Summer Soccer 2026 Draw" folder (it reads the player list and `teams.tsv`). Only
-team-level data is written to the JSON — no player names, FFA numbers or phone numbers — so the player list itself
-never goes into this repo. To update: edit the scenarios / dual registrations at the top of `plan_scenarios.py`,
-run it, then build and push the site.
+The live data is `src/summer-soccer/admin/scenarios.json`, generated on the club computer by `plan_scenarios.py` in
+the "Summer Soccer 2026 Draw" folder from the club's allocation workbook (Teams + All Players tabs). Only team-level
+data is written — no player names, FFA numbers or phone numbers — so the player list never goes into this repo.
+`export_schedule_xlsx.py` in the same folder writes the matching Excel schedule. To update: export the workbook's
+tabs, run both scripts, then build and push the site.
 
 ## Replace placeholder images
 
