@@ -12,6 +12,8 @@ export interface Colour {
 	name: string;
 	/** CSS colour for the swatch, or null when the name isn't one we recognise (text is still shown). */
 	swatch: string | null;
+	/** Second colour for two-colour kits ("Blue and Yellow"): the swatch is drawn half and half */
+	swatch2?: string;
 }
 
 export type DivisionGroup = 'junior' | 'senior';

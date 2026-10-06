@@ -7,8 +7,9 @@ import { esc } from '../utils/html';
 export function swatch(colour: Colour, size: 'sm' | 'lg' = 'sm'): string {
 	const classes = ['ss-swatch', `ss-swatch--${size}`];
 	if (!colour.swatch) classes.push('ss-swatch--unknown');
-	else if (needsOutline(colour.swatch)) classes.push('ss-swatch--light');
-	const style = colour.swatch ? ` style="--swatch:${esc(colour.swatch)}"` : '';
+	else if (needsOutline(colour.swatch) || (colour.swatch2 && needsOutline(colour.swatch2))) classes.push('ss-swatch--light');
+	const fill = colour.swatch2 ? `linear-gradient(90deg, ${colour.swatch} 50%, ${colour.swatch2} 50%)` : colour.swatch;
+	const style = fill ? ` style="--swatch:${esc(fill)}"` : '';
 	return `<span class="${classes.join(' ')}"${style} aria-hidden="true"></span>`;
 }
 

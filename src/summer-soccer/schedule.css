@@ -815,6 +815,40 @@
 	background: var(--ss-card);
 	box-shadow: 0 0 0 1px var(--ss-line);
 }
+.ss-share__title {
+	margin: 0;
+	font-size: 1rem;
+	font-weight: 700;
+	color: var(--ss-blue);
+}
+.ss-share__intro {
+	font-size: 0.875rem;
+	line-height: 1.5;
+	color: var(--ss-muted);
+}
+.ss-teamshare {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding: 12px;
+	border-radius: 12px;
+	background: var(--ss-bg);
+}
+.ss-teamshare__team {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 0 6px;
+	font-size: 0.9375rem;
+}
+.ss-teamshare__link {
+	font-size: 0.75rem;
+	color: var(--ss-muted);
+	word-break: break-all;
+}
+.ss-share__footer {
+	margin-top: 2px;
+}
 .ss-share__teams {
 	font-size: 0.875rem;
 	line-height: 1.5;

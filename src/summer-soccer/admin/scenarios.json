@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-07T00:55",
+ "generatedAt": "2026-10-07T01:14",
  "weeks": 10,
  "unrefereedComps": [],
  "comps": [
@@ -72,9 +72,9 @@
    "byes": 2
   },
   {
-   "name": "Mixed Cobras, name TBC",
+   "name": "Motley Crew",
    "comp": "mixed",
-   "colour": "",
+   "colour": "Blue and Yellow",
    "players": 10,
    "dualIn": 0,
    "placeholder": false,
@@ -164,7 +164,7 @@
   {
    "name": "Metford AAM",
    "comp": "aam",
-   "colour": "",
+   "colour": "Blue and Yellow",
    "players": 8,
    "dualIn": 0,
    "placeholder": false,
@@ -284,7 +284,7 @@
   {
    "name": "Cobras Blue",
    "comp": "u67",
-   "colour": "",
+   "colour": "Blue and Yellow",
    "players": 9,
    "dualIn": 0,
    "placeholder": false,
@@ -294,7 +294,7 @@
   {
    "name": "Cobras Gold",
    "comp": "u67",
-   "colour": "Gold",
+   "colour": "Blue and Yellow",
    "players": 8,
    "dualIn": 0,
    "placeholder": false,
@@ -334,7 +334,7 @@
   {
    "name": "Metford U10s",
    "comp": "u811",
-   "colour": "Black",
+   "colour": "Blue and Yellow",
    "players": 9,
    "dualIn": 0,
    "placeholder": false,
@@ -484,7 +484,7 @@
   {
    "senior": "Goal Diggers",
    "seniorComp": "aam",
-   "mixed": "Mixed Cobras, name TBC",
+   "mixed": "Motley Crew",
    "players": 2
   },
   {
@@ -496,7 +496,7 @@
   {
    "senior": "Summer Savages",
    "seniorComp": "aaw",
-   "mixed": "Mixed Cobras, name TBC",
+   "mixed": "Motley Crew",
    "players": 2
   }
  ],
@@ -556,7 +556,7 @@
      "start": "6:30 PM",
      "end": "7:10 PM",
      "field": "field-1",
-     "team1": "Mixed Cobras, name TBC",
+     "team1": "Motley Crew",
      "team2": "Dribbling Morons",
      "note": ""
     },
@@ -686,7 +686,7 @@
      "start": "6:30 PM",
      "end": "7:10 PM",
      "field": "field-4",
-     "team1": "Mixed Cobras, name TBC",
+     "team1": "Motley Crew",
      "team2": "What's with this outdoor shite?",
      "note": ""
     },
@@ -882,8 +882,8 @@
      "end": "8:00 PM",
      "field": "field-1",
      "team1": "Team Gene",
-     "team2": "Mixed Cobras, name TBC",
-     "note": ""
+     "team2": "Motley Crew",
+     "note": "Colour clash: Motley Crew to wear bibs (supplied by Cobras)"
     },
     {
      "week": 3,
@@ -1077,7 +1077,7 @@
      "end": "7:10 PM",
      "field": "field-3",
      "team1": "Sandbar FC",
-     "team2": "Mixed Cobras, name TBC",
+     "team2": "Motley Crew",
      "note": ""
     },
     {
@@ -1272,7 +1272,7 @@
      "end": "8:00 PM",
      "field": "field-4",
      "team1": "Dribbling Morons",
-     "team2": "Mixed Cobras, name TBC",
+     "team2": "Motley Crew",
      "note": ""
     },
     {
@@ -1337,7 +1337,7 @@
      "end": "7:10 PM",
      "field": "field-2",
      "team1": "What's with this outdoor shite?",
-     "team2": "Mixed Cobras, name TBC",
+     "team2": "Motley Crew",
      "note": ""
     },
     {
@@ -1466,9 +1466,9 @@
      "start": "6:30 PM",
      "end": "7:10 PM",
      "field": "field-3",
-     "team1": "Mixed Cobras, name TBC",
+     "team1": "Motley Crew",
      "team2": "Team Gene",
-     "note": ""
+     "note": "Colour clash: Team Gene to wear bibs (supplied by Cobras)"
     },
     {
      "week": 8,
@@ -1726,7 +1726,7 @@
      "start": "6:30 PM",
      "end": "7:10 PM",
      "field": "field-1",
-     "team1": "Mixed Cobras, name TBC",
+     "team1": "Motley Crew",
      "team2": "Sandbar FC",
      "note": ""
     },
@@ -1871,7 +1871,7 @@
      "field": "field-1",
      "team1": "Metford U10s",
      "team2": "U8s Metford",
-     "note": ""
+     "note": "Colour clash: Metford U10s to wear bibs (supplied by Cobras)"
     },
     {
      "week": 1,
@@ -2066,7 +2066,7 @@
      "field": "minis-1",
      "team1": "Cobras Gold",
      "team2": "Cobras Blue",
-     "note": ""
+     "note": "Colour clash: Cobras Blue to wear bibs (supplied by Cobras)"
     },
     {
      "week": 3,
@@ -2300,7 +2300,7 @@
      "field": "field-1",
      "team1": "Wild Warriors",
      "team2": "Metford U10s",
-     "note": ""
+     "note": "Colour clash: Metford U10s to wear bibs (supplied by Cobras)"
     },
     {
      "week": 5,
@@ -2378,7 +2378,7 @@
      "field": "minis-2",
      "team1": "Cobras Blue",
      "team2": "Cobras Gold",
-     "note": ""
+     "note": "Colour clash: Cobras Blue to wear bibs (supplied by Cobras)"
     },
     {
      "week": 6,
@@ -2391,7 +2391,7 @@
      "field": "field-6",
      "team1": "U8s Metford",
      "team2": "Metford U10s",
-     "note": ""
+     "note": "Colour clash: Metford U10s to wear bibs (supplied by Cobras)"
     },
     {
      "week": 6,
@@ -2690,7 +2690,7 @@
      "field": "minis-1",
      "team1": "Cobras Blue",
      "team2": "Cobras Gold",
-     "note": ""
+     "note": "Colour clash: Cobras Blue to wear bibs (supplied by Cobras)"
     },
     {
      "week": 9,
@@ -2820,7 +2820,7 @@
      "field": "field-6",
      "team1": "Metford U10s",
      "team2": "Wild Warriors",
-     "note": ""
+     "note": "Colour clash: Wild Warriors to wear bibs (supplied by Cobras)"
     },
     {
      "week": 10,
@@ -3144,16 +3144,16 @@
     }
    ],
    "waveSplit": {
-    "mixed": {
-     "earlyMin": 3,
-     "earlyMax": 6
-    },
     "aam": {
      "earlyMin": 3,
      "earlyMax": 6
     },
     "aaw": {
      "earlyMin": 4,
+     "earlyMax": 6
+    },
+    "mixed": {
+     "earlyMin": 3,
      "earlyMax": 6
     },
     "u1215": {
@@ -3165,7 +3165,7 @@
      "earlyMax": 7
     }
    },
-   "bibGames": 21
+   "bibGames": 30
   }
  ]
 }

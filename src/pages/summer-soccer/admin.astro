@@ -139,6 +139,33 @@ const gamesRange = (() => {
 			if (location.hash) show(fromHash());
 			addEventListener('hashchange', () => show(fromHash()));
 
+			// Copy a team's schedule link
+			document.addEventListener('click', async (e) => {
+				const btn = (e.target as HTMLElement).closest<HTMLButtonElement>('.ad-copy');
+				if (!btn) return;
+				const status = document.getElementById('ad-copy-status');
+				try {
+					await navigator.clipboard.writeText(btn.dataset.copy!);
+					btn.classList.add('is-copied');
+					if (status) status.textContent = `${btn.dataset.team} link copied`;
+					setTimeout(() => btn.classList.remove('is-copied'), 1800);
+				} catch {
+					window.prompt(`Copy ${btn.dataset.team}'s schedule link:`, btn.dataset.copy);
+				}
+			});
+			// All team links as a CSV (for emailing coaches)
+			document.getElementById('ad-download-links')?.addEventListener('click', () => {
+				const q = (v: string) => `"${v.replace(/"/g, '""')}"`;
+				const rows = [...document.querySelectorAll<HTMLButtonElement>('.ad-copy')].map((b) => [b.dataset.comp!, b.dataset.team!, b.dataset.copy!]);
+				const csv = ['Competition,Team,Schedule link', ...rows.map((r) => r.map(q).join(','))].join('\r\n');
+				const url = URL.createObjectURL(new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8' }));
+				const a = Object.assign(document.createElement('a'), { href: url, download: 'summer-soccer-team-links.csv' });
+				document.body.append(a);
+				a.click();
+				a.remove();
+				setTimeout(() => URL.revokeObjectURL(url), 5000);
+			});
+
 			document.addEventListener('click', (e) => {
 				const btn = (e.target as HTMLElement).closest<HTMLButtonElement>('.ad-week');
 				if (!btn) return;

@@ -51,16 +51,20 @@ const SWATCHES: Record<string, string> = {
 };
 
 function titleCase(value: string): string {
-	return value.toLowerCase().replace(/(^|[\s/-])([a-z])/g, (_, sep: string, ch: string) => sep + ch.toUpperCase());
+	return value
+		.toLowerCase()
+		.replace(/(^|[\s/-])([a-z])/g, (_, sep: string, ch: string) => sep + ch.toUpperCase())
+		.replace(/ And /g, ' and ');
 }
 
 export function normaliseColour(raw: string | undefined): Colour {
 	const cleaned = tidy(raw).replace(/\bcolou?r\b/gi, '').trim();
 	if (!cleaned) return { name: '', swatch: null };
 	const key = cleaned.toLowerCase().replace(/fluorescent/g, 'fluoro');
-	// "Blue/White" style kits: swatch uses the first colour, the full name is still shown
-	const first = key.split(/\s*(?:\/|&|\band\b|,)\s*/)[0];
-	return { name: titleCase(cleaned), swatch: SWATCHES[key] ?? SWATCHES[first] ?? null };
+	if (SWATCHES[key]) return { name: titleCase(cleaned), swatch: SWATCHES[key] };
+	// "Blue and Yellow" / "Blue/White" kits: the first two recognised colours, shown half and half
+	const parts = key.split(/\s*(?:\/|&|\band\b|,)\s*/).map((x) => SWATCHES[x]).filter(Boolean);
+	return { name: titleCase(cleaned), swatch: parts[0] ?? null, swatch2: parts[1] && parts[1] !== parts[0] ? parts[1] : undefined };
 }
 
 /** Light swatches need an outline to be visible against white cards. */

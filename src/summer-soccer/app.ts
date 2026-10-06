@@ -13,6 +13,7 @@ import { readPreviewNow, readTeamIdsFromUrl, shareUrl, writeTeamIdsToUrl } from 
 import { FixtureList } from './ui/FixtureList';
 import { AlertCard, NextGameCard } from './ui/NextGameCard';
 import { AllGamesCalendar, ErrorState, NextGameCalendar, NoNextGame, Support, WrapCard } from './ui/panels';
+import { swatch } from './ui/bits';
 import { TeamSelector, type PickerState } from './ui/TeamSelector';
 
 const root = document.getElementById('ss-app')!;
@@ -177,10 +178,25 @@ function scheduleView(schedule: Schedule, teams: Team[]): string {
 		${main}
 		${upcomingSection}
 		${pastSection}
-		<section class="ss-share" aria-label="Your teams">
-			<p class="ss-share__teams">Following: ${teams.map((t) => `<strong>${esc(t.name)}</strong> <span class="ss-share__div">${esc(t.division.name)}</span>`).join(' · ')}</p>
-			<div class="ss-share__actions">
-				<button type="button" class="ss-btn ss-btn--outline" data-action="share">Share this schedule</button>
+		<section class="ss-share" aria-labelledby="ss-share-heading">
+			<h2 id="ss-share-heading" class="ss-share__title">Share with your team mates</h2>
+			<p class="ss-share__intro">Send your team this link — it opens straight to your team’s games, fields and times. No sign-up needed.</p>
+			${teams
+				.map((t) => {
+					const link = shareUrl([t.id]);
+					return `<div class="ss-teamshare">
+					<p class="ss-teamshare__team">${swatch(t.colour)}<strong>${esc(t.name)}</strong> <span class="ss-share__div">${esc(t.division.name)}</span></p>
+					<p class="ss-teamshare__link">${esc(link.replace(/^https?:\/\//, ''))}</p>
+					<div class="ss-share__actions">
+						<button type="button" class="ss-btn ss-btn--primary" data-action="share-team" data-team="${esc(t.id)}">Share link</button>
+						<button type="button" class="ss-btn ss-btn--outline" data-action="copy-team" data-team="${esc(t.id)}">Copy link</button>
+					</div>
+					<p class="ss-fineprint" data-share-feedback="${esc(t.id)}" aria-live="polite"></p>
+				</div>`;
+				})
+				.join('')}
+			<div class="ss-share__actions ss-share__footer">
+				${teams.length > 1 ? '<button type="button" class="ss-btn ss-btn--ghost" data-action="share">Share all my teams</button>' : ''}
 				<button type="button" class="ss-btn ss-btn--ghost" data-action="change-teams">Change teams</button>
 			</div>
 			<p class="ss-fineprint" data-share-feedback aria-live="polite"></p>
@@ -245,6 +261,26 @@ function currentTeams(): Team[] {
 	return state.schedule ? resolveTeams(state.schedule, state.selectedIds).teams : [];
 }
 
+/** Share (phone share sheet) or copy one team's own schedule link, for sending to team mates */
+async function shareTeam(button: HTMLElement, mode: 'share' | 'copy') {
+	const id = button.dataset.team!;
+	const team = currentTeams().find((t) => t.id === id);
+	if (!team) return;
+	const link = shareUrl([id]);
+	const feedback = root.querySelector(`[data-share-feedback="${CSS.escape(id)}"]`);
+	try {
+		if (mode === 'share' && navigator.share) {
+			await navigator.share({ title: `${team.name} — Summer Soccer schedule`, text: `${team.name}'s Summer Soccer games, fields and times:`, url: link });
+			return;
+		}
+		await navigator.clipboard.writeText(link);
+		if (feedback) feedback.textContent = 'Link copied — paste it into your team chat.';
+	} catch (error) {
+		if ((error as Error)?.name === 'AbortError') return;
+		if (feedback) feedback.innerHTML = `Copy this link: <a href="${esc(link)}">${esc(link)}</a>`;
+	}
+}
+
 async function share(button: HTMLElement) {
 	const link = shareUrl(state.selectedIds);
 	const feedback = root.querySelector('[data-share-feedback]');
@@ -305,6 +341,12 @@ root.addEventListener('click', (event) => {
 			break;
 		case 'share':
 			share(target);
+			break;
+		case 'share-team':
+			shareTeam(target, 'share');
+			break;
+		case 'copy-team':
+			shareTeam(target, 'copy');
 			break;
 		case 'calendar-next': {
 			const teams = currentTeams();

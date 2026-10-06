@@ -1,12 +1,17 @@
 ---
 // Competitions, teams, dual registrations, shared contacts and data issues for a plan data file.
 import { COMP_COLOURS, makeView, plural, type PlanData } from './view';
+import { teamId } from '../domain/teams';
+import { withBase } from '../../utils/withBase';
 
 interface Props {
 	data: PlanData;
 }
 const { data } = Astro.props;
 const v = makeView(data);
+// Each team's own public schedule link — same team ID the public schedule builds from the fixture sheet
+const scheduleBase = new URL(withBase('/summer-soccer/schedule/'), Astro.site ?? Astro.url).toString();
+const teamLink = (t: any) => `${scheduleBase}?teams=${teamId(v.compName(t.comp), t.name)}`;
 ---
 
 <h2 class="ad-h2">Competitions</h2>
@@ -32,7 +37,12 @@ const v = makeView(data);
 	</table>
 </div>
 
-<h2 class="ad-h2">Teams</h2>
+<div class="ad-drawhead">
+	<h2 class="ad-h2">Teams</h2>
+	<button type="button" class="ad-btn" id="ad-download-links">Download all team links (CSV)</button>
+</div>
+<p class="ad-note">Each team has its own schedule link — use the <span aria-hidden="true">🔗</span> icon to copy it, then send it to the team’s coach or chat.</p>
+<p class="sr-only" aria-live="polite" id="ad-copy-status"></p>
 <div class="ad-teamgrid">
 	{data.comps.map((c: any) => (
 		<div class="ad-card">
@@ -42,7 +52,16 @@ const v = makeView(data);
 				<tbody>
 					{data.teams.filter((t: any) => t.comp === c.id).map((t: any) => (
 						<tr>
-							<td>{t.name}{t.placeholder && <span class="ad-flag">placeholder</span>}</td>
+							<td>
+								<span class="ad-teamname">
+									{t.name}
+									<button type="button" class="ad-copy" data-copy={teamLink(t)} data-team={t.name} data-comp={v.compName(t.comp)} aria-label={`Copy ${t.name}’s schedule link`} title="Copy schedule link">
+										<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1.2 1.2M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1.2-1.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+										<span class="ad-copy__done">Copied</span>
+									</button>
+								</span>
+								{t.placeholder && <span class="ad-flag">placeholder</span>}
+							</td>
 							<td class="ad-muted">{t.colour || 'TBC'}</td>
 							<td class="ad-num">{t.players}{t.dualIn ? <span class="ad-muted"> +{t.dualIn} dual</span> : ''}</td>
 							<td class="ad-num">{t.games}</td>
