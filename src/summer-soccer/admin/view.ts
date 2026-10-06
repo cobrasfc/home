@@ -16,7 +16,8 @@ export const COMP_COLOURS: Record<string, string> = {
 	u67: '#eda100',
 	u811: '#e87ba4',
 	u1213: '#008300',
-	u1418: '#4a3aa7'
+	u1418: '#4a3aa7',
+	u1215: '#4a3aa7' // slot 7 again: U14–18s no longer runs (only in the frozen history)
 };
 
 // Approximate field sizes, assuming ~100 m × 64 m winter pitches split with ~2.8 m alleys
@@ -35,6 +36,10 @@ export function makeView(data: PlanData) {
 	const weeks: number[] = Array.from({ length: data.weeks }, (_, i) => i + 1);
 	const teamComp: Record<string, string> = Object.fromEntries(data.teams.map((t: any) => [t.name, t.comp]));
 	const sameComp = (teams: string[]) => new Set(teams.map((t) => teamComp[t])).size === 1;
+	// Competitions without referees: listed in the data; older snapshots (before 5 Oct 2026) had U6/7s game leaders
+	const unrefereed: string[] = data.unrefereedComps ?? ['u67'];
+	const hasGameLeaders = unrefereed.includes('u67');
+	const refNote = hasGameLeaders ? '; U6/7s use game leaders' : '';
 
 	/** One round's actual games on a night/wave, as map labels */
 	function roundAssignments(s: Scenario, night: string, wave: number, week: number): Record<string, PlanAssignment> {
@@ -71,11 +76,11 @@ export function makeView(data: PlanData) {
 	const waveUse = (s: Scenario, night: string) =>
 		s.nights.find((n: any) => n.night === night).waves.map((w: Wave) => `W${w.wave} ${usedText(s, w)}`).join(' · ');
 
-	/** Most refereed games on at once on a night (U6/7s use game leaders, not referees) */
+	/** Most refereed games on at once on a night */
 	function refsPeak(s: Scenario, night: string) {
 		const perSlot = new Map<string, number>();
 		for (const f of s.fixtures) {
-			if (f.night !== night || f.comp === 'u67') continue;
+			if (f.night !== night || unrefereed.includes(f.comp)) continue;
 			const key = `${f.week}-${f.wave}`;
 			perSlot.set(key, (perSlot.get(key) ?? 0) + 1);
 		}
@@ -86,7 +91,7 @@ export function makeView(data: PlanData) {
 		const waves = s.nights.find((n: any) => n.night === night).waves.map((w: Wave) => w.wave);
 		return waves
 			.map((w: number) =>
-				Math.max(0, ...weeks.map((wk) => s.fixtures.filter((f: any) => f.night === night && f.comp !== 'u67' && f.wave === w && f.week === wk).length))
+				Math.max(0, ...weeks.map((wk) => s.fixtures.filter((f: any) => f.night === night && !unrefereed.includes(f.comp) && f.wave === w && f.week === wk).length))
 			)
 			.join(' + ');
 	}
@@ -136,7 +141,7 @@ export function makeView(data: PlanData) {
 	}
 
 	return {
-		data, comp, compName, weeks, sameComp, roundAssignments, assignments, cells, cellTitle, usedText, freeText, waveUse,
+		data, comp, compName, weeks, sameComp, hasGameLeaders, refNote, roundAssignments, assignments, cells, cellTitle, usedText, freeText, waveUse,
 		refsPeak, refsByWave, contactSummary, contactRows, leaderText, splitText
 	};
 }

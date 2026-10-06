@@ -1,6 +1,7 @@
 {
- "generatedAt": "2026-10-05T16:57",
+ "generatedAt": "2026-10-07T00:21",
  "weeks": 10,
+ "unrefereedComps": [],
  "comps": [
   {
    "id": "mixed",
@@ -16,7 +17,7 @@
    "short": "AAM",
    "night": "Monday",
    "minutes": 40,
-   "teams": 7
+   "teams": 9
   },
   {
    "id": "aaw",
@@ -48,15 +49,15 @@
    "short": "12–13s",
    "night": "Tuesday",
    "minutes": 30,
-   "teams": 8
+   "teams": 5
   },
   {
-   "id": "u1418",
-   "name": "U14–18s",
-   "short": "14–18s",
+   "id": "u1215",
+   "name": "U12–15s",
+   "short": "12–15s",
    "night": "Tuesday",
    "minutes": 30,
-   "teams": 5
+   "teams": 4
   }
  ],
  "teams": [
@@ -64,7 +65,7 @@
    "name": "Dribbling Morons",
    "comp": "mixed",
    "colour": "",
-   "players": 3,
+   "players": 6,
    "dualIn": 0,
    "placeholder": false,
    "games": 8,
@@ -74,7 +75,7 @@
    "name": "Mixed Cobras, name TBC",
    "comp": "mixed",
    "colour": "",
-   "players": 7,
+   "players": 10,
    "dualIn": 0,
    "placeholder": false,
    "games": 8,
@@ -104,27 +105,17 @@
    "name": "What's with this outdoor shite?",
    "comp": "mixed",
    "colour": "",
-   "players": 3,
+   "players": 5,
    "dualIn": 0,
    "placeholder": false,
    "games": 8,
    "byes": 2
   },
   {
-   "name": "Banjo's Team",
-   "comp": "aam",
-   "colour": "",
-   "players": 4,
-   "dualIn": 0,
-   "placeholder": false,
-   "games": 9,
-   "byes": 1
-  },
-  {
    "name": "Dongos / Rutherford Dragons",
    "comp": "aam",
    "colour": "Green",
-   "players": 9,
+   "players": 8,
    "dualIn": 0,
    "placeholder": false,
    "games": 9,
@@ -144,21 +135,41 @@
    "name": "Gooners FC",
    "comp": "aam",
    "colour": "Pink",
-   "players": 4,
+   "players": 5,
+   "dualIn": 0,
+   "placeholder": false,
+   "games": 9,
+   "byes": 1
+  },
+  {
+   "name": "Grasshopper United",
+   "comp": "aam",
+   "colour": "Black & Grey",
+   "players": 6,
    "dualIn": 0,
    "placeholder": false,
    "games": 8,
    "byes": 2
   },
   {
+   "name": "Lizzopool",
+   "comp": "aam",
+   "colour": "",
+   "players": 5,
+   "dualIn": 0,
+   "placeholder": false,
+   "games": 9,
+   "byes": 1
+  },
+  {
    "name": "Metford AAM",
    "comp": "aam",
    "colour": "",
-   "players": 7,
+   "players": 8,
    "dualIn": 0,
    "placeholder": false,
-   "games": 8,
-   "byes": 2
+   "games": 9,
+   "byes": 1
   },
   {
    "name": "Muppets",
@@ -177,8 +188,18 @@
    "players": 7,
    "dualIn": 0,
    "placeholder": false,
-   "games": 8,
-   "byes": 2
+   "games": 9,
+   "byes": 1
+  },
+  {
+   "name": "The Ghosts",
+   "comp": "aam",
+   "colour": "Purple, White & Black",
+   "players": 8,
+   "dualIn": 0,
+   "placeholder": false,
+   "games": 9,
+   "byes": 1
   },
   {
    "name": "Clangers",
@@ -194,7 +215,7 @@
    "name": "Cleats & Chaos",
    "comp": "aaw",
    "colour": "Blue",
-   "players": 5,
+   "players": 6,
    "dualIn": 0,
    "placeholder": false,
    "games": 10,
@@ -254,7 +275,7 @@
    "name": "Zero Pace United",
    "comp": "aaw",
    "colour": "Royal Blue",
-   "players": 6,
+   "players": 7,
    "dualIn": 0,
    "placeholder": false,
    "games": 10,
@@ -314,7 +335,7 @@
    "name": "Metford U10s",
    "comp": "u811",
    "colour": "Black",
-   "players": 10,
+   "players": 9,
    "dualIn": 0,
    "placeholder": false,
    "games": 8,
@@ -357,18 +378,18 @@
    "players": 8,
    "dualIn": 0,
    "placeholder": false,
-   "games": 10,
-   "byes": 0
+   "games": 8,
+   "byes": 2
   },
   {
    "name": "Grass Goblins",
    "comp": "u1213",
    "colour": "White",
-   "players": 3,
+   "players": 5,
    "dualIn": 0,
    "placeholder": false,
-   "games": 10,
-   "byes": 0
+   "games": 8,
+   "byes": 2
   },
   {
    "name": "Magpies",
@@ -377,18 +398,8 @@
    "players": 6,
    "dualIn": 0,
    "placeholder": false,
-   "games": 10,
-   "byes": 0
-  },
-  {
-   "name": "Mayhem FC",
-   "comp": "u1213",
-   "colour": "Red",
-   "players": 9,
-   "dualIn": 0,
-   "placeholder": false,
-   "games": 10,
-   "byes": 0
+   "games": 8,
+   "byes": 2
   },
   {
    "name": "Messi Business",
@@ -397,8 +408,8 @@
    "players": 5,
    "dualIn": 0,
    "placeholder": false,
-   "games": 10,
-   "byes": 0
+   "games": 8,
+   "byes": 2
   },
   {
    "name": "Metford U12s",
@@ -407,12 +418,22 @@
    "players": 10,
    "dualIn": 0,
    "placeholder": false,
+   "games": 8,
+   "byes": 2
+  },
+  {
+   "name": "Mayhem FC",
+   "comp": "u1215",
+   "colour": "Red",
+   "players": 9,
+   "dualIn": 0,
+   "placeholder": false,
    "games": 10,
    "byes": 0
   },
   {
    "name": "Phoenix Flyers",
-   "comp": "u1213",
+   "comp": "u1215",
    "colour": "",
    "players": 4,
    "dualIn": 0,
@@ -422,7 +443,7 @@
   },
   {
    "name": "Rutherford Greens",
-   "comp": "u1213",
+   "comp": "u1215",
    "colour": "Green",
    "players": 5,
    "dualIn": 0,
@@ -431,54 +452,14 @@
    "byes": 0
   },
   {
-   "name": "Cucumber Munchers",
-   "comp": "u1418",
-   "colour": "White & Yellow",
-   "players": 1,
-   "dualIn": 0,
-   "placeholder": false,
-   "games": 8,
-   "byes": 2
-  },
-  {
-   "name": "Goggins FC",
-   "comp": "u1418",
+   "name": "Tough Cookies FC",
+   "comp": "u1215",
    "colour": "Red",
    "players": 9,
    "dualIn": 0,
    "placeholder": false,
-   "games": 8,
-   "byes": 2
-  },
-  {
-   "name": "Grasshopper United",
-   "comp": "u1418",
-   "colour": "Black & Grey",
-   "players": 7,
-   "dualIn": 0,
-   "placeholder": false,
-   "games": 8,
-   "byes": 2
-  },
-  {
-   "name": "New U14-15s team",
-   "comp": "u1418",
-   "colour": "",
-   "players": 2,
-   "dualIn": 0,
-   "placeholder": false,
-   "games": 8,
-   "byes": 2
-  },
-  {
-   "name": "The Ghosts",
-   "comp": "u1418",
-   "colour": "Purple, White & Black",
-   "players": 7,
-   "dualIn": 0,
-   "placeholder": false,
-   "games": 8,
-   "byes": 2
+   "games": 10,
+   "byes": 0
   }
  ],
  "dualLinks": [
@@ -492,13 +473,13 @@
    "senior": "Cleats & Chaos",
    "seniorComp": "aaw",
    "mixed": "Dribbling Morons",
-   "players": 1
+   "players": 2
   },
   {
    "senior": "Dongos / Rutherford Dragons",
    "seniorComp": "aam",
    "mixed": "Dribbling Morons",
-   "players": 1
+   "players": 2
   },
   {
    "senior": "Goal Diggers",
@@ -516,7 +497,7 @@
    "senior": "Summer Savages",
    "seniorComp": "aaw",
    "mixed": "Mixed Cobras, name TBC",
-   "players": 1
+   "players": 2
   }
  ],
  "contactGroups": [
@@ -537,7 +518,11 @@
  "issues": [
   {
    "kind": "Unassigned players",
-   "detail": "4 in U8-9s — not yet in a team (player list)"
+   "detail": "1 in U14-15s, 4 in U8-9s — not yet in a team (player list)"
+  },
+  {
+   "kind": "Team name not recognised",
+   "detail": "On All Players, some players' Team doesn't match any team on the Teams tab: 'Cucumber Munchers' (1 player, U14-15s); 'SIMON' (2 players, U10-11s). Fix their Team column (or add the team) — until then they aren't in any team or check."
   }
  ],
  "scenarios": [
@@ -547,7 +532,7 @@
    "title": "6 fields + 2 minis",
    "description": "Each winter pitch split into three even fields running across it (Fields 1–6), plus Minis 1–2.",
    "pros": [
-    "Most refs get two games — Monday needs 5 refs instead of 7, and 4 of them get two games (Tuesday: 4 refs, each with two games)",
+    "Most refs get two games — Monday needs 5 refs instead of 7, and 4 of them get two games (Tuesday: 5 refs, each with two games)",
     "Fields meet Northern NSW recommended sizes",
     "More space = a slower-paced game with fewer tackles, more time for players to think on the ball and fewer close-range shots on goal",
     "The fields feel more full, good for the atmosphere of feeling like a “complete” comp (e.g. compared to mixed teams coming down to an empty rec oval and playing in a small corner)"
@@ -580,12 +565,12 @@
      "date": "2026-10-12",
      "night": "Monday",
      "wave": 1,
-     "comp": "mixed",
+     "comp": "aam",
      "start": "6:30 PM",
      "end": "7:10 PM",
      "field": "field-2",
-     "team1": "Team Gene",
-     "team2": "Sandbar FC",
+     "team1": "PXG",
+     "team2": "Metford AAM",
      "note": ""
     },
     {
@@ -597,8 +582,8 @@
      "start": "6:30 PM",
      "end": "7:10 PM",
      "field": "field-3",
-     "team1": "Banjo's Team",
-     "team2": "Gooners FC",
+     "team1": "Lizzopool",
+     "team2": "Muppets",
      "note": ""
     },
     {
@@ -632,12 +617,25 @@
      "date": "2026-10-12",
      "night": "Monday",
      "wave": 2,
-     "comp": "aam",
+     "comp": "mixed",
      "start": "7:20 PM",
      "end": "8:00 PM",
      "field": "field-1",
+     "team1": "Team Gene",
+     "team2": "Sandbar FC",
+     "note": ""
+    },
+    {
+     "week": 1,
+     "date": "2026-10-12",
+     "night": "Monday",
+     "wave": 2,
+     "comp": "aam",
+     "start": "7:20 PM",
+     "end": "8:00 PM",
+     "field": "field-2",
      "team1": "Dongos / Rutherford Dragons",
-     "team2": "Muppets",
+     "team2": "The Ghosts",
      "note": ""
     },
     {
@@ -650,7 +648,7 @@
      "end": "8:00 PM",
      "field": "field-3",
      "team1": "Goal Diggers",
-     "team2": "Metford AAM",
+     "team2": "Gooners FC",
      "note": ""
     },
     {
@@ -702,7 +700,7 @@
      "end": "7:10 PM",
      "field": "field-4",
      "team1": "Dongos / Rutherford Dragons",
-     "team2": "PXG",
+     "team2": "Grasshopper United",
      "note": ""
     },
     {
@@ -714,8 +712,8 @@
      "start": "6:30 PM",
      "end": "7:10 PM",
      "field": "field-6",
-     "team1": "Banjo's Team",
-     "team2": "Muppets",
+     "team1": "Lizzopool",
+     "team2": "The Ghosts",
      "note": ""
     },
     {
@@ -752,7 +750,7 @@
      "comp": "mixed",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-4",
+     "field": "field-2",
      "team1": "Team Gene",
      "team2": "Dribbling Morons",
      "note": ""
@@ -765,9 +763,22 @@
      "comp": "aam",
      "start": "7:20 PM",
      "end": "8:00 PM",
+     "field": "field-4",
+     "team1": "PXG",
+     "team2": "Gooners FC",
+     "note": "Colour clash: Gooners FC to wear bibs (supplied by Cobras)"
+    },
+    {
+     "week": 2,
+     "date": "2026-10-19",
+     "night": "Monday",
+     "wave": 2,
+     "comp": "aam",
+     "start": "7:20 PM",
+     "end": "8:00 PM",
      "field": "field-6",
      "team1": "Goal Diggers",
-     "team2": "Gooners FC",
+     "team2": "Muppets",
      "note": ""
     },
     {
@@ -801,62 +812,10 @@
      "date": "2026-10-26",
      "night": "Monday",
      "wave": 1,
-     "comp": "aam",
-     "start": "6:30 PM",
-     "end": "7:10 PM",
-     "field": "field-1",
-     "team1": "PXG",
-     "team2": "Metford AAM",
-     "note": ""
-    },
-    {
-     "week": 3,
-     "date": "2026-10-26",
-     "night": "Monday",
-     "wave": 1,
-     "comp": "aam",
+     "comp": "mixed",
      "start": "6:30 PM",
      "end": "7:10 PM",
      "field": "field-3",
-     "team1": "Goal Diggers",
-     "team2": "Muppets",
-     "note": ""
-    },
-    {
-     "week": 3,
-     "date": "2026-10-26",
-     "night": "Monday",
-     "wave": 1,
-     "comp": "aaw",
-     "start": "6:30 PM",
-     "end": "7:10 PM",
-     "field": "field-4",
-     "team1": "Country",
-     "team2": "Cleats & Chaos",
-     "note": ""
-    },
-    {
-     "week": 3,
-     "date": "2026-10-26",
-     "night": "Monday",
-     "wave": 1,
-     "comp": "aaw",
-     "start": "6:30 PM",
-     "end": "7:10 PM",
-     "field": "field-6",
-     "team1": "Hams",
-     "team2": "Summer Savages",
-     "note": ""
-    },
-    {
-     "week": 3,
-     "date": "2026-10-26",
-     "night": "Monday",
-     "wave": 2,
-     "comp": "mixed",
-     "start": "7:20 PM",
-     "end": "8:00 PM",
-     "field": "field-1",
      "team1": "What's with this outdoor shite?",
      "team2": "Sandbar FC",
      "note": ""
@@ -865,11 +824,63 @@
      "week": 3,
      "date": "2026-10-26",
      "night": "Monday",
+     "wave": 1,
+     "comp": "aam",
+     "start": "6:30 PM",
+     "end": "7:10 PM",
+     "field": "field-1",
+     "team1": "Goal Diggers",
+     "team2": "The Ghosts",
+     "note": ""
+    },
+    {
+     "week": 3,
+     "date": "2026-10-26",
+     "night": "Monday",
+     "wave": 1,
+     "comp": "aam",
+     "start": "6:30 PM",
+     "end": "7:10 PM",
+     "field": "field-2",
+     "team1": "PXG",
+     "team2": "Muppets",
+     "note": ""
+    },
+    {
+     "week": 3,
+     "date": "2026-10-26",
+     "night": "Monday",
+     "wave": 1,
+     "comp": "aaw",
+     "start": "6:30 PM",
+     "end": "7:10 PM",
+     "field": "field-4",
+     "team1": "Country",
+     "team2": "Cleats & Chaos",
+     "note": ""
+    },
+    {
+     "week": 3,
+     "date": "2026-10-26",
+     "night": "Monday",
+     "wave": 1,
+     "comp": "aaw",
+     "start": "6:30 PM",
+     "end": "7:10 PM",
+     "field": "field-6",
+     "team1": "Hams",
+     "team2": "Summer Savages",
+     "note": ""
+    },
+    {
+     "week": 3,
+     "date": "2026-10-26",
+     "night": "Monday",
      "wave": 2,
      "comp": "mixed",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-3",
+     "field": "field-1",
      "team1": "Team Gene",
      "team2": "Mixed Cobras, name TBC",
      "note": ""
@@ -882,8 +893,21 @@
      "comp": "aam",
      "start": "7:20 PM",
      "end": "8:00 PM",
+     "field": "field-3",
+     "team1": "Grasshopper United",
+     "team2": "Metford AAM",
+     "note": ""
+    },
+    {
+     "week": 3,
+     "date": "2026-10-26",
+     "night": "Monday",
+     "wave": 2,
+     "comp": "aam",
+     "start": "7:20 PM",
+     "end": "8:00 PM",
      "field": "field-2",
-     "team1": "Banjo's Team",
+     "team1": "Lizzopool",
      "team2": "Dongos / Rutherford Dragons",
      "note": ""
     },
@@ -911,7 +935,7 @@
      "field": "field-6",
      "team1": "Zero Pace United",
      "team2": "Clangers",
-     "note": "Colour clash: Zero Pace United to wear bibs (supplied by Cobras)"
+     "note": "Colour clash: Clangers to wear bibs (supplied by Cobras)"
     },
     {
      "week": 4,
@@ -921,9 +945,22 @@
      "comp": "mixed",
      "start": "6:30 PM",
      "end": "7:10 PM",
+     "field": "field-1",
+     "team1": "Sandbar FC",
+     "team2": "Dribbling Morons",
+     "note": ""
+    },
+    {
+     "week": 4,
+     "date": "2026-11-02",
+     "night": "Monday",
+     "wave": 1,
+     "comp": "aam",
+     "start": "6:30 PM",
+     "end": "7:10 PM",
      "field": "field-4",
-     "team1": "Team Gene",
-     "team2": "What's with this outdoor shite?",
+     "team1": "Lizzopool",
+     "team2": "Grasshopper United",
      "note": ""
     },
     {
@@ -935,8 +972,8 @@
      "start": "6:30 PM",
      "end": "7:10 PM",
      "field": "field-6",
-     "team1": "Goal Diggers",
-     "team2": "Dongos / Rutherford Dragons",
+     "team1": "Metford AAM",
+     "team2": "Gooners FC",
      "note": ""
     },
     {
@@ -947,6 +984,71 @@
      "comp": "aaw",
      "start": "6:30 PM",
      "end": "7:10 PM",
+     "field": "field-2",
+     "team1": "Country",
+     "team2": "The Young and the Breathless",
+     "note": ""
+    },
+    {
+     "week": 4,
+     "date": "2026-11-02",
+     "night": "Monday",
+     "wave": 1,
+     "comp": "aaw",
+     "start": "6:30 PM",
+     "end": "7:10 PM",
+     "field": "field-3",
+     "team1": "Pitch Please",
+     "team2": "Summer Savages",
+     "note": ""
+    },
+    {
+     "week": 4,
+     "date": "2026-11-02",
+     "night": "Monday",
+     "wave": 2,
+     "comp": "mixed",
+     "start": "7:20 PM",
+     "end": "8:00 PM",
+     "field": "field-2",
+     "team1": "Team Gene",
+     "team2": "What's with this outdoor shite?",
+     "note": ""
+    },
+    {
+     "week": 4,
+     "date": "2026-11-02",
+     "night": "Monday",
+     "wave": 2,
+     "comp": "aam",
+     "start": "7:20 PM",
+     "end": "8:00 PM",
+     "field": "field-4",
+     "team1": "Goal Diggers",
+     "team2": "Dongos / Rutherford Dragons",
+     "note": ""
+    },
+    {
+     "week": 4,
+     "date": "2026-11-02",
+     "night": "Monday",
+     "wave": 2,
+     "comp": "aam",
+     "start": "7:20 PM",
+     "end": "8:00 PM",
+     "field": "field-6",
+     "team1": "PXG",
+     "team2": "The Ghosts",
+     "note": ""
+    },
+    {
+     "week": 4,
+     "date": "2026-11-02",
+     "night": "Monday",
+     "wave": 2,
+     "comp": "aaw",
+     "start": "7:20 PM",
+     "end": "8:00 PM",
      "field": "field-1",
      "team1": "Zero Pace United",
      "team2": "Cleats & Chaos",
@@ -956,154 +1058,24 @@
      "week": 4,
      "date": "2026-11-02",
      "night": "Monday",
-     "wave": 1,
+     "wave": 2,
      "comp": "aaw",
-     "start": "6:30 PM",
-     "end": "7:10 PM",
+     "start": "7:20 PM",
+     "end": "8:00 PM",
      "field": "field-3",
      "team1": "Hams",
      "team2": "Clangers",
      "note": ""
     },
     {
-     "week": 4,
-     "date": "2026-11-02",
-     "night": "Monday",
-     "wave": 2,
-     "comp": "mixed",
-     "start": "7:20 PM",
-     "end": "8:00 PM",
-     "field": "field-2",
-     "team1": "Sandbar FC",
-     "team2": "Dribbling Morons",
-     "note": ""
-    },
-    {
-     "week": 4,
-     "date": "2026-11-02",
-     "night": "Monday",
-     "wave": 2,
-     "comp": "aam",
-     "start": "7:20 PM",
-     "end": "8:00 PM",
-     "field": "field-6",
-     "team1": "Banjo's Team",
-     "team2": "PXG",
-     "note": ""
-    },
-    {
-     "week": 4,
-     "date": "2026-11-02",
-     "night": "Monday",
-     "wave": 2,
-     "comp": "aam",
-     "start": "7:20 PM",
-     "end": "8:00 PM",
-     "field": "field-4",
-     "team1": "Metford AAM",
-     "team2": "Gooners FC",
-     "note": ""
-    },
-    {
-     "week": 4,
-     "date": "2026-11-02",
-     "night": "Monday",
-     "wave": 2,
-     "comp": "aaw",
-     "start": "7:20 PM",
-     "end": "8:00 PM",
-     "field": "field-1",
-     "team1": "Country",
-     "team2": "The Young and the Breathless",
-     "note": ""
-    },
-    {
-     "week": 4,
-     "date": "2026-11-02",
-     "night": "Monday",
-     "wave": 2,
-     "comp": "aaw",
-     "start": "7:20 PM",
-     "end": "8:00 PM",
-     "field": "field-3",
-     "team1": "Pitch Please",
-     "team2": "Summer Savages",
-     "note": ""
-    },
-    {
      "week": 5,
      "date": "2026-11-09",
      "night": "Monday",
      "wave": 1,
      "comp": "mixed",
-     "start": "6:30 PM",
-     "end": "7:10 PM",
-     "field": "field-1",
-     "team1": "What's with this outdoor shite?",
-     "team2": "Dribbling Morons",
-     "note": ""
-    },
-    {
-     "week": 5,
-     "date": "2026-11-09",
-     "night": "Monday",
-     "wave": 1,
-     "comp": "aam",
      "start": "6:30 PM",
      "end": "7:10 PM",
      "field": "field-2",
-     "team1": "PXG",
-     "team2": "Gooners FC",
-     "note": "Colour clash: PXG to wear bibs (supplied by Cobras)"
-    },
-    {
-     "week": 5,
-     "date": "2026-11-09",
-     "night": "Monday",
-     "wave": 1,
-     "comp": "aam",
-     "start": "6:30 PM",
-     "end": "7:10 PM",
-     "field": "field-3",
-     "team1": "Goal Diggers",
-     "team2": "Banjo's Team",
-     "note": ""
-    },
-    {
-     "week": 5,
-     "date": "2026-11-09",
-     "night": "Monday",
-     "wave": 1,
-     "comp": "aaw",
-     "start": "6:30 PM",
-     "end": "7:10 PM",
-     "field": "field-4",
-     "team1": "The Young and the Breathless",
-     "team2": "Summer Savages",
-     "note": ""
-    },
-    {
-     "week": 5,
-     "date": "2026-11-09",
-     "night": "Monday",
-     "wave": 1,
-     "comp": "aaw",
-     "start": "6:30 PM",
-     "end": "7:10 PM",
-     "field": "field-6",
-     "team1": "Zero Pace United",
-     "team2": "Country",
-     "note": ""
-    },
-    {
-     "week": 5,
-     "date": "2026-11-09",
-     "night": "Monday",
-     "wave": 2,
-     "comp": "mixed",
-     "start": "7:20 PM",
-     "end": "8:00 PM",
-     "field": "field-1",
      "team1": "Sandbar FC",
      "team2": "Mixed Cobras, name TBC",
      "note": ""
@@ -1112,11 +1084,11 @@
      "week": 5,
      "date": "2026-11-09",
      "night": "Monday",
-     "wave": 2,
+     "wave": 1,
      "comp": "aam",
-     "start": "7:20 PM",
-     "end": "8:00 PM",
-     "field": "field-3",
+     "start": "6:30 PM",
+     "end": "7:10 PM",
+     "field": "field-1",
      "team1": "Metford AAM",
      "team2": "Muppets",
      "note": ""
@@ -1125,10 +1097,23 @@
      "week": 5,
      "date": "2026-11-09",
      "night": "Monday",
-     "wave": 2,
+     "wave": 1,
+     "comp": "aam",
+     "start": "6:30 PM",
+     "end": "7:10 PM",
+     "field": "field-3",
+     "team1": "PXG",
+     "team2": "Dongos / Rutherford Dragons",
+     "note": ""
+    },
+    {
+     "week": 5,
+     "date": "2026-11-09",
+     "night": "Monday",
+     "wave": 1,
      "comp": "aaw",
-     "start": "7:20 PM",
-     "end": "8:00 PM",
+     "start": "6:30 PM",
+     "end": "7:10 PM",
      "field": "field-4",
      "team1": "Pitch Please",
      "team2": "Clangers",
@@ -1138,13 +1123,78 @@
      "week": 5,
      "date": "2026-11-09",
      "night": "Monday",
+     "wave": 1,
+     "comp": "aaw",
+     "start": "6:30 PM",
+     "end": "7:10 PM",
+     "field": "field-6",
+     "team1": "Hams",
+     "team2": "Cleats & Chaos",
+     "note": ""
+    },
+    {
+     "week": 5,
+     "date": "2026-11-09",
+     "night": "Monday",
+     "wave": 2,
+     "comp": "mixed",
+     "start": "7:20 PM",
+     "end": "8:00 PM",
+     "field": "field-3",
+     "team1": "What's with this outdoor shite?",
+     "team2": "Dribbling Morons",
+     "note": ""
+    },
+    {
+     "week": 5,
+     "date": "2026-11-09",
+     "night": "Monday",
+     "wave": 2,
+     "comp": "aam",
+     "start": "7:20 PM",
+     "end": "8:00 PM",
+     "field": "field-1",
+     "team1": "Grasshopper United",
+     "team2": "Gooners FC",
+     "note": ""
+    },
+    {
+     "week": 5,
+     "date": "2026-11-09",
+     "night": "Monday",
+     "wave": 2,
+     "comp": "aam",
+     "start": "7:20 PM",
+     "end": "8:00 PM",
+     "field": "field-2",
+     "team1": "Goal Diggers",
+     "team2": "Lizzopool",
+     "note": ""
+    },
+    {
+     "week": 5,
+     "date": "2026-11-09",
+     "night": "Monday",
+     "wave": 2,
+     "comp": "aaw",
+     "start": "7:20 PM",
+     "end": "8:00 PM",
+     "field": "field-4",
+     "team1": "The Young and the Breathless",
+     "team2": "Summer Savages",
+     "note": ""
+    },
+    {
+     "week": 5,
+     "date": "2026-11-09",
+     "night": "Monday",
      "wave": 2,
      "comp": "aaw",
      "start": "7:20 PM",
      "end": "8:00 PM",
      "field": "field-6",
-     "team1": "Hams",
-     "team2": "Cleats & Chaos",
+     "team1": "Zero Pace United",
+     "team2": "Country",
      "note": ""
     },
     {
@@ -1155,7 +1205,7 @@
      "comp": "mixed",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-2",
+     "field": "field-1",
      "team1": "Sandbar FC",
      "team2": "Team Gene",
      "note": ""
@@ -1168,9 +1218,9 @@
      "comp": "aam",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-6",
+     "field": "field-4",
      "team1": "Goal Diggers",
-     "team2": "PXG",
+     "team2": "Grasshopper United",
      "note": ""
     },
     {
@@ -1181,9 +1231,9 @@
      "comp": "aam",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-4",
-     "team1": "Metford AAM",
-     "team2": "Dongos / Rutherford Dragons",
+     "field": "field-6",
+     "team1": "Gooners FC",
+     "team2": "Muppets",
      "note": ""
     },
     {
@@ -1194,7 +1244,7 @@
      "comp": "aaw",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-1",
+     "field": "field-2",
      "team1": "Summer Savages",
      "team2": "Clangers",
      "note": ""
@@ -1210,7 +1260,7 @@
      "field": "field-3",
      "team1": "Pitch Please",
      "team2": "Cleats & Chaos",
-     "note": "Colour clash: Pitch Please to wear bibs (supplied by Cobras)"
+     "note": "Colour clash: Cleats & Chaos to wear bibs (supplied by Cobras)"
     },
     {
      "week": 6,
@@ -1220,7 +1270,7 @@
      "comp": "mixed",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-4",
+     "field": "field-1",
      "team1": "Dribbling Morons",
      "team2": "Mixed Cobras, name TBC",
      "note": ""
@@ -1234,8 +1284,21 @@
      "start": "7:20 PM",
      "end": "8:00 PM",
      "field": "field-6",
-     "team1": "Gooners FC",
-     "team2": "Muppets",
+     "team1": "PXG",
+     "team2": "Lizzopool",
+     "note": ""
+    },
+    {
+     "week": 6,
+     "date": "2026-11-16",
+     "night": "Monday",
+     "wave": 2,
+     "comp": "aam",
+     "start": "7:20 PM",
+     "end": "8:00 PM",
+     "field": "field-4",
+     "team1": "Metford AAM",
+     "team2": "The Ghosts",
      "note": ""
     },
     {
@@ -1246,7 +1309,7 @@
      "comp": "aaw",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-1",
+     "field": "field-2",
      "team1": "Zero Pace United",
      "team2": "The Young and the Breathless",
      "note": ""
@@ -1285,7 +1348,7 @@
      "comp": "mixed",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-1",
+     "field": "field-3",
      "team1": "Dribbling Morons",
      "team2": "Team Gene",
      "note": ""
@@ -1298,8 +1361,8 @@
      "comp": "aam",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-3",
-     "team1": "PXG",
+     "field": "field-1",
+     "team1": "Grasshopper United",
      "team2": "Muppets",
      "note": ""
     },
@@ -1308,155 +1371,168 @@
      "date": "2026-11-23",
      "night": "Monday",
      "wave": 1,
-     "comp": "aaw",
-     "start": "6:30 PM",
-     "end": "7:10 PM",
-     "field": "field-4",
-     "team1": "Hams",
-     "team2": "Zero Pace United",
-     "note": ""
-    },
-    {
-     "week": 7,
-     "date": "2026-11-23",
-     "night": "Monday",
-     "wave": 1,
-     "comp": "aaw",
-     "start": "6:30 PM",
-     "end": "7:10 PM",
-     "field": "field-6",
-     "team1": "Pitch Please",
-     "team2": "Country",
-     "note": ""
-    },
-    {
-     "week": 7,
-     "date": "2026-11-23",
-     "night": "Monday",
-     "wave": 2,
      "comp": "aam",
-     "start": "7:20 PM",
-     "end": "8:00 PM",
-     "field": "field-3",
-     "team1": "Gooners FC",
-     "team2": "Dongos / Rutherford Dragons",
-     "note": ""
-    },
-    {
-     "week": 7,
-     "date": "2026-11-23",
-     "night": "Monday",
-     "wave": 2,
-     "comp": "aam",
-     "start": "7:20 PM",
-     "end": "8:00 PM",
-     "field": "field-1",
-     "team1": "Metford AAM",
-     "team2": "Banjo's Team",
-     "note": ""
-    },
-    {
-     "week": 7,
-     "date": "2026-11-23",
-     "night": "Monday",
-     "wave": 2,
-     "comp": "aaw",
-     "start": "7:20 PM",
-     "end": "8:00 PM",
-     "field": "field-4",
-     "team1": "The Young and the Breathless",
-     "team2": "Clangers",
-     "note": ""
-    },
-    {
-     "week": 7,
-     "date": "2026-11-23",
-     "night": "Monday",
-     "wave": 2,
-     "comp": "aaw",
-     "start": "7:20 PM",
-     "end": "8:00 PM",
-     "field": "field-6",
-     "team1": "Summer Savages",
-     "team2": "Cleats & Chaos",
-     "note": ""
-    },
-    {
-     "week": 8,
-     "date": "2026-11-30",
-     "night": "Monday",
-     "wave": 1,
-     "comp": "mixed",
-     "start": "6:30 PM",
-     "end": "7:10 PM",
-     "field": "field-1",
-     "team1": "Sandbar FC",
-     "team2": "What's with this outdoor shite?",
-     "note": ""
-    },
-    {
-     "week": 8,
-     "date": "2026-11-30",
-     "night": "Monday",
-     "wave": 1,
-     "comp": "mixed",
-     "start": "6:30 PM",
-     "end": "7:10 PM",
-     "field": "field-3",
-     "team1": "Mixed Cobras, name TBC",
-     "team2": "Team Gene",
-     "note": ""
-    },
-    {
-     "week": 8,
-     "date": "2026-11-30",
-     "night": "Monday",
-     "wave": 1,
-     "comp": "aam",
-     "start": "6:30 PM",
-     "end": "7:10 PM",
-     "field": "field-4",
-     "team1": "Gooners FC",
-     "team2": "Banjo's Team",
-     "note": ""
-    },
-    {
-     "week": 8,
-     "date": "2026-11-30",
-     "night": "Monday",
-     "wave": 1,
-     "comp": "aaw",
-     "start": "6:30 PM",
-     "end": "7:10 PM",
-     "field": "field-6",
-     "team1": "Hams",
-     "team2": "The Young and the Breathless",
-     "note": "Colour clash: Hams to wear bibs (supplied by Cobras)"
-    },
-    {
-     "week": 8,
-     "date": "2026-11-30",
-     "night": "Monday",
-     "wave": 1,
-     "comp": "aaw",
      "start": "6:30 PM",
      "end": "7:10 PM",
      "field": "field-5",
+     "team1": "Gooners FC",
+     "team2": "The Ghosts",
+     "note": ""
+    },
+    {
+     "week": 7,
+     "date": "2026-11-23",
+     "night": "Monday",
+     "wave": 1,
+     "comp": "aaw",
+     "start": "6:30 PM",
+     "end": "7:10 PM",
+     "field": "field-4",
+     "team1": "Hams",
+     "team2": "Zero Pace United",
+     "note": ""
+    },
+    {
+     "week": 7,
+     "date": "2026-11-23",
+     "night": "Monday",
+     "wave": 1,
+     "comp": "aaw",
+     "start": "6:30 PM",
+     "end": "7:10 PM",
+     "field": "field-6",
+     "team1": "Pitch Please",
+     "team2": "Country",
+     "note": ""
+    },
+    {
+     "week": 7,
+     "date": "2026-11-23",
+     "night": "Monday",
+     "wave": 2,
+     "comp": "aam",
+     "start": "7:20 PM",
+     "end": "8:00 PM",
+     "field": "field-3",
+     "team1": "PXG",
+     "team2": "Goal Diggers",
+     "note": ""
+    },
+    {
+     "week": 7,
+     "date": "2026-11-23",
+     "night": "Monday",
+     "wave": 2,
+     "comp": "aam",
+     "start": "7:20 PM",
+     "end": "8:00 PM",
+     "field": "field-1",
+     "team1": "Metford AAM",
+     "team2": "Dongos / Rutherford Dragons",
+     "note": ""
+    },
+    {
+     "week": 7,
+     "date": "2026-11-23",
+     "night": "Monday",
+     "wave": 2,
+     "comp": "aaw",
+     "start": "7:20 PM",
+     "end": "8:00 PM",
+     "field": "field-4",
+     "team1": "The Young and the Breathless",
+     "team2": "Clangers",
+     "note": ""
+    },
+    {
+     "week": 7,
+     "date": "2026-11-23",
+     "night": "Monday",
+     "wave": 2,
+     "comp": "aaw",
+     "start": "7:20 PM",
+     "end": "8:00 PM",
+     "field": "field-6",
+     "team1": "Summer Savages",
+     "team2": "Cleats & Chaos",
+     "note": ""
+    },
+    {
+     "week": 8,
+     "date": "2026-11-30",
+     "night": "Monday",
+     "wave": 1,
+     "comp": "mixed",
+     "start": "6:30 PM",
+     "end": "7:10 PM",
+     "field": "field-1",
+     "team1": "Mixed Cobras, name TBC",
+     "team2": "Team Gene",
+     "note": ""
+    },
+    {
+     "week": 8,
+     "date": "2026-11-30",
+     "night": "Monday",
+     "wave": 1,
+     "comp": "aam",
+     "start": "6:30 PM",
+     "end": "7:10 PM",
+     "field": "field-6",
+     "team1": "Gooners FC",
+     "team2": "Dongos / Rutherford Dragons",
+     "note": ""
+    },
+    {
+     "week": 8,
+     "date": "2026-11-30",
+     "night": "Monday",
+     "wave": 1,
+     "comp": "aam",
+     "start": "6:30 PM",
+     "end": "7:10 PM",
+     "field": "field-4",
+     "team1": "Metford AAM",
+     "team2": "Lizzopool",
+     "note": ""
+    },
+    {
+     "week": 8,
+     "date": "2026-11-30",
+     "night": "Monday",
+     "wave": 1,
+     "comp": "aaw",
+     "start": "6:30 PM",
+     "end": "7:10 PM",
+     "field": "field-2",
+     "team1": "Hams",
+     "team2": "The Young and the Breathless",
+     "note": "Colour clash: The Young and the Breathless to wear bibs (supplied by Cobras)"
+    },
+    {
+     "week": 8,
+     "date": "2026-11-30",
+     "night": "Monday",
+     "wave": 1,
+     "comp": "aaw",
+     "start": "6:30 PM",
+     "end": "7:10 PM",
+     "field": "field-3",
      "team1": "Clangers",
      "team2": "Cleats & Chaos",
-     "note": "Colour clash: Cleats & Chaos to wear bibs (supplied by Cobras)"
+     "note": "Colour clash: Clangers to wear bibs (supplied by Cobras)"
     },
     {
      "week": 8,
      "date": "2026-11-30",
      "night": "Monday",
      "wave": 2,
-     "comp": "aam",
+     "comp": "mixed",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-6",
-     "team1": "Muppets",
-     "team2": "Dongos / Rutherford Dragons",
+     "field": "field-3",
+     "team1": "Sandbar FC",
+     "team2": "What's with this outdoor shite?",
      "note": ""
     },
     {
@@ -1468,9 +1544,22 @@
      "start": "7:20 PM",
      "end": "8:00 PM",
      "field": "field-4",
-     "team1": "Metford AAM",
-     "team2": "Goal Diggers",
+     "team1": "PXG",
+     "team2": "Grasshopper United",
      "note": ""
+    },
+    {
+     "week": 8,
+     "date": "2026-11-30",
+     "night": "Monday",
+     "wave": 2,
+     "comp": "aam",
+     "start": "7:20 PM",
+     "end": "8:00 PM",
+     "field": "field-6",
+     "team1": "Muppets",
+     "team2": "The Ghosts",
+     "note": "Colour clash: The Ghosts to wear bibs (supplied by Cobras)"
     },
     {
      "week": 8,
@@ -1493,7 +1582,7 @@
      "comp": "aaw",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-3",
+     "field": "field-2",
      "team1": "Summer Savages",
      "team2": "Country",
      "note": ""
@@ -1506,7 +1595,7 @@
      "comp": "mixed",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-2",
+     "field": "field-1",
      "team1": "Dribbling Morons",
      "team2": "Sandbar FC",
      "note": ""
@@ -1519,9 +1608,9 @@
      "comp": "aam",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-1",
-     "team1": "Muppets",
-     "team2": "Banjo's Team",
+     "field": "field-3",
+     "team1": "Grasshopper United",
+     "team2": "The Ghosts",
      "note": ""
     },
     {
@@ -1532,8 +1621,8 @@
      "comp": "aam",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-3",
-     "team1": "Gooners FC",
+     "field": "field-2",
+     "team1": "Metford AAM",
      "team2": "Goal Diggers",
      "note": ""
     },
@@ -1571,7 +1660,7 @@
      "comp": "mixed",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-6",
+     "field": "field-2",
      "team1": "What's with this outdoor shite?",
      "team2": "Team Gene",
      "note": ""
@@ -1584,9 +1673,22 @@
      "comp": "aam",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-4",
-     "team1": "PXG",
+     "field": "field-1",
+     "team1": "Muppets",
      "team2": "Dongos / Rutherford Dragons",
+     "note": ""
+    },
+    {
+     "week": 9,
+     "date": "2026-12-07",
+     "night": "Monday",
+     "wave": 2,
+     "comp": "aam",
+     "start": "7:20 PM",
+     "end": "8:00 PM",
+     "field": "field-3",
+     "team1": "Gooners FC",
+     "team2": "Lizzopool",
      "note": ""
     },
     {
@@ -1597,7 +1699,7 @@
      "comp": "aaw",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-3",
+     "field": "field-4",
      "team1": "The Young and the Breathless",
      "team2": "Cleats & Chaos",
      "note": ""
@@ -1610,7 +1712,7 @@
      "comp": "aaw",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-1",
+     "field": "field-6",
      "team1": "Clangers",
      "team2": "Country",
      "note": ""
@@ -1623,7 +1725,7 @@
      "comp": "mixed",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-1",
+     "field": "field-2",
      "team1": "Mixed Cobras, name TBC",
      "team2": "Sandbar FC",
      "note": ""
@@ -1636,9 +1738,9 @@
      "comp": "aam",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-2",
-     "team1": "Metford AAM",
-     "team2": "PXG",
+     "field": "field-4",
+     "team1": "The Ghosts",
+     "team2": "Dongos / Rutherford Dragons",
      "note": ""
     },
     {
@@ -1649,9 +1751,9 @@
      "comp": "aam",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-3",
-     "team1": "Dongos / Rutherford Dragons",
-     "team2": "Banjo's Team",
+     "field": "field-6",
+     "team1": "Metford AAM",
+     "team2": "PXG",
      "note": ""
     },
     {
@@ -1662,7 +1764,7 @@
      "comp": "aaw",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-6",
+     "field": "field-1",
      "team1": "Cleats & Chaos",
      "team2": "Country",
      "note": ""
@@ -1675,7 +1777,7 @@
      "comp": "aaw",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-4",
+     "field": "field-3",
      "team1": "Clangers",
      "team2": "Zero Pace United",
      "note": "Colour clash: Zero Pace United to wear bibs (supplied by Cobras)"
@@ -1688,7 +1790,7 @@
      "comp": "mixed",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-4",
+     "field": "field-3",
      "team1": "Dribbling Morons",
      "team2": "What's with this outdoor shite?",
      "note": ""
@@ -1701,8 +1803,21 @@
      "comp": "aam",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-6",
+     "field": "field-4",
      "team1": "Muppets",
+     "team2": "Lizzopool",
+     "note": ""
+    },
+    {
+     "week": 10,
+     "date": "2026-12-14",
+     "night": "Monday",
+     "wave": 2,
+     "comp": "aam",
+     "start": "7:20 PM",
+     "end": "8:00 PM",
+     "field": "field-6",
+     "team1": "Gooners FC",
      "team2": "Goal Diggers",
      "note": ""
     },
@@ -1727,7 +1842,7 @@
      "comp": "aaw",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-3",
+     "field": "field-2",
      "team1": "Summer Savages",
      "team2": "Hams",
      "note": ""
@@ -1776,12 +1891,12 @@
      "date": "2026-10-13",
      "night": "Tuesday",
      "wave": 1,
-     "comp": "u1418",
+     "comp": "u1213",
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-4",
-     "team1": "The Ghosts",
-     "team2": "New U14-15s team",
+     "team1": "Chaos FC",
+     "team2": "Messi Business",
      "note": ""
     },
     {
@@ -1789,12 +1904,12 @@
      "date": "2026-10-13",
      "night": "Tuesday",
      "wave": 1,
-     "comp": "u1418",
+     "comp": "u1213",
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-6",
-     "team1": "Cucumber Munchers",
-     "team2": "Grasshopper United",
+     "team1": "Magpies",
+     "team2": "Grass Goblins",
      "note": ""
     },
     {
@@ -1815,50 +1930,24 @@
      "date": "2026-10-13",
      "night": "Tuesday",
      "wave": 2,
-     "comp": "u1213",
+     "comp": "u1215",
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-1",
-     "team1": "Metford U12s",
-     "team2": "Grass Goblins",
-     "note": ""
+     "team1": "Mayhem FC",
+     "team2": "Tough Cookies FC",
+     "note": "Colour clash: Mayhem FC to wear bibs (supplied by Cobras)"
     },
     {
      "week": 1,
      "date": "2026-10-13",
      "night": "Tuesday",
      "wave": 2,
-     "comp": "u1213",
+     "comp": "u1215",
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-3",
      "team1": "Phoenix Flyers",
-     "team2": "Chaos FC",
-     "note": ""
-    },
-    {
-     "week": 1,
-     "date": "2026-10-13",
-     "night": "Tuesday",
-     "wave": 2,
-     "comp": "u1213",
-     "start": "6:15 PM",
-     "end": "6:45 PM",
-     "field": "field-4",
-     "team1": "Mayhem FC",
-     "team2": "Magpies",
-     "note": ""
-    },
-    {
-     "week": 1,
-     "date": "2026-10-13",
-     "night": "Tuesday",
-     "wave": 2,
-     "comp": "u1213",
-     "start": "6:15 PM",
-     "end": "6:45 PM",
-     "field": "field-6",
-     "team1": "Messi Business",
      "team2": "Rutherford Greens",
      "note": ""
     },
@@ -1906,12 +1995,12 @@
      "date": "2026-10-20",
      "night": "Tuesday",
      "wave": 1,
-     "comp": "u1418",
+     "comp": "u1213",
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-1",
-     "team1": "The Ghosts",
-     "team2": "Goggins FC",
+     "team1": "Chaos FC",
+     "team2": "Metford U12s",
      "note": ""
     },
     {
@@ -1919,12 +2008,12 @@
      "date": "2026-10-20",
      "night": "Tuesday",
      "wave": 1,
-     "comp": "u1418",
+     "comp": "u1213",
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-3",
-     "team1": "Cucumber Munchers",
-     "team2": "New U14-15s team",
+     "team1": "Magpies",
+     "team2": "Messi Business",
      "note": ""
     },
     {
@@ -1945,12 +2034,12 @@
      "date": "2026-10-20",
      "night": "Tuesday",
      "wave": 2,
-     "comp": "u1213",
+     "comp": "u1215",
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-4",
      "team1": "Phoenix Flyers",
-     "team2": "Metford U12s",
+     "team2": "Mayhem FC",
      "note": ""
     },
     {
@@ -1958,37 +2047,11 @@
      "date": "2026-10-20",
      "night": "Tuesday",
      "wave": 2,
-     "comp": "u1213",
+     "comp": "u1215",
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-6",
-     "team1": "Grass Goblins",
-     "team2": "Magpies",
-     "note": ""
-    },
-    {
-     "week": 2,
-     "date": "2026-10-20",
-     "night": "Tuesday",
-     "wave": 2,
-     "comp": "u1213",
-     "start": "6:15 PM",
-     "end": "6:45 PM",
-     "field": "field-1",
-     "team1": "Messi Business",
-     "team2": "Chaos FC",
-     "note": ""
-    },
-    {
-     "week": 2,
-     "date": "2026-10-20",
-     "night": "Tuesday",
-     "wave": 2,
-     "comp": "u1213",
-     "start": "6:15 PM",
-     "end": "6:45 PM",
-     "field": "field-3",
-     "team1": "Mayhem FC",
+     "team1": "Tough Cookies FC",
      "team2": "Rutherford Greens",
      "note": ""
     },
@@ -2036,12 +2099,12 @@
      "date": "2026-10-27",
      "night": "Tuesday",
      "wave": 1,
-     "comp": "u1418",
+     "comp": "u1213",
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-4",
-     "team1": "Goggins FC",
-     "team2": "Grasshopper United",
+     "team1": "Metford U12s",
+     "team2": "Grass Goblins",
      "note": ""
     },
     {
@@ -2049,12 +2112,12 @@
      "date": "2026-10-27",
      "night": "Tuesday",
      "wave": 1,
-     "comp": "u1418",
+     "comp": "u1213",
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-6",
-     "team1": "Cucumber Munchers",
-     "team2": "The Ghosts",
+     "team1": "Magpies",
+     "team2": "Chaos FC",
      "note": ""
     },
     {
@@ -2075,37 +2138,11 @@
      "date": "2026-10-27",
      "night": "Tuesday",
      "wave": 2,
-     "comp": "u1213",
+     "comp": "u1215",
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-1",
-     "team1": "Metford U12s",
-     "team2": "Magpies",
-     "note": ""
-    },
-    {
-     "week": 3,
-     "date": "2026-10-27",
-     "night": "Tuesday",
-     "wave": 2,
-     "comp": "u1213",
-     "start": "6:15 PM",
-     "end": "6:45 PM",
-     "field": "field-3",
-     "team1": "Messi Business",
-     "team2": "Phoenix Flyers",
-     "note": ""
-    },
-    {
-     "week": 3,
-     "date": "2026-10-27",
-     "night": "Tuesday",
-     "wave": 2,
-     "comp": "u1213",
-     "start": "6:15 PM",
-     "end": "6:45 PM",
-     "field": "field-4",
-     "team1": "Grass Goblins",
+     "team1": "Mayhem FC",
      "team2": "Rutherford Greens",
      "note": ""
     },
@@ -2114,13 +2151,13 @@
      "date": "2026-10-27",
      "night": "Tuesday",
      "wave": 2,
-     "comp": "u1213",
+     "comp": "u1215",
      "start": "6:15 PM",
      "end": "6:45 PM",
-     "field": "field-6",
-     "team1": "Mayhem FC",
-     "team2": "Chaos FC",
-     "note": "Colour clash: Chaos FC to wear bibs (supplied by Cobras)"
+     "field": "field-3",
+     "team1": "Tough Cookies FC",
+     "team2": "Phoenix Flyers",
+     "note": ""
     },
     {
      "week": 4,
@@ -2159,19 +2196,19 @@
      "field": "field-4",
      "team1": "Wild Warriors",
      "team2": "U8s Metford",
-     "note": "Colour clash: U8s Metford to wear bibs (supplied by Cobras)"
+     "note": "Colour clash: Wild Warriors to wear bibs (supplied by Cobras)"
     },
     {
      "week": 4,
      "date": "2026-11-03",
      "night": "Tuesday",
      "wave": 1,
-     "comp": "u1418",
+     "comp": "u1213",
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-3",
-     "team1": "Cucumber Munchers",
-     "team2": "Goggins FC",
+     "team1": "Magpies",
+     "team2": "Metford U12s",
      "note": ""
     },
     {
@@ -2179,12 +2216,12 @@
      "date": "2026-11-03",
      "night": "Tuesday",
      "wave": 1,
-     "comp": "u1418",
+     "comp": "u1213",
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-1",
-     "team1": "Grasshopper United",
-     "team2": "New U14-15s team",
+     "team1": "Grass Goblins",
+     "team2": "Messi Business",
      "note": ""
     },
     {
@@ -2205,51 +2242,25 @@
      "date": "2026-11-03",
      "night": "Tuesday",
      "wave": 2,
-     "comp": "u1213",
+     "comp": "u1215",
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-4",
-     "team1": "Messi Business",
-     "team2": "Metford U12s",
-     "note": ""
+     "team1": "Tough Cookies FC",
+     "team2": "Mayhem FC",
+     "note": "Colour clash: Tough Cookies FC to wear bibs (supplied by Cobras)"
     },
     {
      "week": 4,
      "date": "2026-11-03",
      "night": "Tuesday",
      "wave": 2,
-     "comp": "u1213",
+     "comp": "u1215",
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-6",
-     "team1": "Magpies",
-     "team2": "Rutherford Greens",
-     "note": ""
-    },
-    {
-     "week": 4,
-     "date": "2026-11-03",
-     "night": "Tuesday",
-     "wave": 2,
-     "comp": "u1213",
-     "start": "6:15 PM",
-     "end": "6:45 PM",
-     "field": "field-1",
-     "team1": "Mayhem FC",
+     "team1": "Rutherford Greens",
      "team2": "Phoenix Flyers",
-     "note": ""
-    },
-    {
-     "week": 4,
-     "date": "2026-11-03",
-     "night": "Tuesday",
-     "wave": 2,
-     "comp": "u1213",
-     "start": "6:15 PM",
-     "end": "6:45 PM",
-     "field": "field-3",
-     "team1": "Grass Goblins",
-     "team2": "Chaos FC",
      "note": ""
     },
     {
@@ -2296,12 +2307,12 @@
      "date": "2026-11-10",
      "night": "Tuesday",
      "wave": 1,
-     "comp": "u1418",
+     "comp": "u1213",
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-6",
-     "team1": "Goggins FC",
-     "team2": "New U14-15s team",
+     "team1": "Metford U12s",
+     "team2": "Messi Business",
      "note": ""
     },
     {
@@ -2309,12 +2320,12 @@
      "date": "2026-11-10",
      "night": "Tuesday",
      "wave": 1,
-     "comp": "u1418",
+     "comp": "u1213",
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-4",
-     "team1": "Grasshopper United",
-     "team2": "The Ghosts",
+     "team1": "Grass Goblins",
+     "team2": "Chaos FC",
      "note": ""
     },
     {
@@ -2335,12 +2346,12 @@
      "date": "2026-11-10",
      "night": "Tuesday",
      "wave": 2,
-     "comp": "u1213",
+     "comp": "u1215",
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-1",
-     "team1": "Metford U12s",
-     "team2": "Rutherford Greens",
+     "team1": "Mayhem FC",
+     "team2": "Phoenix Flyers",
      "note": ""
     },
     {
@@ -2348,38 +2359,12 @@
      "date": "2026-11-10",
      "night": "Tuesday",
      "wave": 2,
-     "comp": "u1213",
+     "comp": "u1215",
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-3",
-     "team1": "Mayhem FC",
-     "team2": "Messi Business",
-     "note": ""
-    },
-    {
-     "week": 5,
-     "date": "2026-11-10",
-     "night": "Tuesday",
-     "wave": 2,
-     "comp": "u1213",
-     "start": "6:15 PM",
-     "end": "6:45 PM",
-     "field": "field-4",
-     "team1": "Magpies",
-     "team2": "Chaos FC",
-     "note": ""
-    },
-    {
-     "week": 5,
-     "date": "2026-11-10",
-     "night": "Tuesday",
-     "wave": 2,
-     "comp": "u1213",
-     "start": "6:15 PM",
-     "end": "6:45 PM",
-     "field": "field-6",
-     "team1": "Grass Goblins",
-     "team2": "Phoenix Flyers",
+     "team1": "Rutherford Greens",
+     "team2": "Tough Cookies FC",
      "note": ""
     },
     {
@@ -2426,12 +2411,12 @@
      "date": "2026-11-17",
      "night": "Tuesday",
      "wave": 1,
-     "comp": "u1418",
+     "comp": "u1213",
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-3",
-     "team1": "New U14-15s team",
-     "team2": "The Ghosts",
+     "team1": "Messi Business",
+     "team2": "Chaos FC",
      "note": ""
     },
     {
@@ -2439,12 +2424,12 @@
      "date": "2026-11-17",
      "night": "Tuesday",
      "wave": 1,
-     "comp": "u1418",
+     "comp": "u1213",
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-1",
-     "team1": "Grasshopper United",
-     "team2": "Cucumber Munchers",
+     "team1": "Grass Goblins",
+     "team2": "Magpies",
      "note": ""
     },
     {
@@ -2465,12 +2450,12 @@
      "date": "2026-11-17",
      "night": "Tuesday",
      "wave": 2,
-     "comp": "u1213",
+     "comp": "u1215",
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-4",
-     "team1": "Mayhem FC",
-     "team2": "Metford U12s",
+     "team1": "Rutherford Greens",
+     "team2": "Mayhem FC",
      "note": ""
     },
     {
@@ -2478,38 +2463,12 @@
      "date": "2026-11-17",
      "night": "Tuesday",
      "wave": 2,
-     "comp": "u1213",
+     "comp": "u1215",
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-6",
-     "team1": "Rutherford Greens",
-     "team2": "Chaos FC",
-     "note": ""
-    },
-    {
-     "week": 6,
-     "date": "2026-11-17",
-     "night": "Tuesday",
-     "wave": 2,
-     "comp": "u1213",
-     "start": "6:15 PM",
-     "end": "6:45 PM",
-     "field": "field-1",
-     "team1": "Grass Goblins",
-     "team2": "Messi Business",
-     "note": ""
-    },
-    {
-     "week": 6,
-     "date": "2026-11-17",
-     "night": "Tuesday",
-     "wave": 2,
-     "comp": "u1213",
-     "start": "6:15 PM",
-     "end": "6:45 PM",
-     "field": "field-3",
-     "team1": "Magpies",
-     "team2": "Phoenix Flyers",
+     "team1": "Phoenix Flyers",
+     "team2": "Tough Cookies FC",
      "note": ""
     },
     {
@@ -2556,12 +2515,12 @@
      "date": "2026-11-24",
      "night": "Tuesday",
      "wave": 1,
-     "comp": "u1418",
+     "comp": "u1213",
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-4",
-     "team1": "Goggins FC",
-     "team2": "The Ghosts",
+     "team1": "Metford U12s",
+     "team2": "Chaos FC",
      "note": ""
     },
     {
@@ -2569,12 +2528,12 @@
      "date": "2026-11-24",
      "night": "Tuesday",
      "wave": 1,
-     "comp": "u1418",
+     "comp": "u1213",
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-6",
-     "team1": "New U14-15s team",
-     "team2": "Cucumber Munchers",
+     "team1": "Messi Business",
+     "team2": "Magpies",
      "note": ""
     },
     {
@@ -2595,51 +2554,25 @@
      "date": "2026-11-24",
      "night": "Tuesday",
      "wave": 2,
-     "comp": "u1213",
+     "comp": "u1215",
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-1",
-     "team1": "Metford U12s",
-     "team2": "Chaos FC",
-     "note": ""
+     "team1": "Tough Cookies FC",
+     "team2": "Mayhem FC",
+     "note": "Colour clash: Tough Cookies FC to wear bibs (supplied by Cobras)"
     },
     {
      "week": 7,
      "date": "2026-11-24",
      "night": "Tuesday",
      "wave": 2,
-     "comp": "u1213",
+     "comp": "u1215",
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-3",
-     "team1": "Grass Goblins",
-     "team2": "Mayhem FC",
-     "note": ""
-    },
-    {
-     "week": 7,
-     "date": "2026-11-24",
-     "night": "Tuesday",
-     "wave": 2,
-     "comp": "u1213",
-     "start": "6:15 PM",
-     "end": "6:45 PM",
-     "field": "field-4",
      "team1": "Rutherford Greens",
      "team2": "Phoenix Flyers",
-     "note": ""
-    },
-    {
-     "week": 7,
-     "date": "2026-11-24",
-     "night": "Tuesday",
-     "wave": 2,
-     "comp": "u1213",
-     "start": "6:15 PM",
-     "end": "6:45 PM",
-     "field": "field-6",
-     "team1": "Magpies",
-     "team2": "Messi Business",
      "note": ""
     },
     {
@@ -2686,12 +2619,12 @@
      "date": "2026-12-01",
      "night": "Tuesday",
      "wave": 1,
-     "comp": "u1418",
+     "comp": "u1213",
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-3",
-     "team1": "Grasshopper United",
-     "team2": "Goggins FC",
+     "team1": "Grass Goblins",
+     "team2": "Metford U12s",
      "note": ""
     },
     {
@@ -2699,12 +2632,12 @@
      "date": "2026-12-01",
      "night": "Tuesday",
      "wave": 1,
-     "comp": "u1418",
+     "comp": "u1213",
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-1",
-     "team1": "The Ghosts",
-     "team2": "Cucumber Munchers",
+     "team1": "Chaos FC",
+     "team2": "Magpies",
      "note": ""
     },
     {
@@ -2725,24 +2658,11 @@
      "date": "2026-12-01",
      "night": "Tuesday",
      "wave": 2,
-     "comp": "u1213",
+     "comp": "u1215",
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-4",
-     "team1": "Grass Goblins",
-     "team2": "Metford U12s",
-     "note": ""
-    },
-    {
-     "week": 8,
-     "date": "2026-12-01",
-     "night": "Tuesday",
-     "wave": 2,
-     "comp": "u1213",
-     "start": "6:15 PM",
-     "end": "6:45 PM",
-     "field": "field-6",
-     "team1": "Chaos FC",
+     "team1": "Mayhem FC",
      "team2": "Phoenix Flyers",
      "note": ""
     },
@@ -2751,25 +2671,12 @@
      "date": "2026-12-01",
      "night": "Tuesday",
      "wave": 2,
-     "comp": "u1213",
+     "comp": "u1215",
      "start": "6:15 PM",
      "end": "6:45 PM",
-     "field": "field-1",
-     "team1": "Magpies",
-     "team2": "Mayhem FC",
-     "note": ""
-    },
-    {
-     "week": 8,
-     "date": "2026-12-01",
-     "night": "Tuesday",
-     "wave": 2,
-     "comp": "u1213",
-     "start": "6:15 PM",
-     "end": "6:45 PM",
-     "field": "field-3",
+     "field": "field-6",
      "team1": "Rutherford Greens",
-     "team2": "Messi Business",
+     "team2": "Tough Cookies FC",
      "note": ""
     },
     {
@@ -2816,12 +2723,12 @@
      "date": "2026-12-08",
      "night": "Tuesday",
      "wave": 1,
-     "comp": "u1418",
+     "comp": "u1213",
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-6",
-     "team1": "Goggins FC",
-     "team2": "Cucumber Munchers",
+     "team1": "Metford U12s",
+     "team2": "Magpies",
      "note": ""
     },
     {
@@ -2829,12 +2736,12 @@
      "date": "2026-12-08",
      "night": "Tuesday",
      "wave": 1,
-     "comp": "u1418",
+     "comp": "u1213",
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-4",
-     "team1": "New U14-15s team",
-     "team2": "Grasshopper United",
+     "team1": "Messi Business",
+     "team2": "Grass Goblins",
      "note": ""
     },
     {
@@ -2855,12 +2762,12 @@
      "date": "2026-12-08",
      "night": "Tuesday",
      "wave": 2,
-     "comp": "u1213",
+     "comp": "u1215",
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-1",
-     "team1": "Metford U12s",
-     "team2": "Phoenix Flyers",
+     "team1": "Rutherford Greens",
+     "team2": "Mayhem FC",
      "note": ""
     },
     {
@@ -2868,38 +2775,12 @@
      "date": "2026-12-08",
      "night": "Tuesday",
      "wave": 2,
-     "comp": "u1213",
+     "comp": "u1215",
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-3",
-     "team1": "Magpies",
-     "team2": "Grass Goblins",
-     "note": ""
-    },
-    {
-     "week": 9,
-     "date": "2026-12-08",
-     "night": "Tuesday",
-     "wave": 2,
-     "comp": "u1213",
-     "start": "6:15 PM",
-     "end": "6:45 PM",
-     "field": "field-4",
-     "team1": "Chaos FC",
-     "team2": "Messi Business",
-     "note": ""
-    },
-    {
-     "week": 9,
-     "date": "2026-12-08",
-     "night": "Tuesday",
-     "wave": 2,
-     "comp": "u1213",
-     "start": "6:15 PM",
-     "end": "6:45 PM",
-     "field": "field-6",
-     "team1": "Rutherford Greens",
-     "team2": "Mayhem FC",
+     "team1": "Phoenix Flyers",
+     "team2": "Tough Cookies FC",
      "note": ""
     },
     {
@@ -2946,12 +2827,12 @@
      "date": "2026-12-15",
      "night": "Tuesday",
      "wave": 1,
-     "comp": "u1418",
+     "comp": "u1213",
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-1",
-     "team1": "New U14-15s team",
-     "team2": "Goggins FC",
+     "team1": "Messi Business",
+     "team2": "Metford U12s",
      "note": ""
     },
     {
@@ -2959,12 +2840,12 @@
      "date": "2026-12-15",
      "night": "Tuesday",
      "wave": 1,
-     "comp": "u1418",
+     "comp": "u1213",
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-3",
-     "team1": "The Ghosts",
-     "team2": "Grasshopper United",
+     "team1": "Chaos FC",
+     "team2": "Grass Goblins",
      "note": ""
     },
     {
@@ -2985,52 +2866,26 @@
      "date": "2026-12-15",
      "night": "Tuesday",
      "wave": 2,
-     "comp": "u1213",
+     "comp": "u1215",
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-4",
-     "team1": "Magpies",
-     "team2": "Metford U12s",
-     "note": ""
+     "team1": "Tough Cookies FC",
+     "team2": "Mayhem FC",
+     "note": "Colour clash: Mayhem FC to wear bibs (supplied by Cobras)"
     },
     {
      "week": 10,
      "date": "2026-12-15",
      "night": "Tuesday",
      "wave": 2,
-     "comp": "u1213",
+     "comp": "u1215",
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-6",
-     "team1": "Phoenix Flyers",
-     "team2": "Messi Business",
-     "note": ""
-    },
-    {
-     "week": 10,
-     "date": "2026-12-15",
-     "night": "Tuesday",
-     "wave": 2,
-     "comp": "u1213",
-     "start": "6:15 PM",
-     "end": "6:45 PM",
-     "field": "field-1",
      "team1": "Rutherford Greens",
-     "team2": "Grass Goblins",
+     "team2": "Phoenix Flyers",
      "note": ""
-    },
-    {
-     "week": 10,
-     "date": "2026-12-15",
-     "night": "Tuesday",
-     "wave": 2,
-     "comp": "u1213",
-     "start": "6:15 PM",
-     "end": "6:45 PM",
-     "field": "field-3",
-     "team1": "Chaos FC",
-     "team2": "Mayhem FC",
-     "note": "Colour clash: Chaos FC to wear bibs (supplied by Cobras)"
     }
    ],
    "nights": [
@@ -3046,41 +2901,41 @@
          "comp": "mixed",
          "pitches": 2,
          "fields": [
-          "field-2"
-         ],
-         "minis": false,
-         "gamesMin": 0,
-         "gamesMax": 2
-        },
-        {
-         "comp": "aam",
-         "pitches": 2,
-         "fields": [
-          "field-4",
-          "field-6"
+          "field-1"
          ],
          "minis": false,
          "gamesMin": 1,
          "gamesMax": 2
         },
         {
+         "comp": "aam",
+         "pitches": 2,
+         "fields": [
+          "field-2",
+          "field-3"
+         ],
+         "minis": false,
+         "gamesMin": 2,
+         "gamesMax": 2
+        },
+        {
          "comp": "aaw",
          "pitches": 2,
          "fields": [
-          "field-1",
-          "field-3"
+          "field-4",
+          "field-6"
          ],
          "minis": false,
          "gamesMin": 2,
          "gamesMax": 2
         }
        ],
-       "mainAllocated": 5,
+       "mainAllocated": 6,
        "miniAllocated": 0,
-       "mainUsedMin": 4,
-       "mainUsedMax": 5,
-       "mainEmpty": 1,
-       "gamesPeak": 5
+       "mainUsedMin": 5,
+       "mainUsedMax": 6,
+       "mainEmpty": 0,
+       "gamesPeak": 6
       },
       {
        "wave": 2,
@@ -3091,28 +2946,29 @@
          "comp": "mixed",
          "pitches": 2,
          "fields": [
-          "field-4"
+          "field-1"
          ],
          "minis": false,
          "gamesMin": 0,
-         "gamesMax": 2
+         "gamesMax": 1
         },
         {
          "comp": "aam",
          "pitches": 2,
          "fields": [
-          "field-6"
+          "field-2",
+          "field-3"
          ],
          "minis": false,
-         "gamesMin": 1,
+         "gamesMin": 2,
          "gamesMax": 2
         },
         {
          "comp": "aaw",
          "pitches": 2,
          "fields": [
-          "field-1",
-          "field-3"
+          "field-4",
+          "field-6"
          ],
          "minis": false,
          "gamesMin": 2,
@@ -3127,8 +2983,8 @@
        "gamesPeak": 5
       }
      ],
-     "shownWeek": 2,
-     "shownWeeks": 5,
+     "shownWeek": 1,
+     "shownWeeks": 9,
      "varies": true
     },
     {
@@ -3151,7 +3007,7 @@
         },
         {
          "comp": "u811",
-         "pitches": 3,
+         "pitches": 2,
          "fields": [
           "field-1",
           "field-3"
@@ -3161,7 +3017,7 @@
          "gamesMax": 2
         },
         {
-         "comp": "u1418",
+         "comp": "u1213",
          "pitches": 2,
          "fields": [
           "field-4",
@@ -3195,25 +3051,23 @@
          "gamesMax": 1
         },
         {
-         "comp": "u1213",
-         "pitches": 4,
+         "comp": "u1215",
+         "pitches": 2,
          "fields": [
           "field-1",
-          "field-3",
-          "field-4",
-          "field-6"
+          "field-3"
          ],
          "minis": false,
-         "gamesMin": 4,
-         "gamesMax": 4
+         "gamesMin": 2,
+         "gamesMax": 2
         }
        ],
-       "mainAllocated": 4,
+       "mainAllocated": 2,
        "miniAllocated": 1,
-       "mainUsedMin": 4,
-       "mainUsedMax": 4,
-       "mainEmpty": 2,
-       "gamesPeak": 5
+       "mainUsedMin": 2,
+       "mainUsedMax": 2,
+       "mainEmpty": 4,
+       "gamesPeak": 3
       }
      ],
      "shownWeek": 1,
@@ -3222,189 +3076,32 @@
     }
    ],
    "dualClashes": [],
-   "contactClashes": [
-    {
-     "week": 1,
-     "night": "Tuesday",
-     "wave": 2,
-     "teams": [
-      "Chaos FC",
-      "Mayhem FC"
-     ],
-     "games": [
-      [
-       "Magpies",
-       "Mayhem FC"
-      ],
-      [
-       "Chaos FC",
-       "Phoenix Flyers"
-      ]
-     ]
-    },
-    {
-     "week": 2,
-     "night": "Tuesday",
-     "wave": 2,
-     "teams": [
-      "Chaos FC",
-      "Mayhem FC"
-     ],
-     "games": [
-      [
-       "Chaos FC",
-       "Messi Business"
-      ],
-      [
-       "Mayhem FC",
-       "Rutherford Greens"
-      ]
-     ]
-    },
-    {
-     "week": 4,
-     "night": "Tuesday",
-     "wave": 2,
-     "teams": [
-      "Chaos FC",
-      "Mayhem FC"
-     ],
-     "games": [
-      [
-       "Chaos FC",
-       "Grass Goblins"
-      ],
-      [
-       "Mayhem FC",
-       "Phoenix Flyers"
-      ]
-     ]
-    },
-    {
-     "week": 5,
-     "night": "Tuesday",
-     "wave": 2,
-     "teams": [
-      "Chaos FC",
-      "Mayhem FC"
-     ],
-     "games": [
-      [
-       "Mayhem FC",
-       "Messi Business"
-      ],
-      [
-       "Chaos FC",
-       "Magpies"
-      ]
-     ]
-    },
-    {
-     "week": 6,
-     "night": "Tuesday",
-     "wave": 2,
-     "teams": [
-      "Chaos FC",
-      "Mayhem FC"
-     ],
-     "games": [
-      [
-       "Chaos FC",
-       "Rutherford Greens"
-      ],
-      [
-       "Mayhem FC",
-       "Metford U12s"
-      ]
-     ]
-    },
-    {
-     "week": 7,
-     "night": "Tuesday",
-     "wave": 2,
-     "teams": [
-      "Chaos FC",
-      "Mayhem FC"
-     ],
-     "games": [
-      [
-       "Chaos FC",
-       "Metford U12s"
-      ],
-      [
-       "Grass Goblins",
-       "Mayhem FC"
-      ]
-     ]
-    },
-    {
-     "week": 8,
-     "night": "Tuesday",
-     "wave": 2,
-     "teams": [
-      "Chaos FC",
-      "Mayhem FC"
-     ],
-     "games": [
-      [
-       "Magpies",
-       "Mayhem FC"
-      ],
-      [
-       "Chaos FC",
-       "Phoenix Flyers"
-      ]
-     ]
-    },
-    {
-     "week": 9,
-     "night": "Tuesday",
-     "wave": 2,
-     "teams": [
-      "Chaos FC",
-      "Mayhem FC"
-     ],
-     "games": [
-      [
-       "Chaos FC",
-       "Messi Business"
-      ],
-      [
-       "Mayhem FC",
-       "Rutherford Greens"
-      ]
-     ]
-    }
-   ],
-   "gameLeaderComps": [
-    "u1213",
-    "u811"
-   ],
+   "contactClashes": [],
+   "gameLeaderComps": [],
    "gameLeadersByWave": [
     {
      "wave": 1,
-     "comps": [
-      "u1213"
-     ]
+     "comps": []
     },
     {
      "wave": 2,
      "comps": [
-      "u811"
+      "u811",
+      "u1213"
      ]
     }
    ],
    "waveSplit": {
-    "mixed": {
+    "aaw": {
      "earlyMin": 4,
-     "earlyMax": 5
+     "earlyMax": 6
     },
     "aam": {
      "earlyMin": 3,
      "earlyMax": 6
     },
-    "aaw": {
-     "earlyMin": 4,
+    "mixed": {
+     "earlyMin": 3,
      "earlyMax": 6
     },
     "u67": {
@@ -3412,7 +3109,7 @@
      "earlyMax": 7
     }
    },
-   "bibGames": 18
+   "bibGames": 21
   }
  ]
 }

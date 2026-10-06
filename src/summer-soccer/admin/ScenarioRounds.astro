@@ -28,7 +28,7 @@ const v = makeView(data);
 				{' '}{c.teams.join(' & ')} play in the same wave ({c.night}) in {c.weeks.size} of {data.weeks} weeks{v.sameComp(c.teams) ? ' — same competition' : ''}.
 			</li>
 		))}
-		<li><span class="ad-status is-info"><span aria-hidden="true">i</span>Game leaders</span> {v.leaderText(s)}.</li>
+		{v.hasGameLeaders && <li><span class="ad-status is-info"><span aria-hidden="true">i</span>Game leaders</span> {v.leaderText(s)}.</li>}
 	</ul>
 </div>
 

@@ -48,7 +48,7 @@ const contactRows = v.contactRows();
 				{data.scenarios.map((s: any) => (
 					<td>
 						Monday <strong>{v.refsPeak(s, 'Monday')}</strong> <span class="ad-muted">({v.refsByWave(s, 'Monday')} games by wave)</span><br />
-						Tuesday <strong>{v.refsPeak(s, 'Tuesday')}</strong> <span class="ad-muted">({v.refsByWave(s, 'Tuesday')} games by wave; U6/7s use game leaders)</span>
+						Tuesday <strong>{v.refsPeak(s, 'Tuesday')}</strong> <span class="ad-muted">({v.refsByWave(s, 'Tuesday')} games by wave{v.refNote})</span>
 					</td>
 				))}
 			</tr>

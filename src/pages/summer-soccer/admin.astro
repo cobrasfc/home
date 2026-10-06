@@ -73,7 +73,7 @@ const gamesRange = (() => {
 
 				<dl class="ad-facts">
 					<div><dt>Monday</dt><dd>{v.waveUse(chosen, 'Monday')} fields · {v.refsPeak(chosen, 'Monday')} referees ({v.refsByWave(chosen, 'Monday')} games by wave)</dd></div>
-					<div><dt>Tuesday</dt><dd>{v.waveUse(chosen, 'Tuesday')} fields + minis · {v.refsPeak(chosen, 'Tuesday')} referees ({v.refsByWave(chosen, 'Tuesday')} games by wave; U6/7s use game leaders)</dd></div>
+					<div><dt>Tuesday</dt><dd>{v.waveUse(chosen, 'Tuesday')} fields + minis · {v.refsPeak(chosen, 'Tuesday')} referees ({v.refsByWave(chosen, 'Tuesday')} games by wave{v.refNote})</dd></div>
 					<div><dt>Monday kick-offs</dt><dd>{v.splitText(chosen)}</dd></div>
 					<div><dt>Games per team</dt><dd>{gamesRange} <span class="ad-muted">(5- and 7-team competitions have a bye each week)</span></dd></div>
 				</dl>
