@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-07T00:21",
+ "generatedAt": "2026-10-07T00:38",
  "weeks": 10,
  "unrefereedComps": [],
  "comps": [
@@ -1891,26 +1891,13 @@
      "date": "2026-10-13",
      "night": "Tuesday",
      "wave": 1,
-     "comp": "u1213",
+     "comp": "u1215",
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-4",
-     "team1": "Chaos FC",
-     "team2": "Messi Business",
-     "note": ""
-    },
-    {
-     "week": 1,
-     "date": "2026-10-13",
-     "night": "Tuesday",
-     "wave": 1,
-     "comp": "u1213",
-     "start": "5:30 PM",
-     "end": "6:00 PM",
-     "field": "field-6",
-     "team1": "Magpies",
-     "team2": "Grass Goblins",
-     "note": ""
+     "team1": "Mayhem FC",
+     "team2": "Tough Cookies FC",
+     "note": "Colour clash: Mayhem FC to wear bibs (supplied by Cobras)"
     },
     {
      "week": 1,
@@ -1930,13 +1917,26 @@
      "date": "2026-10-13",
      "night": "Tuesday",
      "wave": 2,
-     "comp": "u1215",
+     "comp": "u1213",
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-1",
-     "team1": "Mayhem FC",
-     "team2": "Tough Cookies FC",
-     "note": "Colour clash: Mayhem FC to wear bibs (supplied by Cobras)"
+     "team1": "Chaos FC",
+     "team2": "Messi Business",
+     "note": ""
+    },
+    {
+     "week": 1,
+     "date": "2026-10-13",
+     "night": "Tuesday",
+     "wave": 2,
+     "comp": "u1213",
+     "start": "6:15 PM",
+     "end": "6:45 PM",
+     "field": "field-3",
+     "team1": "Magpies",
+     "team2": "Grass Goblins",
+     "note": ""
     },
     {
      "week": 1,
@@ -1946,7 +1946,7 @@
      "comp": "u1215",
      "start": "6:15 PM",
      "end": "6:45 PM",
-     "field": "field-3",
+     "field": "field-4",
      "team1": "Phoenix Flyers",
      "team2": "Rutherford Greens",
      "note": ""
@@ -1995,25 +1995,12 @@
      "date": "2026-10-20",
      "night": "Tuesday",
      "wave": 1,
-     "comp": "u1213",
+     "comp": "u1215",
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-1",
-     "team1": "Chaos FC",
-     "team2": "Metford U12s",
-     "note": ""
-    },
-    {
-     "week": 2,
-     "date": "2026-10-20",
-     "night": "Tuesday",
-     "wave": 1,
-     "comp": "u1213",
-     "start": "5:30 PM",
-     "end": "6:00 PM",
-     "field": "field-3",
-     "team1": "Magpies",
-     "team2": "Messi Business",
+     "team1": "Phoenix Flyers",
+     "team2": "Mayhem FC",
      "note": ""
     },
     {
@@ -2034,12 +2021,25 @@
      "date": "2026-10-20",
      "night": "Tuesday",
      "wave": 2,
-     "comp": "u1215",
+     "comp": "u1213",
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-4",
-     "team1": "Phoenix Flyers",
-     "team2": "Mayhem FC",
+     "team1": "Chaos FC",
+     "team2": "Metford U12s",
+     "note": ""
+    },
+    {
+     "week": 2,
+     "date": "2026-10-20",
+     "night": "Tuesday",
+     "wave": 2,
+     "comp": "u1213",
+     "start": "6:15 PM",
+     "end": "6:45 PM",
+     "field": "field-6",
+     "team1": "Magpies",
+     "team2": "Messi Business",
      "note": ""
     },
     {
@@ -2050,7 +2050,7 @@
      "comp": "u1215",
      "start": "6:15 PM",
      "end": "6:45 PM",
-     "field": "field-6",
+     "field": "field-1",
      "team1": "Tough Cookies FC",
      "team2": "Rutherford Greens",
      "note": ""
@@ -2099,25 +2099,12 @@
      "date": "2026-10-27",
      "night": "Tuesday",
      "wave": 1,
-     "comp": "u1213",
+     "comp": "u1215",
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-4",
-     "team1": "Metford U12s",
-     "team2": "Grass Goblins",
-     "note": ""
-    },
-    {
-     "week": 3,
-     "date": "2026-10-27",
-     "night": "Tuesday",
-     "wave": 1,
-     "comp": "u1213",
-     "start": "5:30 PM",
-     "end": "6:00 PM",
-     "field": "field-6",
-     "team1": "Magpies",
-     "team2": "Chaos FC",
+     "team1": "Mayhem FC",
+     "team2": "Rutherford Greens",
      "note": ""
     },
     {
@@ -2138,12 +2125,25 @@
      "date": "2026-10-27",
      "night": "Tuesday",
      "wave": 2,
-     "comp": "u1215",
+     "comp": "u1213",
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-1",
-     "team1": "Mayhem FC",
-     "team2": "Rutherford Greens",
+     "team1": "Metford U12s",
+     "team2": "Grass Goblins",
+     "note": ""
+    },
+    {
+     "week": 3,
+     "date": "2026-10-27",
+     "night": "Tuesday",
+     "wave": 2,
+     "comp": "u1213",
+     "start": "6:15 PM",
+     "end": "6:45 PM",
+     "field": "field-3",
+     "team1": "Magpies",
+     "team2": "Chaos FC",
      "note": ""
     },
     {
@@ -2154,7 +2154,7 @@
      "comp": "u1215",
      "start": "6:15 PM",
      "end": "6:45 PM",
-     "field": "field-3",
+     "field": "field-4",
      "team1": "Tough Cookies FC",
      "team2": "Phoenix Flyers",
      "note": ""
@@ -2203,26 +2203,13 @@
      "date": "2026-11-03",
      "night": "Tuesday",
      "wave": 1,
-     "comp": "u1213",
-     "start": "5:30 PM",
-     "end": "6:00 PM",
-     "field": "field-3",
-     "team1": "Magpies",
-     "team2": "Metford U12s",
-     "note": ""
-    },
-    {
-     "week": 4,
-     "date": "2026-11-03",
-     "night": "Tuesday",
-     "wave": 1,
-     "comp": "u1213",
+     "comp": "u1215",
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-1",
-     "team1": "Grass Goblins",
-     "team2": "Messi Business",
-     "note": ""
+     "team1": "Tough Cookies FC",
+     "team2": "Mayhem FC",
+     "note": "Colour clash: Tough Cookies FC to wear bibs (supplied by Cobras)"
     },
     {
      "week": 4,
@@ -2242,13 +2229,26 @@
      "date": "2026-11-03",
      "night": "Tuesday",
      "wave": 2,
-     "comp": "u1215",
+     "comp": "u1213",
+     "start": "6:15 PM",
+     "end": "6:45 PM",
+     "field": "field-6",
+     "team1": "Magpies",
+     "team2": "Metford U12s",
+     "note": ""
+    },
+    {
+     "week": 4,
+     "date": "2026-11-03",
+     "night": "Tuesday",
+     "wave": 2,
+     "comp": "u1213",
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-4",
-     "team1": "Tough Cookies FC",
-     "team2": "Mayhem FC",
-     "note": "Colour clash: Tough Cookies FC to wear bibs (supplied by Cobras)"
+     "team1": "Grass Goblins",
+     "team2": "Messi Business",
+     "note": ""
     },
     {
      "week": 4,
@@ -2258,7 +2258,7 @@
      "comp": "u1215",
      "start": "6:15 PM",
      "end": "6:45 PM",
-     "field": "field-6",
+     "field": "field-1",
      "team1": "Rutherford Greens",
      "team2": "Phoenix Flyers",
      "note": ""
@@ -2307,25 +2307,12 @@
      "date": "2026-11-10",
      "night": "Tuesday",
      "wave": 1,
-     "comp": "u1213",
-     "start": "5:30 PM",
-     "end": "6:00 PM",
-     "field": "field-6",
-     "team1": "Metford U12s",
-     "team2": "Messi Business",
-     "note": ""
-    },
-    {
-     "week": 5,
-     "date": "2026-11-10",
-     "night": "Tuesday",
-     "wave": 1,
-     "comp": "u1213",
+     "comp": "u1215",
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-4",
-     "team1": "Grass Goblins",
-     "team2": "Chaos FC",
+     "team1": "Mayhem FC",
+     "team2": "Phoenix Flyers",
      "note": ""
     },
     {
@@ -2346,12 +2333,25 @@
      "date": "2026-11-10",
      "night": "Tuesday",
      "wave": 2,
-     "comp": "u1215",
+     "comp": "u1213",
+     "start": "6:15 PM",
+     "end": "6:45 PM",
+     "field": "field-3",
+     "team1": "Metford U12s",
+     "team2": "Messi Business",
+     "note": ""
+    },
+    {
+     "week": 5,
+     "date": "2026-11-10",
+     "night": "Tuesday",
+     "wave": 2,
+     "comp": "u1213",
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-1",
-     "team1": "Mayhem FC",
-     "team2": "Phoenix Flyers",
+     "team1": "Grass Goblins",
+     "team2": "Chaos FC",
      "note": ""
     },
     {
@@ -2362,7 +2362,7 @@
      "comp": "u1215",
      "start": "6:15 PM",
      "end": "6:45 PM",
-     "field": "field-3",
+     "field": "field-4",
      "team1": "Rutherford Greens",
      "team2": "Tough Cookies FC",
      "note": ""
@@ -2411,25 +2411,12 @@
      "date": "2026-11-17",
      "night": "Tuesday",
      "wave": 1,
-     "comp": "u1213",
-     "start": "5:30 PM",
-     "end": "6:00 PM",
-     "field": "field-3",
-     "team1": "Messi Business",
-     "team2": "Chaos FC",
-     "note": ""
-    },
-    {
-     "week": 6,
-     "date": "2026-11-17",
-     "night": "Tuesday",
-     "wave": 1,
-     "comp": "u1213",
+     "comp": "u1215",
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-1",
-     "team1": "Grass Goblins",
-     "team2": "Magpies",
+     "team1": "Phoenix Flyers",
+     "team2": "Tough Cookies FC",
      "note": ""
     },
     {
@@ -2450,12 +2437,25 @@
      "date": "2026-11-17",
      "night": "Tuesday",
      "wave": 2,
-     "comp": "u1215",
+     "comp": "u1213",
+     "start": "6:15 PM",
+     "end": "6:45 PM",
+     "field": "field-6",
+     "team1": "Messi Business",
+     "team2": "Chaos FC",
+     "note": ""
+    },
+    {
+     "week": 6,
+     "date": "2026-11-17",
+     "night": "Tuesday",
+     "wave": 2,
+     "comp": "u1213",
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-4",
-     "team1": "Rutherford Greens",
-     "team2": "Mayhem FC",
+     "team1": "Grass Goblins",
+     "team2": "Magpies",
      "note": ""
     },
     {
@@ -2466,9 +2466,9 @@
      "comp": "u1215",
      "start": "6:15 PM",
      "end": "6:45 PM",
-     "field": "field-6",
-     "team1": "Phoenix Flyers",
-     "team2": "Tough Cookies FC",
+     "field": "field-1",
+     "team1": "Rutherford Greens",
+     "team2": "Mayhem FC",
      "note": ""
     },
     {
@@ -2515,26 +2515,13 @@
      "date": "2026-11-24",
      "night": "Tuesday",
      "wave": 1,
-     "comp": "u1213",
+     "comp": "u1215",
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-4",
-     "team1": "Metford U12s",
-     "team2": "Chaos FC",
-     "note": ""
-    },
-    {
-     "week": 7,
-     "date": "2026-11-24",
-     "night": "Tuesday",
-     "wave": 1,
-     "comp": "u1213",
-     "start": "5:30 PM",
-     "end": "6:00 PM",
-     "field": "field-6",
-     "team1": "Messi Business",
-     "team2": "Magpies",
-     "note": ""
+     "team1": "Tough Cookies FC",
+     "team2": "Mayhem FC",
+     "note": "Colour clash: Tough Cookies FC to wear bibs (supplied by Cobras)"
     },
     {
      "week": 7,
@@ -2554,13 +2541,26 @@
      "date": "2026-11-24",
      "night": "Tuesday",
      "wave": 2,
-     "comp": "u1215",
+     "comp": "u1213",
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-1",
-     "team1": "Tough Cookies FC",
-     "team2": "Mayhem FC",
-     "note": "Colour clash: Tough Cookies FC to wear bibs (supplied by Cobras)"
+     "team1": "Metford U12s",
+     "team2": "Chaos FC",
+     "note": ""
+    },
+    {
+     "week": 7,
+     "date": "2026-11-24",
+     "night": "Tuesday",
+     "wave": 2,
+     "comp": "u1213",
+     "start": "6:15 PM",
+     "end": "6:45 PM",
+     "field": "field-3",
+     "team1": "Messi Business",
+     "team2": "Magpies",
+     "note": ""
     },
     {
      "week": 7,
@@ -2570,7 +2570,7 @@
      "comp": "u1215",
      "start": "6:15 PM",
      "end": "6:45 PM",
-     "field": "field-3",
+     "field": "field-4",
      "team1": "Rutherford Greens",
      "team2": "Phoenix Flyers",
      "note": ""
@@ -2619,25 +2619,12 @@
      "date": "2026-12-01",
      "night": "Tuesday",
      "wave": 1,
-     "comp": "u1213",
-     "start": "5:30 PM",
-     "end": "6:00 PM",
-     "field": "field-3",
-     "team1": "Grass Goblins",
-     "team2": "Metford U12s",
-     "note": ""
-    },
-    {
-     "week": 8,
-     "date": "2026-12-01",
-     "night": "Tuesday",
-     "wave": 1,
-     "comp": "u1213",
+     "comp": "u1215",
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-1",
-     "team1": "Chaos FC",
-     "team2": "Magpies",
+     "team1": "Mayhem FC",
+     "team2": "Phoenix Flyers",
      "note": ""
     },
     {
@@ -2658,12 +2645,25 @@
      "date": "2026-12-01",
      "night": "Tuesday",
      "wave": 2,
-     "comp": "u1215",
+     "comp": "u1213",
+     "start": "6:15 PM",
+     "end": "6:45 PM",
+     "field": "field-6",
+     "team1": "Grass Goblins",
+     "team2": "Metford U12s",
+     "note": ""
+    },
+    {
+     "week": 8,
+     "date": "2026-12-01",
+     "night": "Tuesday",
+     "wave": 2,
+     "comp": "u1213",
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-4",
-     "team1": "Mayhem FC",
-     "team2": "Phoenix Flyers",
+     "team1": "Chaos FC",
+     "team2": "Magpies",
      "note": ""
     },
     {
@@ -2674,7 +2674,7 @@
      "comp": "u1215",
      "start": "6:15 PM",
      "end": "6:45 PM",
-     "field": "field-6",
+     "field": "field-1",
      "team1": "Rutherford Greens",
      "team2": "Tough Cookies FC",
      "note": ""
@@ -2723,25 +2723,12 @@
      "date": "2026-12-08",
      "night": "Tuesday",
      "wave": 1,
-     "comp": "u1213",
-     "start": "5:30 PM",
-     "end": "6:00 PM",
-     "field": "field-6",
-     "team1": "Metford U12s",
-     "team2": "Magpies",
-     "note": ""
-    },
-    {
-     "week": 9,
-     "date": "2026-12-08",
-     "night": "Tuesday",
-     "wave": 1,
-     "comp": "u1213",
+     "comp": "u1215",
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-4",
-     "team1": "Messi Business",
-     "team2": "Grass Goblins",
+     "team1": "Phoenix Flyers",
+     "team2": "Tough Cookies FC",
      "note": ""
     },
     {
@@ -2762,12 +2749,25 @@
      "date": "2026-12-08",
      "night": "Tuesday",
      "wave": 2,
-     "comp": "u1215",
+     "comp": "u1213",
+     "start": "6:15 PM",
+     "end": "6:45 PM",
+     "field": "field-3",
+     "team1": "Metford U12s",
+     "team2": "Magpies",
+     "note": ""
+    },
+    {
+     "week": 9,
+     "date": "2026-12-08",
+     "night": "Tuesday",
+     "wave": 2,
+     "comp": "u1213",
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-1",
-     "team1": "Rutherford Greens",
-     "team2": "Mayhem FC",
+     "team1": "Messi Business",
+     "team2": "Grass Goblins",
      "note": ""
     },
     {
@@ -2778,9 +2778,9 @@
      "comp": "u1215",
      "start": "6:15 PM",
      "end": "6:45 PM",
-     "field": "field-3",
-     "team1": "Phoenix Flyers",
-     "team2": "Tough Cookies FC",
+     "field": "field-4",
+     "team1": "Rutherford Greens",
+     "team2": "Mayhem FC",
      "note": ""
     },
     {
@@ -2827,26 +2827,13 @@
      "date": "2026-12-15",
      "night": "Tuesday",
      "wave": 1,
-     "comp": "u1213",
+     "comp": "u1215",
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-1",
-     "team1": "Messi Business",
-     "team2": "Metford U12s",
-     "note": ""
-    },
-    {
-     "week": 10,
-     "date": "2026-12-15",
-     "night": "Tuesday",
-     "wave": 1,
-     "comp": "u1213",
-     "start": "5:30 PM",
-     "end": "6:00 PM",
-     "field": "field-3",
-     "team1": "Chaos FC",
-     "team2": "Grass Goblins",
-     "note": ""
+     "team1": "Tough Cookies FC",
+     "team2": "Mayhem FC",
+     "note": "Colour clash: Mayhem FC to wear bibs (supplied by Cobras)"
     },
     {
      "week": 10,
@@ -2866,13 +2853,26 @@
      "date": "2026-12-15",
      "night": "Tuesday",
      "wave": 2,
-     "comp": "u1215",
+     "comp": "u1213",
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-4",
-     "team1": "Tough Cookies FC",
-     "team2": "Mayhem FC",
-     "note": "Colour clash: Mayhem FC to wear bibs (supplied by Cobras)"
+     "team1": "Messi Business",
+     "team2": "Metford U12s",
+     "note": ""
+    },
+    {
+     "week": 10,
+     "date": "2026-12-15",
+     "night": "Tuesday",
+     "wave": 2,
+     "comp": "u1213",
+     "start": "6:15 PM",
+     "end": "6:45 PM",
+     "field": "field-6",
+     "team1": "Chaos FC",
+     "team2": "Grass Goblins",
+     "note": ""
     },
     {
      "week": 10,
@@ -2882,7 +2882,7 @@
      "comp": "u1215",
      "start": "6:15 PM",
      "end": "6:45 PM",
-     "field": "field-6",
+     "field": "field-1",
      "team1": "Rutherford Greens",
      "team2": "Phoenix Flyers",
      "note": ""
@@ -3017,23 +3017,22 @@
          "gamesMax": 2
         },
         {
-         "comp": "u1213",
-         "pitches": 2,
+         "comp": "u1215",
+         "pitches": 1,
          "fields": [
-          "field-4",
-          "field-6"
+          "field-4"
          ],
          "minis": false,
-         "gamesMin": 2,
-         "gamesMax": 2
+         "gamesMin": 1,
+         "gamesMax": 1
         }
        ],
-       "mainAllocated": 4,
+       "mainAllocated": 3,
        "miniAllocated": 1,
-       "mainUsedMin": 4,
-       "mainUsedMax": 4,
-       "mainEmpty": 2,
-       "gamesPeak": 5
+       "mainUsedMin": 3,
+       "mainUsedMax": 3,
+       "mainEmpty": 3,
+       "gamesPeak": 4
       },
       {
        "wave": 2,
@@ -3051,7 +3050,7 @@
          "gamesMax": 1
         },
         {
-         "comp": "u1215",
+         "comp": "u1213",
          "pitches": 2,
          "fields": [
           "field-1",
@@ -3060,14 +3059,24 @@
          "minis": false,
          "gamesMin": 2,
          "gamesMax": 2
+        },
+        {
+         "comp": "u1215",
+         "pitches": 1,
+         "fields": [
+          "field-4"
+         ],
+         "minis": false,
+         "gamesMin": 1,
+         "gamesMax": 1
         }
        ],
-       "mainAllocated": 2,
+       "mainAllocated": 3,
        "miniAllocated": 1,
-       "mainUsedMin": 2,
-       "mainUsedMax": 2,
-       "mainEmpty": 4,
-       "gamesPeak": 3
+       "mainUsedMin": 3,
+       "mainUsedMax": 3,
+       "mainEmpty": 3,
+       "gamesPeak": 4
       }
      ],
      "shownWeek": 1,
@@ -3076,22 +3085,69 @@
     }
    ],
    "dualClashes": [],
-   "contactClashes": [],
-   "gameLeaderComps": [],
+   "contactClashes": [
+    {
+     "week": 3,
+     "night": "Tuesday",
+     "wave": 1,
+     "teams": [
+      "Rutherford Greens",
+      "Rutherford Reds"
+     ],
+     "games": [
+      [
+       "Mayhem FC",
+       "Rutherford Greens"
+      ],
+      [
+       "Metford U10s",
+       "Rutherford Reds"
+      ]
+     ]
+    },
+    {
+     "week": 6,
+     "night": "Tuesday",
+     "wave": 2,
+     "teams": [
+      "Chaos FC",
+      "Mayhem FC"
+     ],
+     "games": [
+      [
+       "Mayhem FC",
+       "Rutherford Greens"
+      ],
+      [
+       "Chaos FC",
+       "Messi Business"
+      ]
+     ]
+    }
+   ],
+   "gameLeaderComps": [
+    "u1213",
+    "u811"
+   ],
    "gameLeadersByWave": [
     {
      "wave": 1,
-     "comps": []
+     "comps": [
+      "u1213"
+     ]
     },
     {
      "wave": 2,
      "comps": [
-      "u811",
-      "u1213"
+      "u811"
      ]
     }
    ],
    "waveSplit": {
+    "mixed": {
+     "earlyMin": 3,
+     "earlyMax": 6
+    },
     "aaw": {
      "earlyMin": 4,
      "earlyMax": 6
@@ -3100,9 +3156,9 @@
      "earlyMin": 3,
      "earlyMax": 6
     },
-    "mixed": {
-     "earlyMin": 3,
-     "earlyMax": 6
+    "u1215": {
+     "earlyMin": 1,
+     "earlyMax": 8
     },
     "u67": {
      "earlyMin": 2,
