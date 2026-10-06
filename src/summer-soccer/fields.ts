@@ -143,21 +143,32 @@ function third(pitch: ReturnType<typeof frame>, index: -1 | 0 | 1, meta: Meta): 
 export const GROUND_THIRDS: Ground = {
 	viewBox: GROUND.viewBox,
 	fields: [
-		third(left, -1, { id: 'field-1', label: 'Field 1', short: '1', area: 'left-hand pitch, north end', aliases: [] }),
-		third(left, 0, { id: 'field-2', label: 'Field 2', short: '2', area: 'left-hand pitch, middle', aliases: [] }),
-		third(left, 1, { id: 'field-3', label: 'Field 3', short: '3', area: 'left-hand pitch, south end', aliases: [] }),
-		third(right, -1, { id: 'field-4', label: 'Field 4', short: '4', area: 'right-hand pitch, north-west end', aliases: [] }),
-		third(right, 0, { id: 'field-5', label: 'Field 5', short: '5', area: 'right-hand pitch, middle', aliases: [] }),
-		third(right, 1, { id: 'field-6', label: 'Field 6', short: '6', area: 'right-hand pitch, south-east end', aliases: [] }),
-		...GROUND.fields.filter((f) => f.id.startsWith('minis'))
+		third(left, -1, { id: 'field-1', label: 'Field 1', short: '1', area: 'left-hand pitch, north end — by the northern winter goal posts', aliases: ['1', 'f1'] }),
+		third(left, 0, { id: 'field-2', label: 'Field 2', short: '2', area: 'left-hand pitch, middle', aliases: ['2', 'f2'] }),
+		third(left, 1, { id: 'field-3', label: 'Field 3', short: '3', area: 'left-hand pitch, south end — closest to the car park', aliases: ['3', 'f3'] }),
+		third(right, -1, { id: 'field-4', label: 'Field 4', short: '4', area: 'right-hand pitch, north-west end — middle of the ground', aliases: ['4', 'f4'] }),
+		third(right, 0, { id: 'field-5', label: 'Field 5', short: '5', area: 'right-hand pitch, middle — railway side of the minis', aliases: ['5', 'f5'] }),
+		third(right, 1, { id: 'field-6', label: 'Field 6', short: '6', area: 'right-hand pitch, south-east end — by the south-east winter goal posts', aliases: ['6', 'f6'] }),
+		...GROUND.fields
+			.filter((f) => f.id.startsWith('minis'))
+			.map((f) => ({
+				...f,
+				area: f.id === 'minis-1' ? 'beside Fields 4 and 5, towards the playground shade sail' : 'beside Fields 5 and 6, straight up from the canteen'
+			}))
 	],
 	landmarks: GROUND.landmarks
 };
 
 const key = (value: string) => value.toLowerCase().replace(/[^a-z0-9]/g, '');
 
+/**
+ * The layout the club is using this season — drives the public schedule's map and field-name matching.
+ * Scenario 2 (decided 5 Oct 2026): each winter pitch split into three fields, plus the minis.
+ */
+export const ACTIVE_GROUND: Ground = GROUND_THIRDS;
+
 const LOOKUP = new Map<string, FieldDef>();
-for (const field of GROUND.fields) {
+for (const field of ACTIVE_GROUND.fields) {
 	for (const name of [field.id, field.label, ...field.aliases]) LOOKUP.set(key(name), field);
 	// "Field 4", "Field No. 4", "Pitch 4"
 	const n = field.label.match(/^Field (\d+)$/)?.[1];
@@ -169,5 +180,5 @@ export function findField(raw: string): FieldDef | null {
 }
 
 export function fieldById(id: string | null): FieldDef | null {
-	return (id && GROUND.fields.find((f) => f.id === id)) || null;
+	return (id && ACTIVE_GROUND.fields.find((f) => f.id === id)) || null;
 }

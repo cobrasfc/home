@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-07T00:51",
+ "generatedAt": "2026-10-07T00:55",
  "weeks": 10,
  "unrefereedComps": [],
  "comps": [
@@ -685,7 +685,7 @@
      "comp": "mixed",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-2",
+     "field": "field-4",
      "team1": "Mixed Cobras, name TBC",
      "team2": "What's with this outdoor shite?",
      "note": ""
@@ -698,7 +698,7 @@
      "comp": "aam",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-4",
+     "field": "field-3",
      "team1": "Dongos / Rutherford Dragons",
      "team2": "Grasshopper United",
      "note": ""
@@ -711,7 +711,7 @@
      "comp": "aam",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-6",
+     "field": "field-1",
      "team1": "Lizzopool",
      "team2": "The Ghosts",
      "note": ""
@@ -724,7 +724,7 @@
      "comp": "aaw",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-1",
+     "field": "field-6",
      "team1": "Cleats & Chaos",
      "team2": "The Young and the Breathless",
      "note": ""
@@ -737,7 +737,7 @@
      "comp": "aaw",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-3",
+     "field": "field-5",
      "team1": "Country",
      "team2": "Clangers",
      "note": ""
@@ -750,7 +750,7 @@
      "comp": "mixed",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-2",
+     "field": "field-4",
      "team1": "Team Gene",
      "team2": "Dribbling Morons",
      "note": ""
@@ -763,7 +763,7 @@
      "comp": "aam",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-4",
+     "field": "field-5",
      "team1": "PXG",
      "team2": "Gooners FC",
      "note": "Colour clash: Gooners FC to wear bibs (supplied by Cobras)"
@@ -815,7 +815,7 @@
      "comp": "mixed",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-3",
+     "field": "field-2",
      "team1": "What's with this outdoor shite?",
      "team2": "Sandbar FC",
      "note": ""
@@ -828,7 +828,7 @@
      "comp": "aam",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-1",
+     "field": "field-3",
      "team1": "Goal Diggers",
      "team2": "The Ghosts",
      "note": ""
@@ -841,7 +841,7 @@
      "comp": "aam",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-2",
+     "field": "field-1",
      "team1": "PXG",
      "team2": "Muppets",
      "note": ""
@@ -893,7 +893,7 @@
      "comp": "aam",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-3",
+     "field": "field-4",
      "team1": "Grasshopper United",
      "team2": "Metford AAM",
      "note": ""
@@ -906,7 +906,7 @@
      "comp": "aam",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-2",
+     "field": "field-6",
      "team1": "Lizzopool",
      "team2": "Dongos / Rutherford Dragons",
      "note": ""
@@ -919,7 +919,7 @@
      "comp": "aaw",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-4",
+     "field": "field-3",
      "team1": "The Young and the Breathless",
      "team2": "Pitch Please",
      "note": ""
@@ -932,7 +932,7 @@
      "comp": "aaw",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-6",
+     "field": "field-2",
      "team1": "Zero Pace United",
      "team2": "Clangers",
      "note": "Colour clash: Clangers to wear bibs (supplied by Cobras)"
@@ -945,7 +945,7 @@
      "comp": "mixed",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-1",
+     "field": "field-5",
      "team1": "Sandbar FC",
      "team2": "Dribbling Morons",
      "note": ""
@@ -958,7 +958,7 @@
      "comp": "aam",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-4",
+     "field": "field-1",
      "team1": "Lizzopool",
      "team2": "Grasshopper United",
      "note": ""
@@ -971,7 +971,7 @@
      "comp": "aam",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-6",
+     "field": "field-3",
      "team1": "Metford AAM",
      "team2": "Gooners FC",
      "note": ""
@@ -984,7 +984,7 @@
      "comp": "aaw",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-2",
+     "field": "field-6",
      "team1": "Country",
      "team2": "The Young and the Breathless",
      "note": ""
@@ -997,7 +997,7 @@
      "comp": "aaw",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-3",
+     "field": "field-4",
      "team1": "Pitch Please",
      "team2": "Summer Savages",
      "note": ""
@@ -1010,7 +1010,7 @@
      "comp": "mixed",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-2",
+     "field": "field-4",
      "team1": "Team Gene",
      "team2": "What's with this outdoor shite?",
      "note": ""
@@ -1023,7 +1023,7 @@
      "comp": "aam",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-4",
+     "field": "field-5",
      "team1": "Goal Diggers",
      "team2": "Dongos / Rutherford Dragons",
      "note": ""
@@ -1075,7 +1075,7 @@
      "comp": "mixed",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-2",
+     "field": "field-3",
      "team1": "Sandbar FC",
      "team2": "Mixed Cobras, name TBC",
      "note": ""
@@ -1088,7 +1088,7 @@
      "comp": "aam",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-1",
+     "field": "field-2",
      "team1": "Metford AAM",
      "team2": "Muppets",
      "note": ""
@@ -1101,7 +1101,7 @@
      "comp": "aam",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-3",
+     "field": "field-1",
      "team1": "PXG",
      "team2": "Dongos / Rutherford Dragons",
      "note": ""
@@ -1114,7 +1114,7 @@
      "comp": "aaw",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-4",
+     "field": "field-6",
      "team1": "Pitch Please",
      "team2": "Clangers",
      "note": "Colour clash: Pitch Please to wear bibs (supplied by Cobras)"
@@ -1127,7 +1127,7 @@
      "comp": "aaw",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-6",
+     "field": "field-4",
      "team1": "Hams",
      "team2": "Cleats & Chaos",
      "note": ""
@@ -1140,7 +1140,7 @@
      "comp": "mixed",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-3",
+     "field": "field-1",
      "team1": "What's with this outdoor shite?",
      "team2": "Dribbling Morons",
      "note": ""
@@ -1153,7 +1153,7 @@
      "comp": "aam",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-1",
+     "field": "field-4",
      "team1": "Grasshopper United",
      "team2": "Gooners FC",
      "note": ""
@@ -1166,7 +1166,7 @@
      "comp": "aam",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-2",
+     "field": "field-6",
      "team1": "Goal Diggers",
      "team2": "Lizzopool",
      "note": ""
@@ -1179,7 +1179,7 @@
      "comp": "aaw",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-4",
+     "field": "field-2",
      "team1": "The Young and the Breathless",
      "team2": "Summer Savages",
      "note": ""
@@ -1192,7 +1192,7 @@
      "comp": "aaw",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-6",
+     "field": "field-3",
      "team1": "Zero Pace United",
      "team2": "Country",
      "note": ""
@@ -1205,7 +1205,7 @@
      "comp": "mixed",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-1",
+     "field": "field-6",
      "team1": "Sandbar FC",
      "team2": "Team Gene",
      "note": ""
@@ -1218,7 +1218,7 @@
      "comp": "aam",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-4",
+     "field": "field-1",
      "team1": "Goal Diggers",
      "team2": "Grasshopper United",
      "note": ""
@@ -1231,7 +1231,7 @@
      "comp": "aam",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-6",
+     "field": "field-3",
      "team1": "Gooners FC",
      "team2": "Muppets",
      "note": ""
@@ -1244,7 +1244,7 @@
      "comp": "aaw",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-2",
+     "field": "field-4",
      "team1": "Summer Savages",
      "team2": "Clangers",
      "note": ""
@@ -1257,7 +1257,7 @@
      "comp": "aaw",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-3",
+     "field": "field-5",
      "team1": "Pitch Please",
      "team2": "Cleats & Chaos",
      "note": "Colour clash: Cleats & Chaos to wear bibs (supplied by Cobras)"
@@ -1270,7 +1270,7 @@
      "comp": "mixed",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-1",
+     "field": "field-4",
      "team1": "Dribbling Morons",
      "team2": "Mixed Cobras, name TBC",
      "note": ""
@@ -1283,7 +1283,7 @@
      "comp": "aam",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-6",
+     "field": "field-3",
      "team1": "PXG",
      "team2": "Lizzopool",
      "note": ""
@@ -1296,7 +1296,7 @@
      "comp": "aam",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-4",
+     "field": "field-1",
      "team1": "Metford AAM",
      "team2": "The Ghosts",
      "note": ""
@@ -1309,7 +1309,7 @@
      "comp": "aaw",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-2",
+     "field": "field-5",
      "team1": "Zero Pace United",
      "team2": "The Young and the Breathless",
      "note": ""
@@ -1322,7 +1322,7 @@
      "comp": "aaw",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-3",
+     "field": "field-6",
      "team1": "Hams",
      "team2": "Country",
      "note": ""
@@ -1348,7 +1348,7 @@
      "comp": "mixed",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-3",
+     "field": "field-1",
      "team1": "Dribbling Morons",
      "team2": "Team Gene",
      "note": ""
@@ -1361,7 +1361,7 @@
      "comp": "aam",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-1",
+     "field": "field-5",
      "team1": "Grasshopper United",
      "team2": "Muppets",
      "note": ""
@@ -1374,7 +1374,7 @@
      "comp": "aam",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-5",
+     "field": "field-6",
      "team1": "Gooners FC",
      "team2": "The Ghosts",
      "note": ""
@@ -1387,7 +1387,7 @@
      "comp": "aaw",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-4",
+     "field": "field-3",
      "team1": "Hams",
      "team2": "Zero Pace United",
      "note": ""
@@ -1400,7 +1400,7 @@
      "comp": "aaw",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-6",
+     "field": "field-4",
      "team1": "Pitch Please",
      "team2": "Country",
      "note": ""
@@ -1413,7 +1413,7 @@
      "comp": "aam",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-3",
+     "field": "field-4",
      "team1": "PXG",
      "team2": "Goal Diggers",
      "note": ""
@@ -1426,7 +1426,7 @@
      "comp": "aam",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-1",
+     "field": "field-6",
      "team1": "Metford AAM",
      "team2": "Dongos / Rutherford Dragons",
      "note": ""
@@ -1439,7 +1439,7 @@
      "comp": "aaw",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-4",
+     "field": "field-1",
      "team1": "The Young and the Breathless",
      "team2": "Clangers",
      "note": ""
@@ -1452,7 +1452,7 @@
      "comp": "aaw",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-6",
+     "field": "field-3",
      "team1": "Summer Savages",
      "team2": "Cleats & Chaos",
      "note": ""
@@ -1465,7 +1465,7 @@
      "comp": "mixed",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-1",
+     "field": "field-3",
      "team1": "Mixed Cobras, name TBC",
      "team2": "Team Gene",
      "note": ""
@@ -1478,7 +1478,7 @@
      "comp": "aam",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-6",
+     "field": "field-1",
      "team1": "Gooners FC",
      "team2": "Dongos / Rutherford Dragons",
      "note": ""
@@ -1491,7 +1491,7 @@
      "comp": "aam",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-4",
+     "field": "field-2",
      "team1": "Metford AAM",
      "team2": "Lizzopool",
      "note": ""
@@ -1504,7 +1504,7 @@
      "comp": "aaw",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-2",
+     "field": "field-4",
      "team1": "Hams",
      "team2": "The Young and the Breathless",
      "note": "Colour clash: The Young and the Breathless to wear bibs (supplied by Cobras)"
@@ -1517,7 +1517,7 @@
      "comp": "aaw",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-3",
+     "field": "field-6",
      "team1": "Clangers",
      "team2": "Cleats & Chaos",
      "note": "Colour clash: Clangers to wear bibs (supplied by Cobras)"
@@ -1543,7 +1543,7 @@
      "comp": "aam",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-4",
+     "field": "field-6",
      "team1": "PXG",
      "team2": "Grasshopper United",
      "note": ""
@@ -1556,7 +1556,7 @@
      "comp": "aam",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-6",
+     "field": "field-4",
      "team1": "Muppets",
      "team2": "The Ghosts",
      "note": "Colour clash: The Ghosts to wear bibs (supplied by Cobras)"
@@ -1595,7 +1595,7 @@
      "comp": "mixed",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-1",
+     "field": "field-4",
      "team1": "Dribbling Morons",
      "team2": "Sandbar FC",
      "note": ""
@@ -1608,7 +1608,7 @@
      "comp": "aam",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-3",
+     "field": "field-1",
      "team1": "Grasshopper United",
      "team2": "The Ghosts",
      "note": ""
@@ -1621,7 +1621,7 @@
      "comp": "aam",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-2",
+     "field": "field-3",
      "team1": "Metford AAM",
      "team2": "Goal Diggers",
      "note": ""
@@ -1634,7 +1634,7 @@
      "comp": "aaw",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-4",
+     "field": "field-5",
      "team1": "Pitch Please",
      "team2": "Hams",
      "note": ""
@@ -1660,7 +1660,7 @@
      "comp": "mixed",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-2",
+     "field": "field-4",
      "team1": "What's with this outdoor shite?",
      "team2": "Team Gene",
      "note": ""
@@ -1673,7 +1673,7 @@
      "comp": "aam",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-1",
+     "field": "field-5",
      "team1": "Muppets",
      "team2": "Dongos / Rutherford Dragons",
      "note": ""
@@ -1686,7 +1686,7 @@
      "comp": "aam",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-3",
+     "field": "field-6",
      "team1": "Gooners FC",
      "team2": "Lizzopool",
      "note": ""
@@ -1699,7 +1699,7 @@
      "comp": "aaw",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-4",
+     "field": "field-1",
      "team1": "The Young and the Breathless",
      "team2": "Cleats & Chaos",
      "note": ""
@@ -1712,7 +1712,7 @@
      "comp": "aaw",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-6",
+     "field": "field-3",
      "team1": "Clangers",
      "team2": "Country",
      "note": ""
@@ -1725,7 +1725,7 @@
      "comp": "mixed",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-2",
+     "field": "field-1",
      "team1": "Mixed Cobras, name TBC",
      "team2": "Sandbar FC",
      "note": ""
@@ -1738,7 +1738,7 @@
      "comp": "aam",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-4",
+     "field": "field-3",
      "team1": "The Ghosts",
      "team2": "Dongos / Rutherford Dragons",
      "note": ""
@@ -1751,7 +1751,7 @@
      "comp": "aam",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-6",
+     "field": "field-2",
      "team1": "Metford AAM",
      "team2": "PXG",
      "note": ""
@@ -1764,7 +1764,7 @@
      "comp": "aaw",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-1",
+     "field": "field-6",
      "team1": "Cleats & Chaos",
      "team2": "Country",
      "note": ""
@@ -1777,7 +1777,7 @@
      "comp": "aaw",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-3",
+     "field": "field-4",
      "team1": "Clangers",
      "team2": "Zero Pace United",
      "note": "Colour clash: Zero Pace United to wear bibs (supplied by Cobras)"
@@ -1790,7 +1790,7 @@
      "comp": "mixed",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-3",
+     "field": "field-1",
      "team1": "Dribbling Morons",
      "team2": "What's with this outdoor shite?",
      "note": ""
@@ -1803,7 +1803,7 @@
      "comp": "aam",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-4",
+     "field": "field-3",
      "team1": "Muppets",
      "team2": "Lizzopool",
      "note": ""
@@ -1816,7 +1816,7 @@
      "comp": "aam",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-6",
+     "field": "field-2",
      "team1": "Gooners FC",
      "team2": "Goal Diggers",
      "note": ""
@@ -1829,7 +1829,7 @@
      "comp": "aaw",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-1",
+     "field": "field-6",
      "team1": "Pitch Please",
      "team2": "The Young and the Breathless",
      "note": ""
@@ -1842,7 +1842,7 @@
      "comp": "aaw",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-2",
+     "field": "field-4",
      "team1": "Summer Savages",
      "team2": "Hams",
      "note": ""
@@ -3115,12 +3115,12 @@
      ],
      "games": [
       [
-       "Mayhem FC",
-       "Rutherford Greens"
-      ],
-      [
        "Chaos FC",
        "Messi Business"
+      ],
+      [
+       "Mayhem FC",
+       "Rutherford Greens"
       ]
      ]
     }
@@ -3144,16 +3144,16 @@
     }
    ],
    "waveSplit": {
+    "mixed": {
+     "earlyMin": 3,
+     "earlyMax": 6
+    },
     "aam": {
      "earlyMin": 3,
      "earlyMax": 6
     },
     "aaw": {
      "earlyMin": 4,
-     "earlyMax": 6
-    },
-    "mixed": {
-     "earlyMin": 3,
      "earlyMax": 6
     },
     "u1215": {

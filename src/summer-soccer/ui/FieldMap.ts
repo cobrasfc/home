@@ -1,7 +1,7 @@
 // Coded ground map (SVG), laid out from the satellite image. Every field is drawn; the game's field is highlighted
 // with a gentle pulse. Landmarks (canteen, winter goal posts, railway) help people get their bearings.
 // The map is never the only place the field is named — the card always says "Field 6" in text too.
-import { GROUND, fieldById, type FieldDef, type Ground, type Landmark } from '../fields';
+import { ACTIVE_GROUND, fieldById, type FieldDef, type Ground, type Landmark } from '../fields';
 import { esc } from '../utils/html';
 
 const rotation = (r: { cx: number; cy: number; rotate: number }) => `rotate(${r.rotate} ${r.cx} ${r.cy})`;
@@ -50,9 +50,9 @@ export function fieldDescription(fieldId: string | null, fieldLabel: string | nu
 
 export function FieldMap(fieldId: string | null, fieldLabel: string | null, idPrefix = 'ss-map'): string {
 	const target = fieldById(fieldId);
-	const { viewBox: vb } = GROUND;
+	const { viewBox: vb } = ACTIVE_GROUND;
 	// Draw the highlighted field last so its pulse sits above neighbouring fields
-	const ordered = [...GROUND.fields].sort((a, b) => Number(a.id === target?.id) - Number(b.id === target?.id));
+	const ordered = [...ACTIVE_GROUND.fields].sort((a, b) => Number(a.id === target?.id) - Number(b.id === target?.id));
 	const fields = ordered
 		.map((f) => {
 			const isTarget = f.id === target?.id;
@@ -73,7 +73,7 @@ export function FieldMap(fieldId: string | null, fieldLabel: string | null, idPr
 		})
 		.join('');
 	const description = target
-		? `Ground map with ${target.label} highlighted: ${target.area}. Fields 1 to 4 are the left-hand block, Fields 5 to 8 and the minis are the right-hand block, the canteen is at the bottom and the railway runs along the top right.`
+		? `Ground map with ${target.label} highlighted: ${target.area}. Fields 1 to 3 run across the left-hand pitch, Fields 4 to 6 across the right-hand pitch with the minis beside it; the canteen is at the bottom and the railway runs along the top right.`
 		: fieldLabel
 			? `Ground map. ${fieldLabel} isn't on the map, so no field is highlighted.`
 			: 'Ground map. The field hasn’t been confirmed yet, so no field is highlighted.';
@@ -82,9 +82,9 @@ export function FieldMap(fieldId: string | null, fieldLabel: string | null, idPr
 		<title id="${idPrefix}-title">Ground map</title>
 		<desc id="${idPrefix}-desc">${esc(description)}</desc>
 		<rect class="ss-map__grass" x="${vb.x}" y="${vb.y}" width="${vb.w}" height="${vb.h}" rx="36"/>
-		${GROUND.landmarks.filter((l) => l.kind !== 'goal').map(landmark).join('')}
+		${ACTIVE_GROUND.landmarks.filter((l) => l.kind !== 'goal').map(landmark).join('')}
 		${fields}
-		${GROUND.landmarks.filter((l) => l.kind === 'goal').map(landmark).join('')}
+		${ACTIVE_GROUND.landmarks.filter((l) => l.kind === 'goal').map(landmark).join('')}
 	</svg>`;
 }
 
