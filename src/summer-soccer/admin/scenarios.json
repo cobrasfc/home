@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-07T00:44",
+ "generatedAt": "2026-10-07T00:51",
  "weeks": 10,
  "unrefereedComps": [],
  "comps": [
@@ -2102,7 +2102,7 @@
      "comp": "u1215",
      "start": "5:30 PM",
      "end": "6:00 PM",
-     "field": "field-4",
+     "field": "field-6",
      "team1": "Mayhem FC",
      "team2": "Rutherford Greens",
      "note": ""
@@ -2154,7 +2154,7 @@
      "comp": "u1215",
      "start": "6:15 PM",
      "end": "6:45 PM",
-     "field": "field-4",
+     "field": "field-6",
      "team1": "Tough Cookies FC",
      "team2": "Phoenix Flyers",
      "note": ""
@@ -2206,7 +2206,7 @@
      "comp": "u1215",
      "start": "5:30 PM",
      "end": "6:00 PM",
-     "field": "field-1",
+     "field": "field-3",
      "team1": "Tough Cookies FC",
      "team2": "Mayhem FC",
      "note": "Colour clash: Tough Cookies FC to wear bibs (supplied by Cobras)"
@@ -2258,7 +2258,7 @@
      "comp": "u1215",
      "start": "6:15 PM",
      "end": "6:45 PM",
-     "field": "field-1",
+     "field": "field-3",
      "team1": "Rutherford Greens",
      "team2": "Phoenix Flyers",
      "note": ""
@@ -2518,7 +2518,7 @@
      "comp": "u1215",
      "start": "5:30 PM",
      "end": "6:00 PM",
-     "field": "field-4",
+     "field": "field-6",
      "team1": "Tough Cookies FC",
      "team2": "Mayhem FC",
      "note": "Colour clash: Tough Cookies FC to wear bibs (supplied by Cobras)"
@@ -2570,7 +2570,7 @@
      "comp": "u1215",
      "start": "6:15 PM",
      "end": "6:45 PM",
-     "field": "field-4",
+     "field": "field-6",
      "team1": "Rutherford Greens",
      "team2": "Phoenix Flyers",
      "note": ""
@@ -2622,7 +2622,7 @@
      "comp": "u1215",
      "start": "5:30 PM",
      "end": "6:00 PM",
-     "field": "field-1",
+     "field": "field-3",
      "team1": "Mayhem FC",
      "team2": "Phoenix Flyers",
      "note": ""
@@ -2674,7 +2674,7 @@
      "comp": "u1215",
      "start": "6:15 PM",
      "end": "6:45 PM",
-     "field": "field-1",
+     "field": "field-3",
      "team1": "Rutherford Greens",
      "team2": "Tough Cookies FC",
      "note": ""
@@ -3096,12 +3096,12 @@
      ],
      "games": [
       [
-       "Mayhem FC",
-       "Rutherford Greens"
-      ],
-      [
        "Metford U10s",
        "Rutherford Reds"
+      ],
+      [
+       "Mayhem FC",
+       "Rutherford Greens"
       ]
      ]
     },
@@ -3144,7 +3144,7 @@
     }
    ],
    "waveSplit": {
-    "mixed": {
+    "aam": {
      "earlyMin": 3,
      "earlyMax": 6
     },
@@ -3152,7 +3152,7 @@
      "earlyMin": 4,
      "earlyMax": 6
     },
-    "aam": {
+    "mixed": {
      "earlyMin": 3,
      "earlyMax": 6
     },
