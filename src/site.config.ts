@@ -89,7 +89,16 @@ export const SUMMER_SCHEDULE = {
 	sheetCsvUrl: '',
 	// Preview fixtures (the draft draw from generate_draw.py) + the banner shown above them
 	sampleCsvPath: '/summer-soccer/draft-fixtures.csv',
-	sampleNotice: '<strong>Draft draw.</strong> These fixtures are a draft and may change before the season starts.',
+	// Banner shown above the fixtures while they come from sampleCsvPath. Empty = no banner (club, 7 Oct 2026).
+	sampleNotice: '',
+	// Shown at the bottom of the schedule page
+	terms: {
+		heading: 'Schedule subject to change',
+		text: [
+			'Fixtures, kick-off times and fields may change, sometimes at short notice — for example because of the weather, ground closures or team changes. This page always shows the latest schedule.',
+			'If a change affects your game, we will make every effort to let your team contact know as soon as possible.'
+		]
+	},
 	timeZone: 'Australia/Sydney',
 	// How often an open page re-checks the sheet for changes
 	refreshMinutes: 5,

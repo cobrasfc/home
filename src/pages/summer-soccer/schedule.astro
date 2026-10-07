@@ -60,6 +60,10 @@ const sheetOrigin = SUMMER_SCHEDULE.sheetCsvUrl ? new URL(SUMMER_SCHEDULE.sheetC
 
 		<footer class="ss-footer">
 			<div class="ss-footer__inner">
+				<section class="ss-terms" aria-labelledby="ss-terms-title">
+					<h2 class="ss-terms__title" id="ss-terms-title">{SUMMER_SCHEDULE.terms.heading}</h2>
+					{SUMMER_SCHEDULE.terms.text.map((t) => <p>{t}</p>)}
+				</section>
 				<p class="ss-footer__club">
 					<img src={withBase('/assets/logo-shield.svg')} width="20" height="24" alt="" />
 					<a href={withBase('/')}>{SITE.name}</a>

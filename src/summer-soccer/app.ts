@@ -112,7 +112,7 @@ function resolveSelection(schedule: Schedule): Team[] {
 
 function statusBar(): string {
 	const bits: string[] = [];
-	if (state.source?.isSample) {
+	if (state.source?.isSample && SUMMER_SCHEDULE.sampleNotice) {
 		// Trusted HTML from site config
 		bits.push(`<p class="ss-banner ss-banner--sample">${SUMMER_SCHEDULE.sampleNotice}</p>`);
 	}

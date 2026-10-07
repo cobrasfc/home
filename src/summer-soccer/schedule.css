@@ -1194,6 +1194,27 @@
 .ss-footer__club a {
 	color: var(--ss-blue);
 }
+/* Terms: small print, above the club links */
+.ss-terms {
+	padding-bottom: 12px;
+	margin-bottom: 4px;
+	border-bottom: 1px solid var(--ss-line);
+	font-size: 0.75rem;
+	line-height: 1.5;
+	color: var(--ss-muted);
+}
+.ss-terms__title {
+	margin: 0 0 4px;
+	font-size: 0.8125rem;
+	font-weight: 600;
+	color: var(--ss-ink);
+}
+.ss-terms p {
+	margin: 0 0 4px;
+}
+.ss-terms p:last-child {
+	margin-bottom: 0;
+}
 /* Acknowledgement only — deliberately quieter than the club branding */
 .ss-footer__ack {
 	display: flex;
