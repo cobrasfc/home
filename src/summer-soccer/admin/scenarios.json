@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-07T01:14",
+ "generatedAt": "2026-10-07T16:53",
  "weeks": 10,
  "unrefereedComps": [],
  "comps": [
@@ -49,7 +49,7 @@
    "short": "12–13s",
    "night": "Tuesday",
    "minutes": 30,
-   "teams": 5
+   "teams": 4
   },
   {
    "id": "u1215",
@@ -378,18 +378,8 @@
    "players": 8,
    "dualIn": 0,
    "placeholder": false,
-   "games": 8,
-   "byes": 2
-  },
-  {
-   "name": "Grass Goblins",
-   "comp": "u1213",
-   "colour": "White",
-   "players": 5,
-   "dualIn": 0,
-   "placeholder": false,
-   "games": 8,
-   "byes": 2
+   "games": 10,
+   "byes": 0
   },
   {
    "name": "Magpies",
@@ -398,8 +388,8 @@
    "players": 6,
    "dualIn": 0,
    "placeholder": false,
-   "games": 8,
-   "byes": 2
+   "games": 10,
+   "byes": 0
   },
   {
    "name": "Messi Business",
@@ -408,8 +398,8 @@
    "players": 5,
    "dualIn": 0,
    "placeholder": false,
-   "games": 8,
-   "byes": 2
+   "games": 10,
+   "byes": 0
   },
   {
    "name": "Metford U12s",
@@ -418,8 +408,18 @@
    "players": 10,
    "dualIn": 0,
    "placeholder": false,
-   "games": 8,
-   "byes": 2
+   "games": 10,
+   "byes": 0
+  },
+  {
+   "name": "Grass Goblins/Rutherford Greens",
+   "comp": "u1215",
+   "colour": "",
+   "players": 10,
+   "dualIn": 0,
+   "placeholder": false,
+   "games": 10,
+   "byes": 0
   },
   {
    "name": "Mayhem FC",
@@ -435,17 +435,7 @@
    "name": "Phoenix Flyers",
    "comp": "u1215",
    "colour": "",
-   "players": 4,
-   "dualIn": 0,
-   "placeholder": false,
-   "games": 10,
-   "byes": 0
-  },
-  {
-   "name": "Rutherford Greens",
-   "comp": "u1215",
-   "colour": "Green",
-   "players": 5,
+   "players": 6,
    "dualIn": 0,
    "placeholder": false,
    "games": 10,
@@ -511,7 +501,7 @@
    "Wild Warriors"
   ],
   [
-   "Rutherford Greens",
+   "Grass Goblins/Rutherford Greens",
    "Rutherford Reds"
   ]
  ],
@@ -529,8 +519,8 @@
   {
    "id": "s2",
    "name": "Scenario 2",
-   "title": "6 fields + 2 minis",
-   "description": "Each winter pitch split into three even fields running across it (Fields 1–6), plus Minis 1–2.",
+   "title": "Fields 1–8 (6 + 2 small)",
+   "description": "Each winter pitch split into three even fields running across it (Fields 1–6), plus the two small fields (Fields 7–8).",
    "pros": [
     "Most refs get two games — Monday needs 5 refs instead of 7, and 4 of them get two games (Tuesday: 5 refs, each with two games)",
     "Fields meet Northern NSW recommended sizes",
@@ -1896,8 +1886,8 @@
      "end": "6:00 PM",
      "field": "field-4",
      "team1": "Mayhem FC",
-     "team2": "Tough Cookies FC",
-     "note": "Colour clash: Mayhem FC to wear bibs (supplied by Cobras)"
+     "team2": "Phoenix Flyers",
+     "note": ""
     },
     {
      "week": 1,
@@ -1921,8 +1911,8 @@
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-1",
-     "team1": "Chaos FC",
-     "team2": "Messi Business",
+     "team1": "Metford U12s",
+     "team2": "Chaos FC",
      "note": ""
     },
     {
@@ -1935,7 +1925,7 @@
      "end": "6:45 PM",
      "field": "field-3",
      "team1": "Magpies",
-     "team2": "Grass Goblins",
+     "team2": "Messi Business",
      "note": ""
     },
     {
@@ -1947,8 +1937,8 @@
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-4",
-     "team1": "Phoenix Flyers",
-     "team2": "Rutherford Greens",
+     "team1": "Tough Cookies FC",
+     "team2": "Grass Goblins/Rutherford Greens",
      "note": ""
     },
     {
@@ -1999,9 +1989,9 @@
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-1",
-     "team1": "Phoenix Flyers",
+     "team1": "Tough Cookies FC",
      "team2": "Mayhem FC",
-     "note": ""
+     "note": "Colour clash: Mayhem FC to wear bibs (supplied by Cobras)"
     },
     {
      "week": 2,
@@ -2025,7 +2015,7 @@
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-4",
-     "team1": "Chaos FC",
+     "team1": "Magpies",
      "team2": "Metford U12s",
      "note": ""
     },
@@ -2038,7 +2028,7 @@
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-6",
-     "team1": "Magpies",
+     "team1": "Chaos FC",
      "team2": "Messi Business",
      "note": ""
     },
@@ -2051,8 +2041,8 @@
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-1",
-     "team1": "Tough Cookies FC",
-     "team2": "Rutherford Greens",
+     "team1": "Phoenix Flyers",
+     "team2": "Grass Goblins/Rutherford Greens",
      "note": ""
     },
     {
@@ -2104,7 +2094,7 @@
      "end": "6:00 PM",
      "field": "field-6",
      "team1": "Mayhem FC",
-     "team2": "Rutherford Greens",
+     "team2": "Grass Goblins/Rutherford Greens",
      "note": ""
     },
     {
@@ -2130,7 +2120,7 @@
      "end": "6:45 PM",
      "field": "field-1",
      "team1": "Metford U12s",
-     "team2": "Grass Goblins",
+     "team2": "Messi Business",
      "note": ""
     },
     {
@@ -2142,8 +2132,8 @@
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-3",
-     "team1": "Magpies",
-     "team2": "Chaos FC",
+     "team1": "Chaos FC",
+     "team2": "Magpies",
      "note": ""
     },
     {
@@ -2155,8 +2145,8 @@
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-6",
-     "team1": "Tough Cookies FC",
-     "team2": "Phoenix Flyers",
+     "team1": "Phoenix Flyers",
+     "team2": "Tough Cookies FC",
      "note": ""
     },
     {
@@ -2207,9 +2197,9 @@
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-3",
-     "team1": "Tough Cookies FC",
+     "team1": "Phoenix Flyers",
      "team2": "Mayhem FC",
-     "note": "Colour clash: Tough Cookies FC to wear bibs (supplied by Cobras)"
+     "note": ""
     },
     {
      "week": 4,
@@ -2232,8 +2222,8 @@
      "comp": "u1213",
      "start": "6:15 PM",
      "end": "6:45 PM",
-     "field": "field-6",
-     "team1": "Magpies",
+     "field": "field-4",
+     "team1": "Chaos FC",
      "team2": "Metford U12s",
      "note": ""
     },
@@ -2245,9 +2235,9 @@
      "comp": "u1213",
      "start": "6:15 PM",
      "end": "6:45 PM",
-     "field": "field-4",
-     "team1": "Grass Goblins",
-     "team2": "Messi Business",
+     "field": "field-6",
+     "team1": "Messi Business",
+     "team2": "Magpies",
      "note": ""
     },
     {
@@ -2259,8 +2249,8 @@
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-3",
-     "team1": "Rutherford Greens",
-     "team2": "Phoenix Flyers",
+     "team1": "Grass Goblins/Rutherford Greens",
+     "team2": "Tough Cookies FC",
      "note": ""
     },
     {
@@ -2312,8 +2302,8 @@
      "end": "6:00 PM",
      "field": "field-4",
      "team1": "Mayhem FC",
-     "team2": "Phoenix Flyers",
-     "note": ""
+     "team2": "Tough Cookies FC",
+     "note": "Colour clash: Mayhem FC to wear bibs (supplied by Cobras)"
     },
     {
      "week": 5,
@@ -2336,9 +2326,9 @@
      "comp": "u1213",
      "start": "6:15 PM",
      "end": "6:45 PM",
-     "field": "field-3",
+     "field": "field-1",
      "team1": "Metford U12s",
-     "team2": "Messi Business",
+     "team2": "Magpies",
      "note": ""
     },
     {
@@ -2349,8 +2339,8 @@
      "comp": "u1213",
      "start": "6:15 PM",
      "end": "6:45 PM",
-     "field": "field-1",
-     "team1": "Grass Goblins",
+     "field": "field-3",
+     "team1": "Messi Business",
      "team2": "Chaos FC",
      "note": ""
     },
@@ -2363,8 +2353,8 @@
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-4",
-     "team1": "Rutherford Greens",
-     "team2": "Tough Cookies FC",
+     "team1": "Grass Goblins/Rutherford Greens",
+     "team2": "Phoenix Flyers",
      "note": ""
     },
     {
@@ -2415,8 +2405,8 @@
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-1",
-     "team1": "Phoenix Flyers",
-     "team2": "Tough Cookies FC",
+     "team1": "Tough Cookies FC",
+     "team2": "Phoenix Flyers",
      "note": ""
     },
     {
@@ -2440,9 +2430,9 @@
      "comp": "u1213",
      "start": "6:15 PM",
      "end": "6:45 PM",
-     "field": "field-6",
+     "field": "field-4",
      "team1": "Messi Business",
-     "team2": "Chaos FC",
+     "team2": "Metford U12s",
      "note": ""
     },
     {
@@ -2453,9 +2443,9 @@
      "comp": "u1213",
      "start": "6:15 PM",
      "end": "6:45 PM",
-     "field": "field-4",
-     "team1": "Grass Goblins",
-     "team2": "Magpies",
+     "field": "field-6",
+     "team1": "Magpies",
+     "team2": "Chaos FC",
      "note": ""
     },
     {
@@ -2467,7 +2457,7 @@
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-1",
-     "team1": "Rutherford Greens",
+     "team1": "Grass Goblins/Rutherford Greens",
      "team2": "Mayhem FC",
      "note": ""
     },
@@ -2519,9 +2509,9 @@
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-6",
-     "team1": "Tough Cookies FC",
+     "team1": "Phoenix Flyers",
      "team2": "Mayhem FC",
-     "note": "Colour clash: Tough Cookies FC to wear bibs (supplied by Cobras)"
+     "note": ""
     },
     {
      "week": 7,
@@ -2545,8 +2535,8 @@
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-1",
-     "team1": "Metford U12s",
-     "team2": "Chaos FC",
+     "team1": "Chaos FC",
+     "team2": "Metford U12s",
      "note": ""
     },
     {
@@ -2571,8 +2561,8 @@
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-6",
-     "team1": "Rutherford Greens",
-     "team2": "Phoenix Flyers",
+     "team1": "Grass Goblins/Rutherford Greens",
+     "team2": "Tough Cookies FC",
      "note": ""
     },
     {
@@ -2624,8 +2614,8 @@
      "end": "6:00 PM",
      "field": "field-3",
      "team1": "Mayhem FC",
-     "team2": "Phoenix Flyers",
-     "note": ""
+     "team2": "Tough Cookies FC",
+     "note": "Colour clash: Tough Cookies FC to wear bibs (supplied by Cobras)"
     },
     {
      "week": 8,
@@ -2648,9 +2638,9 @@
      "comp": "u1213",
      "start": "6:15 PM",
      "end": "6:45 PM",
-     "field": "field-6",
-     "team1": "Grass Goblins",
-     "team2": "Metford U12s",
+     "field": "field-4",
+     "team1": "Metford U12s",
+     "team2": "Magpies",
      "note": ""
     },
     {
@@ -2661,9 +2651,9 @@
      "comp": "u1213",
      "start": "6:15 PM",
      "end": "6:45 PM",
-     "field": "field-4",
-     "team1": "Chaos FC",
-     "team2": "Magpies",
+     "field": "field-6",
+     "team1": "Messi Business",
+     "team2": "Chaos FC",
      "note": ""
     },
     {
@@ -2675,8 +2665,8 @@
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-3",
-     "team1": "Rutherford Greens",
-     "team2": "Tough Cookies FC",
+     "team1": "Grass Goblins/Rutherford Greens",
+     "team2": "Phoenix Flyers",
      "note": ""
     },
     {
@@ -2727,8 +2717,8 @@
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-4",
-     "team1": "Phoenix Flyers",
-     "team2": "Tough Cookies FC",
+     "team1": "Grass Goblins/Rutherford Greens",
+     "team2": "Mayhem FC",
      "note": ""
     },
     {
@@ -2752,9 +2742,9 @@
      "comp": "u1213",
      "start": "6:15 PM",
      "end": "6:45 PM",
-     "field": "field-3",
-     "team1": "Metford U12s",
-     "team2": "Magpies",
+     "field": "field-1",
+     "team1": "Messi Business",
+     "team2": "Metford U12s",
      "note": ""
     },
     {
@@ -2765,9 +2755,9 @@
      "comp": "u1213",
      "start": "6:15 PM",
      "end": "6:45 PM",
-     "field": "field-1",
-     "team1": "Messi Business",
-     "team2": "Grass Goblins",
+     "field": "field-3",
+     "team1": "Magpies",
+     "team2": "Chaos FC",
      "note": ""
     },
     {
@@ -2779,8 +2769,8 @@
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-4",
-     "team1": "Rutherford Greens",
-     "team2": "Mayhem FC",
+     "team1": "Tough Cookies FC",
+     "team2": "Phoenix Flyers",
      "note": ""
     },
     {
@@ -2831,9 +2821,9 @@
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-1",
-     "team1": "Tough Cookies FC",
+     "team1": "Phoenix Flyers",
      "team2": "Mayhem FC",
-     "note": "Colour clash: Mayhem FC to wear bibs (supplied by Cobras)"
+     "note": ""
     },
     {
      "week": 10,
@@ -2857,7 +2847,7 @@
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-4",
-     "team1": "Messi Business",
+     "team1": "Chaos FC",
      "team2": "Metford U12s",
      "note": ""
     },
@@ -2870,8 +2860,8 @@
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-6",
-     "team1": "Chaos FC",
-     "team2": "Grass Goblins",
+     "team1": "Messi Business",
+     "team2": "Magpies",
      "note": ""
     },
     {
@@ -2883,8 +2873,8 @@
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-1",
-     "team1": "Rutherford Greens",
-     "team2": "Phoenix Flyers",
+     "team1": "Grass Goblins/Rutherford Greens",
+     "team2": "Tough Cookies FC",
      "note": ""
     }
    ],
@@ -3091,7 +3081,7 @@
      "night": "Tuesday",
      "wave": 1,
      "teams": [
-      "Rutherford Greens",
+      "Grass Goblins/Rutherford Greens",
       "Rutherford Reds"
      ],
      "games": [
@@ -3100,8 +3090,8 @@
        "Rutherford Reds"
       ],
       [
-       "Mayhem FC",
-       "Rutherford Greens"
+       "Grass Goblins/Rutherford Greens",
+       "Mayhem FC"
       ]
      ]
     },
@@ -3115,12 +3105,31 @@
      ],
      "games": [
       [
-       "Chaos FC",
-       "Messi Business"
+       "Grass Goblins/Rutherford Greens",
+       "Mayhem FC"
       ],
       [
-       "Mayhem FC",
-       "Rutherford Greens"
+       "Chaos FC",
+       "Magpies"
+      ]
+     ]
+    },
+    {
+     "week": 9,
+     "night": "Tuesday",
+     "wave": 1,
+     "teams": [
+      "Grass Goblins/Rutherford Greens",
+      "Rutherford Reds"
+     ],
+     "games": [
+      [
+       "8/3 Thornton Devils",
+       "Rutherford Reds"
+      ],
+      [
+       "Grass Goblins/Rutherford Greens",
+       "Mayhem FC"
       ]
      ]
     }
@@ -3156,16 +3165,16 @@
      "earlyMin": 3,
      "earlyMax": 6
     },
-    "u1215": {
-     "earlyMin": 1,
-     "earlyMax": 8
-    },
     "u67": {
      "earlyMin": 2,
      "earlyMax": 7
+    },
+    "u1215": {
+     "earlyMin": 2,
+     "earlyMax": 9
     }
    },
-   "bibGames": 30
+   "bibGames": 29
   }
  ]
 }

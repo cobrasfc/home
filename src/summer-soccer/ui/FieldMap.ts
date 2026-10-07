@@ -148,7 +148,7 @@ export function GroundPlan(ground: Ground, assignments: Record<string, PlanAssig
 		.map((f) => {
 			const a = assignments[f.id];
 			const isMini = f.id.startsWith('minis');
-			const num = isMini ? `M${f.id.slice(-1)}` : f.short;
+			const num = f.short.length > 2 ? `M${f.id.slice(-1)}` : f.short;
 			const style = a ? ` style="--plan:${esc(a.colour)}"` : '';
 			const size = Math.min(f.w, f.h);
 			const numSize = Math.round(size * (isMini ? 0.34 : 0.3));

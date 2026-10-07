@@ -149,12 +149,20 @@ export const GROUND_THIRDS: Ground = {
 		third(right, -1, { id: 'field-4', label: 'Field 4', short: '4', area: 'right-hand pitch, north-west end — middle of the ground', aliases: ['4', 'f4'] }),
 		third(right, 0, { id: 'field-5', label: 'Field 5', short: '5', area: 'right-hand pitch, middle — railway side of the minis', aliases: ['5', 'f5'] }),
 		third(right, 1, { id: 'field-6', label: 'Field 6', short: '6', area: 'right-hand pitch, south-east end — by the south-east winter goal posts', aliases: ['6', 'f6'] }),
+		// The two small fields (formerly "Minis 1" and "Minis 2") are numbered Field 7 and Field 8 (club, 7 Oct 2026).
+		// Ids stay minis-1/2; the old names are still recognised in fixture sheets.
 		...GROUND.fields
 			.filter((f) => f.id.startsWith('minis'))
-			.map((f) => ({
-				...f,
-				area: f.id === 'minis-1' ? 'beside Fields 4 and 5, towards the playground shade sail' : 'beside Fields 5 and 6, straight up from the canteen'
-			}))
+			.map((f) => {
+				const n = f.id === 'minis-1' ? 7 : 8;
+				return {
+					...f,
+					label: `Field ${n}`,
+					short: String(n),
+					aliases: [String(n), `f${n}`, f.label, ...f.aliases],
+					area: n === 7 ? 'small field beside Fields 4 and 5, towards the playground shade sail' : 'small field beside Fields 5 and 6, straight up from the canteen'
+				};
+			})
 	],
 	landmarks: GROUND.landmarks
 };

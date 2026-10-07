@@ -2,6 +2,7 @@
 // A scenario's checks and round-by-round maps + draw (one round picker drives both).
 import { COMP_COLOURS, fieldLabel, groundFor, makeView, nightDate, plural, type PlanData, type Scenario } from './view';
 import { GroundPlan } from '../ui/FieldMap';
+import { withBase } from '../../utils/withBase';
 
 interface Props {
 	data: PlanData;
@@ -11,6 +12,11 @@ interface Props {
 }
 const { data, scenario: s, uid: key } = Astro.props;
 const v = makeView(data);
+// Social-media roster images (current draw only)
+const shareable = key === 'live';
+const logoUrl = withBase('/assets/logo-shield.svg');
+const siteUrl = new URL(withBase('/summer-soccer/schedule/'), Astro.site ?? Astro.url).host + withBase('/summer-soccer/schedule');
+const longDate = (iso: string) => new Date(`${iso}T12:00:00`).toLocaleDateString('en-AU', { weekday: 'long', day: 'numeric', month: 'long' });
 ---
 
 <div class="ad-block">
@@ -52,7 +58,26 @@ const v = makeView(data);
 				const byes = data.teams.filter((t: any) => v.comp[t.comp]?.night === n.night && !playing.has(t.name));
 				return (
 					<div class="ad-round">
-						<h4 class="ad-round__title">Round {wk} · {n.night} {games[0] ? nightDate(games[0].date) : ''}</h4>
+						<div class="ad-round__head">
+							<h4 class="ad-round__title">Round {wk} · {n.night} {games[0] ? nightDate(games[0].date) : ''}</h4>
+							{shareable && games[0] && (
+								<button
+									type="button"
+									class="ad-btn ad-btn--sm ad-shot"
+									data-file={`Summer Soccer Round ${wk} ${n.night}.png`}
+									data-roster={JSON.stringify({
+										round: wk,
+										dateLabel: longDate(games[0].date),
+										logoUrl,
+										siteUrl,
+										games: games.map((g: any) => ({ start: g.start, field: fieldLabel(g.field, groundFor(s)), comp: v.comp[g.comp].short, colour: COMP_COLOURS[g.comp], team1: g.team1, team2: g.team2, note: g.note })),
+										byes: byes.map((t: any) => ({ team: t.name, comp: v.comp[t.comp].short }))
+									})}
+								>
+									<span aria-hidden="true">⤓</span> Save image<span class="sr-only"> of Round {wk} {n.night} for socials</span>
+								</button>
+							)}
+						</div>
 						<div class="ad-maps">
 							{n.waves.map((w: any) => {
 								const wg = games.filter((g: any) => g.wave === w.wave);
@@ -75,7 +100,7 @@ const v = makeView(data);
 									{games.map((g: any) => (
 										<tr>
 											<td class="ad-nowrap">{g.start}</td>
-											<td class="ad-nowrap">{fieldLabel(g.field)}</td>
+											<td class="ad-nowrap">{fieldLabel(g.field, groundFor(s))}</td>
 											<td class="ad-nowrap"><span class="ad-chip ad-chip--sm" style={`--plan:${COMP_COLOURS[g.comp]}`}>{v.comp[g.comp].short}</span></td>
 											<td>{g.team1} <span class="ad-muted">v</span> {g.team2}</td>
 											<td class="ad-muted">{g.note.replace(/^Colour clash: /, '')}</td>
@@ -99,3 +124,25 @@ const v = makeView(data);
 		</div>
 	))}
 </div>
+
+<script>
+	import '@fontsource/poppins/700.css';
+	import { saveRoster } from './rosterImage';
+
+	document.addEventListener('click', async (e) => {
+		const btn = (e.target as Element).closest<HTMLButtonElement>('.ad-shot');
+		if (!btn || btn.disabled) return;
+		const label = btn.innerHTML;
+		btn.disabled = true;
+		btn.textContent = 'Making image…';
+		try {
+			await saveRoster(JSON.parse(btn.dataset.roster!), btn.dataset.file!);
+		} catch (err) {
+			console.error(err);
+			alert("Sorry, the image couldn't be made in this browser.");
+		} finally {
+			btn.disabled = false;
+			btn.innerHTML = label;
+		}
+	});
+</script>

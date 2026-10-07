@@ -22,7 +22,7 @@ const v = makeView(data);
 					<p class="ad-wave__time"><strong>Wave {w.wave}</strong><br />{w.start}–{w.end}</p>
 					<ol class="ad-strip" style={`--cells:${v.cells(s, w).length}`} aria-label={`${s.name}, ${n.night} wave ${w.wave}: ${w.allocations.map((a: any) => `${v.compName(a.comp)} ${range(a.gamesMin, a.gamesMax)} games`).join(', ')}; ${v.freeText(s, w)}`}>
 						{v.cells(s, w).map((c) => (
-							<li class={`ad-cell${c.use ? '' : ' is-free'}${c.id.startsWith('minis') ? ' is-mini' : ''}`} style={c.use ? `--plan:${c.use.colour}` : undefined} title={v.cellTitle(c.id, c.use)}>
+							<li class={`ad-cell${c.use ? '' : ' is-free'}${c.id.startsWith('minis') ? ' is-mini' : ''}`} style={c.use ? `--plan:${c.use.colour}` : undefined} title={v.cellTitle(c.title, c.use)}>
 								<span class="ad-cell__num">{c.label}</span>
 								<span class="ad-cell__tag">{c.use ? c.use.tag : 'free'}</span>
 							</li>

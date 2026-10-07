@@ -23,7 +23,9 @@ export const COMP_COLOURS: Record<string, string> = {
 // Approximate field sizes, assuming ~100 m × 64 m winter pitches split with ~2.8 m alleys
 export const FIELD_SIZE: Record<string, string> = { quarters: 'about 49 × 31 m', thirds: 'about 64 × 32 m' };
 
-export const fieldLabel = (id: string) => (id.startsWith('minis') ? `Minis ${id.slice(-1)}` : `Field ${id.split('-')[1]}`);
+/** A field's name in a given layout (the 6-field layout calls the small fields Field 7 and 8; the old 8-field one, Minis) */
+export const fieldLabel = (id: string, ground?: { fields: { id: string; label: string }[] }) =>
+	ground?.fields.find((f) => f.id === id)?.label ?? (id.startsWith('minis') ? `Minis ${id.slice(-1)}` : `Field ${id.split('-')[1]}`);
 export const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? '' : 's'}`;
 export const range = (a: number, b: number) => (a === b ? `${a}` : `${a}–${b}`);
 export const nightDate = (iso: string) =>
@@ -64,11 +66,15 @@ export function makeView(data: PlanData) {
 	/** Pitch cells for the strip chart: every main field then the minis, each used-by-comp or free */
 	function cells(s: Scenario, wave: Wave) {
 		const a = assignments(wave);
+		const ground = groundFor(s);
 		const ids = [...Array.from({ length: s.mainFields }, (_, i) => `field-${i + 1}`), 'minis-1', 'minis-2'];
-		return ids.map((id) => ({ id, label: id.startsWith('minis') ? `M${id.slice(-1)}` : id.split('-')[1], use: a[id] ?? null }));
+		return ids.map((id) => {
+			const short = ground.fields.find((f) => f.id === id)?.short ?? id.split('-')[1];
+			return { id, label: short.length > 2 ? `M${id.slice(-1)}` : short, title: fieldLabel(id, ground), use: a[id] ?? null };
+		});
 	}
-	const cellTitle = (id: string, use: PlanAssignment | null) =>
-		`${fieldLabel(id)}: ${use ? compName(Object.keys(comp).find((k) => comp[k].short === use.tag)!) : 'free'}`;
+	const cellTitle = (label: string, use: PlanAssignment | null) =>
+		`${label}: ${use ? compName(Object.keys(comp).find((k) => comp[k].short === use.tag)!) : 'free'}`;
 
 	const usedText = (s: Scenario, w: Wave) => `${range(w.mainUsedMin, w.mainUsedMax)}/${s.mainFields}`;
 	const freeText = (s: Scenario, w: Wave) =>
