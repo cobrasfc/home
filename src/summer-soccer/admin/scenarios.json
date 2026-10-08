@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-07T16:53",
+ "generatedAt": "2026-10-08T11:45",
  "weeks": 10,
  "unrefereedComps": [],
  "comps": [
@@ -284,7 +284,7 @@
   {
    "name": "Cobras Blue",
    "comp": "u67",
-   "colour": "Blue and Yellow",
+   "colour": "Dark Blue",
    "players": 9,
    "dualIn": 0,
    "placeholder": false,
@@ -334,7 +334,7 @@
   {
    "name": "Metford U10s",
    "comp": "u811",
-   "colour": "Blue and Yellow",
+   "colour": "Black",
    "players": 9,
    "dualIn": 0,
    "placeholder": false,
@@ -1861,7 +1861,7 @@
      "field": "field-1",
      "team1": "Metford U10s",
      "team2": "U8s Metford",
-     "note": "Colour clash: Metford U10s to wear bibs (supplied by Cobras)"
+     "note": ""
     },
     {
      "week": 1,
@@ -2186,7 +2186,7 @@
      "field": "field-4",
      "team1": "Wild Warriors",
      "team2": "U8s Metford",
-     "note": "Colour clash: Wild Warriors to wear bibs (supplied by Cobras)"
+     "note": ""
     },
     {
      "week": 4,
@@ -2290,7 +2290,7 @@
      "field": "field-1",
      "team1": "Wild Warriors",
      "team2": "Metford U10s",
-     "note": "Colour clash: Metford U10s to wear bibs (supplied by Cobras)"
+     "note": ""
     },
     {
      "week": 5,
@@ -2381,7 +2381,7 @@
      "field": "field-6",
      "team1": "U8s Metford",
      "team2": "Metford U10s",
-     "note": "Colour clash: Metford U10s to wear bibs (supplied by Cobras)"
+     "note": ""
     },
     {
      "week": 6,
@@ -2706,7 +2706,7 @@
      "field": "field-1",
      "team1": "U8s Metford",
      "team2": "Wild Warriors",
-     "note": "Colour clash: U8s Metford to wear bibs (supplied by Cobras)"
+     "note": ""
     },
     {
      "week": 9,
@@ -2810,7 +2810,7 @@
      "field": "field-6",
      "team1": "Metford U10s",
      "team2": "Wild Warriors",
-     "note": "Colour clash: Wild Warriors to wear bibs (supplied by Cobras)"
+     "note": ""
     },
     {
      "week": 10,
@@ -3105,12 +3105,12 @@
      ],
      "games": [
       [
-       "Grass Goblins/Rutherford Greens",
-       "Mayhem FC"
-      ],
-      [
        "Chaos FC",
        "Magpies"
+      ],
+      [
+       "Grass Goblins/Rutherford Greens",
+       "Mayhem FC"
       ]
      ]
     },
@@ -3153,10 +3153,6 @@
     }
    ],
    "waveSplit": {
-    "aam": {
-     "earlyMin": 3,
-     "earlyMax": 6
-    },
     "aaw": {
      "earlyMin": 4,
      "earlyMax": 6
@@ -3165,16 +3161,20 @@
      "earlyMin": 3,
      "earlyMax": 6
     },
-    "u67": {
-     "earlyMin": 2,
-     "earlyMax": 7
+    "aam": {
+     "earlyMin": 3,
+     "earlyMax": 6
     },
     "u1215": {
      "earlyMin": 2,
      "earlyMax": 9
+    },
+    "u67": {
+     "earlyMin": 2,
+     "earlyMax": 7
     }
    },
-   "bibGames": 29
+   "bibGames": 23
   }
  ]
 }
