@@ -91,6 +91,14 @@ export const SUMMER_SCHEDULE = {
 	sampleCsvPath: '/summer-soccer/draft-fixtures.csv',
 	// Banner shown above the fixtures while they come from sampleCsvPath. Empty = no banner (club, 7 Oct 2026).
 	sampleNotice: '',
+	// Team links that changed when a team was renamed or merged: old ?teams= id -> current id.
+	// Keeps links already shared with families working.
+	teamIdAliases: {
+		// Grass Goblins (U12–13s) and Rutherford Greens merged, 7 Oct 2026; named Grass Goblins (U12–15s), 8 Oct 2026
+		'u12-13s-grass-goblins': 'u12-15s-grass-goblins',
+		'u12-15s-rutherford-greens': 'u12-15s-grass-goblins',
+		'u12-15s-grass-goblins-rutherford-greens': 'u12-15s-grass-goblins'
+	},
 	// Shown at the bottom of the schedule page
 	terms: {
 		heading: 'Schedule subject to change',

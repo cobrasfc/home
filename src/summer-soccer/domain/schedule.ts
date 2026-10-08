@@ -1,15 +1,18 @@
 // Which fixtures matter to this person, and which one is "next". Pure functions — no DOM, no fetching.
 import type { Fixture, Schedule, Team } from './types';
 import { zonedTimeToInstant } from '../utils/timezone';
+import { SUMMER_SCHEDULE } from '../../site.config';
 
 export function resolveTeams(schedule: Schedule, ids: string[]): { teams: Team[]; unknownIds: string[] } {
 	const byId = new Map(schedule.teams.map((t) => [t.id, t]));
 	const teams: Team[] = [];
 	const unknownIds: string[] = [];
+	const aliases: Record<string, string> = SUMMER_SCHEDULE.teamIdAliases;
 	for (const id of ids) {
-		const team = byId.get(id);
-		if (team) teams.push(team);
-		else unknownIds.push(id);
+		// Old links for renamed or merged teams still open the team's new schedule
+		const team = byId.get(id) ?? byId.get(aliases[id]);
+		if (!team) unknownIds.push(id);
+		else if (!teams.includes(team)) teams.push(team);
 	}
 	return { teams, unknownIds };
 }

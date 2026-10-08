@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-08T11:45",
+ "generatedAt": "2026-10-08T12:07",
  "weeks": 10,
  "unrefereedComps": [],
  "comps": [
@@ -412,7 +412,7 @@
    "byes": 0
   },
   {
-   "name": "Grass Goblins/Rutherford Greens",
+   "name": "Grass Goblins",
    "comp": "u1215",
    "colour": "",
    "players": 10,
@@ -501,7 +501,7 @@
    "Wild Warriors"
   ],
   [
-   "Grass Goblins/Rutherford Greens",
+   "Grass Goblins",
    "Rutherford Reds"
   ]
  ],
@@ -1938,7 +1938,7 @@
      "end": "6:45 PM",
      "field": "field-4",
      "team1": "Tough Cookies FC",
-     "team2": "Grass Goblins/Rutherford Greens",
+     "team2": "Grass Goblins",
      "note": ""
     },
     {
@@ -2042,7 +2042,7 @@
      "end": "6:45 PM",
      "field": "field-1",
      "team1": "Phoenix Flyers",
-     "team2": "Grass Goblins/Rutherford Greens",
+     "team2": "Grass Goblins",
      "note": ""
     },
     {
@@ -2094,7 +2094,7 @@
      "end": "6:00 PM",
      "field": "field-6",
      "team1": "Mayhem FC",
-     "team2": "Grass Goblins/Rutherford Greens",
+     "team2": "Grass Goblins",
      "note": ""
     },
     {
@@ -2249,7 +2249,7 @@
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-3",
-     "team1": "Grass Goblins/Rutherford Greens",
+     "team1": "Grass Goblins",
      "team2": "Tough Cookies FC",
      "note": ""
     },
@@ -2353,7 +2353,7 @@
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-4",
-     "team1": "Grass Goblins/Rutherford Greens",
+     "team1": "Grass Goblins",
      "team2": "Phoenix Flyers",
      "note": ""
     },
@@ -2457,7 +2457,7 @@
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-1",
-     "team1": "Grass Goblins/Rutherford Greens",
+     "team1": "Grass Goblins",
      "team2": "Mayhem FC",
      "note": ""
     },
@@ -2561,7 +2561,7 @@
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-6",
-     "team1": "Grass Goblins/Rutherford Greens",
+     "team1": "Grass Goblins",
      "team2": "Tough Cookies FC",
      "note": ""
     },
@@ -2665,7 +2665,7 @@
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-3",
-     "team1": "Grass Goblins/Rutherford Greens",
+     "team1": "Grass Goblins",
      "team2": "Phoenix Flyers",
      "note": ""
     },
@@ -2717,7 +2717,7 @@
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-4",
-     "team1": "Grass Goblins/Rutherford Greens",
+     "team1": "Grass Goblins",
      "team2": "Mayhem FC",
      "note": ""
     },
@@ -2873,7 +2873,7 @@
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-1",
-     "team1": "Grass Goblins/Rutherford Greens",
+     "team1": "Grass Goblins",
      "team2": "Tough Cookies FC",
      "note": ""
     }
@@ -3081,17 +3081,17 @@
      "night": "Tuesday",
      "wave": 1,
      "teams": [
-      "Grass Goblins/Rutherford Greens",
+      "Grass Goblins",
       "Rutherford Reds"
      ],
      "games": [
       [
-       "Metford U10s",
-       "Rutherford Reds"
+       "Grass Goblins",
+       "Mayhem FC"
       ],
       [
-       "Grass Goblins/Rutherford Greens",
-       "Mayhem FC"
+       "Metford U10s",
+       "Rutherford Reds"
       ]
      ]
     },
@@ -3105,12 +3105,12 @@
      ],
      "games": [
       [
-       "Chaos FC",
-       "Magpies"
+       "Grass Goblins",
+       "Mayhem FC"
       ],
       [
-       "Grass Goblins/Rutherford Greens",
-       "Mayhem FC"
+       "Chaos FC",
+       "Magpies"
       ]
      ]
     },
@@ -3119,17 +3119,17 @@
      "night": "Tuesday",
      "wave": 1,
      "teams": [
-      "Grass Goblins/Rutherford Greens",
+      "Grass Goblins",
       "Rutherford Reds"
      ],
      "games": [
       [
-       "8/3 Thornton Devils",
-       "Rutherford Reds"
+       "Grass Goblins",
+       "Mayhem FC"
       ],
       [
-       "Grass Goblins/Rutherford Greens",
-       "Mayhem FC"
+       "8/3 Thornton Devils",
+       "Rutherford Reds"
       ]
      ]
     }
@@ -3153,25 +3153,25 @@
     }
    ],
    "waveSplit": {
-    "aaw": {
-     "earlyMin": 4,
-     "earlyMax": 6
-    },
     "mixed": {
      "earlyMin": 3,
+     "earlyMax": 6
+    },
+    "aaw": {
+     "earlyMin": 4,
      "earlyMax": 6
     },
     "aam": {
      "earlyMin": 3,
      "earlyMax": 6
     },
-    "u1215": {
-     "earlyMin": 2,
-     "earlyMax": 9
-    },
     "u67": {
      "earlyMin": 2,
      "earlyMax": 7
+    },
+    "u1215": {
+     "earlyMin": 2,
+     "earlyMax": 9
     }
    },
    "bibGames": 23
