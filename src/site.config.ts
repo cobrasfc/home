@@ -97,7 +97,9 @@ export const SUMMER_SCHEDULE = {
 		// Grass Goblins (U12–13s) and Rutherford Greens merged, 7 Oct 2026; named Grass Goblins (U12–15s), 8 Oct 2026
 		'u12-13s-grass-goblins': 'u12-15s-grass-goblins',
 		'u12-15s-rutherford-greens': 'u12-15s-grass-goblins',
-		'u12-15s-grass-goblins-rutherford-greens': 'u12-15s-grass-goblins'
+		'u12-15s-grass-goblins-rutherford-greens': 'u12-15s-grass-goblins',
+		// Cobras Blue renamed Sssstrikers, 8 Oct 2026
+		'u6-7s-cobras-blue': 'u6-7s-sssstrikers'
 	},
 	// Shown at the bottom of the schedule page
 	terms: {

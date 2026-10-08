@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-08T12:07",
+ "generatedAt": "2026-10-08T16:53",
  "weeks": 10,
  "unrefereedComps": [],
  "comps": [
@@ -282,16 +282,6 @@
    "byes": 0
   },
   {
-   "name": "Cobras Blue",
-   "comp": "u67",
-   "colour": "Dark Blue",
-   "players": 9,
-   "dualIn": 0,
-   "placeholder": false,
-   "games": 10,
-   "byes": 0
-  },
-  {
    "name": "Cobras Gold",
    "comp": "u67",
    "colour": "Blue and Yellow",
@@ -306,6 +296,16 @@
    "comp": "u67",
    "colour": "Black",
    "players": 8,
+   "dualIn": 0,
+   "placeholder": false,
+   "games": 10,
+   "byes": 0
+  },
+  {
+   "name": "Sssstrikers",
+   "comp": "u67",
+   "colour": "Dark Blue",
+   "players": 9,
    "dualIn": 0,
    "placeholder": false,
    "games": 10,
@@ -1846,7 +1846,7 @@
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "minis-1",
-     "team1": "Cobras Blue",
+     "team1": "Sssstrikers",
      "team2": "U7 Goal Diggers",
      "note": ""
     },
@@ -1950,7 +1950,7 @@
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "minis-2",
-     "team1": "Cobras Blue",
+     "team1": "Sssstrikers",
      "team2": "Golden Ballers",
      "note": ""
     },
@@ -2055,8 +2055,8 @@
      "end": "6:00 PM",
      "field": "minis-1",
      "team1": "Cobras Gold",
-     "team2": "Cobras Blue",
-     "note": "Colour clash: Cobras Blue to wear bibs (supplied by Cobras)"
+     "team2": "Sssstrikers",
+     "note": ""
     },
     {
      "week": 3,
@@ -2159,7 +2159,7 @@
      "end": "6:00 PM",
      "field": "minis-2",
      "team1": "U7 Goal Diggers",
-     "team2": "Cobras Blue",
+     "team2": "Sssstrikers",
      "note": ""
     },
     {
@@ -2315,7 +2315,7 @@
      "end": "6:45 PM",
      "field": "minis-1",
      "team1": "Golden Ballers",
-     "team2": "Cobras Blue",
+     "team2": "Sssstrikers",
      "note": ""
     },
     {
@@ -2366,9 +2366,9 @@
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "minis-2",
-     "team1": "Cobras Blue",
+     "team1": "Sssstrikers",
      "team2": "Cobras Gold",
-     "note": "Colour clash: Cobras Blue to wear bibs (supplied by Cobras)"
+     "note": ""
     },
     {
      "week": 6,
@@ -2523,7 +2523,7 @@
      "end": "6:45 PM",
      "field": "minis-1",
      "team1": "U7 Goal Diggers",
-     "team2": "Cobras Blue",
+     "team2": "Sssstrikers",
      "note": ""
     },
     {
@@ -2627,7 +2627,7 @@
      "end": "6:45 PM",
      "field": "minis-2",
      "team1": "Golden Ballers",
-     "team2": "Cobras Blue",
+     "team2": "Sssstrikers",
      "note": ""
     },
     {
@@ -2678,9 +2678,9 @@
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "minis-1",
-     "team1": "Cobras Blue",
+     "team1": "Sssstrikers",
      "team2": "Cobras Gold",
-     "note": "Colour clash: Cobras Blue to wear bibs (supplied by Cobras)"
+     "note": ""
     },
     {
      "week": 9,
@@ -2783,7 +2783,7 @@
      "end": "6:00 PM",
      "field": "minis-2",
      "team1": "U7 Goal Diggers",
-     "team2": "Cobras Blue",
+     "team2": "Sssstrikers",
      "note": ""
     },
     {
@@ -3086,12 +3086,12 @@
      ],
      "games": [
       [
-       "Grass Goblins",
-       "Mayhem FC"
-      ],
-      [
        "Metford U10s",
        "Rutherford Reds"
+      ],
+      [
+       "Grass Goblins",
+       "Mayhem FC"
       ]
      ]
     },
@@ -3105,12 +3105,12 @@
      ],
      "games": [
       [
-       "Grass Goblins",
-       "Mayhem FC"
-      ],
-      [
        "Chaos FC",
        "Magpies"
+      ],
+      [
+       "Grass Goblins",
+       "Mayhem FC"
       ]
      ]
     },
@@ -3124,12 +3124,12 @@
      ],
      "games": [
       [
-       "Grass Goblins",
-       "Mayhem FC"
-      ],
-      [
        "8/3 Thornton Devils",
        "Rutherford Reds"
+      ],
+      [
+       "Grass Goblins",
+       "Mayhem FC"
       ]
      ]
     }
@@ -3153,7 +3153,7 @@
     }
    ],
    "waveSplit": {
-    "mixed": {
+    "aam": {
      "earlyMin": 3,
      "earlyMax": 6
     },
@@ -3161,7 +3161,7 @@
      "earlyMin": 4,
      "earlyMax": 6
     },
-    "aam": {
+    "mixed": {
      "earlyMin": 3,
      "earlyMax": 6
     },
@@ -3174,7 +3174,7 @@
      "earlyMax": 9
     }
    },
-   "bibGames": 23
+   "bibGames": 20
   }
  ]
 }
