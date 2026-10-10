@@ -1,0 +1,114 @@
+---
+// Volunteer roster for each night: set up, duty officers per wave, pack down — plus the gaps to fill.
+// Data comes from plan_volunteers.py (run next to the draw) → volunteers.json.
+interface Props {
+	data: any;
+}
+const { data } = Astro.props;
+const r = data.rules;
+const nights = ['Monday', 'Tuesday'].map((night) => ({ night, rows: data.nights.filter((n: any) => n.night === night) }));
+const dateLabel = (iso: string) => new Date(`${iso}T12:00:00`).toLocaleDateString('en-AU', { day: 'numeric', month: 'short' });
+const roundsText = (rounds: number[]) => (rounds.length === 10 ? 'every round' : `Round${rounds.length > 1 ? 's' : ''} ${rounds.join(', ')}`);
+const bad = data.issues.filter((i: any) => i.level === 'bad');
+const warn = data.issues.filter((i: any) => i.level === 'warn');
+/** Issues on this night that belong to a job column, so the cell can be flagged */
+const flag = (n: any, prefix: string) => n.issues.filter((i: any) => i.text.startsWith(prefix));
+const generated = new Date(data.generatedAt).toLocaleString('en-AU', { dateStyle: 'medium', timeStyle: 'short' });
+---
+
+<h2 class="ad-h2">Volunteer schedule</h2>
+<p class="ad-lede">Who's on each night. Every night needs:</p>
+<ul class="ad-jobs">
+	<li><strong>Set up</strong> — {r.setupBefore / 60} hour before the first game. At least {r.teamMin} people (ideally {r.teamIdeal}), including someone with keys.</li>
+	<li><strong>Duty officers</strong> — {r.dutyPerWave} for each wave.</li>
+	<li><strong>Pack down</strong> — straight after the last game, about {r.packFor} minutes. A different team from set up: at least {r.teamMin} (ideally {r.teamIdeal}), including someone with keys.</li>
+</ul>
+
+<h3 class="ad-h3">To sort out</h3>
+{data.issues.length === 0 ? (
+	<p><span class="ad-status is-good"><span aria-hidden="true">✓</span>Every job is covered.</span></p>
+) : (
+	<ul class="ad-checks">
+		{[...bad, ...warn].map((i: any) => (
+			<li>
+				<span class={`ad-status ${i.level === 'bad' ? 'is-bad' : 'is-warn'}`}><span aria-hidden="true">{i.level === 'bad' ? '✕' : '!'}</span>{i.night}s, {roundsText(i.rounds)}</span>
+				<br />{i.text} <span class="ad-muted">{i.fix}</span>
+			</li>
+		))}
+	</ul>
+)}
+
+{nights.map(({ night, rows }) => (
+	<div class="ad-block">
+		<h3 class="ad-h3">{night}s</h3>
+		<div class="ad-tablewrap">
+			<table class="ad-table ad-table--vol">
+				<caption class="sr-only">{night} volunteer roster</caption>
+				<thead>
+					<tr>
+						<th scope="col">Round</th>
+						<th scope="col">Set up<br /><span class="ad-muted">{rows[0]?.setup.time}</span></th>
+						{rows[0]?.duty.map((d: any) => (
+							<th scope="col">Wave {d.wave} duty<br /><span class="ad-muted">{d.time}</span></th>
+						))}
+						<th scope="col">Pack down<br /><span class="ad-muted">{rows[0]?.pack.time}</span></th>
+					</tr>
+				</thead>
+				<tbody>
+					{rows.map((n: any) => (
+						<tr>
+							<th scope="row" class="ad-nowrap">{n.round} <span class="ad-muted">· {dateLabel(n.date)}</span></th>
+							{[
+								{ who: n.setup.who, issues: flag(n, 'Set up') },
+								...n.duty.map((d: any) => ({ who: d.who, issues: flag(n, `Wave ${d.wave} duty`) })),
+								{ who: n.pack.who, issues: flag(n, 'Pack down') }
+							].map((c) => (
+								<td class={c.issues.some((i: any) => i.level === 'bad') ? 'is-gap' : c.issues.length ? 'is-thin' : undefined}>
+									{c.who.length ? c.who.join(', ') : <span class="ad-muted">—</span>}
+									{c.issues.map((i: any) => (
+										<span class={`ad-flag ${i.level === 'bad' ? 'is-bad' : 'is-warn'}`} title={`${i.text} ${i.fix}`}>
+											<span aria-hidden="true">{i.level === 'bad' ? '✕' : '!'}</span> {i.text.replace(/^[^:]+: /, '').split(' — ')[0].replace(/\.$/, '')}
+										</span>
+									))}
+								</td>
+							))}
+						</tr>
+					))}
+				</tbody>
+			</table>
+		</div>
+		{rows.flatMap((n: any) => n.issues.filter((i: any) => / has \d+ jobs/.test(i.text)).map((i: any) => `Round ${n.round}: ${i.text}`)).map((t: string) => (
+			<p class="ad-note"><span class="ad-status is-warn"><span aria-hidden="true">!</span></span> {t}</p>
+		))}
+	</div>
+))}
+
+<h3 class="ad-h3">Volunteers</h3>
+<div class="ad-tablewrap">
+	<table class="ad-table ad-table--vol">
+		<caption class="sr-only">Volunteers, availability and jobs this season</caption>
+		<thead>
+			<tr>
+				<th scope="col">Volunteer</th>
+				<th scope="col">Mondays</th>
+				<th scope="col">Tuesdays</th>
+				<th scope="col" class="ad-num">Set ups</th>
+				<th scope="col" class="ad-num">Duty shifts</th>
+				<th scope="col" class="ad-num">Pack downs</th>
+			</tr>
+		</thead>
+		<tbody>
+			{data.volunteers.map((p: any) => (
+				<tr>
+					<th scope="row">{p.name}{p.keys && <span class="ad-key" title="Has keys"> 🔑<span class="sr-only"> has keys</span></span>}{p.note && <><br /><span class="ad-muted">{p.note}</span></>}</th>
+					<td>{p.monday}</td>
+					<td>{p.tuesday}</td>
+					<td class="ad-num">{p.setup}</td>
+					<td class="ad-num">{p.duty}</td>
+					<td class="ad-num">{p.pack}</td>
+				</tr>
+			))}
+		</tbody>
+	</table>
+</div>
+<p class="ad-note">🔑 = has keys. Jobs are shared out as evenly as availability allows; a duty shift is one wave. Roster made {generated} from the current draw — it's redone whenever the draw or anyone's availability changes.</p>

@@ -90,6 +90,62 @@
 	font-weight: 400;
 }
 
+/* Tabs plus a link out to the public schedule */
+.ad-tabbar {
+	display: flex;
+	align-items: flex-end;
+	gap: 8px 16px;
+	flex-wrap: wrap;
+	border-bottom: 2px solid var(--ad-line);
+	margin-bottom: 20px;
+}
+.ad-tabbar .ad-tabs {
+	border-bottom: 0;
+	margin-bottom: -2px;
+	min-width: 0;
+}
+.ad-tablink {
+	margin-left: auto;
+	padding: 0 4px 12px;
+	font-size: 0.875rem;
+	font-weight: 600;
+	color: var(--ss-blue);
+}
+
+/* ---------- Volunteer schedule ---------- */
+.ad-jobs {
+	margin: 0 0 8px;
+	padding-left: 1.25em;
+	font-size: 0.9375rem;
+	line-height: 1.6;
+}
+.ad-table--vol th,
+.ad-table--vol td {
+	vertical-align: top;
+}
+.ad-table--vol td.is-gap {
+	background: #fef3f2;
+}
+.ad-table--vol td.is-thin {
+	background: #fff7e0;
+}
+.ad-flag {
+	display: block;
+	margin-top: 2px;
+	font-size: 0.75rem;
+	font-weight: 600;
+}
+.ad-flag.is-bad {
+	color: var(--ad-bad);
+}
+.ad-flag.is-warn {
+	color: var(--ad-warn);
+}
+.ad-num {
+	text-align: right;
+	font-variant-numeric: tabular-nums;
+}
+
 /* ---------- Headings / cards ---------- */
 .ad-h2 {
 	margin: 28px 0 8px;

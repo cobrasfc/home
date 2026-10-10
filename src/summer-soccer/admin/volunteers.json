@@ -1,0 +1,1022 @@
+{
+ "generatedAt": "2026-10-10T21:11",
+ "rules": {
+  "setupBefore": 60,
+  "packFor": 45,
+  "teamMin": 2,
+  "teamIdeal": 3,
+  "dutyPerWave": 2
+ },
+ "volunteers": [
+  {
+   "name": "Harley + Cass",
+   "keys": false,
+   "size": 2,
+   "note": "Pair — always together. Set up / pack down only.",
+   "monday": "Set up; pack down",
+   "tuesday": "Set up; pack down",
+   "setup": 10,
+   "pack": 0,
+   "duty": 0
+  },
+  {
+   "name": "Mitch",
+   "keys": true,
+   "size": 1,
+   "note": "",
+   "monday": "Set up; pack down; duty officer except while metford aam play",
+   "tuesday": "Pack down; duty officer except while cobras gold play",
+   "setup": 10,
+   "pack": 20,
+   "duty": 19
+  },
+  {
+   "name": "Jaz",
+   "keys": true,
+   "size": 1,
+   "note": "Also wave 1 duty officer on Mon 12 Oct.",
+   "monday": "Pack down; duty officer (wave 2 only) except while summer savages play",
+   "tuesday": "Pack down; duty officer",
+   "setup": 0,
+   "pack": 20,
+   "duty": 15
+  },
+  {
+   "name": "Brock",
+   "keys": true,
+   "size": 1,
+   "note": "",
+   "monday": "Set up; pack down; duty officer except while metford aam play",
+   "tuesday": "Set up; duty officer",
+   "setup": 20,
+   "pack": 0,
+   "duty": 20
+  },
+  {
+   "name": "Chad",
+   "keys": false,
+   "size": 1,
+   "note": "",
+   "monday": "Not available",
+   "tuesday": "Pack down; duty officer",
+   "setup": 0,
+   "pack": 10,
+   "duty": 10
+  },
+  {
+   "name": "Sam",
+   "keys": true,
+   "size": 1,
+   "note": "",
+   "monday": "Set up; pack down; duty officer",
+   "tuesday": "Pack down; duty officer",
+   "setup": 10,
+   "pack": 0,
+   "duty": 10
+  }
+ ],
+ "nights": [
+  {
+   "round": 1,
+   "date": "2026-10-12",
+   "night": "Monday",
+   "setup": {
+    "time": "5:30–6:30 pm",
+    "who": [
+     "Mitch",
+     "Brock",
+     "Sam"
+    ],
+    "people": 3
+   },
+   "pack": {
+    "time": "8:00–8:45 pm",
+    "who": [
+     "Mitch",
+     "Jaz"
+    ],
+    "people": 2
+   },
+   "duty": [
+    {
+     "wave": 1,
+     "time": "6:30–7:10 pm",
+     "who": [
+      "Jaz",
+      "Sam"
+     ]
+    },
+    {
+     "wave": 2,
+     "time": "7:20–8:00 pm",
+     "who": [
+      "Mitch",
+      "Brock"
+     ]
+    }
+   ],
+   "issues": [
+    {
+     "level": "warn",
+     "text": "Mitch has 3 jobs this night.",
+     "fix": "Swap one of their jobs if someone else can help."
+    }
+   ]
+  },
+  {
+   "round": 1,
+   "date": "2026-10-13",
+   "night": "Tuesday",
+   "setup": {
+    "time": "4:30–5:30 pm",
+    "who": [
+     "Harley + Cass",
+     "Brock"
+    ],
+    "people": 3
+   },
+   "pack": {
+    "time": "6:45–7:30 pm",
+    "who": [
+     "Mitch",
+     "Jaz",
+     "Chad"
+    ],
+    "people": 3
+   },
+   "duty": [
+    {
+     "wave": 1,
+     "time": "5:30–6:00 pm",
+     "who": [
+      "Mitch",
+      "Jaz"
+     ]
+    },
+    {
+     "wave": 2,
+     "time": "6:15–6:45 pm",
+     "who": [
+      "Brock",
+      "Chad"
+     ]
+    }
+   ],
+   "issues": []
+  },
+  {
+   "round": 2,
+   "date": "2026-10-19",
+   "night": "Monday",
+   "setup": {
+    "time": "5:30–6:30 pm",
+    "who": [
+     "Mitch",
+     "Brock",
+     "Sam"
+    ],
+    "people": 3
+   },
+   "pack": {
+    "time": "8:00–8:45 pm",
+    "who": [
+     "Mitch",
+     "Jaz"
+    ],
+    "people": 2
+   },
+   "duty": [
+    {
+     "wave": 1,
+     "time": "6:30–7:10 pm",
+     "who": [
+      "Mitch",
+      "Brock"
+     ]
+    },
+    {
+     "wave": 2,
+     "time": "7:20–8:00 pm",
+     "who": [
+      "Mitch",
+      "Sam"
+     ]
+    }
+   ],
+   "issues": [
+    {
+     "level": "warn",
+     "text": "Mitch has 4 jobs this night.",
+     "fix": "Swap one of their jobs if someone else can help."
+    }
+   ]
+  },
+  {
+   "round": 2,
+   "date": "2026-10-20",
+   "night": "Tuesday",
+   "setup": {
+    "time": "4:30–5:30 pm",
+    "who": [
+     "Harley + Cass",
+     "Brock"
+    ],
+    "people": 3
+   },
+   "pack": {
+    "time": "6:45–7:30 pm",
+    "who": [
+     "Mitch",
+     "Jaz",
+     "Chad"
+    ],
+    "people": 3
+   },
+   "duty": [
+    {
+     "wave": 1,
+     "time": "5:30–6:00 pm",
+     "who": [
+      "Mitch",
+      "Jaz"
+     ]
+    },
+    {
+     "wave": 2,
+     "time": "6:15–6:45 pm",
+     "who": [
+      "Brock",
+      "Chad"
+     ]
+    }
+   ],
+   "issues": []
+  },
+  {
+   "round": 3,
+   "date": "2026-10-26",
+   "night": "Monday",
+   "setup": {
+    "time": "5:30–6:30 pm",
+    "who": [
+     "Mitch",
+     "Brock",
+     "Sam"
+    ],
+    "people": 3
+   },
+   "pack": {
+    "time": "8:00–8:45 pm",
+    "who": [
+     "Mitch",
+     "Jaz"
+    ],
+    "people": 2
+   },
+   "duty": [
+    {
+     "wave": 1,
+     "time": "6:30–7:10 pm",
+     "who": [
+      "Sam"
+     ]
+    },
+    {
+     "wave": 2,
+     "time": "7:20–8:00 pm",
+     "who": [
+      "Jaz",
+      "Brock"
+     ]
+    }
+   ],
+   "issues": [
+    {
+     "level": "bad",
+     "text": "Wave 1 duty officers: 1 short — Mitch (Metford AAM playing), Brock (Metford AAM playing) can't.",
+     "fix": "Find another duty officer for this wave — anyone not playing in it."
+    }
+   ]
+  },
+  {
+   "round": 3,
+   "date": "2026-10-27",
+   "night": "Tuesday",
+   "setup": {
+    "time": "4:30–5:30 pm",
+    "who": [
+     "Harley + Cass",
+     "Brock"
+    ],
+    "people": 3
+   },
+   "pack": {
+    "time": "6:45–7:30 pm",
+    "who": [
+     "Mitch",
+     "Jaz",
+     "Chad"
+    ],
+    "people": 3
+   },
+   "duty": [
+    {
+     "wave": 1,
+     "time": "5:30–6:00 pm",
+     "who": [
+      "Jaz",
+      "Brock"
+     ]
+    },
+    {
+     "wave": 2,
+     "time": "6:15–6:45 pm",
+     "who": [
+      "Mitch",
+      "Chad"
+     ]
+    }
+   ],
+   "issues": []
+  },
+  {
+   "round": 4,
+   "date": "2026-11-02",
+   "night": "Monday",
+   "setup": {
+    "time": "5:30–6:30 pm",
+    "who": [
+     "Mitch",
+     "Brock",
+     "Sam"
+    ],
+    "people": 3
+   },
+   "pack": {
+    "time": "8:00–8:45 pm",
+    "who": [
+     "Mitch",
+     "Jaz"
+    ],
+    "people": 2
+   },
+   "duty": [
+    {
+     "wave": 1,
+     "time": "6:30–7:10 pm",
+     "who": [
+      "Mitch",
+      "Brock"
+     ]
+    },
+    {
+     "wave": 2,
+     "time": "7:20–8:00 pm",
+     "who": [
+      "Jaz",
+      "Sam"
+     ]
+    }
+   ],
+   "issues": [
+    {
+     "level": "warn",
+     "text": "Mitch has 3 jobs this night.",
+     "fix": "Swap one of their jobs if someone else can help."
+    }
+   ]
+  },
+  {
+   "round": 4,
+   "date": "2026-11-03",
+   "night": "Tuesday",
+   "setup": {
+    "time": "4:30–5:30 pm",
+    "who": [
+     "Harley + Cass",
+     "Brock"
+    ],
+    "people": 3
+   },
+   "pack": {
+    "time": "6:45–7:30 pm",
+    "who": [
+     "Mitch",
+     "Jaz",
+     "Chad"
+    ],
+    "people": 3
+   },
+   "duty": [
+    {
+     "wave": 1,
+     "time": "5:30–6:00 pm",
+     "who": [
+      "Mitch",
+      "Jaz"
+     ]
+    },
+    {
+     "wave": 2,
+     "time": "6:15–6:45 pm",
+     "who": [
+      "Brock",
+      "Chad"
+     ]
+    }
+   ],
+   "issues": []
+  },
+  {
+   "round": 5,
+   "date": "2026-11-09",
+   "night": "Monday",
+   "setup": {
+    "time": "5:30–6:30 pm",
+    "who": [
+     "Mitch",
+     "Brock",
+     "Sam"
+    ],
+    "people": 3
+   },
+   "pack": {
+    "time": "8:00–8:45 pm",
+    "who": [
+     "Mitch",
+     "Jaz"
+    ],
+    "people": 2
+   },
+   "duty": [
+    {
+     "wave": 1,
+     "time": "6:30–7:10 pm",
+     "who": [
+      "Mitch",
+      "Brock"
+     ]
+    },
+    {
+     "wave": 2,
+     "time": "7:20–8:00 pm",
+     "who": [
+      "Jaz",
+      "Sam"
+     ]
+    }
+   ],
+   "issues": [
+    {
+     "level": "warn",
+     "text": "Mitch has 3 jobs this night.",
+     "fix": "Swap one of their jobs if someone else can help."
+    }
+   ]
+  },
+  {
+   "round": 5,
+   "date": "2026-11-10",
+   "night": "Tuesday",
+   "setup": {
+    "time": "4:30–5:30 pm",
+    "who": [
+     "Harley + Cass",
+     "Brock"
+    ],
+    "people": 3
+   },
+   "pack": {
+    "time": "6:45–7:30 pm",
+    "who": [
+     "Mitch",
+     "Jaz",
+     "Chad"
+    ],
+    "people": 3
+   },
+   "duty": [
+    {
+     "wave": 1,
+     "time": "5:30–6:00 pm",
+     "who": [
+      "Jaz",
+      "Brock"
+     ]
+    },
+    {
+     "wave": 2,
+     "time": "6:15–6:45 pm",
+     "who": [
+      "Mitch",
+      "Chad"
+     ]
+    }
+   ],
+   "issues": []
+  },
+  {
+   "round": 6,
+   "date": "2026-11-16",
+   "night": "Monday",
+   "setup": {
+    "time": "5:30–6:30 pm",
+    "who": [
+     "Mitch",
+     "Brock",
+     "Sam"
+    ],
+    "people": 3
+   },
+   "pack": {
+    "time": "8:00–8:45 pm",
+    "who": [
+     "Mitch",
+     "Jaz"
+    ],
+    "people": 2
+   },
+   "duty": [
+    {
+     "wave": 1,
+     "time": "6:30–7:10 pm",
+     "who": [
+      "Mitch",
+      "Brock"
+     ]
+    },
+    {
+     "wave": 2,
+     "time": "7:20–8:00 pm",
+     "who": [
+      "Sam"
+     ]
+    }
+   ],
+   "issues": [
+    {
+     "level": "bad",
+     "text": "Wave 2 duty officers: 1 short — Mitch (Metford AAM playing), Jaz (Summer Savages playing), Brock (Metford AAM playing) can't.",
+     "fix": "Find another duty officer for this wave — anyone not playing in it."
+    },
+    {
+     "level": "warn",
+     "text": "Mitch has 3 jobs this night.",
+     "fix": "Swap one of their jobs if someone else can help."
+    }
+   ]
+  },
+  {
+   "round": 6,
+   "date": "2026-11-17",
+   "night": "Tuesday",
+   "setup": {
+    "time": "4:30–5:30 pm",
+    "who": [
+     "Harley + Cass",
+     "Brock"
+    ],
+    "people": 3
+   },
+   "pack": {
+    "time": "6:45–7:30 pm",
+    "who": [
+     "Mitch",
+     "Jaz",
+     "Chad"
+    ],
+    "people": 3
+   },
+   "duty": [
+    {
+     "wave": 1,
+     "time": "5:30–6:00 pm",
+     "who": [
+      "Jaz",
+      "Brock"
+     ]
+    },
+    {
+     "wave": 2,
+     "time": "6:15–6:45 pm",
+     "who": [
+      "Mitch",
+      "Chad"
+     ]
+    }
+   ],
+   "issues": []
+  },
+  {
+   "round": 7,
+   "date": "2026-11-23",
+   "night": "Monday",
+   "setup": {
+    "time": "5:30–6:30 pm",
+    "who": [
+     "Mitch",
+     "Brock",
+     "Sam"
+    ],
+    "people": 3
+   },
+   "pack": {
+    "time": "8:00–8:45 pm",
+    "who": [
+     "Mitch",
+     "Jaz"
+    ],
+    "people": 2
+   },
+   "duty": [
+    {
+     "wave": 1,
+     "time": "6:30–7:10 pm",
+     "who": [
+      "Sam"
+     ]
+    },
+    {
+     "wave": 2,
+     "time": "7:20–8:00 pm",
+     "who": [
+      "Jaz",
+      "Brock"
+     ]
+    }
+   ],
+   "issues": [
+    {
+     "level": "bad",
+     "text": "Wave 1 duty officers: 1 short — Mitch (Metford AAM playing), Brock (Metford AAM playing) can't.",
+     "fix": "Find another duty officer for this wave — anyone not playing in it."
+    }
+   ]
+  },
+  {
+   "round": 7,
+   "date": "2026-11-24",
+   "night": "Tuesday",
+   "setup": {
+    "time": "4:30–5:30 pm",
+    "who": [
+     "Harley + Cass",
+     "Brock"
+    ],
+    "people": 3
+   },
+   "pack": {
+    "time": "6:45–7:30 pm",
+    "who": [
+     "Mitch",
+     "Jaz",
+     "Chad"
+    ],
+    "people": 3
+   },
+   "duty": [
+    {
+     "wave": 1,
+     "time": "5:30–6:00 pm",
+     "who": [
+      "Jaz",
+      "Brock"
+     ]
+    },
+    {
+     "wave": 2,
+     "time": "6:15–6:45 pm",
+     "who": [
+      "Mitch",
+      "Chad"
+     ]
+    }
+   ],
+   "issues": []
+  },
+  {
+   "round": 8,
+   "date": "2026-11-30",
+   "night": "Monday",
+   "setup": {
+    "time": "5:30–6:30 pm",
+    "who": [
+     "Mitch",
+     "Brock",
+     "Sam"
+    ],
+    "people": 3
+   },
+   "pack": {
+    "time": "8:00–8:45 pm",
+    "who": [
+     "Mitch",
+     "Jaz"
+    ],
+    "people": 2
+   },
+   "duty": [
+    {
+     "wave": 1,
+     "time": "6:30–7:10 pm",
+     "who": [
+      "Mitch",
+      "Brock"
+     ]
+    },
+    {
+     "wave": 2,
+     "time": "7:20–8:00 pm",
+     "who": [
+      "Sam"
+     ]
+    }
+   ],
+   "issues": [
+    {
+     "level": "bad",
+     "text": "Wave 2 duty officers: 1 short — Mitch (Metford AAM playing), Jaz (Summer Savages playing), Brock (Metford AAM playing) can't.",
+     "fix": "Find another duty officer for this wave — anyone not playing in it."
+    },
+    {
+     "level": "warn",
+     "text": "Mitch has 3 jobs this night.",
+     "fix": "Swap one of their jobs if someone else can help."
+    }
+   ]
+  },
+  {
+   "round": 8,
+   "date": "2026-12-01",
+   "night": "Tuesday",
+   "setup": {
+    "time": "4:30–5:30 pm",
+    "who": [
+     "Harley + Cass",
+     "Brock"
+    ],
+    "people": 3
+   },
+   "pack": {
+    "time": "6:45–7:30 pm",
+    "who": [
+     "Mitch",
+     "Jaz",
+     "Chad"
+    ],
+    "people": 3
+   },
+   "duty": [
+    {
+     "wave": 1,
+     "time": "5:30–6:00 pm",
+     "who": [
+      "Jaz",
+      "Brock"
+     ]
+    },
+    {
+     "wave": 2,
+     "time": "6:15–6:45 pm",
+     "who": [
+      "Mitch",
+      "Chad"
+     ]
+    }
+   ],
+   "issues": []
+  },
+  {
+   "round": 9,
+   "date": "2026-12-07",
+   "night": "Monday",
+   "setup": {
+    "time": "5:30–6:30 pm",
+    "who": [
+     "Mitch",
+     "Brock",
+     "Sam"
+    ],
+    "people": 3
+   },
+   "pack": {
+    "time": "8:00–8:45 pm",
+    "who": [
+     "Mitch",
+     "Jaz"
+    ],
+    "people": 2
+   },
+   "duty": [
+    {
+     "wave": 1,
+     "time": "6:30–7:10 pm",
+     "who": [
+      "Mitch",
+      "Brock"
+     ]
+    },
+    {
+     "wave": 2,
+     "time": "7:20–8:00 pm",
+     "who": [
+      "Sam"
+     ]
+    }
+   ],
+   "issues": [
+    {
+     "level": "bad",
+     "text": "Wave 2 duty officers: 1 short — Mitch (Metford AAM playing), Jaz (Summer Savages playing), Brock (Metford AAM playing) can't.",
+     "fix": "Find another duty officer for this wave — anyone not playing in it."
+    },
+    {
+     "level": "warn",
+     "text": "Mitch has 3 jobs this night.",
+     "fix": "Swap one of their jobs if someone else can help."
+    }
+   ]
+  },
+  {
+   "round": 9,
+   "date": "2026-12-08",
+   "night": "Tuesday",
+   "setup": {
+    "time": "4:30–5:30 pm",
+    "who": [
+     "Harley + Cass",
+     "Brock"
+    ],
+    "people": 3
+   },
+   "pack": {
+    "time": "6:45–7:30 pm",
+    "who": [
+     "Mitch",
+     "Jaz",
+     "Chad"
+    ],
+    "people": 3
+   },
+   "duty": [
+    {
+     "wave": 1,
+     "time": "5:30–6:00 pm",
+     "who": [
+      "Jaz",
+      "Brock"
+     ]
+    },
+    {
+     "wave": 2,
+     "time": "6:15–6:45 pm",
+     "who": [
+      "Mitch",
+      "Chad"
+     ]
+    }
+   ],
+   "issues": []
+  },
+  {
+   "round": 10,
+   "date": "2026-12-14",
+   "night": "Monday",
+   "setup": {
+    "time": "5:30–6:30 pm",
+    "who": [
+     "Mitch",
+     "Brock",
+     "Sam"
+    ],
+    "people": 3
+   },
+   "pack": {
+    "time": "8:00–8:45 pm",
+    "who": [
+     "Mitch",
+     "Jaz"
+    ],
+    "people": 2
+   },
+   "duty": [
+    {
+     "wave": 1,
+     "time": "6:30–7:10 pm",
+     "who": [
+      "Sam"
+     ]
+    },
+    {
+     "wave": 2,
+     "time": "7:20–8:00 pm",
+     "who": [
+      "Mitch",
+      "Brock"
+     ]
+    }
+   ],
+   "issues": [
+    {
+     "level": "bad",
+     "text": "Wave 1 duty officers: 1 short — Mitch (Metford AAM playing), Brock (Metford AAM playing) can't.",
+     "fix": "Find another duty officer for this wave — anyone not playing in it."
+    },
+    {
+     "level": "warn",
+     "text": "Mitch has 3 jobs this night.",
+     "fix": "Swap one of their jobs if someone else can help."
+    }
+   ]
+  },
+  {
+   "round": 10,
+   "date": "2026-12-15",
+   "night": "Tuesday",
+   "setup": {
+    "time": "4:30–5:30 pm",
+    "who": [
+     "Harley + Cass",
+     "Brock"
+    ],
+    "people": 3
+   },
+   "pack": {
+    "time": "6:45–7:30 pm",
+    "who": [
+     "Mitch",
+     "Jaz",
+     "Chad"
+    ],
+    "people": 3
+   },
+   "duty": [
+    {
+     "wave": 1,
+     "time": "5:30–6:00 pm",
+     "who": [
+      "Mitch",
+      "Jaz"
+     ]
+    },
+    {
+     "wave": 2,
+     "time": "6:15–6:45 pm",
+     "who": [
+      "Brock",
+      "Chad"
+     ]
+    }
+   ],
+   "issues": []
+  }
+ ],
+ "issues": [
+  {
+   "level": "bad",
+   "night": "Monday",
+   "text": "Wave 1 duty officers: 1 short — Mitch (Metford AAM playing), Brock (Metford AAM playing) can't.",
+   "fix": "Find another duty officer for this wave — anyone not playing in it.",
+   "rounds": [
+    3,
+    7,
+    10
+   ]
+  },
+  {
+   "level": "bad",
+   "night": "Monday",
+   "text": "Wave 2 duty officers: 1 short — Mitch (Metford AAM playing), Jaz (Summer Savages playing), Brock (Metford AAM playing) can't.",
+   "fix": "Find another duty officer for this wave — anyone not playing in it.",
+   "rounds": [
+    6,
+    8,
+    9
+   ]
+  },
+  {
+   "level": "warn",
+   "night": "Monday",
+   "text": "Mitch has 3 jobs this night.",
+   "fix": "Swap one of their jobs if someone else can help.",
+   "rounds": [
+    1,
+    4,
+    5,
+    6,
+    8,
+    9,
+    10
+   ]
+  },
+  {
+   "level": "warn",
+   "night": "Monday",
+   "text": "Mitch has 4 jobs this night.",
+   "fix": "Swap one of their jobs if someone else can help.",
+   "rounds": [
+    2
+   ]
+  }
+ ]
+}

@@ -14,6 +14,8 @@ import PitchStrip from '../../summer-soccer/admin/PitchStrip.astro';
 import ScenarioRounds from '../../summer-soccer/admin/ScenarioRounds.astro';
 import Compare from '../../summer-soccer/admin/Compare.astro';
 import TeamsData from '../../summer-soccer/admin/TeamsData.astro';
+import VolunteerSchedule from '../../summer-soccer/admin/VolunteerSchedule.astro';
+import volunteers from '../../summer-soccer/admin/volunteers.json';
 import { SITE } from '../../site.config';
 import { withBase } from '../../utils/withBase';
 
@@ -61,10 +63,14 @@ const gamesRange = (() => {
 				<p class="ad-meta">Generated {generated} from the club’s player list. Team-level information only.</p>
 			</div>
 
-			<div class="ad-tabs" role="tablist" aria-label="Views">
-				<button type="button" role="tab" id="tab-schedule" aria-controls="panel-schedule" aria-selected="true" data-tab="schedule">Schedule</button>
-				<button type="button" role="tab" id="tab-teams" aria-controls="panel-teams" aria-selected="false" tabindex="-1" data-tab="teams">Teams &amp; data</button>
-				<button type="button" role="tab" id="tab-history" aria-controls="panel-history" aria-selected="false" tabindex="-1" data-tab="history">History</button>
+			<div class="ad-tabbar">
+				<div class="ad-tabs" role="tablist" aria-label="Views">
+					<button type="button" role="tab" id="tab-schedule" aria-controls="panel-schedule" aria-selected="true" data-tab="schedule">Schedule</button>
+					<button type="button" role="tab" id="tab-volunteers" aria-controls="panel-volunteers" aria-selected="false" tabindex="-1" data-tab="volunteers">Volunteer schedule</button>
+					<button type="button" role="tab" id="tab-teams" aria-controls="panel-teams" aria-selected="false" tabindex="-1" data-tab="teams">Teams &amp; data</button>
+					<button type="button" role="tab" id="tab-history" aria-controls="panel-history" aria-selected="false" tabindex="-1" data-tab="history">History</button>
+				</div>
+				<a class="ad-tablink" href={withBase('/summer-soccer/schedule')} target="_blank" rel="noopener">Public schedule <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
 			</div>
 
 			<!-- ============================== SCHEDULE (chosen scenario) ============================== -->
@@ -84,6 +90,11 @@ const gamesRange = (() => {
 				<PitchStrip data={live} scenario={chosen} heading={false} />
 
 				<ScenarioRounds data={live} scenario={chosen} uid="live" />
+			</section>
+
+			<!-- ============================== VOLUNTEERS ============================== -->
+			<section class="ad-panel" id="panel-volunteers" role="tabpanel" aria-labelledby="tab-volunteers" hidden>
+				<VolunteerSchedule data={volunteers} />
 			</section>
 
 			<!-- ============================== TEAMS & DATA ============================== -->
