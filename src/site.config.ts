@@ -107,8 +107,10 @@ export const SUMMER_SCHEDULE = {
 		intro: "Your team is the last game of the night on {field}. After your game, could you please:",
 		steps: [
 			'Carry the goals back to the storage shed (leave them assembled).',
-			'Bring the {field} sign back to the shed too.'
+			'Bring the {field} sign, the match ball and the benches back to the shed too.'
 		],
+		// Added when the game has bibs (a colour-clash note on the fixture)
+		bibsStep: 'Return the bibs to the shed as well.',
 		thanks: 'Thanks for helping us pack down!'
 	},
 	// Shown at the bottom of the schedule page

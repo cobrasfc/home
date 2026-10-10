@@ -65,8 +65,9 @@ export function NoNextGame(): string {
 }
 
 /** Under "Your next game" when the team is the last game of the night on its field. */
-export function PackDownCard(fieldLabel: string): string {
-	const { heading, intro, steps, thanks } = SUMMER_SCHEDULE.packDown;
+export function PackDownCard(fieldLabel: string, hasBibs = false): string {
+	const { heading, intro, thanks, bibsStep } = SUMMER_SCHEDULE.packDown;
+	const steps = hasBibs ? [...SUMMER_SCHEDULE.packDown.steps, bibsStep] : SUMMER_SCHEDULE.packDown.steps;
 	const fill = (text: string) => esc(text.replaceAll('{field}', fieldLabel));
 	return `<section class="ss-packdown" aria-labelledby="ss-packdown-title">
 		<h2 class="ss-packdown__title" id="ss-packdown-title"><span aria-hidden="true">🥅</span> ${fill(heading)}</h2>

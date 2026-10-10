@@ -151,7 +151,7 @@ function scheduleView(schedule: Schedule, teams: Team[]): string {
 		main += timeline.alertsBeforeNext.map((f) => AlertCard(f, teams, at)).join('');
 		main += NextGameCard(timeline.next, teams, at, timeline.nextIsLive, NextGameCalendar(googleCalendarUrl(timeline.next, teams, link)));
 		if (timeline.next.fieldLabel && isLastOnField(schedule, timeline.next)) {
-			main += PackDownCard(timeline.next.fieldLabel);
+			main += PackDownCard(timeline.next.fieldLabel, /\bbibs?\b/i.test(timeline.next.note));
 		}
 	} else if (timeline.upcoming.length || waiting.length) {
 		main += timeline.upcoming.filter((f) => f.date && f.status !== 'scheduled').map((f) => AlertCard(f, teams, at)).join('');
