@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-10T21:11",
+ "generatedAt": "2026-10-11T10:03",
  "rules": {
   "setupBefore": 60,
   "packFor": 45,
@@ -15,7 +15,7 @@
    "note": "Pair — always together. Set up / pack down only.",
    "monday": "Set up; pack down",
    "tuesday": "Set up; pack down",
-   "setup": 10,
+   "setup": 20,
    "pack": 0,
    "duty": 0
   },
@@ -28,7 +28,7 @@
    "tuesday": "Pack down; duty officer except while cobras gold play",
    "setup": 10,
    "pack": 20,
-   "duty": 19
+   "duty": 11
   },
   {
    "name": "Jaz",
@@ -50,7 +50,7 @@
    "tuesday": "Set up; duty officer",
    "setup": 20,
    "pack": 0,
-   "duty": 20
+   "duty": 18
   },
   {
    "name": "Chad",
@@ -70,9 +70,9 @@
    "note": "",
    "monday": "Set up; pack down; duty officer",
    "tuesday": "Pack down; duty officer",
-   "setup": 10,
+   "setup": 0,
    "pack": 0,
-   "duty": 10
+   "duty": 20
   }
  ],
  "nights": [
@@ -83,11 +83,11 @@
    "setup": {
     "time": "5:30–6:30 pm",
     "who": [
+     "Harley + Cass",
      "Mitch",
-     "Brock",
-     "Sam"
+     "Brock"
     ],
-    "people": 3
+    "people": 4
    },
    "pack": {
     "time": "8:00–8:45 pm",
@@ -110,18 +110,12 @@
      "wave": 2,
      "time": "7:20–8:00 pm",
      "who": [
-      "Mitch",
-      "Brock"
+      "Brock",
+      "Sam"
      ]
     }
    ],
-   "issues": [
-    {
-     "level": "warn",
-     "text": "Mitch has 3 jobs this night.",
-     "fix": "Swap one of their jobs if someone else can help."
-    }
-   ]
+   "issues": []
   },
   {
    "round": 1,
@@ -171,11 +165,11 @@
    "setup": {
     "time": "5:30–6:30 pm",
     "who": [
+     "Harley + Cass",
      "Mitch",
-     "Brock",
-     "Sam"
+     "Brock"
     ],
-    "people": 3
+    "people": 4
    },
    "pack": {
     "time": "8:00–8:45 pm",
@@ -191,14 +185,14 @@
      "time": "6:30–7:10 pm",
      "who": [
       "Mitch",
-      "Brock"
+      "Sam"
      ]
     },
     {
      "wave": 2,
      "time": "7:20–8:00 pm",
      "who": [
-      "Mitch",
+      "Brock",
       "Sam"
      ]
     }
@@ -206,7 +200,7 @@
    "issues": [
     {
      "level": "warn",
-     "text": "Mitch has 4 jobs this night.",
+     "text": "Mitch has 3 jobs this night.",
      "fix": "Swap one of their jobs if someone else can help."
     }
    ]
@@ -259,11 +253,11 @@
    "setup": {
     "time": "5:30–6:30 pm",
     "who": [
+     "Harley + Cass",
      "Mitch",
-     "Brock",
-     "Sam"
+     "Brock"
     ],
-    "people": 3
+    "people": 4
    },
    "pack": {
     "time": "8:00–8:45 pm",
@@ -286,7 +280,7 @@
      "time": "7:20–8:00 pm",
      "who": [
       "Jaz",
-      "Brock"
+      "Sam"
      ]
     }
    ],
@@ -346,11 +340,11 @@
    "setup": {
     "time": "5:30–6:30 pm",
     "who": [
+     "Harley + Cass",
      "Mitch",
-     "Brock",
-     "Sam"
+     "Brock"
     ],
-    "people": 3
+    "people": 4
    },
    "pack": {
     "time": "8:00–8:45 pm",
@@ -365,8 +359,8 @@
      "wave": 1,
      "time": "6:30–7:10 pm",
      "who": [
-      "Mitch",
-      "Brock"
+      "Brock",
+      "Sam"
      ]
     },
     {
@@ -378,13 +372,7 @@
      ]
     }
    ],
-   "issues": [
-    {
-     "level": "warn",
-     "text": "Mitch has 3 jobs this night.",
-     "fix": "Swap one of their jobs if someone else can help."
-    }
-   ]
+   "issues": []
   },
   {
    "round": 4,
@@ -434,11 +422,11 @@
    "setup": {
     "time": "5:30–6:30 pm",
     "who": [
+     "Harley + Cass",
      "Mitch",
-     "Brock",
-     "Sam"
+     "Brock"
     ],
-    "people": 3
+    "people": 4
    },
    "pack": {
     "time": "8:00–8:45 pm",
@@ -453,8 +441,8 @@
      "wave": 1,
      "time": "6:30–7:10 pm",
      "who": [
-      "Mitch",
-      "Brock"
+      "Brock",
+      "Sam"
      ]
     },
     {
@@ -466,13 +454,7 @@
      ]
     }
    ],
-   "issues": [
-    {
-     "level": "warn",
-     "text": "Mitch has 3 jobs this night.",
-     "fix": "Swap one of their jobs if someone else can help."
-    }
-   ]
+   "issues": []
   },
   {
    "round": 5,
@@ -522,11 +504,11 @@
    "setup": {
     "time": "5:30–6:30 pm",
     "who": [
+     "Harley + Cass",
      "Mitch",
-     "Brock",
-     "Sam"
+     "Brock"
     ],
-    "people": 3
+    "people": 4
    },
    "pack": {
     "time": "8:00–8:45 pm",
@@ -541,8 +523,8 @@
      "wave": 1,
      "time": "6:30–7:10 pm",
      "who": [
-      "Mitch",
-      "Brock"
+      "Brock",
+      "Sam"
      ]
     },
     {
@@ -558,11 +540,6 @@
      "level": "bad",
      "text": "Wave 2 duty officers: 1 short — Mitch (Metford AAM playing), Jaz (Summer Savages playing), Brock (Metford AAM playing) can't.",
      "fix": "Find another duty officer for this wave — anyone not playing in it."
-    },
-    {
-     "level": "warn",
-     "text": "Mitch has 3 jobs this night.",
-     "fix": "Swap one of their jobs if someone else can help."
     }
    ]
   },
@@ -614,11 +591,11 @@
    "setup": {
     "time": "5:30–6:30 pm",
     "who": [
+     "Harley + Cass",
      "Mitch",
-     "Brock",
-     "Sam"
+     "Brock"
     ],
-    "people": 3
+    "people": 4
    },
    "pack": {
     "time": "8:00–8:45 pm",
@@ -641,7 +618,7 @@
      "time": "7:20–8:00 pm",
      "who": [
       "Jaz",
-      "Brock"
+      "Sam"
      ]
     }
    ],
@@ -701,11 +678,11 @@
    "setup": {
     "time": "5:30–6:30 pm",
     "who": [
+     "Harley + Cass",
      "Mitch",
-     "Brock",
-     "Sam"
+     "Brock"
     ],
-    "people": 3
+    "people": 4
    },
    "pack": {
     "time": "8:00–8:45 pm",
@@ -720,8 +697,8 @@
      "wave": 1,
      "time": "6:30–7:10 pm",
      "who": [
-      "Mitch",
-      "Brock"
+      "Brock",
+      "Sam"
      ]
     },
     {
@@ -737,11 +714,6 @@
      "level": "bad",
      "text": "Wave 2 duty officers: 1 short — Mitch (Metford AAM playing), Jaz (Summer Savages playing), Brock (Metford AAM playing) can't.",
      "fix": "Find another duty officer for this wave — anyone not playing in it."
-    },
-    {
-     "level": "warn",
-     "text": "Mitch has 3 jobs this night.",
-     "fix": "Swap one of their jobs if someone else can help."
     }
    ]
   },
@@ -793,11 +765,11 @@
    "setup": {
     "time": "5:30–6:30 pm",
     "who": [
+     "Harley + Cass",
      "Mitch",
-     "Brock",
-     "Sam"
+     "Brock"
     ],
-    "people": 3
+    "people": 4
    },
    "pack": {
     "time": "8:00–8:45 pm",
@@ -812,8 +784,8 @@
      "wave": 1,
      "time": "6:30–7:10 pm",
      "who": [
-      "Mitch",
-      "Brock"
+      "Brock",
+      "Sam"
      ]
     },
     {
@@ -829,11 +801,6 @@
      "level": "bad",
      "text": "Wave 2 duty officers: 1 short — Mitch (Metford AAM playing), Jaz (Summer Savages playing), Brock (Metford AAM playing) can't.",
      "fix": "Find another duty officer for this wave — anyone not playing in it."
-    },
-    {
-     "level": "warn",
-     "text": "Mitch has 3 jobs this night.",
-     "fix": "Swap one of their jobs if someone else can help."
     }
    ]
   },
@@ -885,11 +852,11 @@
    "setup": {
     "time": "5:30–6:30 pm",
     "who": [
+     "Harley + Cass",
      "Mitch",
-     "Brock",
-     "Sam"
+     "Brock"
     ],
-    "people": 3
+    "people": 4
    },
    "pack": {
     "time": "8:00–8:45 pm",
@@ -911,8 +878,8 @@
      "wave": 2,
      "time": "7:20–8:00 pm",
      "who": [
-      "Mitch",
-      "Brock"
+      "Brock",
+      "Sam"
      ]
     }
    ],
@@ -921,11 +888,6 @@
      "level": "bad",
      "text": "Wave 1 duty officers: 1 short — Mitch (Metford AAM playing), Brock (Metford AAM playing) can't.",
      "fix": "Find another duty officer for this wave — anyone not playing in it."
-    },
-    {
-     "level": "warn",
-     "text": "Mitch has 3 jobs this night.",
-     "fix": "Swap one of their jobs if someone else can help."
     }
    ]
   },
@@ -998,21 +960,6 @@
    "level": "warn",
    "night": "Monday",
    "text": "Mitch has 3 jobs this night.",
-   "fix": "Swap one of their jobs if someone else can help.",
-   "rounds": [
-    1,
-    4,
-    5,
-    6,
-    8,
-    9,
-    10
-   ]
-  },
-  {
-   "level": "warn",
-   "night": "Monday",
-   "text": "Mitch has 4 jobs this night.",
    "fix": "Swap one of their jobs if someone else can help.",
    "rounds": [
     2
