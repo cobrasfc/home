@@ -114,3 +114,26 @@ export function calendarEligible(fixtures: Fixture[], now: Date): Fixture[] {
 		.filter((f) => (seen.has(f.id) ? false : (seen.add(f.id), true)))
 		.sort(compareFixtures);
 }
+
+/**
+ * True when nothing else is scheduled on this fixture's field later the same day — that team finishes the night on
+ * the field (so they're asked to help pack it down). Cancelled and postponed games don't count as later games.
+ */
+export function isLastOnField(schedule: Schedule, fixture: Fixture): boolean {
+	if (fixture.isBye || fixture.status !== 'scheduled' || !fixture.date || fixture.startMinutes == null) return false;
+	const field = fixture.fieldId ?? fixture.fieldLabel;
+	if (!field) return false;
+	const d = fixture.date;
+	return !schedule.fixtures.some(
+		(f) =>
+			f !== fixture &&
+			!f.isBye &&
+			f.status === 'scheduled' &&
+			f.date?.year === d.year &&
+			f.date.month === d.month &&
+			f.date.day === d.day &&
+			(f.fieldId ?? f.fieldLabel) === field &&
+			f.startMinutes != null &&
+			f.startMinutes > fixture.startMinutes!
+	);
+}

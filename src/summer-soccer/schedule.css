@@ -599,6 +599,39 @@
 	font-weight: 600;
 }
 
+/* Pack-down request: the team is the last game of the night on its field */
+.ss-packdown {
+	border-radius: 14px;
+	padding: 14px 16px;
+	background: #fffbe0;
+	box-shadow: inset 0 0 0 2px var(--ss-yellow);
+	color: var(--ss-ink);
+}
+.ss-packdown__title {
+	margin: 0 0 6px;
+	font-size: 1.0625rem;
+	font-weight: 700;
+	line-height: 1.3;
+	color: var(--ss-blue-deep);
+}
+.ss-packdown__intro,
+.ss-packdown__thanks {
+	margin: 0;
+	font-size: 0.875rem;
+}
+.ss-packdown__steps {
+	margin: 6px 0 8px;
+	padding-left: 1.25em;
+	font-size: 0.875rem;
+	font-weight: 600;
+}
+.ss-packdown__steps li + li {
+	margin-top: 4px;
+}
+.ss-packdown__thanks {
+	color: var(--ss-muted);
+}
+
 /* ---------- Coming up / previous ---------- */
 .ss-section {
 	margin-top: 6px;

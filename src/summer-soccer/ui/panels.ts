@@ -63,3 +63,15 @@ export function NoNextGame(): string {
 		<p class="ss-wrap__text">Your remaining games are waiting on a new date from the club. Check back soon.</p>
 	</section>`;
 }
+
+/** Under "Your next game" when the team is the last game of the night on its field. */
+export function PackDownCard(fieldLabel: string): string {
+	const { heading, intro, steps, thanks } = SUMMER_SCHEDULE.packDown;
+	const fill = (text: string) => esc(text.replaceAll('{field}', fieldLabel));
+	return `<section class="ss-packdown" aria-labelledby="ss-packdown-title">
+		<h2 class="ss-packdown__title" id="ss-packdown-title"><span aria-hidden="true">🥅</span> ${fill(heading)}</h2>
+		<p class="ss-packdown__intro">${fill(intro)}</p>
+		<ul class="ss-packdown__steps">${steps.map((t) => `<li>${fill(t)}</li>`).join('')}</ul>
+		<p class="ss-packdown__thanks">${fill(thanks)}</p>
+	</section>`;
+}

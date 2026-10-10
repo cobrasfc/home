@@ -101,6 +101,16 @@ export const SUMMER_SCHEDULE = {
 		// Cobras Blue renamed Sssstrikers, 8 Oct 2026
 		'u6-7s-cobras-blue': 'u6-7s-sssstrikers'
 	},
+	// Shown under "Your next game" when it's the last game of the night on its field. {field} = e.g. "Field 2".
+	packDown: {
+		heading: 'Last game on {field} — please help pack down',
+		intro: "Your team is the last game of the night on {field}. After your game, could you please:",
+		steps: [
+			'Carry the goals back to the storage shed (leave them assembled).',
+			'Bring the {field} sign back to the shed too.'
+		],
+		thanks: 'Thanks for helping us pack down!'
+	},
 	// Shown at the bottom of the schedule page
 	terms: {
 		heading: 'Schedule subject to change',

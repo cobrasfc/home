@@ -4,7 +4,7 @@ import { SUMMER_SCHEDULE } from '../site.config';
 import { defaultSource, readCachedRows, writeCachedRows, type SourceResult } from './data/source';
 import { parseSchedule } from './data/parse';
 import { formatStamp, relativeDayLabel } from './domain/dates';
-import { buildTimeline, calendarEligible, fixturesForTeams, resolveTeams } from './domain/schedule';
+import { buildTimeline, calendarEligible, fixturesForTeams, isLastOnField, resolveTeams } from './domain/schedule';
 import type { Schedule, Team } from './domain/types';
 import { buildIcs, downloadIcs, googleCalendarUrl } from './utils/ics';
 import { esc } from './utils/html';
@@ -12,7 +12,7 @@ import { readSavedTeamIds, saveTeamIds } from './utils/storage';
 import { readPreviewNow, readTeamIdsFromUrl, shareUrl, writeTeamIdsToUrl } from './utils/url-state';
 import { FixtureList } from './ui/FixtureList';
 import { AlertCard, NextGameCard } from './ui/NextGameCard';
-import { AllGamesCalendar, ErrorState, NextGameCalendar, NoNextGame, Support, WrapCard } from './ui/panels';
+import { AllGamesCalendar, ErrorState, NextGameCalendar, NoNextGame, PackDownCard, Support, WrapCard } from './ui/panels';
 import { swatch } from './ui/bits';
 import { TeamSelector, type PickerState } from './ui/TeamSelector';
 
@@ -150,6 +150,9 @@ function scheduleView(schedule: Schedule, teams: Team[]): string {
 	if (timeline.next) {
 		main += timeline.alertsBeforeNext.map((f) => AlertCard(f, teams, at)).join('');
 		main += NextGameCard(timeline.next, teams, at, timeline.nextIsLive, NextGameCalendar(googleCalendarUrl(timeline.next, teams, link)));
+		if (timeline.next.fieldLabel && isLastOnField(schedule, timeline.next)) {
+			main += PackDownCard(timeline.next.fieldLabel);
+		}
 	} else if (timeline.upcoming.length || waiting.length) {
 		main += timeline.upcoming.filter((f) => f.date && f.status !== 'scheduled').map((f) => AlertCard(f, teams, at)).join('');
 		main += NoNextGame();
