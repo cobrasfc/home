@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-11T10:03",
+ "generatedAt": "2026-10-11T18:08",
  "rules": {
   "setupBefore": 60,
   "packFor": 45,
@@ -39,7 +39,7 @@
    "tuesday": "Pack down; duty officer",
    "setup": 0,
    "pack": 20,
-   "duty": 15
+   "duty": 14
   },
   {
    "name": "Brock",
@@ -50,7 +50,7 @@
    "tuesday": "Set up; duty officer",
    "setup": 20,
    "pack": 0,
-   "duty": 18
+   "duty": 17
   },
   {
    "name": "Chad",
@@ -359,7 +359,6 @@
      "wave": 1,
      "time": "6:30–7:10 pm",
      "who": [
-      "Brock",
       "Sam"
      ]
     },
@@ -372,7 +371,13 @@
      ]
     }
    ],
-   "issues": []
+   "issues": [
+    {
+     "level": "bad",
+     "text": "Wave 1 duty officers: 1 short — Mitch (Metford AAM playing), Brock (Metford AAM playing) can't.",
+     "fix": "Find another duty officer for this wave — anyone not playing in it."
+    }
+   ]
   },
   {
    "round": 4,
@@ -441,7 +446,6 @@
      "wave": 1,
      "time": "6:30–7:10 pm",
      "who": [
-      "Brock",
       "Sam"
      ]
     },
@@ -449,12 +453,18 @@
      "wave": 2,
      "time": "7:20–8:00 pm",
      "who": [
-      "Jaz",
+      "Brock",
       "Sam"
      ]
     }
    ],
-   "issues": []
+   "issues": [
+    {
+     "level": "bad",
+     "text": "Wave 1 duty officers: 1 short — Mitch (Metford AAM playing), Brock (Metford AAM playing) can't.",
+     "fix": "Find another duty officer for this wave — anyone not playing in it."
+    }
+   ]
   },
   {
    "round": 5,
@@ -941,6 +951,8 @@
    "fix": "Find another duty officer for this wave — anyone not playing in it.",
    "rounds": [
     3,
+    4,
+    5,
     7,
     10
    ]

@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-10T20:38",
+ "generatedAt": "2026-10-11T18:08",
  "weeks": 10,
  "unrefereedComps": [],
  "comps": [
@@ -916,12 +916,12 @@
      "date": "2026-11-02",
      "night": "Monday",
      "wave": 1,
-     "comp": "mixed",
+     "comp": "aam",
      "start": "6:30 PM",
      "end": "7:10 PM",
      "field": "field-3",
-     "team1": "Team Gene",
-     "team2": "Sandbar FC",
+     "team1": "Metford AAM",
+     "team2": "Gooners FC",
      "note": ""
     },
     {
@@ -984,9 +984,22 @@
      "comp": "mixed",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-3",
+     "field": "field-1",
      "team1": "Motley Crew",
      "team2": "Dribbling Morons",
+     "note": ""
+    },
+    {
+     "week": 4,
+     "date": "2026-11-02",
+     "night": "Monday",
+     "wave": 2,
+     "comp": "mixed",
+     "start": "7:20 PM",
+     "end": "8:00 PM",
+     "field": "field-3",
+     "team1": "Team Gene",
+     "team2": "Sandbar FC",
      "note": ""
     },
     {
@@ -1010,19 +1023,6 @@
      "comp": "aam",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-4",
-     "team1": "Metford AAM",
-     "team2": "Gooners FC",
-     "note": ""
-    },
-    {
-     "week": 4,
-     "date": "2026-11-02",
-     "night": "Monday",
-     "wave": 2,
-     "comp": "aam",
-     "start": "7:20 PM",
-     "end": "8:00 PM",
      "field": "field-6",
      "team1": "PXG",
      "team2": "The Ghosts",
@@ -1036,7 +1036,7 @@
      "comp": "aaw",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-1",
+     "field": "field-4",
      "team1": "Country",
      "team2": "The Young and the Breathless",
      "note": ""
@@ -1049,7 +1049,7 @@
      "comp": "mixed",
      "start": "6:30 PM",
      "end": "7:10 PM",
-     "field": "field-1",
+     "field": "field-6",
      "team1": "Dribbling Morons",
      "team2": "Sandbar FC",
      "note": ""
@@ -1085,6 +1085,19 @@
      "date": "2026-11-09",
      "night": "Monday",
      "wave": 1,
+     "comp": "aam",
+     "start": "6:30 PM",
+     "end": "7:10 PM",
+     "field": "field-1",
+     "team1": "Metford AAM",
+     "team2": "Muppets",
+     "note": ""
+    },
+    {
+     "week": 5,
+     "date": "2026-11-09",
+     "night": "Monday",
+     "wave": 1,
      "comp": "aaw",
      "start": "6:30 PM",
      "end": "7:10 PM",
@@ -1097,24 +1110,11 @@
      "week": 5,
      "date": "2026-11-09",
      "night": "Monday",
-     "wave": 1,
-     "comp": "aaw",
-     "start": "6:30 PM",
-     "end": "7:10 PM",
-     "field": "field-6",
-     "team1": "Zero Pace United",
-     "team2": "Country",
-     "note": ""
-    },
-    {
-     "week": 5,
-     "date": "2026-11-09",
-     "night": "Monday",
      "wave": 2,
      "comp": "mixed",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-1",
+     "field": "field-6",
      "team1": "Team Gene",
      "team2": "Motley Crew",
      "note": "Colour clash: Motley Crew to wear bibs (supplied by Cobras)"
@@ -1127,9 +1127,9 @@
      "comp": "aam",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-6",
-     "team1": "Metford AAM",
-     "team2": "Muppets",
+     "field": "field-4",
+     "team1": "PXG",
+     "team2": "Dongos / Rutherford Dragons",
      "note": ""
     },
     {
@@ -1137,12 +1137,12 @@
      "date": "2026-11-09",
      "night": "Monday",
      "wave": 2,
-     "comp": "aam",
+     "comp": "aaw",
      "start": "7:20 PM",
      "end": "8:00 PM",
-     "field": "field-4",
-     "team1": "PXG",
-     "team2": "Dongos / Rutherford Dragons",
+     "field": "field-1",
+     "team1": "Zero Pace United",
+     "team2": "Country",
      "note": ""
     },
     {
@@ -2878,7 +2878,7 @@
           "field-1"
          ],
          "minis": false,
-         "gamesMin": 1,
+         "gamesMin": 0,
          "gamesMax": 2
         },
         {
@@ -2889,8 +2889,8 @@
           "field-3"
          ],
          "minis": false,
-         "gamesMin": 1,
-         "gamesMax": 2
+         "gamesMin": 2,
+         "gamesMax": 3
         },
         {
          "comp": "aaw",
@@ -2924,7 +2924,7 @@
          ],
          "minis": false,
          "gamesMin": 0,
-         "gamesMax": 1
+         "gamesMax": 2
         },
         {
          "comp": "aam",
@@ -2934,8 +2934,8 @@
           "field-3"
          ],
          "minis": false,
-         "gamesMin": 2,
-         "gamesMax": 3
+         "gamesMin": 1,
+         "gamesMax": 2
         },
         {
          "comp": "aaw",
@@ -2958,7 +2958,7 @@
       }
      ],
      "shownWeek": 1,
-     "shownWeeks": 7,
+     "shownWeeks": 6,
      "varies": true
     },
     {
@@ -3070,12 +3070,12 @@
      ],
      "games": [
       [
-       "Metford U10s",
-       "Rutherford Reds"
-      ],
-      [
        "Grass Goblins",
        "Mayhem FC"
+      ],
+      [
+       "Metford U10s",
+       "Rutherford Reds"
       ]
      ]
     },
@@ -3108,12 +3108,12 @@
      ],
      "games": [
       [
-       "8/3 Thornton Devils",
-       "Rutherford Reds"
-      ],
-      [
        "Grass Goblins",
        "Mayhem FC"
+      ],
+      [
+       "8/3 Thornton Devils",
+       "Rutherford Reds"
       ]
      ]
     }
@@ -3137,25 +3137,25 @@
     }
    ],
    "waveSplit": {
-    "mixed": {
-     "earlyMin": 5,
-     "earlyMax": 7
-    },
     "aaw": {
-     "earlyMin": 4,
+     "earlyMin": 3,
      "earlyMax": 7
     },
     "aam": {
-     "earlyMin": 3,
-     "earlyMax": 5
+     "earlyMin": 4,
+     "earlyMax": 6
     },
-    "u1215": {
-     "earlyMin": 2,
-     "earlyMax": 9
+    "mixed": {
+     "earlyMin": 5,
+     "earlyMax": 6
     },
     "u67": {
      "earlyMin": 2,
      "earlyMax": 7
+    },
+    "u1215": {
+     "earlyMin": 2,
+     "earlyMax": 9
     }
    },
    "bibGames": 21
