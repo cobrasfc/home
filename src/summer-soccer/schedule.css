@@ -395,6 +395,23 @@
 	font-size: 0.875rem;
 	line-height: 1.45;
 }
+.ss-hero__game {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+}
+.ss-hero__game--later {
+	padding-top: 14px;
+	border-top: 1px dashed rgb(255 255 255 / 0.35);
+}
+.ss-hero__gamelabel {
+	margin-top: 2px;
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--ss-yellow);
+}
 .ss-hero__meta {
 	font-size: 0.8125rem;
 	color: rgb(255 255 255 / 0.8);
@@ -779,6 +796,14 @@
 .ss-badge--postponed {
 	background: #f4b740;
 	color: #3b2203;
+}
+.ss-badge--catchup {
+	background: #0f6e56;
+	color: #fff;
+}
+.ss-badge--moved {
+	background: var(--ss-yellow);
+	color: var(--ss-blue-deep);
 }
 .ss-badge--bye {
 	background: var(--ss-line);

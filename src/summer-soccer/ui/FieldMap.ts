@@ -48,14 +48,17 @@ export function fieldDescription(fieldId: string | null, fieldLabel: string | nu
 	return 'Field to be confirmed';
 }
 
-export function FieldMap(fieldId: string | null, fieldLabel: string | null, idPrefix = 'ss-map'): string {
+export function FieldMap(fieldId: string | null, fieldLabel: string | null, idPrefix = 'ss-map', alsoFieldIds: (string | null)[] = []): string {
 	const target = fieldById(fieldId);
+	// Another game the same day is highlighted too
+	const also = alsoFieldIds.map(fieldById).filter((f): f is NonNullable<typeof f> => !!f && f.id !== target?.id);
+	const targets = new Set([target?.id, ...also.map((f) => f.id)].filter(Boolean));
 	const { viewBox: vb } = ACTIVE_GROUND;
-	// Draw the highlighted field last so its pulse sits above neighbouring fields
-	const ordered = [...ACTIVE_GROUND.fields].sort((a, b) => Number(a.id === target?.id) - Number(b.id === target?.id));
+	// Draw the highlighted fields last so their pulse sits above neighbouring fields
+	const ordered = [...ACTIVE_GROUND.fields].sort((a, b) => Number(targets.has(a.id)) - Number(targets.has(b.id)));
 	const fields = ordered
 		.map((f) => {
-			const isTarget = f.id === target?.id;
+			const isTarget = targets.has(f.id);
 			// "Minis 1" is too wide for a mini pitch on one line: small word above a big number
 			const [word, num] = f.short.includes(' ') ? f.short.split(' ') : [null, f.short];
 			const numSize = word ? (isTarget ? 64 : 52) : isTarget ? 104 : 76;
@@ -73,7 +76,7 @@ export function FieldMap(fieldId: string | null, fieldLabel: string | null, idPr
 		})
 		.join('');
 	const description = target
-		? `Ground map with ${target.label} highlighted: ${target.area}. Fields 1 to 3 run across the left-hand pitch, Fields 4 to 6 across the right-hand pitch with the minis beside it; the canteen is at the bottom and the railway runs along the top right.`
+		? `Ground map with ${[target, ...also].map((f) => `${f.label} highlighted: ${f.area}`).join('; ')}. Fields 1 to 3 run across the left-hand pitch, Fields 4 to 6 across the right-hand pitch with the minis beside it; the canteen is at the bottom and the railway runs along the top right.`
 		: fieldLabel
 			? `Ground map. ${fieldLabel} isn't on the map, so no field is highlighted.`
 			: 'Ground map. The field hasn’t been confirmed yet, so no field is highlighted.';

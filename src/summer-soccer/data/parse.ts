@@ -11,6 +11,7 @@ import type {
 	Fixture,
 	FixtureSide,
 	FixtureStatus,
+	FixtureTag,
 	ParseWarning,
 	Schedule,
 	Team
@@ -30,7 +31,8 @@ type Column =
 	| 'team2'
 	| 'team2Colour'
 	| 'status'
-	| 'note';
+	| 'note'
+	| 'tag';
 
 const HEADER_ALIASES: Record<Column, string[]> = {
 	round: ['round', 'rd', 'week', 'roundno', 'roundnumber'],
@@ -44,7 +46,8 @@ const HEADER_ALIASES: Record<Column, string[]> = {
 	team2: ['team2', 'teamtwo', 'awayteam', 'away'],
 	team2Colour: ['team2colour', 'team2color', 'team2colours', 'awaycolour', 'awaycolor'],
 	status: ['status', 'fixturestatus', 'gamestatus'],
-	note: ['note', 'notes', 'message', 'fixturemessage', 'fixturenote', 'comment', 'comments']
+	note: ['note', 'notes', 'message', 'fixturemessage', 'fixturenote', 'comment', 'comments'],
+	tag: ['tag', 'tags', 'label', 'flag', 'highlight', 'change']
 };
 
 const headerKey = (value: string) => value.toLowerCase().replace(/[^a-z0-9]/g, '');
@@ -129,6 +132,14 @@ function parseStatus(raw: string): { status: FixtureStatus; unknown: boolean } {
 	if (/cancel|washed out|abandon|called off/.test(value)) return { status: 'cancelled', unknown: false };
 	if (/postpone|^ppd$|delayed|resched|tba|tbc/.test(value)) return { status: 'postponed', unknown: false };
 	return { status: 'scheduled', unknown: true };
+}
+
+/** "Catch-up" / "Moved" highlight; anything else is ignored */
+function parseTag(raw: string): FixtureTag | null {
+	const value = tidy(raw).toLowerCase();
+	if (/catch|make ?up|replay/.test(value)) return 'catch-up';
+	if (/move|resched|time change|changed/.test(value)) return 'moved';
+	return null;
 }
 
 function parseRound(raw: string): { round: number | null; label: string } {
@@ -290,6 +301,8 @@ export function parseSchedule(rows: string[][], now: Date = new Date()): Schedul
 			team2,
 			isBye,
 			status,
+			statusText: tidy(cell('status')),
+			tag: parseTag(cell('tag')),
 			note
 		});
 	}

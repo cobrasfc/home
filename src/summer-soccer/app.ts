@@ -5,7 +5,7 @@ import { defaultSource, readCachedRows, writeCachedRows, type SourceResult } fro
 import { parseSchedule } from './data/parse';
 import { formatStamp, relativeDayLabel } from './domain/dates';
 import { buildTimeline, calendarEligible, fixturesForTeams, isLastOnField, resolveTeams } from './domain/schedule';
-import type { Schedule, Team } from './domain/types';
+import type { Fixture, Schedule, Team } from './domain/types';
 import { buildIcs, downloadIcs, googleCalendarUrl } from './utils/ics';
 import { esc } from './utils/html';
 import { readSavedTeamIds, saveTeamIds } from './utils/storage';
@@ -140,7 +140,11 @@ function scheduleView(schedule: Schedule, teams: Team[]): string {
 	const link = shareUrl(teams.map((t) => t.id));
 	const eligible = calendarEligible(mine, at);
 
-	const hidden = new Set([timeline.next?.id, ...timeline.alertsBeforeNext.map((f) => f.id)]);
+	// Other games the same day as the next one (a team playing twice, or two followed teams) share the hero card
+	const nextDate = timeline.next?.date;
+	const sameDay = (f: Fixture) => !!nextDate && f.date?.year === nextDate.year && f.date.month === nextDate.month && f.date.day === nextDate.day;
+	const later = timeline.next ? timeline.upcoming.filter((f) => f !== timeline.next && f.status === 'scheduled' && !f.isBye && sameDay(f)) : [];
+	const hidden = new Set([timeline.next?.id, ...later.map((f) => f.id), ...timeline.alertsBeforeNext.map((f) => f.id)]);
 	const comingUp = timeline.upcoming.filter((f) => !hidden.has(f.id));
 	const waiting = timeline.awaitingNewDate;
 
@@ -149,10 +153,10 @@ function scheduleView(schedule: Schedule, teams: Team[]): string {
 
 	if (timeline.next) {
 		main += timeline.alertsBeforeNext.map((f) => AlertCard(f, teams, at)).join('');
-		main += NextGameCard(timeline.next, teams, at, timeline.nextIsLive, NextGameCalendar(googleCalendarUrl(timeline.next, teams, link)));
-		if (timeline.next.fieldLabel && isLastOnField(schedule, timeline.next)) {
-			main += PackDownCard(timeline.next.fieldLabel, /\bbibs?\b/i.test(timeline.next.note));
-		}
+		main += NextGameCard(timeline.next, teams, at, timeline.nextIsLive, NextGameCalendar(googleCalendarUrl(timeline.next, teams, link)), later);
+		// Pack-down: the latest of the day's games that finishes the night on its field
+		const lastOnField = [timeline.next, ...later].reverse().find((f) => f.fieldLabel && isLastOnField(schedule, f));
+		if (lastOnField) main += PackDownCard(lastOnField.fieldLabel!, /\bbibs?\b/i.test(lastOnField.note));
 	} else if (timeline.upcoming.length || waiting.length) {
 		main += timeline.upcoming.filter((f) => f.date && f.status !== 'scheduled').map((f) => AlertCard(f, teams, at)).join('');
 		main += NoNextGame();

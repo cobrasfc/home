@@ -37,6 +37,9 @@ export interface Team {
 
 export type FixtureStatus = 'scheduled' | 'cancelled' | 'postponed';
 
+/** Highlight for a game that's different from the original draw */
+export type FixtureTag = 'catch-up' | 'moved';
+
 export interface FixtureSide {
 	team: Team | null; // null for a bye
 	name: string;
@@ -63,6 +66,9 @@ export interface Fixture {
 	team2: FixtureSide;
 	isBye: boolean;
 	status: FixtureStatus;
+	/** The Status cell as typed (e.g. "Washed out (wet weather)"), for the badge wording */
+	statusText: string;
+	tag: FixtureTag | null;
 	note: string;
 }
 

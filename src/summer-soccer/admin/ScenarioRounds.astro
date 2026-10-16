@@ -12,6 +12,13 @@ interface Props {
 }
 const { data, scenario: s, uid: key } = Astro.props;
 const v = makeView(data);
+/** One short line under a game in the social image: catch-up / moved, then bibs */
+const imageNote = (g: any) => {
+	const bibs = g.note.match(/Colour clash: (.+?) to wear bibs/)?.[1];
+	return [g.tag === 'Catch-up' ? `Catch-up for ${g.label}` : g.tag === 'Moved' ? 'Moved — new time' : '', bibs ? `Bibs: ${bibs}` : '']
+		.filter(Boolean)
+		.join(' · ');
+};
 // Social-media roster images (current draw only)
 const shareable = key === 'live';
 const logoUrl = withBase('/assets/logo-shield.svg');
@@ -70,7 +77,7 @@ const longDate = (iso: string) => new Date(`${iso}T12:00:00`).toLocaleDateString
 										dateLabel: longDate(games[0].date),
 										logoUrl,
 										siteUrl,
-										games: games.map((g: any) => ({ start: g.start, field: fieldLabel(g.field, groundFor(s)), comp: v.comp[g.comp].short, colour: COMP_COLOURS[g.comp], team1: g.team1, team2: g.team2, note: g.note })),
+										games: games.filter((g: any) => !g.status).map((g: any) => ({ start: g.start, field: fieldLabel(g.field, groundFor(s)), comp: v.comp[g.comp].short, colour: COMP_COLOURS[g.comp], team1: g.team1, team2: g.team2, note: imageNote(g) })),
 										byes: byes.map((t: any) => ({ team: t.name, comp: v.comp[t.comp].short }))
 									})}
 								>
@@ -98,12 +105,16 @@ const longDate = (iso: string) => new Date(`${iso}T12:00:00`).toLocaleDateString
 								<thead><tr><th scope="col">Time</th><th scope="col">Field</th><th scope="col">Competition</th><th scope="col">Match</th><th scope="col">Note</th></tr></thead>
 								<tbody>
 									{games.map((g: any) => (
-										<tr>
+										<tr class={g.status ? 'is-washed' : undefined}>
 											<td class="ad-nowrap">{g.start}</td>
 											<td class="ad-nowrap">{fieldLabel(g.field, groundFor(s))}</td>
 											<td class="ad-nowrap"><span class="ad-chip ad-chip--sm" style={`--plan:${COMP_COLOURS[g.comp]}`}>{v.comp[g.comp].short}</span></td>
 											<td>{g.team1} <span class="ad-muted">v</span> {g.team2}</td>
-											<td class="ad-muted">{g.note.replace(/^Colour clash: /, '')}</td>
+											<td class="ad-muted">
+												{g.status && <span class="ad-tag is-washed">{g.status.replace(/\s*\(.*\)$/, '')}</span>}
+												{g.tag && <span class={`ad-tag ${g.tag === 'Catch-up' ? 'is-catchup' : 'is-moved'}`}>{g.tag === 'Catch-up' ? `Catch-up · ${g.label}` : g.tag}</span>}
+												{' '}{g.note.replace(/^Colour clash: /, '')}
+											</td>
 										</tr>
 									))}
 									{byes.map((t: any) => (

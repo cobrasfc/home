@@ -112,6 +112,36 @@
 	color: var(--ss-blue);
 }
 
+/* Draw table: washed-out, catch-up and moved games */
+.ad-table tr.is-washed td {
+	color: var(--ad-ink-2);
+	text-decoration: line-through;
+}
+.ad-table tr.is-washed td:last-child {
+	text-decoration: none;
+}
+.ad-tag {
+	display: inline-block;
+	margin-right: 4px;
+	padding: 1px 8px;
+	border-radius: 999px;
+	font-size: 0.75rem;
+	font-weight: 700;
+	white-space: nowrap;
+}
+.ad-tag.is-catchup {
+	background: #0f6e56;
+	color: #fff;
+}
+.ad-tag.is-moved {
+	background: var(--ss-yellow);
+	color: var(--ss-blue-deep);
+}
+.ad-tag.is-washed {
+	background: #b42318;
+	color: #fff;
+}
+
 /* ---------- Volunteer schedule ---------- */
 .ad-jobs {
 	margin: 0 0 8px;

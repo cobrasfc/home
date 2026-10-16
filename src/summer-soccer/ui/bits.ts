@@ -19,8 +19,18 @@ export function colourName(colour: Colour): string {
 
 export function statusBadge(fixture: Fixture): string {
 	if (fixture.isBye) return '<span class="ss-badge ss-badge--bye">Bye</span>';
-	if (fixture.status === 'cancelled') return '<span class="ss-badge ss-badge--cancelled"><span aria-hidden="true">✕</span> Cancelled</span>';
+	if (fixture.status === 'cancelled') {
+		const label = /wash/i.test(fixture.statusText) ? 'Washed out' : 'Cancelled';
+		return `<span class="ss-badge ss-badge--cancelled"><span aria-hidden="true">✕</span> ${label}</span>`;
+	}
 	if (fixture.status === 'postponed') return '<span class="ss-badge ss-badge--postponed"><span aria-hidden="true">⏸</span> Postponed</span>';
+	return tagBadge(fixture);
+}
+
+/** "Catch-up" / "Moved" chip for games that differ from the original draw */
+export function tagBadge(fixture: Fixture): string {
+	if (fixture.tag === 'catch-up') return '<span class="ss-badge ss-badge--catchup"><span aria-hidden="true">↻</span> Catch-up</span>';
+	if (fixture.tag === 'moved') return '<span class="ss-badge ss-badge--moved"><span aria-hidden="true">⇄</span> Moved</span>';
 	return '';
 }
 

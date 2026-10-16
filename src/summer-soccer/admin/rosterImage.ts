@@ -8,7 +8,7 @@ export interface RosterGame {
 	colour: string;
 	team1: string;
 	team2: string;
-	/** e.g. "Pitch Please to wear bibs (supplied by Cobras)" */
+	/** One short line, e.g. "Catch-up for Round 1 · Bibs: Pitch Please" */
 	note: string;
 }
 
@@ -75,7 +75,6 @@ const NOTE = 30;
 const GROUP_HEAD = 64;
 
 const cardHeight = (g: RosterGame) => CARD + (g.note ? NOTE : 0);
-const bibNote = (note: string) => 'Bibs: ' + note.replace(/^Colour clash: /, '').replace(/ to wear bibs.*$/, '');
 
 /** Wrap `text` to lines no wider than `maxWidth`, breaking at " · " separators */
 function wrap(ctx: CanvasRenderingContext2D, parts: string[], maxWidth: number) {
@@ -139,7 +138,7 @@ function drawCard(ctx: CanvasRenderingContext2D, g: RosterGame, x: number, y: nu
 	if (g.note) {
 		ctx.fillStyle = MUTED;
 		ctx.font = font(400, 19);
-		ctx.fillText(clip(ctx, bibNote(g.note), w - 28), x + 14, y + CARD + 8);
+		ctx.fillText(clip(ctx, g.note, w - 28), x + 14, y + CARD + 8);
 	}
 }
 

@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-11T18:08",
+ "generatedAt": "2026-10-16T15:04",
  "rules": {
   "setupBefore": 60,
   "packFor": 45,
@@ -15,7 +15,7 @@
    "note": "Pair — always together. Set up / pack down only.",
    "monday": "Set up; pack down",
    "tuesday": "Set up; pack down",
-   "setup": 20,
+   "setup": 19,
    "pack": 0,
    "duty": 0
   },
@@ -27,8 +27,8 @@
    "monday": "Set up; pack down; duty officer except while metford aam play",
    "tuesday": "Pack down; duty officer except while cobras gold play",
    "setup": 10,
-   "pack": 20,
-   "duty": 11
+   "pack": 19,
+   "duty": 9
   },
   {
    "name": "Jaz",
@@ -38,8 +38,8 @@
    "monday": "Pack down; duty officer (wave 2 only) except while summer savages play",
    "tuesday": "Pack down; duty officer",
    "setup": 0,
-   "pack": 20,
-   "duty": 14
+   "pack": 19,
+   "duty": 13
   },
   {
    "name": "Brock",
@@ -48,9 +48,9 @@
    "note": "",
    "monday": "Set up; pack down; duty officer except while metford aam play",
    "tuesday": "Set up; duty officer",
-   "setup": 20,
+   "setup": 19,
    "pack": 0,
-   "duty": 17
+   "duty": 16
   },
   {
    "name": "Chad",
@@ -60,8 +60,8 @@
    "monday": "Not available",
    "tuesday": "Pack down; duty officer",
    "setup": 0,
-   "pack": 10,
-   "duty": 10
+   "pack": 9,
+   "duty": 9
   },
   {
    "name": "Sam",
@@ -72,7 +72,7 @@
    "tuesday": "Pack down; duty officer",
    "setup": 0,
    "pack": 0,
-   "duty": 20
+   "duty": 21
   }
  ],
  "nights": [
@@ -112,47 +112,6 @@
      "who": [
       "Brock",
       "Sam"
-     ]
-    }
-   ],
-   "issues": []
-  },
-  {
-   "round": 1,
-   "date": "2026-10-13",
-   "night": "Tuesday",
-   "setup": {
-    "time": "4:30–5:30 pm",
-    "who": [
-     "Harley + Cass",
-     "Brock"
-    ],
-    "people": 3
-   },
-   "pack": {
-    "time": "6:45–7:30 pm",
-    "who": [
-     "Mitch",
-     "Jaz",
-     "Chad"
-    ],
-    "people": 3
-   },
-   "duty": [
-    {
-     "wave": 1,
-     "time": "5:30–6:00 pm",
-     "who": [
-      "Mitch",
-      "Jaz"
-     ]
-    },
-    {
-     "wave": 2,
-     "time": "6:15–6:45 pm",
-     "who": [
-      "Brock",
-      "Chad"
      ]
     }
    ],
@@ -206,7 +165,7 @@
    ]
   },
   {
-   "round": 2,
+   "round": 1,
    "date": "2026-10-20",
    "night": "Tuesday",
    "setup": {
@@ -231,16 +190,16 @@
      "wave": 1,
      "time": "5:30–6:00 pm",
      "who": [
-      "Mitch",
-      "Jaz"
+      "Jaz",
+      "Brock"
      ]
     },
     {
      "wave": 2,
      "time": "6:15–6:45 pm",
      "who": [
-      "Brock",
-      "Chad"
+      "Chad",
+      "Sam"
      ]
     }
    ],
