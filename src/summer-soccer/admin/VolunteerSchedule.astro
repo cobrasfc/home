@@ -1,28 +1,30 @@
 ---
-// Volunteer roster for each night: set up, duty officers per wave, pack down — plus the gaps to fill.
-// Data comes from plan_volunteers.py (run next to the draw) → volunteers.json.
+// Volunteer roster for each night: field and canteen set up, duty officers and canteen helpers each wave, field and
+// canteen pack down — plus the gaps to fill. Data comes from plan_volunteers.py (run next to the draw) → volunteers.json.
 interface Props {
 	data: any;
 }
 const { data } = Astro.props;
-const r = data.rules;
-const nights = ['Monday', 'Tuesday'].map((night) => ({ night, rows: data.nights.filter((n: any) => n.night === night) }));
+const nights = ['Monday', 'Tuesday'].map((night) => ({
+	night,
+	jobs: data.jobs[night] as any[],
+	rows: data.nights.filter((n: any) => n.night === night)
+}));
+const groupsOf = (jobs: any[]) => [...new Set(jobs.map((j) => j.group))].map((g) => ({ group: g, jobs: jobs.filter((j) => j.group === g) }));
 const dateLabel = (iso: string) => new Date(`${iso}T12:00:00`).toLocaleDateString('en-AU', { day: 'numeric', month: 'short' });
-const roundsText = (rounds: number[]) => (rounds.length === 10 ? 'every round' : `Round${rounds.length > 1 ? 's' : ''} ${rounds.join(', ')}`);
+const roundsText = (rounds: number[]) => (rounds.length >= 9 ? 'every round' : `Round${rounds.length > 1 ? 's' : ''} ${rounds.join(', ')}`);
+const size = (j: any) => `${j.min === j.max ? j.min : `${j.min}–${j.max}`} ${j.count === 'helpers' ? (j.max === 1 ? 'helper' : 'helpers') : 'people'}`;
+const needs = (j: any) => (j.needs === 'keys' ? 'someone with keys' : j.needs === 'canteen lead' ? 'Candice or Toni' : '');
 const bad = data.issues.filter((i: any) => i.level === 'bad');
 const warn = data.issues.filter((i: any) => i.level === 'warn');
-/** Issues on this night that belong to a job column, so the cell can be flagged */
-const flag = (n: any, prefix: string) => n.issues.filter((i: any) => i.text.startsWith(prefix));
 const generated = new Date(data.generatedAt).toLocaleString('en-AU', { dateStyle: 'medium', timeStyle: 'short' });
 ---
 
 <h2 class="ad-h2">Volunteer schedule</h2>
-<p class="ad-lede">Who's on each night. Every night needs:</p>
-<ul class="ad-jobs">
-	<li><strong>Set up</strong> — {r.setupBefore / 60} hour before the first game. At least {r.teamMin} people (ideally {r.teamIdeal}), including someone with keys.</li>
-	<li><strong>Duty officers</strong> — {r.dutyPerWave} for each wave.</li>
-	<li><strong>Pack down</strong> — straight after the last game, about {r.packFor} minutes. A different team from set up: at least {r.teamMin} (ideally {r.teamIdeal}), including someone with keys.</li>
-</ul>
+<p class="ad-lede">
+	Who's on each night. Candice or Toni is always in the canteen; a pair (Harley + Cass, Chloe + Abby) counts as one canteen helper. Nobody is
+	given two jobs at the same time.
+</p>
 
 <h3 class="ad-h3">To sort out</h3>
 {data.issues.length === 0 ? (
@@ -38,7 +40,7 @@ const generated = new Date(data.generatedAt).toLocaleString('en-AU', { dateStyle
 	</ul>
 )}
 
-{nights.map(({ night, rows }) => (
+{nights.map(({ night, jobs, rows }) => (
 	<div class="ad-block">
 		<h3 class="ad-h3">{night}s</h3>
 		<div class="ad-tablewrap">
@@ -46,42 +48,65 @@ const generated = new Date(data.generatedAt).toLocaleString('en-AU', { dateStyle
 				<caption class="sr-only">{night} volunteer roster</caption>
 				<thead>
 					<tr>
-						<th scope="col">Round</th>
-						<th scope="col">Set up<br /><span class="ad-muted">{rows[0]?.setup.time}</span></th>
-						{rows[0]?.duty.map((d: any) => (
-							<th scope="col">Wave {d.wave} duty<br /><span class="ad-muted">{d.time}</span></th>
+						<th scope="col" rowspan="2">Round</th>
+						{groupsOf(jobs).map((g) => (
+							<th scope="colgroup" colspan={g.jobs.length} class="ad-vol-group">{g.group}</th>
 						))}
-						<th scope="col">Pack down<br /><span class="ad-muted">{rows[0]?.pack.time}</span></th>
+					</tr>
+					<tr>
+						{jobs.map((j) => (
+							<th scope="col">{j.label}<br /><span class="ad-muted">{j.time}</span></th>
+						))}
 					</tr>
 				</thead>
 				<tbody>
 					{rows.map((n: any) => (
 						<tr>
 							<th scope="row" class="ad-nowrap">{n.round} <span class="ad-muted">· {dateLabel(n.date)}</span></th>
-							{[
-								{ who: n.setup.who, issues: flag(n, 'Set up') },
-								...n.duty.map((d: any) => ({ who: d.who, issues: flag(n, `Wave ${d.wave} duty`) })),
-								{ who: n.pack.who, issues: flag(n, 'Pack down') }
-							].map((c) => (
-								<td class={c.issues.some((i: any) => i.level === 'bad') ? 'is-gap' : c.issues.length ? 'is-thin' : undefined}>
-									{c.who.length ? c.who.join(', ') : <span class="ad-muted">—</span>}
-									{c.issues.map((i: any) => (
-										<span class={`ad-flag ${i.level === 'bad' ? 'is-bad' : 'is-warn'}`} title={`${i.text} ${i.fix}`}>
-											<span aria-hidden="true">{i.level === 'bad' ? '✕' : '!'}</span> {i.text.replace(/^[^:]+: /, '').split(' — ')[0].replace(/\.$/, '')}
-										</span>
-									))}
-								</td>
-							))}
+							{jobs.map((j) => {
+								const cell = n.jobs[j.id];
+								const issues = n.issues.filter((i: any) => i.job === j.id);
+								return (
+									<td class={issues.some((i: any) => i.level === 'bad') ? 'is-gap' : issues.length ? 'is-thin' : undefined}>
+										{cell.who.length ? cell.who.join(', ') : <span class="ad-muted">—</span>}
+										{issues.map((i: any) => (
+											<span class={`ad-flag ${i.level === 'bad' ? 'is-bad' : 'is-warn'}`} title={`${i.text} ${i.fix}`}>
+												<span aria-hidden="true">{i.level === 'bad' ? '✕' : '!'}</span> {i.text.replace(/^[^:]+: /, '').split(' — ')[0].replace(/\.$/, '')}
+											</span>
+										))}
+									</td>
+								);
+							})}
 						</tr>
 					))}
 				</tbody>
 			</table>
 		</div>
-		{rows.flatMap((n: any) => n.issues.filter((i: any) => / has \d+ jobs/.test(i.text)).map((i: any) => `Round ${n.round}: ${i.text}`)).map((t: string) => (
-			<p class="ad-note"><span class="ad-status is-warn"><span aria-hidden="true">!</span></span> {t}</p>
-		))}
+		{rows.flatMap((n: any) => n.issues.filter((i: any) => !i.job).map((i: any) => `Round ${n.round}: ${i.text}`)).length > 0 && (
+			<p class="ad-note">
+				<span class="ad-status is-warn"><span aria-hidden="true">!</span></span>{' '}
+				{rows.flatMap((n: any) => n.issues.filter((i: any) => !i.job).map((i: any) => `Round ${n.round}: ${i.text}`)).join(' · ')}
+			</p>
+		)}
 	</div>
 ))}
+
+<h3 class="ad-h3">What each job involves</h3>
+<div class="ad-vol-jobs">
+	{nights.map(({ night, jobs }) => (
+		<details class="ad-card ad-vol-night">
+			<summary><strong>{night}s</strong> <span class="ad-muted">· {jobs[0].time.split('–')[0]}–{jobs[jobs.length - 1].time.split('–')[1]} pm</span></summary>
+			<ul class="ad-vol-joblist">
+				{jobs.map((j) => (
+					<li>
+						<p><strong>{j.group}{j.group.startsWith('Wave') ? '' : ` — ${j.label.toLowerCase()}`}{j.group.startsWith('Wave') ? ` — ${j.label.toLowerCase()}` : ''}</strong> <span class="ad-muted">· {j.time} · {size(j)}{needs(j) ? `, including ${needs(j)}` : ''}</span></p>
+						<p class="ad-muted">{j.tasks.join(' · ')}</p>
+					</li>
+				))}
+			</ul>
+		</details>
+	))}
+</div>
 
 <h3 class="ad-h3">Volunteers</h3>
 <div class="ad-tablewrap">
@@ -94,21 +119,32 @@ const generated = new Date(data.generatedAt).toLocaleString('en-AU', { dateStyle
 				<th scope="col">Tuesdays</th>
 				<th scope="col" class="ad-num">Set ups</th>
 				<th scope="col" class="ad-num">Duty shifts</th>
+				<th scope="col" class="ad-num">Canteen shifts</th>
 				<th scope="col" class="ad-num">Pack downs</th>
 			</tr>
 		</thead>
 		<tbody>
 			{data.volunteers.map((p: any) => (
 				<tr>
-					<th scope="row">{p.name}{p.keys && <span class="ad-key" title="Has keys"> 🔑<span class="sr-only"> has keys</span></span>}{p.note && <><br /><span class="ad-muted">{p.note}</span></>}</th>
+					<th scope="row">
+						{p.name}
+						{p.keys && <span class="ad-key" title="Has keys"> 🔑<span class="sr-only"> has keys</span></span>}
+						{p.lead && <span class="ad-key" title="Runs the canteen"> ☕<span class="sr-only"> runs the canteen</span></span>}
+						{p.note && <><br /><span class="ad-muted">{p.note}</span></>}
+					</th>
 					<td>{p.monday}</td>
 					<td>{p.tuesday}</td>
 					<td class="ad-num">{p.setup}</td>
 					<td class="ad-num">{p.duty}</td>
+					<td class="ad-num">{p.canteen}</td>
 					<td class="ad-num">{p.pack}</td>
 				</tr>
 			))}
 		</tbody>
 	</table>
 </div>
-<p class="ad-note">🔑 = has keys. Jobs are shared out as evenly as availability allows; a duty shift is one wave. Roster made {generated} from the current draw — it's redone whenever the draw or anyone's availability changes.</p>
+<p class="ad-note">
+	🔑 = has keys · ☕ = runs the canteen. Set ups and pack downs include both field and canteen; a duty or canteen shift is one wave. Jobs are
+	shared out as evenly as availability allows; when someone has to do more than two jobs in a night it goes to Mitch first, then Jaz, Brock and
+	Sam. Roster made {generated} from the current draw — it's redone whenever the draw or anyone's availability changes.
+</p>

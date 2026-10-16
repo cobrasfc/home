@@ -752,3 +752,34 @@
 .ad-btn:hover {
 	background: rgb(37 61 151 / 0.06);
 }
+
+/* Volunteer roster: grouped job columns and job descriptions */
+.ad-table--vol .ad-vol-group {
+	text-align: left;
+	border-left: 2px solid var(--ad-line);
+}
+.ad-table--vol tbody td:nth-of-type(1),
+.ad-table--vol tbody td:nth-of-type(3),
+.ad-table--vol tbody td:nth-of-type(5),
+.ad-table--vol tbody td:nth-of-type(7) {
+	border-left: 2px solid var(--ad-line);
+}
+.ad-vol-jobs {
+	display: grid;
+	gap: 10px;
+}
+.ad-vol-night summary {
+	cursor: pointer;
+}
+.ad-vol-joblist {
+	margin: 10px 0 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	font-size: 0.875rem;
+}
+.ad-vol-joblist p {
+	margin: 0;
+}
