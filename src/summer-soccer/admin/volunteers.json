@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-16T15:58",
+ "generatedAt": "2026-10-16T16:04",
  "jobs": {
   "Monday": [
    {
@@ -262,12 +262,12 @@
    "lead": false,
    "size": 2,
    "note": "Pair — always together. Light duties (canteen) only.",
-   "monday": "Canteen set up; canteen; canteen pack down",
+   "monday": "Canteen set up; canteen except while Motley Crew / Summer Savages play; canteen pack down",
    "tuesday": "Canteen set up; canteen; canteen pack down",
    "setup": 10,
    "duty": 0,
    "canteen": 9,
-   "pack": 19
+   "pack": 10
   },
   {
    "name": "Chloe + Abby",
@@ -275,12 +275,12 @@
    "lead": false,
    "size": 2,
    "note": "Pair — Mondays only. Field set up only with 2 others helping; no duty officer.",
-   "monday": "Field / canteen set up; canteen; canteen pack down",
+   "monday": "Field / canteen set up; canteen except while Motley Crew / Summer Savages play; canteen pack down",
    "tuesday": "Not available",
    "setup": 10,
    "duty": 0,
-   "canteen": 10,
-   "pack": 0
+   "canteen": 0,
+   "pack": 9
   },
   {
    "name": "Mitch",
@@ -288,8 +288,8 @@
    "lead": false,
    "size": 1,
    "note": "",
-   "monday": "Field / canteen set up; duty officer except while metford aam play; field / canteen pack down",
-   "tuesday": "Duty officer except while cobras gold play; field / canteen pack down",
+   "monday": "Field / canteen set up; duty officer except while Metford AAM play; field / canteen pack down",
+   "tuesday": "Duty officer except while Cobras Gold play; field / canteen pack down",
    "setup": 10,
    "duty": 10,
    "canteen": 0,
@@ -301,7 +301,7 @@
    "lead": false,
    "size": 1,
    "note": "Also wave 1 duty officer on Mon 12 Oct.",
-   "monday": "Duty officer (wave 2 only) except while summer savages play; field / canteen pack down",
+   "monday": "Duty officer (wave 2 only) except while Summer Savages play; field / canteen pack down",
    "tuesday": "Duty officer; field / canteen pack down",
    "setup": 0,
    "duty": 14,
@@ -314,7 +314,7 @@
    "lead": false,
    "size": 1,
    "note": "",
-   "monday": "Field / canteen set up; duty officer except while metford aam play; field / canteen pack down",
+   "monday": "Field / canteen set up; duty officer except while Metford AAM play; field / canteen pack down",
    "tuesday": "Field / canteen set up; duty officer; field / canteen pack down",
    "setup": 19,
    "duty": 16,
@@ -404,10 +404,9 @@
     },
     "canteen1": {
      "who": [
-      "Chloe + Abby",
-      "Toni"
+      "Candice"
      ],
-     "amount": 2
+     "amount": 1
     },
     "duty2": {
      "who": [
@@ -418,7 +417,7 @@
     },
     "canteen2": {
      "who": [
-      "Candice"
+      "Toni"
      ],
      "amount": 1
     },
@@ -475,10 +474,9 @@
     },
     "canteen1": {
      "who": [
-      "Chloe + Abby",
-      "Toni"
+      "Candice"
      ],
-     "amount": 2
+     "amount": 1
     },
     "duty2": {
      "who": [
@@ -489,7 +487,7 @@
     },
     "canteen2": {
      "who": [
-      "Candice"
+      "Toni"
      ],
      "amount": 1
     },
@@ -502,7 +500,7 @@
     },
     "canteenPack": {
      "who": [
-      "Harley + Cass",
+      "Chloe + Abby",
       "Candice"
      ],
      "amount": 2
@@ -613,10 +611,9 @@
     },
     "canteen1": {
      "who": [
-      "Chloe + Abby",
       "Toni"
      ],
-     "amount": 2
+     "amount": 1
     },
     "duty2": {
      "who": [
@@ -640,7 +637,7 @@
     },
     "canteenPack": {
      "who": [
-      "Harley + Cass",
+      "Chloe + Abby",
       "Candice"
      ],
      "amount": 2
@@ -751,10 +748,9 @@
     },
     "canteen1": {
      "who": [
-      "Chloe + Abby",
       "Toni"
      ],
-     "amount": 2
+     "amount": 1
     },
     "duty2": {
      "who": [
@@ -778,7 +774,7 @@
     },
     "canteenPack": {
      "who": [
-      "Harley + Cass",
+      "Chloe + Abby",
       "Candice"
      ],
      "amount": 2
@@ -889,10 +885,9 @@
     },
     "canteen1": {
      "who": [
-      "Chloe + Abby",
       "Toni"
      ],
-     "amount": 2
+     "amount": 1
     },
     "duty2": {
      "who": [
@@ -916,7 +911,7 @@
     },
     "canteenPack": {
      "who": [
-      "Harley + Cass",
+      "Chloe + Abby",
       "Candice"
      ],
      "amount": 2
@@ -1027,10 +1022,9 @@
     },
     "canteen1": {
      "who": [
-      "Chloe + Abby",
       "Toni"
      ],
-     "amount": 2
+     "amount": 1
     },
     "duty2": {
      "who": [
@@ -1054,7 +1048,7 @@
     },
     "canteenPack": {
      "who": [
-      "Harley + Cass",
+      "Chloe + Abby",
       "Candice"
      ],
      "amount": 2
@@ -1171,10 +1165,9 @@
     },
     "canteen1": {
      "who": [
-      "Chloe + Abby",
       "Toni"
      ],
-     "amount": 2
+     "amount": 1
     },
     "duty2": {
      "who": [
@@ -1198,7 +1191,7 @@
     },
     "canteenPack": {
      "who": [
-      "Harley + Cass",
+      "Chloe + Abby",
       "Candice"
      ],
      "amount": 2
@@ -1309,10 +1302,9 @@
     },
     "canteen1": {
      "who": [
-      "Chloe + Abby",
       "Toni"
      ],
-     "amount": 2
+     "amount": 1
     },
     "duty2": {
      "who": [
@@ -1336,7 +1328,7 @@
     },
     "canteenPack": {
      "who": [
-      "Harley + Cass",
+      "Chloe + Abby",
       "Candice"
      ],
      "amount": 2
@@ -1453,10 +1445,9 @@
     },
     "canteen1": {
      "who": [
-      "Chloe + Abby",
       "Candice"
      ],
-     "amount": 2
+     "amount": 1
     },
     "duty2": {
      "who": [
@@ -1480,7 +1471,7 @@
     },
     "canteenPack": {
      "who": [
-      "Harley + Cass",
+      "Chloe + Abby",
       "Candice"
      ],
      "amount": 2
@@ -1597,10 +1588,9 @@
     },
     "canteen1": {
      "who": [
-      "Chloe + Abby",
       "Toni"
      ],
-     "amount": 2
+     "amount": 1
     },
     "duty2": {
      "who": [
@@ -1624,7 +1614,7 @@
     },
     "canteenPack": {
      "who": [
-      "Harley + Cass",
+      "Chloe + Abby",
       "Candice"
      ],
      "amount": 2
