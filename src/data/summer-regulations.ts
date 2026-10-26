@@ -11,7 +11,7 @@ export const SUMMER_REGULATIONS = {
 	title: 'Summer Football Regulations',
 	// Committee review: while true the page shows a draft banner, is hidden from search engines and isn't linked
 	// from the Summer page. Set to false to go live.
-	draft: true
+	draft: false
 } as const;
 
 export const RULE_SECTIONS: RuleSection[] = [
