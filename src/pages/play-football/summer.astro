@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SITE, SUMMER_COMP, SUMMER_DUAL_REGISTRATION } from '../../site.config';
+import { SUMMER_REGULATIONS } from '../../data/summer-regulations';
 import { withBase } from '../../utils/withBase';
 
 const regoGroups = [
@@ -34,6 +35,9 @@ const regoGroups = [
 				</div>
 				<div class="mt-6 flex flex-wrap gap-3">
 					<a class="btn-secondary" href={SITE.facebookUrl} target="_blank" rel="noopener">Read the FAQs on Facebook</a>
+					{!SUMMER_REGULATIONS.draft && (
+						<a class="btn-secondary" href={withBase('/play-football/summer-regulations')}>Competition regulations</a>
+					)}
 				</div>
 			</div>
 			<img
@@ -66,6 +70,9 @@ const regoGroups = [
 					<li>No ladder or points recorded &#8212; no pressure</li>
 					<li>Family-friendly: just football, mates and a great way to spend your summer</li>
 				</ul>
+				{!SUMMER_REGULATIONS.draft && (
+					<a class="mt-4 inline-block text-sm font-medium text-cobra-blue" href={withBase('/play-football/summer-regulations')}>Read the full competition regulations &#8594;</a>
+				)}
 			</div>
 		</div>
 

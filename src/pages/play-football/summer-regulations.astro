@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../site.config';
+import { RULE_SECTIONS, SUMMER_REGULATIONS } from '../../data/summer-regulations';
+import { withBase } from '../../utils/withBase';
+---
+
+<BaseLayout
+	title="Summer Comp Regulations"
+	description="The Metford Cobras Summer Comp rules in plain English: formats, match lengths, playing rules, referees, cancellations and behaviour."
+	noindex={SUMMER_REGULATIONS.draft}
+>
+	<section class="container-page max-w-3xl py-10 md:py-14">
+		{SUMMER_REGULATIONS.draft && (
+			<p class="mb-6 rounded-xl bg-cobra-yellow p-3 text-sm font-medium text-cobra-blue">
+				Draft for committee review &#8212; not yet published.
+			</p>
+		)}
+		<p class="kicker">Summer Football</p>
+		<h1 class="page-title">Competition Regulations</h1>
+		<p class="mt-4 text-sm text-slate-700">
+			The Summer Comp rules in a nutshell. They&#8217;re a plain-English version of our {SUMMER_REGULATIONS.season}
+			{SUMMER_REGULATIONS.title}, which follow Northern NSW Football&#8217;s rules for summer football.
+		</p>
+
+		<nav aria-label="Sections" class="mt-6 flex flex-wrap gap-2">
+			{RULE_SECTIONS.map((s) => (
+				<a class="rounded-full bg-cobra-blue/5 px-3 py-1 text-xs font-medium text-cobra-blue hover:bg-cobra-blue/10" href={'#' + s.id}>{s.title}</a>
+			))}
+		</nav>
+
+		<div class="mt-6 grid gap-4">
+			{RULE_SECTIONS.map((s) => (
+				<section id={s.id} class="scroll-mt-24 rounded-2xl bg-white p-5 ring-1 ring-black/5">
+					<h2 class="text-lg font-medium text-slate-900">{s.title}</h2>
+					<ul class="mt-3 divide-y divide-black/5">
+						{s.rules.map((r) => (
+							<li class="py-3 text-sm sm:grid sm:grid-cols-[11rem_1fr] sm:gap-4">
+								<p class="font-semibold text-cobra-blue">{r.label}</p>
+								<p class="mt-0.5 text-slate-700 sm:mt-0">{r.text}</p>
+							</li>
+						))}
+					</ul>
+				</section>
+			))}
+
+			<div class="rounded-xl bg-slate-50 p-4 text-sm text-slate-700 ring-1 ring-black/5">
+				<h2 class="font-semibold text-slate-900">Questions about the rules?</h2>
+				<p class="mt-1">
+					Email <a class="text-cobra-blue hover:underline" href={'mailto:' + SITE.contact.email}>{SITE.contact.email}</a>
+					or <a class="text-cobra-blue hover:underline" href={withBase('/contact-us')}>contact us</a>.
+				</p>
+			</div>
+
+			<p class="text-center text-sm text-slate-500">
+				<a class="text-cobra-blue hover:underline" href={withBase('/play-football/summer')}>&#8592; Back to Summer Football</a>
+			</p>
+		</div>
+	</section>
+</BaseLayout>
