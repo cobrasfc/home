@@ -10,7 +10,7 @@ interface Props {
 const { data } = Astro.props;
 const v = makeView(data);
 // Each team's own public schedule link — same team ID the public schedule builds from the fixture sheet
-const scheduleBase = new URL(withBase('/summer-soccer/schedule/'), Astro.site ?? Astro.url).toString();
+const scheduleBase = new URL(withBase(`${(Astro.props.schedulePath ?? '/summer-soccer/schedule').replace(/\/$/, '')}/`), Astro.site ?? Astro.url).toString();
 const teamLink = (t: any) => `${scheduleBase}?teams=${teamId(v.compName(t.comp), t.name)}`;
 ---
 

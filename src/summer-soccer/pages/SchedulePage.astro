@@ -1,0 +1,101 @@
+---
+// Summer Soccer schedule tracker page. Everything below the header is rendered client-side from the club's Google Sheet
+// (see src/summer-soccer/ and SUMMER_SCHEDULE in src/site.config.ts), so fixture changes need no rebuild.
+// A draft for committee review passes its own fixtures file and a banner (see src/pages/summer-soccer/review/).
+import '../../styles/global.css';
+import '../schedule.css';
+import { SITE, SUMMER_SCHEDULE } from '../../site.config';
+import { withBase } from '../../utils/withBase';
+
+interface Props {
+	/** Fixtures CSV to show instead of the configured source (a draft) */
+	fixturesPath?: string;
+	/** Draft banner shown above the schedule */
+	draftNote?: string;
+	/** Link from the draft banner to the matching admin view */
+	draftAdminHref?: string;
+}
+const { fixturesPath, draftNote, draftAdminHref } = Astro.props;
+
+const title = `${SUMMER_SCHEDULE.seasonName} schedule | ${SITE.name}`;
+const description = 'Your next Metford Cobras Summer Soccer game — when, where, who you’re playing and which field to walk to.';
+const ack = SUMMER_SCHEDULE.acknowledgement;
+const sheetOrigin = SUMMER_SCHEDULE.sheetCsvUrl ? new URL(SUMMER_SCHEDULE.sheetCsvUrl).origin : null;
+---
+
+<!doctype html>
+<html lang="en" data-fixtures={fixturesPath}>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		<meta name="theme-color" content="#253d97" />
+		<meta name="description" content={description} />
+		{/* Keep the preview (sample fixtures) out of search engines until the club's sheet is connected */}
+		{(!SUMMER_SCHEDULE.sheetCsvUrl || draftNote) && <meta name="robots" content="noindex, nofollow" />}
+		<meta property="og:title" content={`${SUMMER_SCHEDULE.seasonName} schedule`} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content={new URL(withBase('/assets/summer6s/summer6s-hero.png'), Astro.url).toString()} />
+		<link rel="icon" type="image/png" href={withBase('/assets/favicon.png')} />
+		{sheetOrigin && <link rel="preconnect" href={sheetOrigin} crossorigin />}
+		<title>{draftNote ? `DRAFT — ${title}` : title}</title>
+	</head>
+	<body class="ss-body">
+		<header class="ss-header">
+			<div class="ss-header__inner">
+				<a class="ss-brand" href={withBase('/')} aria-label={`${SITE.name} home`}>
+					<img src={withBase('/assets/logo-shield.svg')} width="34" height="40" alt="" />
+					<span class="ss-brand__text">
+						<span class="ss-brand__title">Summer Soccer</span>
+						<span class="ss-brand__club">Metford Cobras FC</span>
+					</span>
+				</a>
+				<button type="button" id="ss-change-teams" class="ss-header__action" hidden>Change teams</button>
+			</div>
+		</header>
+
+		{draftNote && (
+			<div class="ss-draftbar" role="note">
+				<strong>Draft for committee review.</strong> {draftNote}
+				{draftAdminHref && <> <a href={withBase(draftAdminHref)}>Draft admin view</a></>}
+			</div>
+		)}
+		<main id="ss-app" class="ss-main" aria-busy="true">
+			<div class="ss-skeleton" aria-hidden="true">
+				<div class="ss-skeleton__hero">
+					<span class="ss-skeleton__line ss-skeleton__line--sm"></span>
+					<span class="ss-skeleton__line ss-skeleton__line--lg"></span>
+					<span class="ss-skeleton__line"></span>
+					<span class="ss-skeleton__block"></span>
+				</div>
+			</div>
+			<p class="sr-only">Loading your next game…</p>
+			<noscript>
+				<p class="ss-notice">The schedule needs JavaScript switched on. You can also contact the club at {SUMMER_SCHEDULE.support.email}.</p>
+			</noscript>
+		</main>
+
+		<footer class="ss-footer">
+			<div class="ss-footer__inner">
+				<section class="ss-terms" aria-labelledby="ss-terms-title">
+					<h2 class="ss-terms__title" id="ss-terms-title">{SUMMER_SCHEDULE.terms.heading}</h2>
+					{SUMMER_SCHEDULE.terms.text.map((t) => <p>{t}</p>)}
+				</section>
+				<p class="ss-footer__club">
+					<img src={withBase('/assets/logo-shield.svg')} width="20" height="24" alt="" />
+					<a href={withBase('/')}>{SITE.name}</a>
+					<span aria-hidden="true">·</span>
+					<a href={withBase('/play-football/summer')}>About Summer Soccer</a>
+				</p>
+				<p class="ss-footer__ack">
+					{ack.logoPath && <img src={withBase(ack.logoPath)} alt="" height="16" />}
+					{ack.url ? <a href={ack.url} target="_blank" rel="noopener">{ack.text}</a> : ack.text}
+				</p>
+			</div>
+		</footer>
+
+		<script>
+			import '../app';
+		</script>
+	</body>
+</html>

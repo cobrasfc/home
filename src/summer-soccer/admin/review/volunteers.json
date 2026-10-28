@@ -1,0 +1,1792 @@
+{
+ "generatedAt": "2026-10-28T13:49",
+ "jobs": {
+  "Monday": [
+   {
+    "id": "fieldSetup",
+    "slot": "setup",
+    "group": "Set up",
+    "label": "Field",
+    "time": "5:30–6:30",
+    "min": 2,
+    "max": 4,
+    "count": "people",
+    "tasks": [
+     "Position goals on fields",
+     "Put out signage",
+     "Put out match balls",
+     "Put out benches"
+    ],
+    "needs": "keys"
+   },
+   {
+    "id": "canteenSetup",
+    "slot": "setup",
+    "group": "Set up",
+    "label": "Canteen",
+    "time": "6:00–6:30",
+    "min": 1,
+    "max": 2,
+    "count": "helpers",
+    "tasks": [
+     "Set up canteen",
+     "Unlock toilets",
+     "Turn on lights"
+    ],
+    "needs": "canteen lead"
+   },
+   {
+    "id": "duty1",
+    "slot": "w1",
+    "group": "Wave 1",
+    "label": "Duty officers",
+    "time": "6:30–7:10",
+    "min": 2,
+    "max": 2,
+    "count": "people",
+    "tasks": [
+     "2 duty officers"
+    ],
+    "needs": ""
+   },
+   {
+    "id": "canteen1",
+    "slot": "w1",
+    "group": "Wave 1",
+    "label": "Canteen",
+    "time": "6:30–7:10",
+    "min": 1,
+    "max": 2,
+    "count": "helpers",
+    "tasks": [
+     "1 or 2 canteen helpers"
+    ],
+    "needs": "canteen lead"
+   },
+   {
+    "id": "duty2",
+    "slot": "w2",
+    "group": "Wave 2",
+    "label": "Duty officers",
+    "time": "7:20–8:00",
+    "min": 2,
+    "max": 2,
+    "count": "people",
+    "tasks": [
+     "2 duty officers"
+    ],
+    "needs": ""
+   },
+   {
+    "id": "canteen2",
+    "slot": "w2",
+    "group": "Wave 2",
+    "label": "Canteen",
+    "time": "7:20–8:00",
+    "min": 1,
+    "max": 2,
+    "count": "helpers",
+    "tasks": [
+     "1 or 2 canteen helpers"
+    ],
+    "needs": "canteen lead"
+   },
+   {
+    "id": "fieldPack",
+    "slot": "pack",
+    "group": "Pack down",
+    "label": "Field",
+    "time": "8:00–8:45",
+    "min": 2,
+    "max": 2,
+    "count": "people",
+    "tasks": [
+     "Pack away goals",
+     "Pack away balls",
+     "Pack away signage",
+     "Pack away benches",
+     "Lock up sheds"
+    ],
+    "needs": "keys"
+   },
+   {
+    "id": "canteenPack",
+    "slot": "pack",
+    "group": "Pack down",
+    "label": "Canteen",
+    "time": "8:00–8:45",
+    "min": 2,
+    "max": 2,
+    "count": "helpers",
+    "tasks": [
+     "Clean up and pack up canteen",
+     "Check toilet stock and cleanliness",
+     "Lock up toilets",
+     "Turn off lights"
+    ],
+    "needs": "canteen lead"
+   }
+  ],
+  "Tuesday": [
+   {
+    "id": "fieldSetup",
+    "slot": "setup",
+    "group": "Set up",
+    "label": "Field",
+    "time": "4:30–5:30",
+    "min": 2,
+    "max": 4,
+    "count": "people",
+    "tasks": [
+     "Position goals on fields",
+     "Put out signage",
+     "Put out match balls",
+     "Put out benches"
+    ],
+    "needs": "keys"
+   },
+   {
+    "id": "canteenSetup",
+    "slot": "setup",
+    "group": "Set up",
+    "label": "Canteen",
+    "time": "5:00–5:30",
+    "min": 1,
+    "max": 2,
+    "count": "helpers",
+    "tasks": [
+     "Set up canteen",
+     "Unlock toilets",
+     "Turn on lights",
+     "Unlock gates for the Swirl N Dip van"
+    ],
+    "needs": "canteen lead"
+   },
+   {
+    "id": "duty1",
+    "slot": "w1",
+    "group": "Wave 1",
+    "label": "Duty officers",
+    "time": "5:30–6:10",
+    "min": 2,
+    "max": 2,
+    "count": "people",
+    "tasks": [
+     "2 duty officers"
+    ],
+    "needs": ""
+   },
+   {
+    "id": "canteen1",
+    "slot": "w1",
+    "group": "Wave 1",
+    "label": "Canteen",
+    "time": "5:30–6:10",
+    "min": 1,
+    "max": 2,
+    "count": "helpers",
+    "tasks": [
+     "1 or 2 canteen helpers"
+    ],
+    "needs": "canteen lead"
+   },
+   {
+    "id": "duty2",
+    "slot": "w2",
+    "group": "Wave 2",
+    "label": "Duty officers",
+    "time": "6:15–6:45",
+    "min": 2,
+    "max": 2,
+    "count": "people",
+    "tasks": [
+     "2 duty officers"
+    ],
+    "needs": ""
+   },
+   {
+    "id": "canteen2",
+    "slot": "w2",
+    "group": "Wave 2",
+    "label": "Canteen",
+    "time": "6:15–6:45",
+    "min": 1,
+    "max": 2,
+    "count": "helpers",
+    "tasks": [
+     "1 or 2 canteen helpers"
+    ],
+    "needs": "canteen lead"
+   },
+   {
+    "id": "fieldPack",
+    "slot": "pack",
+    "group": "Pack down",
+    "label": "Field",
+    "time": "6:45–7:00",
+    "min": 2,
+    "max": 2,
+    "count": "people",
+    "tasks": [
+     "Pack away goals",
+     "Pack away balls",
+     "Pack away signage",
+     "Pack away benches",
+     "Lock up sheds"
+    ],
+    "needs": "keys"
+   },
+   {
+    "id": "canteenPack",
+    "slot": "pack",
+    "group": "Pack down",
+    "label": "Canteen",
+    "time": "6:45–7:00",
+    "min": 2,
+    "max": 2,
+    "count": "helpers",
+    "tasks": [
+     "Clean up and pack up canteen",
+     "Check toilet stock and cleanliness",
+     "Lock up toilets",
+     "Turn off lights"
+    ],
+    "needs": "canteen lead"
+   }
+  ]
+ },
+ "volunteers": [
+  {
+   "name": "Harley + Cass",
+   "keys": false,
+   "lead": false,
+   "size": 2,
+   "note": "Pair — always together. Light duties (canteen) only.",
+   "monday": "Canteen set up; canteen except while Motley Crew / Summer Savages play; canteen pack down",
+   "tuesday": "Canteen set up; canteen; canteen pack down",
+   "setup": 10,
+   "duty": 0,
+   "canteen": 9,
+   "pack": 10
+  },
+  {
+   "name": "Chloe + Abby",
+   "keys": false,
+   "lead": false,
+   "size": 2,
+   "note": "Pair — Mondays only. Field set up only with 2 others helping; no duty officer.",
+   "monday": "Field / canteen set up; canteen except while Motley Crew / Summer Savages play; canteen pack down",
+   "tuesday": "Not available",
+   "setup": 10,
+   "duty": 0,
+   "canteen": 0,
+   "pack": 9
+  },
+  {
+   "name": "Mitch",
+   "keys": true,
+   "lead": false,
+   "size": 1,
+   "note": "",
+   "monday": "Field / canteen set up; duty officer except while Metford AAM play; field / canteen pack down",
+   "tuesday": "Duty officer except while Cobras Gold play; field / canteen pack down",
+   "setup": 10,
+   "duty": 13,
+   "canteen": 0,
+   "pack": 14
+  },
+  {
+   "name": "Jaz",
+   "keys": true,
+   "lead": false,
+   "size": 1,
+   "note": "Also wave 1 duty officer on Mon 12 Oct.",
+   "monday": "Duty officer (wave 2 only) except while Summer Savages play; field / canteen pack down",
+   "tuesday": "Duty officer; field / canteen pack down",
+   "setup": 0,
+   "duty": 11,
+   "canteen": 0,
+   "pack": 19
+  },
+  {
+   "name": "Brock",
+   "keys": true,
+   "lead": false,
+   "size": 1,
+   "note": "",
+   "monday": "Field / canteen set up; duty officer except while Metford AAM play; field / canteen pack down",
+   "tuesday": "Field / canteen set up; duty officer; field / canteen pack down",
+   "setup": 19,
+   "duty": 12,
+   "canteen": 0,
+   "pack": 5
+  },
+  {
+   "name": "Chad",
+   "keys": false,
+   "lead": false,
+   "size": 1,
+   "note": "",
+   "monday": "Not available",
+   "tuesday": "Duty officer; field / canteen pack down",
+   "setup": 0,
+   "duty": 16,
+   "canteen": 0,
+   "pack": 0
+  },
+  {
+   "name": "Sam",
+   "keys": true,
+   "lead": false,
+   "size": 1,
+   "note": "Duty officer; one wave a night where possible.",
+   "monday": "Duty officer",
+   "tuesday": "Duty officer",
+   "setup": 0,
+   "duty": 16,
+   "canteen": 0,
+   "pack": 0
+  },
+  {
+   "name": "Candice",
+   "keys": false,
+   "lead": true,
+   "size": 1,
+   "note": "",
+   "monday": "Field / canteen set up; duty officer; canteen; field / canteen pack down",
+   "tuesday": "Duty officer; canteen; field / canteen pack down",
+   "setup": 0,
+   "duty": 8,
+   "canteen": 15,
+   "pack": 19
+  },
+  {
+   "name": "Toni",
+   "keys": false,
+   "lead": true,
+   "size": 1,
+   "note": "",
+   "monday": "Field / canteen set up; duty officer; canteen; field / canteen pack down",
+   "tuesday": "Field / canteen set up; duty officer; canteen; field / canteen pack down",
+   "setup": 19,
+   "duty": 0,
+   "canteen": 23,
+   "pack": 0
+  }
+ ],
+ "nights": [
+  {
+   "round": 1,
+   "date": "2026-10-12",
+   "night": "Monday",
+   "jobs": {
+    "fieldSetup": {
+     "who": [
+      "Chloe + Abby",
+      "Mitch",
+      "Brock"
+     ],
+     "amount": 4
+    },
+    "canteenSetup": {
+     "who": [
+      "Harley + Cass",
+      "Toni"
+     ],
+     "amount": 2
+    },
+    "duty1": {
+     "who": [
+      "Jaz",
+      "Sam"
+     ],
+     "amount": 2
+    },
+    "canteen1": {
+     "who": [
+      "Candice"
+     ],
+     "amount": 1
+    },
+    "duty2": {
+     "who": [
+      "Mitch",
+      "Brock"
+     ],
+     "amount": 2
+    },
+    "canteen2": {
+     "who": [
+      "Toni"
+     ],
+     "amount": 1
+    },
+    "fieldPack": {
+     "who": [
+      "Mitch",
+      "Jaz"
+     ],
+     "amount": 2
+    },
+    "canteenPack": {
+     "who": [
+      "Harley + Cass",
+      "Candice"
+     ],
+     "amount": 2
+    }
+   },
+   "issues": [
+    {
+     "job": null,
+     "level": "warn",
+     "text": "Mitch has 3 jobs this night.",
+     "fix": "Swap one of their jobs if someone else can help."
+    }
+   ]
+  },
+  {
+   "round": 2,
+   "date": "2026-10-19",
+   "night": "Monday",
+   "jobs": {
+    "fieldSetup": {
+     "who": [
+      "Chloe + Abby",
+      "Mitch",
+      "Brock"
+     ],
+     "amount": 4
+    },
+    "canteenSetup": {
+     "who": [
+      "Harley + Cass",
+      "Toni"
+     ],
+     "amount": 2
+    },
+    "duty1": {
+     "who": [
+      "Mitch",
+      "Sam"
+     ],
+     "amount": 2
+    },
+    "canteen1": {
+     "who": [
+      "Candice"
+     ],
+     "amount": 1
+    },
+    "duty2": {
+     "who": [
+      "Mitch",
+      "Brock"
+     ],
+     "amount": 2
+    },
+    "canteen2": {
+     "who": [
+      "Toni"
+     ],
+     "amount": 1
+    },
+    "fieldPack": {
+     "who": [
+      "Mitch",
+      "Jaz"
+     ],
+     "amount": 2
+    },
+    "canteenPack": {
+     "who": [
+      "Chloe + Abby",
+      "Candice"
+     ],
+     "amount": 2
+    }
+   },
+   "issues": [
+    {
+     "job": null,
+     "level": "warn",
+     "text": "Mitch has 4 jobs this night.",
+     "fix": "Swap one of their jobs if someone else can help."
+    }
+   ]
+  },
+  {
+   "round": 2,
+   "date": "2026-10-20",
+   "night": "Tuesday",
+   "jobs": {
+    "fieldSetup": {
+     "who": [
+      "Brock",
+      "Toni"
+     ],
+     "amount": 2
+    },
+    "canteenSetup": {
+     "who": [],
+     "amount": 0
+    },
+    "duty1": {
+     "who": [
+      "Chad",
+      "Sam"
+     ],
+     "amount": 2
+    },
+    "canteen1": {
+     "who": [
+      "Toni"
+     ],
+     "amount": 1
+    },
+    "duty2": {
+     "who": [
+      "Jaz",
+      "Chad"
+     ],
+     "amount": 2
+    },
+    "canteen2": {
+     "who": [
+      "Harley + Cass",
+      "Candice"
+     ],
+     "amount": 2
+    },
+    "fieldPack": {
+     "who": [
+      "Jaz",
+      "Brock"
+     ],
+     "amount": 2
+    },
+    "canteenPack": {
+     "who": [
+      "Harley + Cass",
+      "Candice"
+     ],
+     "amount": 2
+    }
+   },
+   "issues": [
+    {
+     "job": "canteenSetup",
+     "level": "bad",
+     "text": "Set up — canteen: vacant — Toni on field set up.",
+     "fix": "Field jobs come first; the canteen opens once Candice or Toni is free."
+    }
+   ]
+  },
+  {
+   "round": 3,
+   "date": "2026-10-26",
+   "night": "Monday",
+   "jobs": {
+    "fieldSetup": {
+     "who": [
+      "Chloe + Abby",
+      "Mitch",
+      "Brock"
+     ],
+     "amount": 4
+    },
+    "canteenSetup": {
+     "who": [
+      "Harley + Cass",
+      "Toni"
+     ],
+     "amount": 2
+    },
+    "duty1": {
+     "who": [
+      "Sam",
+      "Candice"
+     ],
+     "amount": 2
+    },
+    "canteen1": {
+     "who": [
+      "Toni"
+     ],
+     "amount": 1
+    },
+    "duty2": {
+     "who": [
+      "Jaz",
+      "Brock"
+     ],
+     "amount": 2
+    },
+    "canteen2": {
+     "who": [
+      "Candice"
+     ],
+     "amount": 1
+    },
+    "fieldPack": {
+     "who": [
+      "Mitch",
+      "Jaz"
+     ],
+     "amount": 2
+    },
+    "canteenPack": {
+     "who": [
+      "Chloe + Abby",
+      "Candice"
+     ],
+     "amount": 2
+    }
+   },
+   "issues": [
+    {
+     "job": null,
+     "level": "warn",
+     "text": "Candice has 3 jobs this night.",
+     "fix": "Swap one of their jobs if someone else can help."
+    }
+   ]
+  },
+  {
+   "round": 3,
+   "date": "2026-10-27",
+   "night": "Tuesday",
+   "jobs": {
+    "fieldSetup": {
+     "who": [
+      "Brock",
+      "Toni"
+     ],
+     "amount": 2
+    },
+    "canteenSetup": {
+     "who": [],
+     "amount": 0
+    },
+    "duty1": {
+     "who": [
+      "Brock",
+      "Chad"
+     ],
+     "amount": 2
+    },
+    "canteen1": {
+     "who": [
+      "Toni"
+     ],
+     "amount": 1
+    },
+    "duty2": {
+     "who": [
+      "Jaz",
+      "Chad"
+     ],
+     "amount": 2
+    },
+    "canteen2": {
+     "who": [
+      "Harley + Cass",
+      "Candice"
+     ],
+     "amount": 2
+    },
+    "fieldPack": {
+     "who": [
+      "Mitch",
+      "Jaz"
+     ],
+     "amount": 2
+    },
+    "canteenPack": {
+     "who": [
+      "Harley + Cass",
+      "Candice"
+     ],
+     "amount": 2
+    }
+   },
+   "issues": [
+    {
+     "job": "canteenSetup",
+     "level": "bad",
+     "text": "Set up — canteen: vacant — Toni on field set up.",
+     "fix": "Field jobs come first; the canteen opens once Candice or Toni is free."
+    }
+   ]
+  },
+  {
+   "round": 4,
+   "date": "2026-11-02",
+   "night": "Monday",
+   "jobs": {
+    "fieldSetup": {
+     "who": [
+      "Chloe + Abby",
+      "Mitch",
+      "Brock"
+     ],
+     "amount": 4
+    },
+    "canteenSetup": {
+     "who": [
+      "Harley + Cass",
+      "Toni"
+     ],
+     "amount": 2
+    },
+    "duty1": {
+     "who": [
+      "Mitch",
+      "Brock"
+     ],
+     "amount": 2
+    },
+    "canteen1": {
+     "who": [
+      "Toni"
+     ],
+     "amount": 1
+    },
+    "duty2": {
+     "who": [
+      "Sam",
+      "Candice"
+     ],
+     "amount": 2
+    },
+    "canteen2": {
+     "who": [
+      "Toni"
+     ],
+     "amount": 1
+    },
+    "fieldPack": {
+     "who": [
+      "Mitch",
+      "Jaz"
+     ],
+     "amount": 2
+    },
+    "canteenPack": {
+     "who": [
+      "Chloe + Abby",
+      "Candice"
+     ],
+     "amount": 2
+    }
+   },
+   "issues": [
+    {
+     "job": null,
+     "level": "warn",
+     "text": "Mitch has 3 jobs this night.",
+     "fix": "Swap one of their jobs if someone else can help."
+    },
+    {
+     "job": null,
+     "level": "warn",
+     "text": "Toni has 3 jobs this night.",
+     "fix": "Swap one of their jobs if someone else can help."
+    }
+   ]
+  },
+  {
+   "round": 4,
+   "date": "2026-11-03",
+   "night": "Tuesday",
+   "jobs": {
+    "fieldSetup": {
+     "who": [
+      "Brock",
+      "Toni"
+     ],
+     "amount": 2
+    },
+    "canteenSetup": {
+     "who": [],
+     "amount": 0
+    },
+    "duty1": {
+     "who": [
+      "Chad",
+      "Sam"
+     ],
+     "amount": 2
+    },
+    "canteen1": {
+     "who": [
+      "Toni"
+     ],
+     "amount": 1
+    },
+    "duty2": {
+     "who": [
+      "Jaz",
+      "Chad"
+     ],
+     "amount": 2
+    },
+    "canteen2": {
+     "who": [
+      "Harley + Cass",
+      "Candice"
+     ],
+     "amount": 2
+    },
+    "fieldPack": {
+     "who": [
+      "Jaz",
+      "Brock"
+     ],
+     "amount": 2
+    },
+    "canteenPack": {
+     "who": [
+      "Harley + Cass",
+      "Candice"
+     ],
+     "amount": 2
+    }
+   },
+   "issues": [
+    {
+     "job": "canteenSetup",
+     "level": "bad",
+     "text": "Set up — canteen: vacant — Toni on field set up.",
+     "fix": "Field jobs come first; the canteen opens once Candice or Toni is free."
+    }
+   ]
+  },
+  {
+   "round": 5,
+   "date": "2026-11-09",
+   "night": "Monday",
+   "jobs": {
+    "fieldSetup": {
+     "who": [
+      "Chloe + Abby",
+      "Mitch",
+      "Brock"
+     ],
+     "amount": 4
+    },
+    "canteenSetup": {
+     "who": [
+      "Harley + Cass",
+      "Toni"
+     ],
+     "amount": 2
+    },
+    "duty1": {
+     "who": [
+      "Mitch",
+      "Brock"
+     ],
+     "amount": 2
+    },
+    "canteen1": {
+     "who": [
+      "Candice"
+     ],
+     "amount": 1
+    },
+    "duty2": {
+     "who": [
+      "Sam",
+      "Candice"
+     ],
+     "amount": 2
+    },
+    "canteen2": {
+     "who": [
+      "Toni"
+     ],
+     "amount": 1
+    },
+    "fieldPack": {
+     "who": [
+      "Mitch",
+      "Jaz"
+     ],
+     "amount": 2
+    },
+    "canteenPack": {
+     "who": [
+      "Chloe + Abby",
+      "Candice"
+     ],
+     "amount": 2
+    }
+   },
+   "issues": [
+    {
+     "job": null,
+     "level": "warn",
+     "text": "Mitch has 3 jobs this night.",
+     "fix": "Swap one of their jobs if someone else can help."
+    },
+    {
+     "job": null,
+     "level": "warn",
+     "text": "Candice has 3 jobs this night.",
+     "fix": "Swap one of their jobs if someone else can help."
+    }
+   ]
+  },
+  {
+   "round": 5,
+   "date": "2026-11-10",
+   "night": "Tuesday",
+   "jobs": {
+    "fieldSetup": {
+     "who": [
+      "Brock",
+      "Toni"
+     ],
+     "amount": 2
+    },
+    "canteenSetup": {
+     "who": [],
+     "amount": 0
+    },
+    "duty1": {
+     "who": [
+      "Mitch",
+      "Chad"
+     ],
+     "amount": 2
+    },
+    "canteen1": {
+     "who": [
+      "Toni"
+     ],
+     "amount": 1
+    },
+    "duty2": {
+     "who": [
+      "Jaz",
+      "Chad"
+     ],
+     "amount": 2
+    },
+    "canteen2": {
+     "who": [
+      "Harley + Cass",
+      "Candice"
+     ],
+     "amount": 2
+    },
+    "fieldPack": {
+     "who": [
+      "Mitch",
+      "Jaz"
+     ],
+     "amount": 2
+    },
+    "canteenPack": {
+     "who": [
+      "Harley + Cass",
+      "Candice"
+     ],
+     "amount": 2
+    }
+   },
+   "issues": [
+    {
+     "job": "canteenSetup",
+     "level": "bad",
+     "text": "Set up — canteen: vacant — Toni on field set up.",
+     "fix": "Field jobs come first; the canteen opens once Candice or Toni is free."
+    }
+   ]
+  },
+  {
+   "round": 6,
+   "date": "2026-11-16",
+   "night": "Monday",
+   "jobs": {
+    "fieldSetup": {
+     "who": [
+      "Chloe + Abby",
+      "Mitch",
+      "Brock"
+     ],
+     "amount": 4
+    },
+    "canteenSetup": {
+     "who": [
+      "Harley + Cass",
+      "Toni"
+     ],
+     "amount": 2
+    },
+    "duty1": {
+     "who": [
+      "Mitch",
+      "Brock"
+     ],
+     "amount": 2
+    },
+    "canteen1": {
+     "who": [
+      "Toni"
+     ],
+     "amount": 1
+    },
+    "duty2": {
+     "who": [
+      "Sam",
+      "Candice"
+     ],
+     "amount": 2
+    },
+    "canteen2": {
+     "who": [
+      "Toni"
+     ],
+     "amount": 1
+    },
+    "fieldPack": {
+     "who": [
+      "Mitch",
+      "Jaz"
+     ],
+     "amount": 2
+    },
+    "canteenPack": {
+     "who": [
+      "Chloe + Abby",
+      "Candice"
+     ],
+     "amount": 2
+    }
+   },
+   "issues": [
+    {
+     "job": null,
+     "level": "warn",
+     "text": "Mitch has 3 jobs this night.",
+     "fix": "Swap one of their jobs if someone else can help."
+    },
+    {
+     "job": null,
+     "level": "warn",
+     "text": "Toni has 3 jobs this night.",
+     "fix": "Swap one of their jobs if someone else can help."
+    }
+   ]
+  },
+  {
+   "round": 6,
+   "date": "2026-11-17",
+   "night": "Tuesday",
+   "jobs": {
+    "fieldSetup": {
+     "who": [
+      "Brock",
+      "Toni"
+     ],
+     "amount": 2
+    },
+    "canteenSetup": {
+     "who": [],
+     "amount": 0
+    },
+    "duty1": {
+     "who": [
+      "Chad",
+      "Sam"
+     ],
+     "amount": 2
+    },
+    "canteen1": {
+     "who": [
+      "Toni"
+     ],
+     "amount": 1
+    },
+    "duty2": {
+     "who": [
+      "Jaz",
+      "Chad"
+     ],
+     "amount": 2
+    },
+    "canteen2": {
+     "who": [
+      "Harley + Cass",
+      "Candice"
+     ],
+     "amount": 2
+    },
+    "fieldPack": {
+     "who": [
+      "Jaz",
+      "Brock"
+     ],
+     "amount": 2
+    },
+    "canteenPack": {
+     "who": [
+      "Harley + Cass",
+      "Candice"
+     ],
+     "amount": 2
+    }
+   },
+   "issues": [
+    {
+     "job": "canteenSetup",
+     "level": "bad",
+     "text": "Set up — canteen: vacant — Toni on field set up.",
+     "fix": "Field jobs come first; the canteen opens once Candice or Toni is free."
+    }
+   ]
+  },
+  {
+   "round": 7,
+   "date": "2026-11-23",
+   "night": "Monday",
+   "jobs": {
+    "fieldSetup": {
+     "who": [
+      "Chloe + Abby",
+      "Mitch",
+      "Brock"
+     ],
+     "amount": 4
+    },
+    "canteenSetup": {
+     "who": [
+      "Harley + Cass",
+      "Toni"
+     ],
+     "amount": 2
+    },
+    "duty1": {
+     "who": [
+      "Mitch",
+      "Brock"
+     ],
+     "amount": 2
+    },
+    "canteen1": {
+     "who": [
+      "Candice"
+     ],
+     "amount": 1
+    },
+    "duty2": {
+     "who": [
+      "Sam",
+      "Candice"
+     ],
+     "amount": 2
+    },
+    "canteen2": {
+     "who": [
+      "Toni"
+     ],
+     "amount": 1
+    },
+    "fieldPack": {
+     "who": [
+      "Mitch",
+      "Jaz"
+     ],
+     "amount": 2
+    },
+    "canteenPack": {
+     "who": [
+      "Chloe + Abby",
+      "Candice"
+     ],
+     "amount": 2
+    }
+   },
+   "issues": [
+    {
+     "job": null,
+     "level": "warn",
+     "text": "Mitch has 3 jobs this night.",
+     "fix": "Swap one of their jobs if someone else can help."
+    },
+    {
+     "job": null,
+     "level": "warn",
+     "text": "Candice has 3 jobs this night.",
+     "fix": "Swap one of their jobs if someone else can help."
+    }
+   ]
+  },
+  {
+   "round": 7,
+   "date": "2026-11-24",
+   "night": "Tuesday",
+   "jobs": {
+    "fieldSetup": {
+     "who": [
+      "Brock",
+      "Toni"
+     ],
+     "amount": 2
+    },
+    "canteenSetup": {
+     "who": [],
+     "amount": 0
+    },
+    "duty1": {
+     "who": [
+      "Chad",
+      "Sam"
+     ],
+     "amount": 2
+    },
+    "canteen1": {
+     "who": [
+      "Toni"
+     ],
+     "amount": 1
+    },
+    "duty2": {
+     "who": [
+      "Jaz",
+      "Chad"
+     ],
+     "amount": 2
+    },
+    "canteen2": {
+     "who": [
+      "Harley + Cass",
+      "Candice"
+     ],
+     "amount": 2
+    },
+    "fieldPack": {
+     "who": [
+      "Jaz",
+      "Brock"
+     ],
+     "amount": 2
+    },
+    "canteenPack": {
+     "who": [
+      "Harley + Cass",
+      "Candice"
+     ],
+     "amount": 2
+    }
+   },
+   "issues": [
+    {
+     "job": "canteenSetup",
+     "level": "bad",
+     "text": "Set up — canteen: vacant — Toni on field set up.",
+     "fix": "Field jobs come first; the canteen opens once Candice or Toni is free."
+    }
+   ]
+  },
+  {
+   "round": 8,
+   "date": "2026-11-30",
+   "night": "Monday",
+   "jobs": {
+    "fieldSetup": {
+     "who": [
+      "Chloe + Abby",
+      "Mitch",
+      "Brock"
+     ],
+     "amount": 4
+    },
+    "canteenSetup": {
+     "who": [
+      "Harley + Cass",
+      "Toni"
+     ],
+     "amount": 2
+    },
+    "duty1": {
+     "who": [
+      "Mitch",
+      "Brock"
+     ],
+     "amount": 2
+    },
+    "canteen1": {
+     "who": [
+      "Toni"
+     ],
+     "amount": 1
+    },
+    "duty2": {
+     "who": [
+      "Sam",
+      "Candice"
+     ],
+     "amount": 2
+    },
+    "canteen2": {
+     "who": [
+      "Toni"
+     ],
+     "amount": 1
+    },
+    "fieldPack": {
+     "who": [
+      "Mitch",
+      "Jaz"
+     ],
+     "amount": 2
+    },
+    "canteenPack": {
+     "who": [
+      "Chloe + Abby",
+      "Candice"
+     ],
+     "amount": 2
+    }
+   },
+   "issues": [
+    {
+     "job": null,
+     "level": "warn",
+     "text": "Mitch has 3 jobs this night.",
+     "fix": "Swap one of their jobs if someone else can help."
+    },
+    {
+     "job": null,
+     "level": "warn",
+     "text": "Toni has 3 jobs this night.",
+     "fix": "Swap one of their jobs if someone else can help."
+    }
+   ]
+  },
+  {
+   "round": 8,
+   "date": "2026-12-01",
+   "night": "Tuesday",
+   "jobs": {
+    "fieldSetup": {
+     "who": [
+      "Brock",
+      "Toni"
+     ],
+     "amount": 2
+    },
+    "canteenSetup": {
+     "who": [],
+     "amount": 0
+    },
+    "duty1": {
+     "who": [
+      "Mitch",
+      "Chad"
+     ],
+     "amount": 2
+    },
+    "canteen1": {
+     "who": [
+      "Toni"
+     ],
+     "amount": 1
+    },
+    "duty2": {
+     "who": [
+      "Jaz",
+      "Chad"
+     ],
+     "amount": 2
+    },
+    "canteen2": {
+     "who": [
+      "Harley + Cass",
+      "Candice"
+     ],
+     "amount": 2
+    },
+    "fieldPack": {
+     "who": [
+      "Mitch",
+      "Jaz"
+     ],
+     "amount": 2
+    },
+    "canteenPack": {
+     "who": [
+      "Harley + Cass",
+      "Candice"
+     ],
+     "amount": 2
+    }
+   },
+   "issues": [
+    {
+     "job": "canteenSetup",
+     "level": "bad",
+     "text": "Set up — canteen: vacant — Toni on field set up.",
+     "fix": "Field jobs come first; the canteen opens once Candice or Toni is free."
+    }
+   ]
+  },
+  {
+   "round": 9,
+   "date": "2026-12-07",
+   "night": "Monday",
+   "jobs": {
+    "fieldSetup": {
+     "who": [
+      "Chloe + Abby",
+      "Mitch",
+      "Brock"
+     ],
+     "amount": 4
+    },
+    "canteenSetup": {
+     "who": [
+      "Harley + Cass",
+      "Toni"
+     ],
+     "amount": 2
+    },
+    "duty1": {
+     "who": [
+      "Mitch",
+      "Brock"
+     ],
+     "amount": 2
+    },
+    "canteen1": {
+     "who": [
+      "Candice"
+     ],
+     "amount": 1
+    },
+    "duty2": {
+     "who": [
+      "Sam",
+      "Candice"
+     ],
+     "amount": 2
+    },
+    "canteen2": {
+     "who": [
+      "Toni"
+     ],
+     "amount": 1
+    },
+    "fieldPack": {
+     "who": [
+      "Mitch",
+      "Jaz"
+     ],
+     "amount": 2
+    },
+    "canteenPack": {
+     "who": [
+      "Chloe + Abby",
+      "Candice"
+     ],
+     "amount": 2
+    }
+   },
+   "issues": [
+    {
+     "job": null,
+     "level": "warn",
+     "text": "Mitch has 3 jobs this night.",
+     "fix": "Swap one of their jobs if someone else can help."
+    },
+    {
+     "job": null,
+     "level": "warn",
+     "text": "Candice has 3 jobs this night.",
+     "fix": "Swap one of their jobs if someone else can help."
+    }
+   ]
+  },
+  {
+   "round": 9,
+   "date": "2026-12-08",
+   "night": "Tuesday",
+   "jobs": {
+    "fieldSetup": {
+     "who": [
+      "Brock",
+      "Toni"
+     ],
+     "amount": 2
+    },
+    "canteenSetup": {
+     "who": [],
+     "amount": 0
+    },
+    "duty1": {
+     "who": [
+      "Mitch",
+      "Sam"
+     ],
+     "amount": 2
+    },
+    "canteen1": {
+     "who": [
+      "Toni"
+     ],
+     "amount": 1
+    },
+    "duty2": {
+     "who": [
+      "Jaz",
+      "Brock"
+     ],
+     "amount": 2
+    },
+    "canteen2": {
+     "who": [
+      "Harley + Cass",
+      "Candice"
+     ],
+     "amount": 2
+    },
+    "fieldPack": {
+     "who": [
+      "Mitch",
+      "Jaz"
+     ],
+     "amount": 2
+    },
+    "canteenPack": {
+     "who": [
+      "Harley + Cass",
+      "Candice"
+     ],
+     "amount": 2
+    }
+   },
+   "issues": [
+    {
+     "job": "canteenSetup",
+     "level": "bad",
+     "text": "Set up — canteen: vacant — Toni on field set up.",
+     "fix": "Field jobs come first; the canteen opens once Candice or Toni is free."
+    }
+   ]
+  },
+  {
+   "round": 10,
+   "date": "2026-12-14",
+   "night": "Monday",
+   "jobs": {
+    "fieldSetup": {
+     "who": [
+      "Chloe + Abby",
+      "Mitch",
+      "Brock"
+     ],
+     "amount": 4
+    },
+    "canteenSetup": {
+     "who": [
+      "Harley + Cass",
+      "Toni"
+     ],
+     "amount": 2
+    },
+    "duty1": {
+     "who": [
+      "Sam",
+      "Candice"
+     ],
+     "amount": 2
+    },
+    "canteen1": {
+     "who": [
+      "Toni"
+     ],
+     "amount": 1
+    },
+    "duty2": {
+     "who": [
+      "Mitch",
+      "Brock"
+     ],
+     "amount": 2
+    },
+    "canteen2": {
+     "who": [
+      "Toni"
+     ],
+     "amount": 1
+    },
+    "fieldPack": {
+     "who": [
+      "Mitch",
+      "Jaz"
+     ],
+     "amount": 2
+    },
+    "canteenPack": {
+     "who": [
+      "Chloe + Abby",
+      "Candice"
+     ],
+     "amount": 2
+    }
+   },
+   "issues": [
+    {
+     "job": null,
+     "level": "warn",
+     "text": "Mitch has 3 jobs this night.",
+     "fix": "Swap one of their jobs if someone else can help."
+    },
+    {
+     "job": null,
+     "level": "warn",
+     "text": "Toni has 3 jobs this night.",
+     "fix": "Swap one of their jobs if someone else can help."
+    }
+   ]
+  },
+  {
+   "round": 10,
+   "date": "2026-12-15",
+   "night": "Tuesday",
+   "jobs": {
+    "fieldSetup": {
+     "who": [
+      "Brock",
+      "Toni"
+     ],
+     "amount": 2
+    },
+    "canteenSetup": {
+     "who": [],
+     "amount": 0
+    },
+    "duty1": {
+     "who": [
+      "Chad",
+      "Sam"
+     ],
+     "amount": 2
+    },
+    "canteen1": {
+     "who": [
+      "Toni"
+     ],
+     "amount": 1
+    },
+    "duty2": {
+     "who": [
+      "Jaz",
+      "Chad"
+     ],
+     "amount": 2
+    },
+    "canteen2": {
+     "who": [
+      "Harley + Cass",
+      "Candice"
+     ],
+     "amount": 2
+    },
+    "fieldPack": {
+     "who": [
+      "Jaz",
+      "Brock"
+     ],
+     "amount": 2
+    },
+    "canteenPack": {
+     "who": [
+      "Harley + Cass",
+      "Candice"
+     ],
+     "amount": 2
+    }
+   },
+   "issues": [
+    {
+     "job": "canteenSetup",
+     "level": "bad",
+     "text": "Set up — canteen: vacant — Toni on field set up.",
+     "fix": "Field jobs come first; the canteen opens once Candice or Toni is free."
+    }
+   ]
+  }
+ ],
+ "issues": [
+  {
+   "level": "bad",
+   "night": "Tuesday",
+   "text": "Set up — canteen: vacant — Toni on field set up.",
+   "fix": "Field jobs come first; the canteen opens once Candice or Toni is free.",
+   "rounds": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ]
+  },
+  {
+   "level": "warn",
+   "night": "Monday",
+   "text": "Mitch has 3 jobs this night.",
+   "fix": "Swap one of their jobs if someone else can help.",
+   "rounds": [
+    1,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ]
+  },
+  {
+   "level": "warn",
+   "night": "Monday",
+   "text": "Mitch has 4 jobs this night.",
+   "fix": "Swap one of their jobs if someone else can help.",
+   "rounds": [
+    2
+   ]
+  },
+  {
+   "level": "warn",
+   "night": "Monday",
+   "text": "Candice has 3 jobs this night.",
+   "fix": "Swap one of their jobs if someone else can help.",
+   "rounds": [
+    3,
+    5,
+    7,
+    9
+   ]
+  },
+  {
+   "level": "warn",
+   "night": "Monday",
+   "text": "Toni has 3 jobs this night.",
+   "fix": "Swap one of their jobs if someone else can help.",
+   "rounds": [
+    4,
+    6,
+    8,
+    10
+   ]
+  }
+ ]
+}

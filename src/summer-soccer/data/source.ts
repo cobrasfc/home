@@ -56,7 +56,12 @@ export function csvSource(url: string, isSample: boolean, timeoutMs = 12_000): F
 }
 
 /** The configured source: the club's Google Sheet, or the bundled sample fixtures until one is set. */
+/** A draft page names its own fixtures file on <html data-fixtures="…"> */
+const draftFixtures = () => (typeof document !== 'undefined' ? document.documentElement.dataset.fixtures : undefined);
+
 export function defaultSource(): FixtureSource {
+	const draft = draftFixtures();
+	if (draft) return csvSource(withBase(draft), true);
 	const sheet = SUMMER_SCHEDULE.sheetCsvUrl.trim();
 	return sheet ? csvSource(toCsvUrl(sheet), false) : csvSource(withBase(SUMMER_SCHEDULE.sampleCsvPath), true);
 }
@@ -66,7 +71,7 @@ export function defaultSource(): FixtureSource {
 const CACHE_KEY = 'cobras-summer-fixtures-cache-v1';
 
 /** A saved copy only counts for the source it came from (switching sheet or preview file discards it). */
-const sourceKey = () => SUMMER_SCHEDULE.sheetCsvUrl || SUMMER_SCHEDULE.sampleCsvPath;
+const sourceKey = () => draftFixtures() || SUMMER_SCHEDULE.sheetCsvUrl || SUMMER_SCHEDULE.sampleCsvPath;
 
 interface CachedRows {
 	rows: string[][];

@@ -1,0 +1,203 @@
+---
+// Summer Soccer planning portal (committee). Shows the chosen layout (Scenario 2) from the live plan data, plus a
+// History tab with the frozen comparison from when the layout was decided.
+// Data comes from plan_scenarios.py (run on the club's computer next to the player list) → scenarios.json.
+// Contains team-level information only — no player names, FFA numbers or contact details.
+import '../../styles/global.css';
+import '../schedule.css';
+import '../admin/admin.css';
+import decision from '../admin/history-2026-10-05.json';
+import { makeView } from '../admin/view';
+import Legend from '../admin/Legend.astro';
+import PitchStrip from '../admin/PitchStrip.astro';
+import ScenarioRounds from '../admin/ScenarioRounds.astro';
+import Compare from '../admin/Compare.astro';
+import TeamsData from '../admin/TeamsData.astro';
+import VolunteerSchedule from '../admin/VolunteerSchedule.astro';
+import { SITE } from '../../site.config';
+import { withBase } from '../../utils/withBase';
+
+interface Props {
+	/** Plan data (scenarios.json) and volunteer roster (volunteers.json) */
+	live: any;
+	volunteers: any;
+	/** Draft banner shown above the dashboard */
+	draftNote?: string;
+	/** The public schedule this view links to (the draft one for a draft) */
+	schedulePath?: string;
+}
+const { live, volunteers, draftNote, schedulePath = '/summer-soccer/schedule' } = Astro.props;
+
+const chosen = live.scenarios[0];
+const v = makeView(live);
+const notChosen = decision.scenarios.filter((s) => s.id !== decision.decision.chosen);
+const generated = new Date(live.generatedAt).toLocaleString('en-AU', { dateStyle: 'medium', timeStyle: 'short' });
+const decidedOn = new Date(`${decision.decision.date}T12:00:00`).toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' });
+const gamesRange = (() => {
+	const g = live.teams.map((t) => t.games);
+	return Math.min(...g) === Math.max(...g) ? `${Math.min(...g)}` : `${Math.min(...g)}–${Math.max(...g)}`;
+})();
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="noindex, nofollow" />
+		<meta name="theme-color" content="#253d97" />
+		<link rel="icon" type="image/png" href={withBase('/assets/favicon.png')} />
+		<title>{`${draftNote ? 'DRAFT — ' : ''}Summer Soccer planning | ${SITE.name}`}</title>
+	</head>
+	<body class="ss-body ad-body">
+		<header class="ss-header">
+			<div class="ad-wrap ss-header__inner">
+				<a class="ss-brand" href={withBase('/')} aria-label={`${SITE.name} home`}>
+					<img src={withBase('/assets/logo-shield.svg')} width="34" height="40" alt="" />
+					<span class="ss-brand__text">
+						<span class="ss-brand__title">Summer Soccer planning</span>
+						<span class="ss-brand__club">Committee view · draft</span>
+					</span>
+				</a>
+				<a class="ss-header__action ad-headlink" href={withBase(schedulePath)}>{draftNote ? 'Draft public schedule' : 'Public schedule'}</a>
+			</div>
+		</header>
+
+		{draftNote && (
+			<div class="ss-draftbar" role="note">
+				<strong>Draft for committee review.</strong> {draftNote} <a href={withBase('/summer-soccer/admin')}>Live admin view</a>
+			</div>
+		)}
+		<main class="ad-wrap ad-main">
+			<div class="ad-intro">
+				<h1 class="ad-title">Summer Soccer 2026 schedule</h1>
+				<p class="ad-lede">
+					{chosen.name}: {chosen.title} — chosen on {decidedOn}. {live.teams.length} teams in {live.comps.length} competitions over {live.weeks} weeks.
+				</p>
+				<p class="ad-meta">Generated {generated} from the club’s player list. Team-level information only.</p>
+			</div>
+
+			<div class="ad-tabbar">
+				<div class="ad-tabs" role="tablist" aria-label="Views">
+					<button type="button" role="tab" id="tab-schedule" aria-controls="panel-schedule" aria-selected="true" data-tab="schedule">Schedule</button>
+					<button type="button" role="tab" id="tab-volunteers" aria-controls="panel-volunteers" aria-selected="false" tabindex="-1" data-tab="volunteers">Volunteer schedule</button>
+					<button type="button" role="tab" id="tab-teams" aria-controls="panel-teams" aria-selected="false" tabindex="-1" data-tab="teams">Teams &amp; data</button>
+					<button type="button" role="tab" id="tab-history" aria-controls="panel-history" aria-selected="false" tabindex="-1" data-tab="history">History</button>
+				</div>
+				<a class="ad-tablink" href={withBase(schedulePath)} target="_blank" rel="noopener">{draftNote ? 'Draft public schedule' : 'Public schedule'} <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+			</div>
+
+			<!-- ============================== SCHEDULE (chosen scenario) ============================== -->
+			<section class="ad-panel" id="panel-schedule" role="tabpanel" aria-labelledby="tab-schedule">
+				<p class="ad-lede">{chosen.description} {chosen.fieldNote ? chosen.fieldNote.split(', so ')[0] + '.' : ''}</p>
+
+				<dl class="ad-facts">
+					<div><dt>Monday</dt><dd>{v.waveUse(chosen, 'Monday')} fields · {v.refsPeak(chosen, 'Monday')} referees ({v.refsByWave(chosen, 'Monday')} games by wave)</dd></div>
+					<div><dt>Tuesday</dt><dd>{v.waveUse(chosen, 'Tuesday')} fields + Fields 7–8 · {v.refsPeak(chosen, 'Tuesday')} referees ({v.refsByWave(chosen, 'Tuesday')} games by wave{v.refNote})</dd></div>
+					<div><dt>Monday kick-offs</dt><dd>{v.splitText(chosen)}</dd></div>
+					<div><dt>Games per team</dt><dd>{gamesRange} <span class="ad-muted">(5- and 7-team competitions have a bye each week)</span></dd></div>
+				</dl>
+
+				<Legend data={live} />
+				<h2 class="ad-h2">Pitch use by wave</h2>
+				<p class="ad-note">Each square is one pitch: the number is the field, the letters are the competition using it. Hatched squares are free.</p>
+				<PitchStrip data={live} scenario={chosen} heading={false} />
+
+				<ScenarioRounds data={live} scenario={chosen} uid="live" />
+			</section>
+
+			<!-- ============================== VOLUNTEERS ============================== -->
+			<section class="ad-panel" id="panel-volunteers" role="tabpanel" aria-labelledby="tab-volunteers" hidden>
+				<VolunteerSchedule data={volunteers} />
+			</section>
+
+			<!-- ============================== TEAMS & DATA ============================== -->
+			<section class="ad-panel" id="panel-teams" role="tabpanel" aria-labelledby="tab-teams" hidden>
+				<TeamsData data={live} schedulePath={schedulePath} />
+			</section>
+
+			<!-- ============================== HISTORY ============================== -->
+			<section class="ad-panel" id="panel-history" role="tabpanel" aria-labelledby="tab-history" hidden>
+				<h2 class="ad-h2">Field layout decision — {decidedOn}</h2>
+				<p class="ad-lede">{decision.decision.note}</p>
+				<p class="ad-note">
+					Frozen snapshot: teams, draws and figures below are as they stood on {decidedOn} ({decision.teams.length} teams). Later changes — such as
+					the U6/7s now playing one game per wave — only appear on the Schedule tab.
+				</p>
+				<Compare data={decision} />
+				{notChosen.map((s) => (
+					<div class="ad-block">
+						<h2 class="ad-h2">{s.name} round by round <span class="ad-muted">(not chosen)</span></h2>
+						<ScenarioRounds data={decision} scenario={s} uid={`hist-${s.id}`} />
+					</div>
+				))}
+			</section>
+		</main>
+
+		<script>
+			// Tabs (hash-linkable) and round pickers
+			const tabs = [...document.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
+			function show(id: string, focus = false) {
+				const tab = tabs.find((t) => t.dataset.tab === id) ?? tabs[0];
+				for (const t of tabs) {
+					const on = t === tab;
+					t.setAttribute('aria-selected', String(on));
+					t.tabIndex = on ? 0 : -1;
+					document.getElementById(t.getAttribute('aria-controls')!)!.hidden = !on;
+				}
+				if (focus) tab.focus();
+				history.replaceState(null, '', `#${tab.dataset.tab}`);
+			}
+			tabs.forEach((t, i) => {
+				t.addEventListener('click', () => show(t.dataset.tab!));
+				t.addEventListener('keydown', (e) => {
+					const step = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+					if (step) show(tabs[(i + step + tabs.length) % tabs.length].dataset.tab!, true);
+				});
+			});
+			// Old links (#compare, #s1, #s2) land somewhere sensible
+			const legacy: Record<string, string> = { compare: 'history', s1: 'history', s2: 'schedule' };
+			const fromHash = () => {
+				const h = location.hash.slice(1);
+				return legacy[h] ?? h;
+			};
+			if (location.hash) show(fromHash());
+			addEventListener('hashchange', () => show(fromHash()));
+
+			// Copy a team's schedule link
+			document.addEventListener('click', async (e) => {
+				const btn = (e.target as HTMLElement).closest<HTMLButtonElement>('.ad-copy');
+				if (!btn) return;
+				const status = document.getElementById('ad-copy-status');
+				try {
+					await navigator.clipboard.writeText(btn.dataset.copy!);
+					btn.classList.add('is-copied');
+					if (status) status.textContent = `${btn.dataset.team} link copied`;
+					setTimeout(() => btn.classList.remove('is-copied'), 1800);
+				} catch {
+					window.prompt(`Copy ${btn.dataset.team}'s schedule link:`, btn.dataset.copy);
+				}
+			});
+			// All team links as a CSV (for emailing coaches)
+			document.getElementById('ad-download-links')?.addEventListener('click', () => {
+				const q = (v: string) => `"${v.replace(/"/g, '""')}"`;
+				const rows = [...document.querySelectorAll<HTMLButtonElement>('.ad-copy')].map((b) => [b.dataset.comp!, b.dataset.team!, b.dataset.copy!]);
+				const csv = ['Competition,Team,Schedule link', ...rows.map((r) => r.map(q).join(','))].join('\r\n');
+				const url = URL.createObjectURL(new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8' }));
+				const a = Object.assign(document.createElement('a'), { href: url, download: 'summer-soccer-team-links.csv' });
+				document.body.append(a);
+				a.click();
+				a.remove();
+				setTimeout(() => URL.revokeObjectURL(url), 5000);
+			});
+
+			document.addEventListener('click', (e) => {
+				const btn = (e.target as HTMLElement).closest<HTMLButtonElement>('.ad-week');
+				if (!btn) return;
+				const { scenario, week } = btn.dataset;
+				document.querySelectorAll<HTMLButtonElement>(`.ad-week[data-scenario="${scenario}"]`).forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+				document.querySelectorAll<HTMLElement>(`[data-week-panel^="${scenario}-"]`).forEach((p) => (p.hidden = p.dataset.weekPanel !== `${scenario}-${week}`));
+			});
+		</script>
+	</body>
+</html>
