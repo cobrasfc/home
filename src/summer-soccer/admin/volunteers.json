@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-16T16:04",
+ "generatedAt": "2026-10-29T15:29",
  "jobs": {
   "Monday": [
    {
@@ -291,9 +291,9 @@
    "monday": "Field / canteen set up; duty officer except while Metford AAM play; field / canteen pack down",
    "tuesday": "Duty officer except while Cobras Gold play; field / canteen pack down",
    "setup": 10,
-   "duty": 10,
+   "duty": 13,
    "canteen": 0,
-   "pack": 17
+   "pack": 14
   },
   {
    "name": "Jaz",
@@ -304,7 +304,7 @@
    "monday": "Duty officer (wave 2 only) except while Summer Savages play; field / canteen pack down",
    "tuesday": "Duty officer; field / canteen pack down",
    "setup": 0,
-   "duty": 14,
+   "duty": 11,
    "canteen": 0,
    "pack": 19
   },
@@ -317,9 +317,9 @@
    "monday": "Field / canteen set up; duty officer except while Metford AAM play; field / canteen pack down",
    "tuesday": "Field / canteen set up; duty officer; field / canteen pack down",
    "setup": 19,
-   "duty": 16,
+   "duty": 12,
    "canteen": 0,
-   "pack": 2
+   "pack": 5
   },
   {
    "name": "Chad",
@@ -330,7 +330,7 @@
    "monday": "Not available",
    "tuesday": "Duty officer; field / canteen pack down",
    "setup": 0,
-   "duty": 14,
+   "duty": 16,
    "canteen": 0,
    "pack": 0
   },
@@ -343,7 +343,7 @@
    "monday": "Duty officer",
    "tuesday": "Duty officer",
    "setup": 0,
-   "duty": 14,
+   "duty": 16,
    "canteen": 0,
    "pack": 0
   },
@@ -741,8 +741,8 @@
     },
     "duty1": {
      "who": [
-      "Sam",
-      "Candice"
+      "Mitch",
+      "Brock"
      ],
      "amount": 2
     },
@@ -754,8 +754,8 @@
     },
     "duty2": {
      "who": [
-      "Jaz",
-      "Brock"
+      "Sam",
+      "Candice"
      ],
      "amount": 2
     },
@@ -784,6 +784,12 @@
     {
      "job": null,
      "level": "warn",
+     "text": "Mitch has 3 jobs this night.",
+     "fix": "Swap one of their jobs if someone else can help."
+    },
+    {
+     "job": null,
+     "level": "warn",
      "text": "Toni has 3 jobs this night.",
      "fix": "Swap one of their jobs if someone else can help."
     }
@@ -807,8 +813,8 @@
     },
     "duty1": {
      "who": [
-      "Mitch",
-      "Chad"
+      "Chad",
+      "Sam"
      ],
      "amount": 2
     },
@@ -834,8 +840,8 @@
     },
     "fieldPack": {
      "who": [
-      "Mitch",
-      "Jaz"
+      "Jaz",
+      "Brock"
      ],
      "amount": 2
     },
@@ -878,27 +884,27 @@
     },
     "duty1": {
      "who": [
-      "Sam",
-      "Candice"
+      "Mitch",
+      "Brock"
      ],
      "amount": 2
     },
     "canteen1": {
      "who": [
-      "Toni"
+      "Candice"
      ],
      "amount": 1
     },
     "duty2": {
      "who": [
-      "Jaz",
-      "Brock"
+      "Sam",
+      "Candice"
      ],
      "amount": 2
     },
     "canteen2": {
      "who": [
-      "Candice"
+      "Toni"
      ],
      "amount": 1
     },
@@ -918,6 +924,12 @@
     }
    },
    "issues": [
+    {
+     "job": null,
+     "level": "warn",
+     "text": "Mitch has 3 jobs this night.",
+     "fix": "Swap one of their jobs if someone else can help."
+    },
     {
      "job": null,
      "level": "warn",
@@ -944,7 +956,7 @@
     },
     "duty1": {
      "who": [
-      "Brock",
+      "Mitch",
       "Chad"
      ],
      "amount": 2
@@ -1087,7 +1099,7 @@
     },
     "duty1": {
      "who": [
-      "Brock",
+      "Chad",
       "Sam"
      ],
      "amount": 2
@@ -1100,8 +1112,8 @@
     },
     "duty2": {
      "who": [
-      "Mitch",
-      "Jaz"
+      "Jaz",
+      "Chad"
      ],
      "amount": 2
     },
@@ -1114,8 +1126,8 @@
     },
     "fieldPack": {
      "who": [
-      "Mitch",
-      "Jaz"
+      "Jaz",
+      "Brock"
      ],
      "amount": 2
     },
@@ -1158,27 +1170,27 @@
     },
     "duty1": {
      "who": [
-      "Sam",
-      "Candice"
+      "Mitch",
+      "Brock"
      ],
      "amount": 2
     },
     "canteen1": {
      "who": [
-      "Toni"
+      "Candice"
      ],
      "amount": 1
     },
     "duty2": {
      "who": [
-      "Jaz",
-      "Brock"
+      "Sam",
+      "Candice"
      ],
      "amount": 2
     },
     "canteen2": {
      "who": [
-      "Candice"
+      "Toni"
      ],
      "amount": 1
     },
@@ -1198,6 +1210,12 @@
     }
    },
    "issues": [
+    {
+     "job": null,
+     "level": "warn",
+     "text": "Mitch has 3 jobs this night.",
+     "fix": "Swap one of their jobs if someone else can help."
+    },
     {
      "job": null,
      "level": "warn",
@@ -1224,8 +1242,8 @@
     },
     "duty1": {
      "who": [
-      "Brock",
-      "Chad"
+      "Chad",
+      "Sam"
      ],
      "amount": 2
     },
@@ -1251,8 +1269,8 @@
     },
     "fieldPack": {
      "who": [
-      "Mitch",
-      "Jaz"
+      "Jaz",
+      "Brock"
      ],
      "amount": 2
     },
@@ -1367,7 +1385,7 @@
     },
     "duty1": {
      "who": [
-      "Brock",
+      "Mitch",
       "Chad"
      ],
      "amount": 2
@@ -1510,7 +1528,7 @@
     },
     "duty1": {
      "who": [
-      "Brock",
+      "Mitch",
       "Sam"
      ],
      "amount": 2
@@ -1523,8 +1541,8 @@
     },
     "duty2": {
      "who": [
-      "Mitch",
-      "Jaz"
+      "Jaz",
+      "Brock"
      ],
      "amount": 2
     },
@@ -1728,7 +1746,10 @@
    "fix": "Swap one of their jobs if someone else can help.",
    "rounds": [
     1,
+    4,
+    5,
     6,
+    7,
     8,
     9,
     10
