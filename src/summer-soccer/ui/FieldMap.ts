@@ -105,7 +105,13 @@ export interface PlanAssignment {
 	/** CSS colour identifying the competition (always paired with the text tag) */
 	colour: string;
 	/** When set, the field shows this match (team names shortened to fit; full names in the hover tooltip) */
-	match?: { team1: string; team2: string; note?: string };
+	match?: { team1: string; team2: string; note?: string; bibs?: string };
+}
+
+/** A small bib (training vest), centred on x,y — marks the team that wears the club's bibs */
+export function bibIcon(x: number, y: number, size: number): string {
+	const s = size / 24;
+	return `<path class="ss-plan__bib" transform="translate(${(x - 12 * s).toFixed(1)} ${(y - 12 * s).toFixed(1)}) scale(${s.toFixed(3)})" d="M8 2 L10 2 Q12 5 14 2 L16 2 L17.5 7 Q19 8 19 10 L19 22 L5 22 L5 10 Q5 8 6.5 7 Z"/>`;
 }
 
 /** Widest horizontal line through a rotated field's centre — the room available for upright text */
@@ -124,11 +130,13 @@ function fit(text: string, maxChars: number): string {
 function matchLabel(f: FieldDef, num: string, a: PlanAssignment): string {
 	const base = Math.max(17, Math.min(25, Math.min(f.w, f.h) * 0.13));
 	const maxChars = Math.max(6, Math.floor((textRoom(f) * 0.82) / (base * 0.56)));
+	const m = a.match!;
+	const team = (name: string) => ({ text: fit(name, maxChars - (m.bibs === name ? 2 : 0)), size: base, cls: 'ss-plan__mteam', bibs: m.bibs === name });
 	const lines = [
-		{ text: `${num} · ${a.tag}`, size: base * 0.85, cls: 'ss-plan__mhead' },
-		{ text: fit(a.match!.team1, maxChars), size: base, cls: 'ss-plan__mteam' },
-		{ text: 'v', size: base * 0.75, cls: 'ss-plan__mv' },
-		{ text: fit(a.match!.team2, maxChars), size: base, cls: 'ss-plan__mteam' }
+		{ text: '', size: base * 2, cls: 'head', bibs: false },
+		team(m.team1),
+		{ text: 'v', size: base * 0.75, cls: 'ss-plan__mv', bibs: false },
+		team(m.team2)
 	];
 	const lineH = (l: { size: number }) => l.size * 1.18;
 	const total = lines.reduce((t, l) => t + lineH(l), 0);
@@ -136,9 +144,28 @@ function matchLabel(f: FieldDef, num: string, a: PlanAssignment): string {
 	return lines
 		.map((l) => {
 			y += lineH(l);
-			return `<text class="${l.cls}" x="${f.cx}" y="${(y - l.size * 0.28).toFixed(1)}" font-size="${l.size.toFixed(1)}" text-anchor="middle">${esc(l.text)}</text>`;
+			if (l.cls === 'head') return numberBadge(f.cx, y - lineH(l) / 2, base, num, a.tag);
+			const baseline = (y - l.size * 0.28).toFixed(1);
+			const text = `<text class="${l.cls}" x="${f.cx}" y="${baseline}" font-size="${l.size.toFixed(1)}" text-anchor="middle">${esc(l.text)}</text>`;
+			if (!l.bibs) return text;
+			// Bib icon just left of the team that wears them
+			const width = l.text.length * l.size * 0.56;
+			return `${text}${bibIcon(f.cx - width / 2 - l.size * 0.95, y - l.size * 0.62, l.size * 1.5)}`;
 		})
 		.join('');
+}
+
+/** Field number in a dark disc (easy to spot at a glance), then the competition */
+function numberBadge(cx: number, cy: number, base: number, num: string, tag: string): string {
+	const r = base * 1.08;
+	const numSize = base * (num.length > 1 ? 1.2 : 1.5);
+	const tagSize = base * 0.95;
+	const gap = base * 0.35;
+	const tagW = tag.length * tagSize * 0.62;
+	const x0 = cx - (2 * r + gap + tagW) / 2;
+	return `<circle class="ss-plan__badge" cx="${(x0 + r).toFixed(1)}" cy="${cy.toFixed(1)}" r="${r.toFixed(1)}"/>
+		<text class="ss-plan__badgenum" x="${(x0 + r).toFixed(1)}" y="${(cy + numSize * 0.36).toFixed(1)}" font-size="${numSize.toFixed(1)}" text-anchor="middle">${esc(num)}</text>
+		<text class="ss-plan__mhead" x="${(x0 + 2 * r + gap).toFixed(1)}" y="${(cy + tagSize * 0.36).toFixed(1)}" font-size="${tagSize.toFixed(1)}">${esc(tag)}</text>`;
 }
 
 /**

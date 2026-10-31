@@ -632,6 +632,25 @@
 .ss-plan__mv {
 	fill: var(--ad-ink-2);
 }
+.ss-plan__badge {
+	fill: var(--ss-ink);
+	stroke: #fff;
+	stroke-width: 2;
+}
+.ss-plan__badgenum {
+	font-family: var(--font-sans);
+	font-weight: 800;
+	fill: #fff;
+}
+.ss-plan__bib {
+	fill: #f97316;
+	stroke: #7c2d12;
+	stroke-width: 1.5;
+	stroke-linejoin: round;
+}
+.ad-legend__bib {
+	vertical-align: -3px;
+}
 .ss-plan__field.has-match {
 	cursor: help;
 }

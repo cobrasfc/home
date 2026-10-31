@@ -1,6 +1,7 @@
 ---
 // Competition colour key (colour always paired with the competition's short name)
 import { COMP_COLOURS, type PlanData } from './view';
+import { bibIcon } from '../ui/FieldMap';
 
 interface Props {
 	data: PlanData;
@@ -13,4 +14,5 @@ const { data } = Astro.props;
 		<span class="ad-legend__item"><span class="ad-chip" style={`--plan:${COMP_COLOURS[c.id]}`}>{c.short}</span>{c.name}</span>
 	))}
 	<span class="ad-legend__item"><span class="ad-chip ad-chip--free">free</span>Unused pitch</span>
+	<span class="ad-legend__item"><svg class="ad-legend__bib" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" set:html={bibIcon(12, 12, 24)} />Bibs needed (team wearing them)</span>
 </div>

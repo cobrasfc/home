@@ -51,7 +51,12 @@ export function makeView(data: PlanData) {
 			out[f.field] = {
 				tag: comp[f.comp].short,
 				colour: COMP_COLOURS[f.comp],
-				match: { team1: f.team1, team2: f.team2, note: f.note.replace(/^Colour clash: /, '') }
+				match: {
+					team1: f.team1,
+					team2: f.team2,
+					note: f.note.replace(/^Colour clash: /, ''),
+					bibs: f.note.match(/Colour clash: (.+?) to wear bibs/)?.[1]
+				}
 			};
 		}
 		return out;
