@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T15:29",
+ "generatedAt": "2026-11-01T11:05",
  "jobs": {
   "Monday": [
    {
@@ -291,9 +291,9 @@
    "monday": "Field / canteen set up; duty officer except while Metford AAM play; field / canteen pack down",
    "tuesday": "Duty officer except while Cobras Gold play; field / canteen pack down",
    "setup": 10,
-   "duty": 13,
+   "duty": 17,
    "canteen": 0,
-   "pack": 14
+   "pack": 11
   },
   {
    "name": "Jaz",
@@ -317,9 +317,9 @@
    "monday": "Field / canteen set up; duty officer except while Metford AAM play; field / canteen pack down",
    "tuesday": "Field / canteen set up; duty officer; field / canteen pack down",
    "setup": 19,
-   "duty": 12,
+   "duty": 11,
    "canteen": 0,
-   "pack": 5
+   "pack": 8
   },
   {
    "name": "Chad",
@@ -330,7 +330,7 @@
    "monday": "Not available",
    "tuesday": "Duty officer; field / canteen pack down",
    "setup": 0,
-   "duty": 16,
+   "duty": 18,
    "canteen": 0,
    "pack": 0
   },
@@ -339,11 +339,11 @@
    "keys": true,
    "lead": false,
    "size": 1,
-   "note": "Duty officer; one wave a night where possible.",
+   "note": "Duty officer; one wave a night where possible. Tuesdays wave 2 only from 3 Nov.",
    "monday": "Duty officer",
    "tuesday": "Duty officer",
    "setup": 0,
-   "duty": 16,
+   "duty": 11,
    "canteen": 0,
    "pack": 0
   },
@@ -813,8 +813,8 @@
     },
     "duty1": {
      "who": [
-      "Chad",
-      "Sam"
+      "Mitch",
+      "Chad"
      ],
      "amount": 2
     },
@@ -983,8 +983,8 @@
     },
     "fieldPack": {
      "who": [
-      "Mitch",
-      "Jaz"
+      "Jaz",
+      "Brock"
      ],
      "amount": 2
     },
@@ -1099,8 +1099,8 @@
     },
     "duty1": {
      "who": [
-      "Chad",
-      "Sam"
+      "Mitch",
+      "Chad"
      ],
      "amount": 2
     },
@@ -1242,8 +1242,8 @@
     },
     "duty1": {
      "who": [
-      "Chad",
-      "Sam"
+      "Mitch",
+      "Chad"
      ],
      "amount": 2
     },
@@ -1412,8 +1412,8 @@
     },
     "fieldPack": {
      "who": [
-      "Mitch",
-      "Jaz"
+      "Jaz",
+      "Brock"
      ],
      "amount": 2
     },
@@ -1529,7 +1529,7 @@
     "duty1": {
      "who": [
       "Mitch",
-      "Sam"
+      "Chad"
      ],
      "amount": 2
     },
@@ -1542,7 +1542,7 @@
     "duty2": {
      "who": [
       "Jaz",
-      "Brock"
+      "Chad"
      ],
      "amount": 2
     },
@@ -1555,8 +1555,8 @@
     },
     "fieldPack": {
      "who": [
-      "Mitch",
-      "Jaz"
+      "Jaz",
+      "Brock"
      ],
      "amount": 2
     },
@@ -1671,8 +1671,8 @@
     },
     "duty1": {
      "who": [
-      "Chad",
-      "Sam"
+      "Mitch",
+      "Chad"
      ],
      "amount": 2
     },
