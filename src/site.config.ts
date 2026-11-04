@@ -144,3 +144,163 @@ export const SUMMER_SCHEDULE = {
 		logoPath: ''
 	}
 } as const;
+
+// Annual General Meeting — /agm (setup: google-apps-script/agm-nominations.gs + README "AGM nominations and RSVPs").
+// Nominations and RSVPs are emailed to `notifyEmail` in the Apps Script and logged in a Google Sheet the club owns.
+// Fill in the empty fields when they're confirmed; until then the page shows "TBA".
+export const AGM = {
+	// Committee review: while true the page shows a draft banner, is hidden from search engines and isn't linked
+	draft: true,
+	year: 2026,
+	// e.g. 'Wednesday 9 December 2026'
+	dateLabel: 'Thursday 3 December 2026',
+	monthLabel: 'December 2026',
+	// e.g. '6:30pm'
+	timeLabel: '6:30pm',
+	venueName: 'Easts Bowling Club',
+	venueAddress: '',
+	// Last day to nominate, e.g. 'Wednesday 2 December 2026'. Empty = "before the meeting".
+	nominationsClose: 'Thursday 26 November 2026',
+	// Google Apps Script web app /exec URL. While empty, the form opens a pre-filled email to the club instead.
+	submissionApiUrl: '',
+	agenda: [
+		{ title: "President's report", detail: 'A look back at the year and the plans for next season.' },
+		{ title: "Secretary's report", detail: 'Club administration, membership and correspondence.' },
+		{ title: 'Financial report', detail: "The year's income, spending and the club's financial position." },
+		{ title: 'Voting', detail: 'All committee positions are declared vacant and the new committee is elected.' },
+		{ title: 'Open floor', detail: 'Questions and comments from members.' }
+	],
+	roleGroups: [
+		{
+			id: 'executive',
+			label: 'Executive',
+			intro: 'Leads the club and is responsible for its governance, direction and official business.',
+			roles: [
+				{
+					id: 'president',
+					title: 'President',
+					summary: 'Provides overall leadership and direction for the club.',
+					duties: [
+						'Chairs committee meetings and the AGM',
+						'Sets club priorities with the committee and keeps them on track',
+						'Represents the club with the football association, council and sponsors',
+						'Supports committee members and volunteers in their roles'
+					]
+				},
+				{
+					id: 'vice-president',
+					title: 'Vice President',
+					summary: 'Supports the President and helps oversee club operations, projects and volunteers.',
+					duties: [
+						'Chairs meetings and acts for the President when they are unavailable',
+						'Leads club projects and events as agreed by the committee',
+						'Supports volunteers and committee members',
+						'Helps with game day coordination'
+					]
+				},
+				{
+					id: 'secretary',
+					title: 'Secretary',
+					summary: "Handles the club's administration, communications and official correspondence.",
+					duties: [
+						'Prepares meeting agendas, notices and minutes',
+						'Manages club correspondence and the club inbox',
+						'Keeps club records and the members register up to date',
+						'Coordinates club communications and announcements'
+					]
+				},
+				{
+					id: 'treasurer',
+					title: 'Treasurer',
+					summary: "Manages the club's finances, payments and budgeting.",
+					duties: [
+						'Keeps the club accounts and bank records up to date',
+						'Pays invoices and tracks registration and canteen income',
+						'Prepares the budget and regular financial reports for the committee',
+						'Presents the financial report at the AGM'
+					]
+				}
+			]
+		},
+		{
+			id: 'office-holders',
+			label: 'Office holders',
+			intro: 'Look after a specific area of the club and report on it at committee meetings.',
+			roles: [
+				{
+					id: 'canteen-officer',
+					title: 'Canteen Officer',
+					summary: 'Runs the canteen so game days and events are fed and funded.',
+					duties: [
+						'Manages canteen stock, ordering and pricing',
+						'Rosters canteen volunteers for game days and events',
+						'Keeps food handling and hygiene up to standard',
+						'Handles canteen takings and reports them to the committee'
+					]
+				},
+				{
+					id: 'gear-steward',
+					title: 'Gear Steward',
+					summary: 'Keeps track of club equipment and makes sure teams have what they need.',
+					duties: [
+						'Manages jerseys, balls, bibs, cones and first aid kits',
+						'Hands out and collects team kits each season',
+						'Tracks stock, damage and replacements',
+						'Keeps the equipment stores organised'
+					]
+				},
+				{
+					id: 'grounds-officer',
+					title: 'Grounds Officer',
+					summary: 'Keeps our grounds match-ready, safe and organised.',
+					duties: [
+						'Coordinates field set up and pack down',
+						'Organises line marking, goals and nets',
+						'Looks after storage sheds, keys and ground access',
+						'Reports maintenance and safety issues to council'
+					]
+				},
+				{
+					id: 'registrar',
+					title: 'Registrar',
+					summary: 'Looks after player registrations from sign-up to team allocation.',
+					duties: [
+						'Manages registrations and payments in PlayFootball',
+						'Allocates players to teams with the coaches',
+						'Handles transfers, clearances and registration questions',
+						'Keeps registration numbers and records up to date'
+					]
+				},
+				{
+					id: 'coach-ref-coordinator',
+					title: 'Coach and Ref Co-Ordinator',
+					summary: 'Supports the people who support our players: coaches, managers, referees and game leaders.',
+					duties: [
+						'Recruits and supports coaches and team managers',
+						'Makes sure team officials have their accreditations and Working with Children Checks',
+						'Coordinates club referees and game leaders each week',
+						'Is the link between team officials and the committee'
+					]
+				}
+			]
+		},
+		{
+			id: 'general',
+			label: 'General Committee',
+			intro: 'No set portfolio. A great way to get involved and see how the club runs.',
+			roles: [
+				{
+					id: 'general-committee',
+					title: 'General Committee member',
+					summary: 'Supports club operations across a variety of areas and helps wherever needed.',
+					duties: [
+						'Attends committee meetings and votes on club decisions',
+						'Takes on projects such as fundraising, sponsorship or events',
+						'Helps out on game days and at club events',
+						'Brings ideas and feedback from players and families'
+					]
+				}
+			]
+		}
+	]
+} as const;

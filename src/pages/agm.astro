@@ -1,0 +1,467 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { AGM, SITE } from '../site.config';
+import { withBase } from '../utils/withBase';
+
+const whenLabel = AGM.dateLabel || `${AGM.monthLabel} (date TBA)`;
+const timeLabel = AGM.timeLabel || 'Time TBA';
+const closesLabel = AGM.nominationsClose || 'Before the meeting (date TBA)';
+const inputClass =
+	'mt-1 w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue';
+---
+
+<BaseLayout
+	title={`Annual General Meeting ${AGM.year}`}
+	description={`Metford Cobras FC Annual General Meeting — ${whenLabel} at ${AGM.venueName}. Nominate for the committee or RSVP to attend.`}
+	noindex={AGM.draft}
+>
+	<section class="bg-cobra-blue">
+		<div class="container-page py-14 md:py-20">
+			{AGM.draft && (
+				<p class="mb-6 rounded-xl bg-cobra-yellow p-3 text-sm font-medium text-cobra-blue">
+					Draft for committee review &#8212; not yet published.
+				</p>
+			)}
+			<p class="text-xs font-medium uppercase tracking-wider text-cobra-yellow">Annual General Meeting {AGM.year} &#8226; {SITE.name}</p>
+			<h1 class="mt-3 max-w-2xl text-4xl font-medium leading-tight text-white md:text-5xl">
+				Help shape the next season of the Cobras.
+			</h1>
+			<p class="mt-4 max-w-xl text-base text-white/85">
+				Our AGM is {AGM.dateLabel ? `on ${AGM.dateLabel}${AGM.timeLabel ? ` at ${AGM.timeLabel}` : ''}` : `in ${AGM.monthLabel}`} at {AGM.venueName}. We'll look back on the year, report on the club's
+				finances and elect the committee for next season. Every member is welcome.
+			</p>
+			<div class="mt-6 flex flex-wrap gap-3">
+				<a class="btn-accent" href="#respond" data-preset="nominate">Nominate for the committee</a>
+				<a class="btn-secondary bg-transparent text-white ring-white/30 hover:bg-white/10" href="#respond" data-preset="rsvp">
+					RSVP to attend
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="container-page py-10 md:py-14">
+		<div class="grid gap-4 md:grid-cols-3">
+			<div class="card">
+				<p class="kicker">When</p>
+				<p class="mt-2 text-lg font-medium text-slate-900">{whenLabel}</p>
+				<p class="mt-1 text-sm text-slate-600">{timeLabel}</p>
+			</div>
+			<div class="card">
+				<p class="kicker">Where</p>
+				<p class="mt-2 text-lg font-medium text-slate-900">{AGM.venueName}</p>
+				{AGM.venueAddress && <p class="mt-1 text-sm text-slate-600">{AGM.venueAddress}</p>}
+			</div>
+			<div class="card">
+				<p class="kicker">Nominations close</p>
+				<p class="mt-2 text-lg font-medium text-slate-900">{closesLabel}</p>
+				<p class="mt-1 text-sm text-slate-600">
+					{AGM.nominationsClose ? 'Please get your nomination in by this date.' : "We'll confirm the closing date here and on Facebook."}
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Nomination / RSVP form -->
+	<section id="respond" class="scroll-mt-6 bg-cobra-blue/5">
+		<div class="container-page max-w-3xl py-10 md:py-14">
+			<p class="kicker">Nominate or RSVP</p>
+			<h2 class="mt-2 text-2xl font-medium text-slate-900">Let us know you're coming</h2>
+			<p class="mt-2 text-sm text-slate-700">
+				Nominate yourself for a committee role, or just RSVP so we can plan for numbers. It takes a couple of minutes.
+			</p>
+
+			<form id="agm-form" class="mt-8 space-y-8" novalidate>
+				<div style="position:absolute; left:-9999px;" aria-hidden="true">
+					<label for="website">Leave this field blank</label>
+					<input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+				</div>
+
+				<fieldset>
+					<legend class="text-base font-medium text-slate-900">What would you like to do? <span class="text-red-500" aria-hidden="true">*</span></legend>
+					<div class="mt-3 grid gap-3 sm:grid-cols-2">
+						<label class="choice-card card cursor-pointer">
+							<input class="sr-only" type="radio" name="type" value="nominate" required />
+							<p class="text-base font-semibold text-slate-900">Nominate for a role</p>
+							<p class="mt-1 text-sm text-slate-600">Put your hand up for the committee, and RSVP at the same time.</p>
+						</label>
+						<label class="choice-card card cursor-pointer">
+							<input class="sr-only" type="radio" name="type" value="rsvp" required />
+							<p class="text-base font-semibold text-slate-900">RSVP to attend</p>
+							<p class="mt-1 text-sm text-slate-600">Come along to the AGM without nominating.</p>
+						</label>
+					</div>
+					<p id="type-error" class="mt-2 hidden text-sm text-red-600">Please choose one.</p>
+				</fieldset>
+
+				<fieldset class="space-y-5">
+					<legend class="text-base font-medium text-slate-900">Your details</legend>
+					<div>
+						<label class="block text-sm font-medium text-slate-900" for="name">Full name <span class="text-red-500" aria-hidden="true">*</span></label>
+						<input class={inputClass} type="text" id="name" name="name" autocomplete="name" required />
+					</div>
+					<div class="grid gap-5 sm:grid-cols-2">
+						<div>
+							<label class="block text-sm font-medium text-slate-900" for="email">Email <span class="text-red-500" aria-hidden="true">*</span></label>
+							<input class={inputClass} type="email" id="email" name="email" autocomplete="email" required />
+						</div>
+						<div>
+							<label class="block text-sm font-medium text-slate-900" for="phone">
+								Mobile <span id="phone-optional" class="font-normal text-slate-500">(optional)</span><span id="phone-required" class="hidden text-red-500" aria-hidden="true">*</span>
+							</label>
+							<input class={inputClass} type="tel" id="phone" name="phone" autocomplete="tel" />
+						</div>
+					</div>
+					<div>
+						<label class="block text-sm font-medium text-slate-900" for="connection">Your connection to the club <span class="text-red-500" aria-hidden="true">*</span></label>
+						<select class={inputClass} id="connection" name="connection" required>
+							<option value="">Choose one</option>
+							<option>Player</option>
+							<option>Parent or guardian of a player</option>
+							<option>Coach or team official</option>
+							<option>Volunteer</option>
+							<option>Current committee member</option>
+							<option>Other</option>
+						</select>
+					</div>
+				</fieldset>
+
+				<fieldset id="nomination-fields" class="hidden space-y-5">
+					<legend class="text-base font-medium text-slate-900">Your nomination</legend>
+					<div>
+						<p class="text-sm font-medium text-slate-900">Which role(s) are you nominating for? <span class="text-red-500" aria-hidden="true">*</span></p>
+						<p class="mt-1 text-xs text-slate-500">Choose one, or more than one if you're happy to fill any of them.
+							<a class="text-cobra-blue underline hover:no-underline" href="#roles">See what each role involves</a>.
+						</p>
+						<div class="mt-3 grid gap-4 sm:grid-cols-3">
+							{AGM.roleGroups.map((group) => (
+								<div>
+									<p class="text-xs font-semibold uppercase tracking-wider text-slate-500">{group.label}</p>
+									<div class="mt-2 space-y-2">
+										{group.roles.map((role) => (
+											<label class="flex items-start gap-2 text-sm text-slate-800">
+												<input class="mt-0.5 h-4 w-4 accent-cobra-blue" type="checkbox" name="roles" value={role.title} data-role-id={role.id} />
+												<span>{role.title}</span>
+											</label>
+										))}
+									</div>
+								</div>
+							))}
+						</div>
+						<p id="roles-error" class="mt-2 hidden text-sm text-red-600">Please choose at least one role.</p>
+					</div>
+					<div>
+						<label class="block text-sm font-medium text-slate-900" for="experience">
+							Tell members a little about yourself <span class="font-normal text-slate-500">(optional)</span>
+						</label>
+						<p class="mt-1 text-xs text-slate-500">Why you'd like the role and any skills or experience you'd bring.</p>
+						<textarea class={inputClass} id="experience" name="experience" rows="4" maxlength="2000"></textarea>
+					</div>
+					<div>
+						<p class="text-sm font-medium text-slate-900">Will you be at the AGM? <span class="text-red-500" aria-hidden="true">*</span></p>
+						<div class="mt-2 flex flex-wrap gap-x-6 gap-y-2">
+							<label class="flex items-center gap-2 text-sm text-slate-800">
+								<input class="h-4 w-4 accent-cobra-blue" type="radio" name="attending" value="Yes" /> Yes, I'll be there
+							</label>
+							<label class="flex items-center gap-2 text-sm text-slate-800">
+								<input class="h-4 w-4 accent-cobra-blue" type="radio" name="attending" value="No (apology)" /> No, I can't make it
+							</label>
+						</div>
+						<p id="attending-error" class="mt-2 hidden text-sm text-red-600">Please let us know if you'll be there.</p>
+					</div>
+					<label class="flex items-start gap-3 rounded-lg bg-white p-4 text-sm text-slate-800 ring-1 ring-black/5">
+						<input class="mt-0.5 h-4 w-4 shrink-0 accent-cobra-blue" type="checkbox" id="consent" name="consent" />
+						<span>I'm 18 or older, I agree to be nominated, and I'm willing to take on the role if I'm elected.</span>
+					</label>
+					<p id="consent-error" class="-mt-3 hidden text-sm text-red-600">Please tick to confirm your nomination.</p>
+				</fieldset>
+
+				<fieldset id="guest-fields" class="hidden">
+					<legend class="sr-only">Guests</legend>
+					<label class="block text-sm font-medium text-slate-900" for="guests">How many other people are coming with you?</label>
+					<input class={`${inputClass} max-w-[8rem]`} type="number" id="guests" name="guests" min="0" max="10" value="0" inputmode="numeric" />
+				</fieldset>
+
+				<div id="comments-field" class="hidden">
+					<label class="block text-sm font-medium text-slate-900" for="comments">
+						Anything you'd like raised at the AGM? <span class="font-normal text-slate-500">(optional)</span>
+					</label>
+					<textarea class={inputClass} id="comments" name="comments" rows="3" maxlength="2000"></textarea>
+				</div>
+
+				<div>
+					<button id="submit-btn" class="btn-primary px-6 py-3 text-base" type="submit">Submit &#8594;</button>
+					<p class="mt-3 text-xs text-slate-500">
+						Your details go only to the {SITE.name} committee and are used for the AGM.
+					</p>
+				</div>
+
+				<div id="form-error" class="hidden rounded-lg bg-red-50 p-4 text-sm text-red-700 ring-1 ring-red-200">
+					Sorry, something went wrong sending your form. Please try again, or email us at
+					<a class="underline" href={`mailto:${SITE.contact.email}`}>{SITE.contact.email}</a>.
+				</div>
+			</form>
+
+			<div id="success-panel" class="hidden card mt-8 bg-white">
+				<p class="kicker">Thank you</p>
+				<h3 id="success-title" class="mt-2 text-lg font-medium text-slate-900">We've got it!</h3>
+				<p id="success-text" class="mt-2 text-sm text-slate-700"></p>
+				<button id="again-btn" type="button" class="mt-4 btn-secondary">Submit another response</button>
+			</div>
+		</div>
+	</section>
+
+	<!-- Agenda -->
+	<section class="container-page py-10 md:py-14">
+		<h2 class="text-xl font-medium text-slate-900">Agenda for the night</h2>
+		<p class="mt-2 max-w-2xl text-sm text-slate-700">A rough guide. The final agenda will be shared before the meeting.</p>
+		<ol class="mt-6 grid gap-3 md:grid-cols-2">
+			{AGM.agenda.map((item, i) => (
+				<li class="card flex gap-4">
+					<span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-cobra-blue text-sm font-semibold text-white">{i + 1}</span>
+					<div>
+						<p class="font-medium text-slate-900">{item.title}</p>
+						<p class="mt-1 text-sm text-slate-700">{item.detail}</p>
+					</div>
+				</li>
+			))}
+		</ol>
+	</section>
+
+	<!-- Committee roles -->
+	<section id="roles" class="container-page scroll-mt-6 pb-10 md:pb-14">
+		<h2 class="text-xl font-medium text-slate-900">Committee roles</h2>
+		<p class="mt-2 max-w-2xl text-sm text-slate-700">
+			Every position is up for election at the AGM. You don't need committee experience &#8212; just reliability, good
+			communication and a willingness to help. Current committee members are welcome to nominate again.
+		</p>
+
+		{AGM.roleGroups.map((group) => (
+			<div class="mt-10">
+				<h3 class="text-lg font-medium text-cobra-blue">{group.label}</h3>
+				<p class="mt-1 max-w-2xl text-sm text-slate-600">{group.intro}</p>
+				<div class={`mt-4 grid gap-4 ${group.roles.length === 4 ? 'md:grid-cols-2' : group.roles.length > 1 ? 'md:grid-cols-2 lg:grid-cols-3' : ''}`}>
+					{group.roles.map((role) => (
+						<div class="card flex flex-col">
+							<p class="text-base font-semibold text-slate-900">{role.title}</p>
+							<p class="mt-2 text-sm text-slate-700">{role.summary}</p>
+							<ul class="mt-3 space-y-1 text-sm text-slate-700">
+								{role.duties.map((duty) => (
+									<li class="flex gap-2"><span class="mt-0.5 shrink-0 text-cobra-blue">&#8594;</span>{duty}</li>
+								))}
+							</ul>
+							<a class="mt-auto pt-4 text-sm font-medium text-cobra-blue hover:underline" href="#respond" data-preset="nominate" data-role={role.id}>
+								Nominate for {role.title} &#8594;
+							</a>
+						</div>
+					))}
+				</div>
+			</div>
+		))}
+	</section>
+
+	<section class="container-page pb-10 md:pb-14">
+		<div class="card bg-cobra-yellow ring-0 md:flex md:items-center md:justify-between md:gap-6">
+			<div>
+				<h2 class="text-lg font-medium text-cobra-blue">Questions about a role?</h2>
+				<p class="mt-2 max-w-xl text-sm text-cobra-blue/80">
+					Not sure which role suits you, or how much time it takes? Get in touch and a committee member will have a chat.
+				</p>
+			</div>
+			<a class="mt-4 btn-primary md:mt-0" href={withBase('/contact-us')}>Contact us &#8594;</a>
+		</div>
+	</section>
+</BaseLayout>
+
+<style>
+	.choice-card:has(input:checked) {
+		box-shadow: 0 0 0 2px var(--color-cobra-blue);
+		background: color-mix(in srgb, var(--color-cobra-blue) 5%, white);
+	}
+	.choice-card:has(input:focus-visible) {
+		outline: 3px solid var(--color-cobra-yellow);
+		outline-offset: 2px;
+	}
+</style>
+
+<script is:inline define:vars={{ apiUrl: AGM.submissionApiUrl, clubEmail: SITE.contact.email, agmLabel: `AGM ${AGM.year}` }}>
+(function () {
+	var form = document.getElementById('agm-form');
+	var nominationFields = document.getElementById('nomination-fields');
+	var guestFields = document.getElementById('guest-fields');
+	var commentsField = document.getElementById('comments-field');
+	var submitBtn = document.getElementById('submit-btn');
+	var errorBox = document.getElementById('form-error');
+	var successPanel = document.getElementById('success-panel');
+
+	function byName(name) {
+		return Array.prototype.slice.call(form.querySelectorAll('[name="' + name + '"]'));
+	}
+	function checkedValue(name) {
+		var el = form.querySelector('[name="' + name + '"]:checked');
+		return el ? el.value : '';
+	}
+	function show(el, visible) {
+		el.classList.toggle('hidden', !visible);
+	}
+
+	function update() {
+		var type = checkedValue('type');
+		var nominating = type === 'nominate';
+		var attending = type === 'rsvp' || (nominating && checkedValue('attending') === 'Yes');
+		show(nominationFields, nominating);
+		show(guestFields, attending);
+		show(commentsField, !!type);
+		show(document.getElementById('phone-optional'), !nominating);
+		show(document.getElementById('phone-required'), nominating);
+		submitBtn.textContent = nominating ? 'Submit nomination →' : type === 'rsvp' ? 'Send RSVP →' : 'Submit →';
+	}
+	// After a failed submit, re-check as people fix things so stale errors disappear
+	var attempted = false;
+	form.addEventListener('change', function () {
+		update();
+		if (attempted) validate();
+	});
+	form.addEventListener('input', function () {
+		if (attempted) validate();
+	});
+
+	// Buttons elsewhere on the page preselect nominate/RSVP and, from a role card, the role
+	document.querySelectorAll('[data-preset]').forEach(function (link) {
+		link.addEventListener('click', function () {
+			var radio = form.querySelector('[name="type"][value="' + link.dataset.preset + '"]');
+			if (radio) radio.checked = true;
+			if (link.dataset.role) {
+				var box = form.querySelector('[data-role-id="' + link.dataset.role + '"]');
+				if (box) box.checked = true;
+			}
+			update();
+		});
+	});
+
+	function setError(id, visible) {
+		show(document.getElementById(id), visible);
+		return !visible;
+	}
+
+	function validate() {
+		var type = checkedValue('type');
+		var ok = setError('type-error', !type);
+		['name', 'email', 'connection'].forEach(function (id) {
+			var el = document.getElementById(id);
+			var valid = el.checkValidity() && el.value.trim() !== '';
+			el.setAttribute('aria-invalid', valid ? 'false' : 'true');
+			el.classList.toggle('ring-2', !valid);
+			el.classList.toggle('ring-red-400', !valid);
+			ok = valid && ok;
+		});
+		if (type === 'nominate') {
+			var phone = document.getElementById('phone');
+			var phoneOk = phone.value.trim() !== '';
+			phone.classList.toggle('ring-2', !phoneOk);
+			phone.classList.toggle('ring-red-400', !phoneOk);
+			ok = phoneOk && ok;
+			ok = setError('roles-error', !byName('roles').some(function (b) { return b.checked; })) && ok;
+			ok = setError('attending-error', !checkedValue('attending')) && ok;
+			ok = setError('consent-error', !document.getElementById('consent').checked) && ok;
+		}
+		return ok;
+	}
+
+	function payload() {
+		var type = checkedValue('type');
+		var nominating = type === 'nominate';
+		var attending = nominating ? checkedValue('attending') : 'Yes';
+		return {
+			website: document.getElementById('website').value, // honeypot — real users never fill this in
+			type: nominating ? 'Nomination' : 'RSVP',
+			name: document.getElementById('name').value.trim(),
+			email: document.getElementById('email').value.trim(),
+			phone: document.getElementById('phone').value.trim(),
+			connection: document.getElementById('connection').value,
+			roles: nominating ? byName('roles').filter(function (b) { return b.checked; }).map(function (b) { return b.value; }).join(', ') : '',
+			attending: attending,
+			guests: attending === 'Yes' ? String(Math.max(0, parseInt(document.getElementById('guests').value, 10) || 0)) : '',
+			experience: nominating ? document.getElementById('experience').value.trim() : '',
+			consent: nominating ? 'Yes — 18+, agrees to be nominated and to serve if elected' : '',
+			comments: document.getElementById('comments').value.trim()
+		};
+	}
+
+	function showSuccess(data, viaEmail) {
+		form.classList.add('hidden');
+		document.getElementById('success-title').textContent = data.type === 'Nomination' ? 'Nomination received' : "You're on the list";
+		document.getElementById('success-text').textContent = viaEmail
+			? 'Your email app should open with your details filled in. Please press send so the committee receives it.'
+			: data.type === 'Nomination'
+				? 'Thanks for putting your hand up, ' + data.name + '. The committee will be in touch before the AGM.'
+				: 'Thanks, ' + data.name + '. We look forward to seeing you at the AGM.';
+		show(successPanel, true);
+		successPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+	}
+
+	// Fallback while the Apps Script isn't connected yet: open a pre-filled email to the club
+	function sendByEmail(data) {
+		var subject = data.type === 'Nomination' ? agmLabel + ' nomination: ' + data.name + ' for ' + data.roles : agmLabel + ' RSVP: ' + data.name;
+		var lines = [
+			'Name: ' + data.name,
+			'Email: ' + data.email,
+			data.phone && 'Phone: ' + data.phone,
+			'Connection to the club: ' + data.connection,
+			data.roles && 'Nominating for: ' + data.roles,
+			'Attending the AGM: ' + data.attending,
+			data.guests && 'Extra guests: ' + data.guests,
+			data.experience && 'About me: ' + data.experience,
+			data.consent && 'Consent: ' + data.consent,
+			data.comments && 'Comments: ' + data.comments
+		].filter(Boolean);
+		window.location.href = 'mailto:' + clubEmail + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
+		showSuccess(data, true);
+	}
+
+	form.addEventListener('submit', function (e) {
+		e.preventDefault();
+		show(errorBox, false);
+		attempted = true;
+		if (!validate()) {
+			var firstError = form.querySelector('[aria-invalid="true"], .text-red-600:not(.hidden)');
+			if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+			return;
+		}
+		var data = payload();
+		if (!apiUrl) {
+			sendByEmail(data);
+			return;
+		}
+
+		var label = submitBtn.textContent;
+		submitBtn.disabled = true;
+		submitBtn.textContent = 'Sending...';
+		function fail() {
+			show(errorBox, true);
+			submitBtn.disabled = false;
+			submitBtn.textContent = label;
+		}
+		// No custom headers: a plain-string body is a CORS-safe "simple request", which
+		// Google Apps Script Web Apps need (they don't handle CORS preflight OPTIONS requests).
+		fetch(apiUrl, { method: 'POST', body: JSON.stringify(data) })
+			.then(function (res) { return res.json(); })
+			.then(function (json) {
+				if (json && json.ok) showSuccess(data, false);
+				else fail();
+			})
+			.catch(fail);
+	});
+
+	document.getElementById('again-btn').addEventListener('click', function () {
+		form.reset();
+		attempted = false;
+		submitBtn.disabled = false;
+		show(successPanel, false);
+		show(form, true);
+		update();
+		form.scrollIntoView({ behavior: 'smooth' });
+	});
+
+	update();
+})();
+</script>

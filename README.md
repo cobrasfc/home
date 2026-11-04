@@ -115,6 +115,26 @@ data is written — no player names, FFA numbers or phone numbers — so the pla
 `export_schedule_xlsx.py` in the same folder writes the matching Excel schedule. To update: export the workbook's
 tabs, run both scripts, then build and push the site.
 
+## AGM nominations and RSVPs
+
+`/agm` (while `AGM.draft` is true: bannered, not linked, not indexed) announces the Annual General Meeting, lists the agenda and the
+committee roles, and has a form where people nominate themselves for one or more roles or RSVP to attend. The
+date, time, venue, agenda and role descriptions are all in the `AGM` block of `src/site.config.ts`; empty date/time
+fields show as TBA.
+
+Each submission is **emailed to the club** (reply goes straight to the person) and logged in a Google Sheet. To
+connect it (same steps as the Gala Day form, ~5 minutes):
+
+1. Create a new Google Sheet in the club's Google account, e.g. "AGM Nominations".
+2. **Extensions → Apps Script**, replace the placeholder code with
+   [`google-apps-script/agm-nominations.gs`](google-apps-script/agm-nominations.gs). Change `NOTIFY_EMAIL` if
+   nominations should go somewhere other than the club inbox.
+3. **Deploy → New deployment → Web app**, "Execute as" **Me**, "Who has access" **Anyone**. Authorise it (it
+   needs the Sheet and permission to send email as you).
+4. Paste the `/exec` URL into `submissionApiUrl` in the `AGM` block and deploy the site.
+
+Until `submissionApiUrl` is set, the form opens a pre-filled email to the club instead, so it still works.
+
 ## Replace placeholder images
 
 Placeholders live in:
@@ -137,3 +157,4 @@ Replace the logo at `public/assets/logo-shield.svg` with your real club logo SVG
 - `/subscribe`
 - `/contact-us`
 - `/committee`
+- `/agm` (draft)
