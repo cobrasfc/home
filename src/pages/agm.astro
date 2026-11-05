@@ -6,6 +6,7 @@ import { withBase } from '../utils/withBase';
 const whenLabel = AGM.dateLabel || `${AGM.monthLabel} (date TBA)`;
 const timeLabel = AGM.timeLabel || 'Time TBA';
 const closesLabel = AGM.nominationsClose || 'Before the meeting (date TBA)';
+const closeBy = AGM.nominationsClose ? `by ${AGM.nominationsClose}` : 'before the AGM';
 const inputClass =
 	'mt-1 w-full rounded-lg border border-black/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-cobra-blue';
 ---
@@ -55,7 +56,7 @@ const inputClass =
 				<p class="kicker">Nominations close</p>
 				<p class="mt-2 text-lg font-medium text-slate-900">{closesLabel}</p>
 				<p class="mt-1 text-sm text-slate-600">
-					{AGM.nominationsClose ? 'Please get your nomination in by this date.' : "We'll confirm the closing date here and on Facebook."}
+					Nominations must be made in writing using the form below. <strong class="font-medium text-slate-900">No nominations will be accepted on the night.</strong>
 				</p>
 			</div>
 		</div>
@@ -69,6 +70,13 @@ const inputClass =
 			<p class="mt-2 text-sm text-slate-700">
 				Nominate yourself for a committee role, or just RSVP so we can plan for numbers. It takes a couple of minutes.
 			</p>
+			<div class="mt-5 rounded-xl bg-cobra-yellow p-4 text-sm text-cobra-blue">
+				<p class="font-semibold">Nominations must be submitted in writing before the AGM.</p>
+				<p class="mt-1">
+					Use this form to nominate {closeBy}. No nominations will be accepted on the night, so if you'd like to stand
+					for a role, please get your nomination in early.
+				</p>
+			</div>
 
 			<form id="agm-form" class="mt-8 space-y-8" novalidate>
 				<div style="position:absolute; left:-9999px;" aria-hidden="true">
@@ -232,7 +240,9 @@ const inputClass =
 		<h2 class="text-xl font-medium text-slate-900">Committee roles</h2>
 		<p class="mt-2 max-w-2xl text-sm text-slate-700">
 			Every position is up for election at the AGM. You don't need committee experience &#8212; just reliability, good
-			communication and a willingness to help. Current committee members are welcome to nominate again.
+			communication and a willingness to help. Current committee members are welcome to nominate again. To stand for a
+			role, you must <a class="text-cobra-blue underline hover:no-underline" href="#respond">nominate in writing</a> {closeBy}
+			&#8212; nominations can't be taken on the night.
 		</p>
 
 		{AGM.roleGroups.map((group) => (
@@ -249,9 +259,16 @@ const inputClass =
 									<li class="flex gap-2"><span class="mt-0.5 shrink-0 text-cobra-blue">&#8594;</span>{duty}</li>
 								))}
 							</ul>
-							<a class="mt-auto pt-4 text-sm font-medium text-cobra-blue hover:underline" href="#respond" data-preset="nominate" data-role={role.id}>
-								Nominate for {role.title} &#8594;
-							</a>
+							<div class="mt-auto flex flex-wrap gap-x-5 gap-y-2 pt-4 text-sm font-medium">
+								{'description' in role && (
+									<a class="text-cobra-blue underline hover:no-underline" href={withBase(`/agm/roles/${role.id}`)}>
+										Read the position description
+									</a>
+								)}
+								<a class="text-cobra-blue hover:underline" href="#respond" data-preset="nominate" data-role={role.id}>
+									Nominate for {role.title} &#8594;
+								</a>
+							</div>
 						</div>
 					))}
 				</div>
@@ -325,18 +342,26 @@ const inputClass =
 		if (attempted) validate();
 	});
 
+	function preset(type, roleId) {
+		var radio = form.querySelector('[name="type"][value="' + type + '"]');
+		if (radio) radio.checked = true;
+		if (roleId) {
+			var box = form.querySelector('[data-role-id="' + roleId + '"]');
+			if (box) box.checked = true;
+		}
+		update();
+	}
+
 	// Buttons elsewhere on the page preselect nominate/RSVP and, from a role card, the role
 	document.querySelectorAll('[data-preset]').forEach(function (link) {
 		link.addEventListener('click', function () {
-			var radio = form.querySelector('[name="type"][value="' + link.dataset.preset + '"]');
-			if (radio) radio.checked = true;
-			if (link.dataset.role) {
-				var box = form.querySelector('[data-role-id="' + link.dataset.role + '"]');
-				if (box) box.checked = true;
-			}
-			update();
+			preset(link.dataset.preset, link.dataset.role);
 		});
 	});
+
+	// Position description pages link here as /agm?role=<id>#respond
+	var roleParam = new URLSearchParams(window.location.search).get('role');
+	if (roleParam && form.querySelector('[data-role-id="' + roleParam + '"]')) preset('nominate', roleParam);
 
 	function setError(id, visible) {
 		show(document.getElementById(id), visible);

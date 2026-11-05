@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { AGM } from '../../../site.config';
+import { withBase } from '../../../utils/withBase';
+
+// One page per role that has a position description in AGM.roleGroups
+export function getStaticPaths() {
+	return AGM.roleGroups.flatMap((group) =>
+		group.roles
+			.filter((role) => 'description' in role)
+			.map((role) => ({ params: { role: role.id }, props: { group, role } }))
+	);
+}
+
+const { group, role } = Astro.props;
+const { objectives, responsibilities } = (role as any).description as {
+	objectives: readonly string[];
+	responsibilities: readonly string[];
+};
+const closeBy = AGM.nominationsClose ? `by ${AGM.nominationsClose}` : 'before the AGM';
+const nominateHref = `${withBase('/agm')}?role=${role.id}#respond`;
+---
+
+<BaseLayout
+	title={`${role.title} — position description`}
+	description={`What the ${role.title} role at Metford Cobras FC involves. ${role.summary}`}
+	noindex={AGM.draft}
+>
+	<section class="container-page max-w-3xl py-10 md:py-14">
+		{AGM.draft && (
+			<p class="mb-6 rounded-xl bg-cobra-yellow p-3 text-sm font-medium text-cobra-blue">
+				Draft for committee review &#8212; not yet published.
+			</p>
+		)}
+		<a class="text-sm text-cobra-blue hover:underline" href={`${withBase('/agm')}#roles`}>&#8592; All committee roles</a>
+		<p class="kicker mt-6">{group.label} &#8226; Position description</p>
+		<h1 class="page-title mt-2">{role.title}</h1>
+
+		<h2 class="mt-8 text-lg font-medium text-slate-900">Objectives</h2>
+		<ul class="mt-3 space-y-2 text-sm text-slate-700">
+			{objectives.map((item) => (
+				<li class="flex gap-2"><span class="mt-0.5 shrink-0 text-cobra-blue">&#8594;</span>{item}</li>
+			))}
+		</ul>
+
+		<h2 class="mt-8 text-lg font-medium text-slate-900">Responsibilities</h2>
+		<ul class="mt-3 space-y-3 text-sm text-slate-700">
+			{responsibilities.map((item) => (
+				<li class="flex gap-2"><span class="mt-0.5 shrink-0 text-cobra-blue">&#8594;</span>{item}</li>
+			))}
+		</ul>
+
+		<div class="mt-10 card bg-cobra-blue/5 ring-0">
+			<h2 class="text-base font-medium text-slate-900">Interested in this role?</h2>
+			<p class="mt-2 text-sm text-slate-700">
+				Nominations must be submitted in writing {closeBy}. No nominations will be accepted on the night.
+			</p>
+			<a class="mt-4 btn-primary" href={nominateHref}>Nominate for {role.title} &#8594;</a>
+		</div>
+	</section>
+</BaseLayout>

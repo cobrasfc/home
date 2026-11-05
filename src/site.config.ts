@@ -167,9 +167,11 @@ export const AGM = {
 		{ title: "President's report", detail: 'A look back at the year and the plans for next season.' },
 		{ title: "Secretary's report", detail: 'Club administration, membership and correspondence.' },
 		{ title: 'Financial report', detail: "The year's income, spending and the club's financial position." },
-		{ title: 'Voting', detail: 'All committee positions are declared vacant and the new committee is elected.' },
+		{ title: 'Voting', detail: 'All committee positions are declared vacant and the new committee is elected from the written nominations received.' },
 		{ title: 'Open floor', detail: 'Questions and comments from members.' }
 	],
+	// Each role's card shows `summary` + `duties`. Add `description: { objectives, responsibilities }` to give it a
+	// full position description page at /agm/roles/<id> (linked from the card).
 	roleGroups: [
 		{
 			id: 'executive',
@@ -292,13 +294,32 @@ export const AGM = {
 				{
 					id: 'general-committee',
 					title: 'General Committee member',
-					summary: 'Supports club operations across a variety of areas and helps wherever needed.',
+					summary: 'Provides support to ensure the efficient operation of the club.',
 					duties: [
 						'Attends committee meetings and votes on club decisions',
 						'Takes on projects such as fundraising, sponsorship or events',
 						'Helps out on game days and at club events',
 						'Brings ideas and feedback from players and families'
-					]
+					],
+					// Club-approved position description, shown at /agm/roles/general-committee
+					description: {
+						objectives: ['Provide support to ensure the efficient operation of the club.'],
+						responsibilities: [
+							'Attend meetings and take part in discussions and decisions that help run the club.',
+							'Help on game days — for example, setting up nets, helping in the canteen or BBQ, or assisting with setup and pack-up.',
+							'Support fundraising and sponsorship by helping with events, grant applications, or finding local business partners.',
+							"Take part in planning for the club's future — helping shape goals and how the club can grow or improve.",
+							'Promote a positive club culture that values fair play, teamwork, respect and inclusivity.',
+							'Help with volunteers — encouraging people to get involved, supporting them in their roles, and thanking them for their efforts.',
+							'Join small working groups when needed (e.g. helping with social events, uniforms, or equipment).',
+							'Listen to members (players, parents, coaches) and share their feedback or concerns with the committee.',
+							'Represent the club when talking with the local council, football association, sponsors, or community groups.',
+							'Look after club property and records — helping keep things organised and making sure information is passed on to new committee members.',
+							'Communicate with members through newsletters, social media or notices, so everyone stays informed.',
+							'Help with special projects like tournaments, facility improvements, or other club initiatives.',
+							'Support future leaders by encouraging others to get involved and sharing your experience with them.'
+						]
+					}
 				}
 			]
 		}
