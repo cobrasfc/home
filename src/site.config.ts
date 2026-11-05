@@ -165,7 +165,7 @@ export const AGM = {
 	submissionApiUrl: '',
 	agenda: [
 		{ title: "President's report", detail: 'A look back at the year and the plans for next season.' },
-		{ title: "Secretary's report", detail: 'Club administration, membership and correspondence.' },
+		{ title: "Secretary and Registrar's report", detail: 'Club administration and correspondence, plus membership and player registrations for the year.' },
 		{ title: 'Financial report', detail: "The year's income, spending and the club's financial position." },
 		{ title: 'Voting', detail: 'All committee positions are declared vacant and the new committee is elected from the written nominations received.' },
 		{ title: 'Open floor', detail: 'Questions and comments from members.' }
