@@ -183,10 +183,10 @@ const inputClass =
 					<p id="consent-error" class="-mt-3 hidden text-sm text-red-600">Please tick to confirm your nomination.</p>
 				</fieldset>
 
-				<fieldset id="guest-fields" class="hidden">
-					<legend class="sr-only">Guests</legend>
-					<label class="block text-sm font-medium text-slate-900" for="guests">How many other people are coming with you?</label>
-					<input class={`${inputClass} max-w-[8rem]`} type="number" id="guests" name="guests" min="0" max="10" value="0" inputmode="numeric" />
+				<fieldset id="attendee-fields" class="hidden">
+					<legend class="sr-only">Number attending</legend>
+					<label class="block text-sm font-medium text-slate-900" for="attendees">How many people are coming, including you?</label>
+					<input class={`${inputClass} max-w-[8rem]`} type="number" id="attendees" name="attendees" min="1" max="10" value="1" inputmode="numeric" />
 				</fieldset>
 
 				<div id="comments-field" class="hidden">
@@ -300,11 +300,11 @@ const inputClass =
 	}
 </style>
 
-<script is:inline define:vars={{ apiUrl: AGM.submissionApiUrl, clubEmail: SITE.contact.email, agmLabel: `AGM ${AGM.year}` }}>
+<script is:inline define:vars={{ formUrl: AGM.formspreeUrl, agmLabel: `AGM ${AGM.year}` }}>
 (function () {
 	var form = document.getElementById('agm-form');
 	var nominationFields = document.getElementById('nomination-fields');
-	var guestFields = document.getElementById('guest-fields');
+	var attendeeFields = document.getElementById('attendee-fields');
 	var commentsField = document.getElementById('comments-field');
 	var submitBtn = document.getElementById('submit-btn');
 	var errorBox = document.getElementById('form-error');
@@ -326,7 +326,7 @@ const inputClass =
 		var nominating = type === 'nominate';
 		var attending = type === 'rsvp' || (nominating && checkedValue('attending') === 'Yes');
 		show(nominationFields, nominating);
-		show(guestFields, attending);
+		show(attendeeFields, attending);
 		show(commentsField, !!type);
 		show(document.getElementById('phone-optional'), !nominating);
 		show(document.getElementById('phone-required'), nominating);
@@ -397,7 +397,7 @@ const inputClass =
 		var nominating = type === 'nominate';
 		var attending = nominating ? checkedValue('attending') : 'Yes';
 		return {
-			website: document.getElementById('website').value, // honeypot — real users never fill this in
+			website: document.getElementById('website').value, // honeypot (sent as _gotcha) — real users never fill this in
 			type: nominating ? 'Nomination' : 'RSVP',
 			name: document.getElementById('name').value.trim(),
 			email: document.getElementById('email').value.trim(),
@@ -405,42 +405,45 @@ const inputClass =
 			connection: document.getElementById('connection').value,
 			roles: nominating ? byName('roles').filter(function (b) { return b.checked; }).map(function (b) { return b.value; }).join(', ') : '',
 			attending: attending,
-			guests: attending === 'Yes' ? String(Math.max(0, parseInt(document.getElementById('guests').value, 10) || 0)) : '',
+			attendees: attending === 'Yes' ? String(Math.max(1, parseInt(document.getElementById('attendees').value, 10) || 1)) : '',
 			experience: nominating ? document.getElementById('experience').value.trim() : '',
 			consent: nominating ? 'Yes — 18+, agrees to be nominated and to serve if elected' : '',
 			comments: document.getElementById('comments').value.trim()
 		};
 	}
 
-	function showSuccess(data, viaEmail) {
+	function showSuccess(data) {
 		form.classList.add('hidden');
 		document.getElementById('success-title').textContent = data.type === 'Nomination' ? 'Nomination received' : "You're on the list";
-		document.getElementById('success-text').textContent = viaEmail
-			? 'Your email app should open with your details filled in. Please press send so the committee receives it.'
-			: data.type === 'Nomination'
-				? 'Thanks for putting your hand up, ' + data.name + '. The committee will be in touch before the AGM.'
-				: 'Thanks, ' + data.name + '. We look forward to seeing you at the AGM.';
+		document.getElementById('success-text').textContent = data.type === 'Nomination'
+			? 'Thanks for putting your hand up, ' + data.name + '. The committee will be in touch before the AGM.'
+			: 'Thanks, ' + data.name + '. We look forward to seeing you at the AGM.';
 		show(successPanel, true);
 		successPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
 	}
 
-	// Fallback while the Apps Script isn't connected yet: open a pre-filled email to the club
-	function sendByEmail(data) {
-		var subject = data.type === 'Nomination' ? agmLabel + ' nomination: ' + data.name + ' for ' + data.roles : agmLabel + ' RSVP: ' + data.name;
-		var lines = [
-			'Name: ' + data.name,
-			'Email: ' + data.email,
-			data.phone && 'Phone: ' + data.phone,
-			'Connection to the club: ' + data.connection,
-			data.roles && 'Nominating for: ' + data.roles,
-			'Attending the AGM: ' + data.attending,
-			data.guests && 'Extra guests: ' + data.guests,
-			data.experience && 'About me: ' + data.experience,
-			data.consent && 'Consent: ' + data.consent,
-			data.comments && 'Comments: ' + data.comments
-		].filter(Boolean);
-		window.location.href = 'mailto:' + clubEmail + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
-		showSuccess(data, true);
+	// Formspree emails each field as "label: value", so send readable labels. `email` becomes the reply-to
+	// address, `_subject` the email subject and `_gotcha` is Formspree's honeypot.
+	function formspreeBody(data) {
+		var body = {
+			_subject: data.type === 'Nomination' ? agmLabel + ' nomination: ' + data.name + ' for ' + data.roles : agmLabel + ' RSVP: ' + data.name,
+			_gotcha: data.website,
+			Submission: data.type,
+			Name: data.name,
+			email: data.email,
+			Phone: data.phone,
+			'Connection to the club': data.connection,
+			'Nominating for': data.roles,
+			'Attending the AGM': data.attending,
+			'Number attending (incl. them)': data.attendees,
+			'About the nominee': data.experience,
+			'Nominee consent': data.consent,
+			'Comments / questions': data.comments
+		};
+		Object.keys(body).forEach(function (key) {
+			if (body[key] === '' && key !== '_gotcha') delete body[key];
+		});
+		return body;
 	}
 
 	form.addEventListener('submit', function (e) {
@@ -453,11 +456,6 @@ const inputClass =
 			return;
 		}
 		var data = payload();
-		if (!apiUrl) {
-			sendByEmail(data);
-			return;
-		}
-
 		var label = submitBtn.textContent;
 		submitBtn.disabled = true;
 		submitBtn.textContent = 'Sending...';
@@ -466,12 +464,13 @@ const inputClass =
 			submitBtn.disabled = false;
 			submitBtn.textContent = label;
 		}
-		// No custom headers: a plain-string body is a CORS-safe "simple request", which
-		// Google Apps Script Web Apps need (they don't handle CORS preflight OPTIONS requests).
-		fetch(apiUrl, { method: 'POST', body: JSON.stringify(data) })
-			.then(function (res) { return res.json(); })
-			.then(function (json) {
-				if (json && json.ok) showSuccess(data, false);
+		fetch(formUrl, {
+			method: 'POST',
+			body: JSON.stringify(formspreeBody(data)),
+			headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
+		})
+			.then(function (res) {
+				if (res.ok) showSuccess(data);
 				else fail();
 			})
 			.catch(fail);

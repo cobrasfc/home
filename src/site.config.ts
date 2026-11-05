@@ -145,8 +145,8 @@ export const SUMMER_SCHEDULE = {
 	}
 } as const;
 
-// Annual General Meeting — /agm (setup: google-apps-script/agm-nominations.gs + README "AGM nominations and RSVPs").
-// Nominations and RSVPs are emailed to `notifyEmail` in the Apps Script and logged in a Google Sheet the club owns.
+// Annual General Meeting — /agm (README "AGM nominations and RSVPs").
+// Nominations and RSVPs are emailed to the club through Formspree.
 // Fill in the empty fields when they're confirmed; until then the page shows "TBA".
 export const AGM = {
 	// Committee review: while true the page shows a draft banner, is hidden from search engines and isn't linked
@@ -161,8 +161,9 @@ export const AGM = {
 	venueAddress: '',
 	// Last day to nominate, e.g. 'Wednesday 2 December 2026'. Empty = "before the meeting".
 	nominationsClose: 'Thursday 26 November 2026',
-	// Google Apps Script web app /exec URL. While empty, the form opens a pre-filled email to the club instead.
-	submissionApiUrl: '',
+	// The club's existing Formspree form (shared with the sponsorship enquiry forms). Each AGM email has its own
+	// subject, e.g. "AGM 2026 nomination: <name> for <roles>". Swap in a dedicated form's URL to separate them.
+	formspreeUrl: 'https://formspree.io/f/mnjynorn',
 	agenda: [
 		{ title: "President's report", detail: 'A look back at the year and the plans for next season.' },
 		{ title: "Secretary and Registrar's report", detail: 'Club administration and correspondence, plus membership and player registrations for the year.' },
