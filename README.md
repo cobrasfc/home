@@ -150,4 +150,4 @@ Replace the logo at `public/assets/logo-shield.svg` with your real club logo SVG
 - `/subscribe`
 - `/contact-us`
 - `/committee`
-- `/agm` (draft)
+- `/agm` (+ `/agm/roles/<id>` position descriptions)

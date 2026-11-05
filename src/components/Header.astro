@@ -53,7 +53,7 @@ const dropdownLinkClass = (href: string) =>
 					class={
 						[
 							'list-none cursor-pointer rounded-lg px-3 py-2 text-sm font-medium text-slate-800 transition-colors hover:bg-cobra-blue/10 focus-visible:bg-cobra-blue/10',
-							isActive('/club') ? 'bg-cobra-blue/10 text-slate-900' : ''
+							isActive('/club') || isActive('/agm') ? 'bg-cobra-blue/10 text-slate-900' : ''
 						].join(' ')
 					}
 				>
@@ -67,6 +67,7 @@ const dropdownLinkClass = (href: string) =>
 						<a class={dropdownLinkClass('/club/history')} href={withBase('/club/history')}>History</a>
 						<a class={dropdownLinkClass('/club/values')} href={withBase('/club/values')}>Values</a>
 						<a class={dropdownLinkClass('/committee')} href={withBase('/committee')}>Committee</a>
+						<a class={dropdownLinkClass('/agm')} href={withBase('/agm')}>AGM 2026</a>
 					</div>
 				</div>
 			</details>
@@ -115,6 +116,7 @@ const dropdownLinkClass = (href: string) =>
 								<a class={linkClass('/club/history')} href={withBase('/club/history')}>History</a>
 								<a class={linkClass('/club/values')} href={withBase('/club/values')}>Values</a>
 								<a class={linkClass('/committee')} href={withBase('/committee')}>Committee</a>
+								<a class={linkClass('/agm')} href={withBase('/agm')}>AGM 2026</a>
 							</div>
 						</details>
 

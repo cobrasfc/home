@@ -150,7 +150,7 @@ export const SUMMER_SCHEDULE = {
 // Fill in the empty fields when they're confirmed; until then the page shows "TBA".
 export const AGM = {
 	// Committee review: while true the page shows a draft banner, is hidden from search engines and isn't linked
-	draft: true,
+	draft: false,
 	year: 2026,
 	// e.g. 'Wednesday 9 December 2026'
 	dateLabel: 'Thursday 3 December 2026',

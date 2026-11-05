@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { AGM } from '../site.config';
 import { withBase } from '../utils/withBase';
 ---
 
@@ -55,6 +56,24 @@ import { withBase } from '../utils/withBase';
 			</div>
 		</a>
 	</section>
+
+	<!-- AGM announcement — remove after the meeting -->
+	{!AGM.draft && (
+		<section class="bg-cobra-yellow">
+			<div class="container-page flex flex-col gap-3 py-5 md:flex-row md:items-center md:justify-between md:gap-6">
+				<div>
+					<p class="kicker">Annual General Meeting {AGM.year}</p>
+					<p class="mt-1 text-base font-medium text-cobra-blue">
+						{AGM.dateLabel}{AGM.timeLabel && `, ${AGM.timeLabel}`} at {AGM.venueName}
+					</p>
+					<p class="mt-1 text-sm text-cobra-blue/80">
+						All committee positions are up for election. Written nominations close {AGM.nominationsClose}.
+					</p>
+				</div>
+				<a class="btn-primary shrink-0 self-start md:self-auto" href={withBase('/agm')}>Nominate or RSVP &#8594;</a>
+			</div>
+		</section>
+	)}
 
 	<section>
 		<div class="container-page grid gap-4 py-10 md:grid-cols-3">
