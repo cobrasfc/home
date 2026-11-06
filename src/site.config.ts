@@ -99,7 +99,10 @@ export const SUMMER_SCHEDULE = {
 		'u12-15s-rutherford-greens': 'u12-15s-grass-goblins',
 		'u12-15s-grass-goblins-rutherford-greens': 'u12-15s-grass-goblins',
 		// Cobras Blue renamed Sssstrikers, 8 Oct 2026
-		'u6-7s-cobras-blue': 'u6-7s-sssstrikers'
+		'u6-7s-cobras-blue': 'u6-7s-sssstrikers',
+		// Moved up from Round 5 after Phoenix Flyers withdrew, 6 Nov 2026 (their earlier games stay on the same team)
+		'u8-11s-metford-u10s': 'u12-13s-metford-u10s',
+		'u12-13s-chaos-fc': 'u12-15s-chaos-fc'
 	},
 	// Shown under "Your next game" when it's the last game of the night on its field. {field} = e.g. "Field 2".
 	packDown: {

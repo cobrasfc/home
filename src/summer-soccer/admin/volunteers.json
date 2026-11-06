@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-01T11:05",
+ "generatedAt": "2026-11-06T12:23",
  "jobs": {
   "Monday": [
    {
@@ -266,8 +266,8 @@
    "tuesday": "Canteen set up; canteen; canteen pack down",
    "setup": 10,
    "duty": 0,
-   "canteen": 9,
-   "pack": 10
+   "canteen": 8,
+   "pack": 9
   },
   {
    "name": "Chloe + Abby",
@@ -291,9 +291,9 @@
    "monday": "Field / canteen set up; duty officer except while Metford AAM play; field / canteen pack down",
    "tuesday": "Duty officer except while Cobras Gold play; field / canteen pack down",
    "setup": 10,
-   "duty": 17,
+   "duty": 15,
    "canteen": 0,
-   "pack": 11
+   "pack": 12
   },
   {
    "name": "Jaz",
@@ -304,9 +304,9 @@
    "monday": "Duty officer (wave 2 only) except while Summer Savages play; field / canteen pack down",
    "tuesday": "Duty officer; field / canteen pack down",
    "setup": 0,
-   "duty": 11,
+   "duty": 10,
    "canteen": 0,
-   "pack": 19
+   "pack": 18
   },
   {
    "name": "Brock",
@@ -316,10 +316,10 @@
    "note": "",
    "monday": "Field / canteen set up; duty officer except while Metford AAM play; field / canteen pack down",
    "tuesday": "Field / canteen set up; duty officer; field / canteen pack down",
-   "setup": 19,
-   "duty": 11,
+   "setup": 18,
+   "duty": 12,
    "canteen": 0,
-   "pack": 8
+   "pack": 6
   },
   {
    "name": "Chad",
@@ -330,7 +330,7 @@
    "monday": "Not available",
    "tuesday": "Duty officer; field / canteen pack down",
    "setup": 0,
-   "duty": 18,
+   "duty": 16,
    "canteen": 0,
    "pack": 0
   },
@@ -357,8 +357,8 @@
    "tuesday": "Duty officer; canteen; field / canteen pack down",
    "setup": 0,
    "duty": 8,
-   "canteen": 15,
-   "pack": 19
+   "canteen": 14,
+   "pack": 18
   },
   {
    "name": "Toni",
@@ -368,9 +368,9 @@
    "note": "",
    "monday": "Field / canteen set up; duty officer; canteen; field / canteen pack down",
    "tuesday": "Field / canteen set up; duty officer; canteen; field / canteen pack down",
-   "setup": 19,
+   "setup": 18,
    "duty": 0,
-   "canteen": 23,
+   "canteen": 22,
    "pack": 0
   }
  ],
@@ -796,73 +796,6 @@
    ]
   },
   {
-   "round": 4,
-   "date": "2026-11-03",
-   "night": "Tuesday",
-   "jobs": {
-    "fieldSetup": {
-     "who": [
-      "Brock",
-      "Toni"
-     ],
-     "amount": 2
-    },
-    "canteenSetup": {
-     "who": [],
-     "amount": 0
-    },
-    "duty1": {
-     "who": [
-      "Mitch",
-      "Chad"
-     ],
-     "amount": 2
-    },
-    "canteen1": {
-     "who": [
-      "Toni"
-     ],
-     "amount": 1
-    },
-    "duty2": {
-     "who": [
-      "Jaz",
-      "Chad"
-     ],
-     "amount": 2
-    },
-    "canteen2": {
-     "who": [
-      "Harley + Cass",
-      "Candice"
-     ],
-     "amount": 2
-    },
-    "fieldPack": {
-     "who": [
-      "Jaz",
-      "Brock"
-     ],
-     "amount": 2
-    },
-    "canteenPack": {
-     "who": [
-      "Harley + Cass",
-      "Candice"
-     ],
-     "amount": 2
-    }
-   },
-   "issues": [
-    {
-     "job": "canteenSetup",
-     "level": "bad",
-     "text": "Set up — canteen: vacant — Toni on field set up.",
-     "fix": "Field jobs come first; the canteen opens once Candice or Toni is free."
-    }
-   ]
-  },
-  {
    "round": 5,
    "date": "2026-11-09",
    "night": "Monday",
@@ -1099,7 +1032,7 @@
     },
     "duty1": {
      "who": [
-      "Mitch",
+      "Jaz",
       "Chad"
      ],
      "amount": 2
@@ -1112,7 +1045,7 @@
     },
     "duty2": {
      "who": [
-      "Jaz",
+      "Brock",
       "Chad"
      ],
      "amount": 2
@@ -1126,8 +1059,8 @@
     },
     "fieldPack": {
      "who": [
-      "Jaz",
-      "Brock"
+      "Mitch",
+      "Jaz"
      ],
      "amount": 2
     },
@@ -1730,7 +1663,6 @@
    "rounds": [
     2,
     3,
-    4,
     5,
     6,
     7,

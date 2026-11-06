@@ -62,7 +62,10 @@ const longDate = (iso: string) => new Date(`${iso}T12:00:00`).toLocaleDateString
 					.filter((f: any) => f.week === wk && f.night === n.night)
 					.sort((a: any, b: any) => a.wave - b.wave || a.field.localeCompare(b.field, 'en', { numeric: true }));
 				const playing = new Set(games.flatMap((g: any) => [g.team1, g.team2]));
-				const byes = data.teams.filter((t: any) => v.comp[t.comp]?.night === n.night && !playing.has(t.name));
+				// A team that changed competition is shown in its earlier one up to that round
+				const byes = data.teams
+					.map((t: any) => ({ ...t, comp: t.earlierComp && t.earlierComp.untilRound >= wk ?t.earlierComp.comp : t.comp }))
+					.filter((t: any) => v.comp[t.comp]?.night === n.night && !playing.has(t.name));
 				return (
 					<div class="ad-round">
 						<div class="ad-round__head">

@@ -173,13 +173,18 @@ export function parseSchedule(rows: string[][], now: Date = new Date()): Schedul
 	const fixtureIds = new Set<string>();
 	const fallbackYear = now.getUTCFullYear();
 
+	// A team that moved division (or was renamed) keeps one identity: rows under its old id count as the same team
+	const aliases: Record<string, string> = SUMMER_SCHEDULE.teamIdAliases;
 	const getTeam = (division: Division, name: string, colour: Colour): Team => {
-		const id = teamId(division.name, name);
+		const rowId = teamId(division.name, name);
+		const id = aliases[rowId] ?? rowId;
 		let team = teams.get(id);
 		if (!team) {
 			team = { id, name, division, colour };
 			teams.set(id, team);
 		}
+		// Listed under the division it plays in now (the alias target), even if its first rows are from before the move
+		if (rowId === id) team.division = division;
 		// Bibs are a one-off for a clash, not the team's colour
 		if (colour.name && !/\bbibs?\b/i.test(colour.name)) {
 			const votes = teamColourVotes.get(id) ?? new Map();
