@@ -74,8 +74,8 @@ const inputClass =
 			<div class="mt-5 rounded-xl bg-cobra-yellow p-4 text-sm text-cobra-blue">
 				<p class="font-semibold">Nominations must be submitted in writing before the AGM.</p>
 				<p class="mt-1">
-					Use this form to nominate {closeBy}. Under the club's constitution, a nomination needs your consent and the
-					support of two other club members. No nominations will be accepted on the night, so please get yours in early.
+					Use this form to nominate {closeBy}. No nominations will be accepted on the night, so if you'd like to stand
+					for a role, please get your nomination in early.
 				</p>
 			</div>
 
@@ -184,20 +184,6 @@ const inputClass =
 							))}
 						</div>
 						<p id="roles-error" class="mt-2 hidden text-sm text-red-600">Please choose at least one role.</p>
-					</div>
-					<div>
-						<p class="text-sm font-medium text-slate-900">Two club members who support your nomination <span class="text-red-500" aria-hidden="true">*</span></p>
-						<p class="mt-1 text-xs text-slate-500">The constitution requires two current members (not you) to support each nomination. The committee will confirm with them.</p>
-						<div class="mt-2 grid gap-5 sm:grid-cols-2">
-							<div>
-								<label class="block text-sm text-slate-700" for="supporter-1">First member's full name</label>
-								<input class={inputClass} type="text" id="supporter-1" name="supporter_1" autocomplete="off" />
-							</div>
-							<div>
-								<label class="block text-sm text-slate-700" for="supporter-2">Second member's full name</label>
-								<input class={inputClass} type="text" id="supporter-2" name="supporter_2" autocomplete="off" />
-							</div>
-						</div>
 					</div>
 					<div>
 						<label class="block text-sm font-medium text-slate-900" for="experience">
@@ -451,8 +437,6 @@ const inputClass =
 		ok = checkField('connection', true) && ok;
 		ok = checkField('phone', applying) && ok;
 		ok = checkField('address', applying) && ok;
-		ok = checkField('supporter-1', nominating) && ok;
-		ok = checkField('supporter-2', nominating) && ok;
 		if (applying) {
 			ok = setError('member-declaration-error', !document.getElementById('member-declaration').checked) && ok;
 		}
@@ -479,8 +463,6 @@ const inputClass =
 			occupation: applying ? value('occupation') : '',
 			declaration: applying ? 'Yes — 18 or older, applies for membership and agrees to be bound by the constitution' : '',
 			roles: nominating ? byName('roles').filter(function (b) { return b.checked; }).map(function (b) { return b.value; }).join(', ') : '',
-			supporter1: nominating ? value('supporter-1') : '',
-			supporter2: nominating ? value('supporter-2') : '',
 			experience: nominating ? value('experience') : '',
 			consent: nominating ? 'Yes — consents to the nomination and will serve if elected' : '',
 			attending: attending,
@@ -495,7 +477,7 @@ const inputClass =
 		var texts = {
 			rsvp: 'Thanks, ' + data.name + '. We look forward to seeing you at the AGM.',
 			member: 'Thanks, ' + data.name + '. The committee will review your membership application and be in touch about the membership fee.' + meeting,
-			nominate: 'Thanks for putting your hand up, ' + data.name + '. The committee will review your membership application and nomination, check with your two supporting members, and be in touch before the AGM.' + meeting
+			nominate: 'Thanks for putting your hand up, ' + data.name + '. The committee will review your membership application and nomination and be in touch before the AGM.' + meeting
 		};
 		form.classList.add('hidden');
 		document.getElementById('success-title').textContent = titles[data.type];
@@ -525,8 +507,6 @@ const inputClass =
 			Occupation: data.occupation,
 			'Membership declaration': data.declaration,
 			'Nominating for': data.roles,
-			'Supporting member 1': data.supporter1,
-			'Supporting member 2': data.supporter2,
 			'About the nominee': data.experience,
 			'Nominee consent': data.consent,
 			'Attending the AGM': data.attending ? 'Yes' : 'No (apology)',
