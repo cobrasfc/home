@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-06T12:22",
+ "generatedAt": "2026-11-09T10:27",
  "weeks": 10,
  "unrefereedComps": [],
  "comps": [
@@ -3564,15 +3564,15 @@
      "date": "2026-12-15",
      "night": "Tuesday",
      "wave": 1,
-     "comp": "u811",
+     "comp": "u1213",
      "start": "5:30 PM",
      "end": "6:00 PM",
      "field": "field-6",
-     "team1": "U8s Metford",
-     "team2": "Wild Warriors",
-     "note": "",
+     "team1": "Messi Business",
+     "team2": "Magpies",
+     "note": "Moved from 6:15 pm",
      "status": "",
-     "tag": "",
+     "tag": "Moved",
      "label": ""
     },
     {
@@ -3628,15 +3628,15 @@
      "date": "2026-12-15",
      "night": "Tuesday",
      "wave": 2,
-     "comp": "u1213",
+     "comp": "u811",
      "start": "6:15 PM",
      "end": "6:45 PM",
      "field": "field-6",
-     "team1": "Messi Business",
-     "team2": "Magpies",
-     "note": "",
+     "team1": "U8s Metford",
+     "team2": "Wild Warriors",
+     "note": "Moved from 5:30 pm",
      "status": "",
-     "tag": "",
+     "tag": "Moved",
      "label": ""
     },
     {
@@ -3781,7 +3781,7 @@
           "field-3"
          ],
          "minis": false,
-         "gamesMin": 2,
+         "gamesMin": 1,
          "gamesMax": 2
         },
         {
@@ -3825,7 +3825,7 @@
           "field-3"
          ],
          "minis": false,
-         "gamesMin": 2,
+         "gamesMin": 1,
          "gamesMax": 2
         },
         {
@@ -3848,7 +3848,7 @@
       }
      ],
      "shownWeek": 1,
-     "shownWeeks": 6,
+     "shownWeeks": 5,
      "varies": true
     }
    ],
@@ -3864,12 +3864,12 @@
      ],
      "games": [
       [
-       "Metford U10s",
-       "Rutherford Reds"
-      ],
-      [
        "Grass Goblins",
        "Mayhem FC"
+      ],
+      [
+       "Metford U10s",
+       "Rutherford Reds"
       ]
      ]
     },
@@ -3903,12 +3903,12 @@
      ],
      "games": [
       [
-       "8/3 Thornton Devils",
-       "Rutherford Reds"
-      ],
-      [
        "Chaos FC",
        "Grass Goblins"
+      ],
+      [
+       "8/3 Thornton Devils",
+       "Rutherford Reds"
       ]
      ]
     },
@@ -3922,12 +3922,12 @@
      ],
      "games": [
       [
-       "Chaos FC",
-       "Tough Cookies FC"
-      ],
-      [
        "Grass Goblins",
        "Mayhem FC"
+      ],
+      [
+       "Chaos FC",
+       "Tough Cookies FC"
       ]
      ]
     },
@@ -3942,12 +3942,12 @@
      ],
      "games": [
       [
-       "Golden Ballers",
-       "U7 Goal Diggers"
-      ],
-      [
        "8/3 Thornton Devils",
        "Wild Warriors"
+      ],
+      [
+       "Golden Ballers",
+       "U7 Goal Diggers"
       ]
      ]
     },
@@ -4001,12 +4001,32 @@
      ],
      "games": [
       [
-       "Golden Ballers",
-       "U7 Goal Diggers"
-      ],
-      [
        "8/3 Thornton Devils",
        "Wild Warriors"
+      ],
+      [
+       "Golden Ballers",
+       "U7 Goal Diggers"
+      ]
+     ]
+    },
+    {
+     "week": 10,
+     "night": "Tuesday",
+     "wave": 2,
+     "teams": [
+      "Clangers",
+      "Golden Ballers",
+      "Wild Warriors"
+     ],
+     "games": [
+      [
+       "U8s Metford",
+       "Wild Warriors"
+      ],
+      [
+       "Cobras Gold",
+       "Golden Ballers"
       ]
      ]
     }
@@ -4023,15 +4043,15 @@
     }
    ],
    "waveSplit": {
+    "aam": {
+     "earlyMin": 1,
+     "earlyMax": 6
+    },
     "mixed": {
      "earlyMin": 5,
      "earlyMax": 9
     },
     "aaw": {
-     "earlyMin": 1,
-     "earlyMax": 6
-    },
-    "aam": {
      "earlyMin": 1,
      "earlyMax": 6
     },
@@ -4044,7 +4064,7 @@
      "earlyMax": 9
     }
    },
-   "bibGames": 62
+   "bibGames": 64
   }
  ]
 }
