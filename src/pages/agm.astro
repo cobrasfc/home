@@ -62,19 +62,20 @@ const inputClass =
 		</div>
 	</section>
 
-	<!-- Nomination / RSVP form -->
+	<!-- RSVP / membership / nomination form -->
 	<section id="respond" class="scroll-mt-6 bg-cobra-blue/5">
 		<div class="container-page max-w-3xl py-10 md:py-14">
-			<p class="kicker">Nominate or RSVP</p>
+			<p class="kicker">RSVP, membership and nominations</p>
 			<h2 class="mt-2 text-2xl font-medium text-slate-900">Let us know you're coming</h2>
 			<p class="mt-2 text-sm text-slate-700">
-				Nominate yourself for a committee role, or just RSVP so we can plan for numbers. It takes a couple of minutes.
+				Everyone is welcome at the AGM. To vote you need to be a financial member of the club aged 18 or over, and only
+				members can stand for the committee. Choose an option below &#8212; it takes a couple of minutes.
 			</p>
 			<div class="mt-5 rounded-xl bg-cobra-yellow p-4 text-sm text-cobra-blue">
 				<p class="font-semibold">Nominations must be submitted in writing before the AGM.</p>
 				<p class="mt-1">
-					Use this form to nominate {closeBy}. No nominations will be accepted on the night, so if you'd like to stand
-					for a role, please get your nomination in early.
+					Use this form to nominate {closeBy}. Under the club's constitution, a nomination needs your consent and the
+					support of two other club members. No nominations will be accepted on the night, so please get yours in early.
 				</p>
 			</div>
 
@@ -86,16 +87,21 @@ const inputClass =
 
 				<fieldset>
 					<legend class="text-base font-medium text-slate-900">What would you like to do? <span class="text-red-500" aria-hidden="true">*</span></legend>
-					<div class="mt-3 grid gap-3 sm:grid-cols-2">
-						<label class="choice-card card cursor-pointer">
-							<input class="sr-only" type="radio" name="type" value="nominate" required />
-							<p class="text-base font-semibold text-slate-900">Nominate for a role</p>
-							<p class="mt-1 text-sm text-slate-600">Put your hand up for the committee, and RSVP at the same time.</p>
-						</label>
+					<div class="mt-3 grid gap-3 md:grid-cols-3">
 						<label class="choice-card card cursor-pointer">
 							<input class="sr-only" type="radio" name="type" value="rsvp" required />
-							<p class="text-base font-semibold text-slate-900">RSVP to attend</p>
-							<p class="mt-1 text-sm text-slate-600">Come along to the AGM without nominating.</p>
+							<p class="text-base font-semibold text-slate-900">RSVP only</p>
+							<p class="mt-1 text-sm text-slate-600">Come along to the AGM without applying for membership. You won't be able to vote.</p>
+						</label>
+						<label class="choice-card card cursor-pointer">
+							<input class="sr-only" type="radio" name="type" value="nominate" required />
+							<p class="text-base font-semibold text-slate-900">Become a voting member and nominate for the committee</p>
+							<p class="mt-1 text-sm text-slate-600">Apply for membership and put your hand up for a committee role. You can RSVP too.</p>
+						</label>
+						<label class="choice-card card cursor-pointer">
+							<input class="sr-only" type="radio" name="type" value="member" required />
+							<p class="text-base font-semibold text-slate-900">Become a voting member</p>
+							<p class="mt-1 text-sm text-slate-600">Apply for membership so you can vote, without nominating for the committee. You can RSVP too.</p>
 						</label>
 					</div>
 					<p id="type-error" class="mt-2 hidden text-sm text-red-600">Please choose one.</p>
@@ -133,8 +139,30 @@ const inputClass =
 					</div>
 				</fieldset>
 
+				<fieldset id="membership-fields" class="hidden space-y-5">
+					<legend class="text-base font-medium text-slate-900">Membership application</legend>
+					<p class="text-sm text-slate-700">
+						Your application goes to the committee for approval. If it's approved, we'll ask you to pay the membership fee
+						within 28 days and then add you to the register of members. You can vote once you're a financial member aged 18
+						or over, so please apply early.
+					</p>
+					<div>
+						<label class="block text-sm font-medium text-slate-900" for="address">Residential address <span class="text-red-500" aria-hidden="true">*</span></label>
+						<input class={inputClass} type="text" id="address" name="address" autocomplete="street-address" />
+					</div>
+					<div>
+						<label class="block text-sm font-medium text-slate-900" for="occupation">Occupation <span class="font-normal text-slate-500">(optional)</span></label>
+						<input class={inputClass} type="text" id="occupation" name="occupation" autocomplete="organization-title" />
+					</div>
+					<label class="flex items-start gap-3 rounded-lg bg-white p-4 text-sm text-slate-800 ring-1 ring-black/5">
+						<input class="mt-0.5 h-4 w-4 shrink-0 accent-cobra-blue" type="checkbox" id="member-declaration" name="member_declaration" />
+						<span>I'm 18 or older. I apply to become a member of {SITE.name} and agree to be bound by the club's constitution.</span>
+					</label>
+					<p id="member-declaration-error" class="-mt-3 hidden text-sm text-red-600">Please tick to confirm your membership application.</p>
+				</fieldset>
+
 				<fieldset id="nomination-fields" class="hidden space-y-5">
-					<legend class="text-base font-medium text-slate-900">Your nomination</legend>
+					<legend class="text-base font-medium text-slate-900">Your committee nomination</legend>
 					<div>
 						<p class="text-sm font-medium text-slate-900">Which role(s) are you nominating for? <span class="text-red-500" aria-hidden="true">*</span></p>
 						<p class="mt-1 text-xs text-slate-500">Choose one, or more than one if you're happy to fill any of them.
@@ -158,29 +186,44 @@ const inputClass =
 						<p id="roles-error" class="mt-2 hidden text-sm text-red-600">Please choose at least one role.</p>
 					</div>
 					<div>
+						<p class="text-sm font-medium text-slate-900">Two club members who support your nomination <span class="text-red-500" aria-hidden="true">*</span></p>
+						<p class="mt-1 text-xs text-slate-500">The constitution requires two current members (not you) to support each nomination. The committee will confirm with them.</p>
+						<div class="mt-2 grid gap-5 sm:grid-cols-2">
+							<div>
+								<label class="block text-sm text-slate-700" for="supporter-1">First member's full name</label>
+								<input class={inputClass} type="text" id="supporter-1" name="supporter_1" autocomplete="off" />
+							</div>
+							<div>
+								<label class="block text-sm text-slate-700" for="supporter-2">Second member's full name</label>
+								<input class={inputClass} type="text" id="supporter-2" name="supporter_2" autocomplete="off" />
+							</div>
+						</div>
+					</div>
+					<div>
 						<label class="block text-sm font-medium text-slate-900" for="experience">
 							Tell members a little about yourself <span class="font-normal text-slate-500">(optional)</span>
 						</label>
 						<p class="mt-1 text-xs text-slate-500">Why you'd like the role and any skills or experience you'd bring.</p>
 						<textarea class={inputClass} id="experience" name="experience" rows="4" maxlength="2000"></textarea>
 					</div>
-					<div>
-						<p class="text-sm font-medium text-slate-900">Will you be at the AGM? <span class="text-red-500" aria-hidden="true">*</span></p>
-						<div class="mt-2 flex flex-wrap gap-x-6 gap-y-2">
-							<label class="flex items-center gap-2 text-sm text-slate-800">
-								<input class="h-4 w-4 accent-cobra-blue" type="radio" name="attending" value="Yes" /> Yes, I'll be there
-							</label>
-							<label class="flex items-center gap-2 text-sm text-slate-800">
-								<input class="h-4 w-4 accent-cobra-blue" type="radio" name="attending" value="No (apology)" /> No, I can't make it
-							</label>
-						</div>
-						<p id="attending-error" class="mt-2 hidden text-sm text-red-600">Please let us know if you'll be there.</p>
-					</div>
 					<label class="flex items-start gap-3 rounded-lg bg-white p-4 text-sm text-slate-800 ring-1 ring-black/5">
 						<input class="mt-0.5 h-4 w-4 shrink-0 accent-cobra-blue" type="checkbox" id="consent" name="consent" />
-						<span>I'm 18 or older, I agree to be nominated, and I'm willing to take on the role if I'm elected.</span>
+						<span>I consent to this nomination and I'm willing to take on the role if I'm elected.</span>
 					</label>
 					<p id="consent-error" class="-mt-3 hidden text-sm text-red-600">Please tick to confirm your nomination.</p>
+				</fieldset>
+
+				<fieldset id="rsvp-field" class="hidden">
+					<legend class="text-base font-medium text-slate-900">RSVP</legend>
+					<label class="mt-3 flex items-start gap-3 rounded-lg bg-white p-4 text-sm text-slate-800 ring-1 ring-black/5">
+						<input class="mt-0.5 h-4 w-4 shrink-0 accent-cobra-blue" type="checkbox" id="attending" name="attending" />
+						<span>I'll be attending the AGM on {AGM.dateLabel}{AGM.timeLabel && ` at ${AGM.timeLabel}`}.</span>
+					</label>
+					<p class="mt-2 text-xs text-slate-500">
+						Leave this unticked if you can't make it &#8212;
+						<span id="rsvp-note-nominate">your membership application and nomination still count.</span>
+						<span id="rsvp-note-member">your membership application still counts.</span>
+					</p>
 				</fieldset>
 
 				<fieldset id="attendee-fields" class="hidden">
@@ -199,7 +242,7 @@ const inputClass =
 				<div>
 					<button id="submit-btn" class="btn-primary px-6 py-3 text-base" type="submit">Submit &#8594;</button>
 					<p class="mt-3 text-xs text-slate-500">
-						Your details go only to the {SITE.name} committee and are used for the AGM.
+						Your details go only to the {SITE.name} committee and are used for the AGM and the register of members.
 					</p>
 				</div>
 
@@ -303,12 +346,22 @@ const inputClass =
 <script is:inline define:vars={{ formUrl: AGM.formspreeUrl, agmLabel: `AGM ${AGM.year}` }}>
 (function () {
 	var form = document.getElementById('agm-form');
+	var membershipFields = document.getElementById('membership-fields');
 	var nominationFields = document.getElementById('nomination-fields');
 	var attendeeFields = document.getElementById('attendee-fields');
 	var commentsField = document.getElementById('comments-field');
 	var submitBtn = document.getElementById('submit-btn');
 	var errorBox = document.getElementById('form-error');
 	var successPanel = document.getElementById('success-panel');
+
+	// The three options: rsvp = RSVP only; nominate = membership + committee nomination; member = membership,
+	// no nomination. Options 2 and 3 RSVP with the "attending" checkbox, so they can apply without coming.
+	var OPTIONS = {
+		rsvp: { label: 'RSVP only', button: 'Send RSVP →' },
+		nominate: { label: 'Membership application + committee nomination', button: 'Submit nomination →' },
+		member: { label: 'Membership application', button: 'Submit application →' }
+	};
+	var rsvpField = document.getElementById('rsvp-field');
 
 	function byName(name) {
 		return Array.prototype.slice.call(form.querySelectorAll('[name="' + name + '"]'));
@@ -320,17 +373,27 @@ const inputClass =
 	function show(el, visible) {
 		el.classList.toggle('hidden', !visible);
 	}
+	function value(id) {
+		return document.getElementById(id).value.trim();
+	}
+
+	function isAttending(type) {
+		return type === 'rsvp' || ((type === 'nominate' || type === 'member') && document.getElementById('attending').checked);
+	}
 
 	function update() {
 		var type = checkedValue('type');
-		var nominating = type === 'nominate';
-		var attending = type === 'rsvp' || (nominating && checkedValue('attending') === 'Yes');
-		show(nominationFields, nominating);
-		show(attendeeFields, attending);
+		var applying = type === 'nominate' || type === 'member';
+		show(membershipFields, applying);
+		show(nominationFields, type === 'nominate');
+		show(rsvpField, applying);
+		show(document.getElementById('rsvp-note-nominate'), type === 'nominate');
+		show(document.getElementById('rsvp-note-member'), type === 'member');
+		show(attendeeFields, isAttending(type));
 		show(commentsField, !!type);
-		show(document.getElementById('phone-optional'), !nominating);
-		show(document.getElementById('phone-required'), nominating);
-		submitBtn.textContent = nominating ? 'Submit nomination →' : type === 'rsvp' ? 'Send RSVP →' : 'Submit →';
+		show(document.getElementById('phone-optional'), !applying);
+		show(document.getElementById('phone-required'), applying);
+		submitBtn.textContent = type ? OPTIONS[type].button : 'Submit →';
 	}
 	// After a failed submit, re-check as people fix things so stale errors disappear
 	var attempted = false;
@@ -368,25 +431,33 @@ const inputClass =
 		return !visible;
 	}
 
+	// Outlines a text field red when it's required and empty (or not a valid email)
+	function checkField(id, required) {
+		var el = document.getElementById(id);
+		var valid = !required || (el.checkValidity() && el.value.trim() !== '');
+		el.setAttribute('aria-invalid', valid ? 'false' : 'true');
+		el.classList.toggle('ring-2', !valid);
+		el.classList.toggle('ring-red-400', !valid);
+		return valid;
+	}
+
 	function validate() {
 		var type = checkedValue('type');
+		var applying = type === 'nominate' || type === 'member';
+		var nominating = type === 'nominate';
 		var ok = setError('type-error', !type);
-		['name', 'email', 'connection'].forEach(function (id) {
-			var el = document.getElementById(id);
-			var valid = el.checkValidity() && el.value.trim() !== '';
-			el.setAttribute('aria-invalid', valid ? 'false' : 'true');
-			el.classList.toggle('ring-2', !valid);
-			el.classList.toggle('ring-red-400', !valid);
-			ok = valid && ok;
-		});
-		if (type === 'nominate') {
-			var phone = document.getElementById('phone');
-			var phoneOk = phone.value.trim() !== '';
-			phone.classList.toggle('ring-2', !phoneOk);
-			phone.classList.toggle('ring-red-400', !phoneOk);
-			ok = phoneOk && ok;
+		ok = checkField('name', true) && ok;
+		ok = checkField('email', true) && ok;
+		ok = checkField('connection', true) && ok;
+		ok = checkField('phone', applying) && ok;
+		ok = checkField('address', applying) && ok;
+		ok = checkField('supporter-1', nominating) && ok;
+		ok = checkField('supporter-2', nominating) && ok;
+		if (applying) {
+			ok = setError('member-declaration-error', !document.getElementById('member-declaration').checked) && ok;
+		}
+		if (nominating) {
 			ok = setError('roles-error', !byName('roles').some(function (b) { return b.checked; })) && ok;
-			ok = setError('attending-error', !checkedValue('attending')) && ok;
 			ok = setError('consent-error', !document.getElementById('consent').checked) && ok;
 		}
 		return ok;
@@ -394,30 +465,41 @@ const inputClass =
 
 	function payload() {
 		var type = checkedValue('type');
+		var applying = type === 'nominate' || type === 'member';
 		var nominating = type === 'nominate';
-		var attending = nominating ? checkedValue('attending') : 'Yes';
+		var attending = isAttending(type);
 		return {
 			website: document.getElementById('website').value, // honeypot (sent as _gotcha) — real users never fill this in
-			type: nominating ? 'Nomination' : 'RSVP',
-			name: document.getElementById('name').value.trim(),
-			email: document.getElementById('email').value.trim(),
-			phone: document.getElementById('phone').value.trim(),
+			type: type,
+			name: value('name'),
+			email: value('email'),
+			phone: value('phone'),
 			connection: document.getElementById('connection').value,
+			address: applying ? value('address') : '',
+			occupation: applying ? value('occupation') : '',
+			declaration: applying ? 'Yes — 18 or older, applies for membership and agrees to be bound by the constitution' : '',
 			roles: nominating ? byName('roles').filter(function (b) { return b.checked; }).map(function (b) { return b.value; }).join(', ') : '',
+			supporter1: nominating ? value('supporter-1') : '',
+			supporter2: nominating ? value('supporter-2') : '',
+			experience: nominating ? value('experience') : '',
+			consent: nominating ? 'Yes — consents to the nomination and will serve if elected' : '',
 			attending: attending,
-			attendees: attending === 'Yes' ? String(Math.max(1, parseInt(document.getElementById('attendees').value, 10) || 1)) : '',
-			experience: nominating ? document.getElementById('experience').value.trim() : '',
-			consent: nominating ? 'Yes — 18+, agrees to be nominated and to serve if elected' : '',
-			comments: document.getElementById('comments').value.trim()
+			attendees: attending ? String(Math.max(1, parseInt(document.getElementById('attendees').value, 10) || 1)) : '',
+			comments: value('comments')
 		};
 	}
 
 	function showSuccess(data) {
+		var titles = { rsvp: "You're on the list", member: 'Application received', nominate: 'Nomination received' };
+		var meeting = data.attending ? ' See you at the AGM.' : " Sorry you can't make it to the AGM.";
+		var texts = {
+			rsvp: 'Thanks, ' + data.name + '. We look forward to seeing you at the AGM.',
+			member: 'Thanks, ' + data.name + '. The committee will review your membership application and be in touch about the membership fee.' + meeting,
+			nominate: 'Thanks for putting your hand up, ' + data.name + '. The committee will review your membership application and nomination, check with your two supporting members, and be in touch before the AGM.' + meeting
+		};
 		form.classList.add('hidden');
-		document.getElementById('success-title').textContent = data.type === 'Nomination' ? 'Nomination received' : "You're on the list";
-		document.getElementById('success-text').textContent = data.type === 'Nomination'
-			? 'Thanks for putting your hand up, ' + data.name + '. The committee will be in touch before the AGM.'
-			: 'Thanks, ' + data.name + '. We look forward to seeing you at the AGM.';
+		document.getElementById('success-title').textContent = titles[data.type];
+		document.getElementById('success-text').textContent = texts[data.type];
 		show(successPanel, true);
 		successPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
 	}
@@ -425,19 +507,30 @@ const inputClass =
 	// Formspree emails each field as "label: value", so send readable labels. `email` becomes the reply-to
 	// address, `_subject` the email subject and `_gotcha` is Formspree's honeypot.
 	function formspreeBody(data) {
+		var rsvpNote = data.attending ? 'attending' : 'not attending';
+		var subjects = {
+			rsvp: agmLabel + ' RSVP: ' + data.name,
+			member: agmLabel + ' membership application: ' + data.name + ' (' + rsvpNote + ')',
+			nominate: agmLabel + ' nomination: ' + data.name + ' for ' + data.roles + ' (+ membership, ' + rsvpNote + ')'
+		};
 		var body = {
-			_subject: data.type === 'Nomination' ? agmLabel + ' nomination: ' + data.name + ' for ' + data.roles : agmLabel + ' RSVP: ' + data.name,
+			_subject: subjects[data.type],
 			_gotcha: data.website,
-			Submission: data.type,
+			Submission: OPTIONS[data.type].label,
 			Name: data.name,
 			email: data.email,
 			Phone: data.phone,
 			'Connection to the club': data.connection,
+			'Residential address': data.address,
+			Occupation: data.occupation,
+			'Membership declaration': data.declaration,
 			'Nominating for': data.roles,
-			'Attending the AGM': data.attending,
-			'Number attending (incl. them)': data.attendees,
+			'Supporting member 1': data.supporter1,
+			'Supporting member 2': data.supporter2,
 			'About the nominee': data.experience,
 			'Nominee consent': data.consent,
+			'Attending the AGM': data.attending ? 'Yes' : 'No (apology)',
+			'Number attending (incl. them)': data.attendees,
 			'Comments / questions': data.comments
 		};
 		Object.keys(body).forEach(function (key) {
