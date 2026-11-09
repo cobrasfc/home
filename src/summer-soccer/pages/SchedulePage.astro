@@ -60,6 +60,29 @@ const sheetOrigin = SUMMER_SCHEDULE.sheetCsvUrl ? new URL(SUMMER_SCHEDULE.sheetC
 				{draftAdminHref && <> <a href={withBase(draftAdminHref)}>Draft admin view</a></>}
 			</div>
 		)}
+		{!draftNote && (
+			<>
+				{/* Shown only in a browser that has opened the committee view (flag set by AdminPage) */}
+				<div class="ss-committeebar" id="ss-committeebar" hidden>
+					<a id="ss-committee-link" href={withBase('/summer-soccer/admin/')}>← Back to committee view</a>
+					<button type="button" id="ss-committee-hide" class="ss-committeebar__hide">Hide<span class="sr-only"> this link on this device</span></button>
+				</div>
+				<script is:inline>
+					(function () {
+						var path;
+						try { path = localStorage.getItem('cobras-committee-view'); } catch (e) {}
+						if (!path || path.charAt(0) !== '/') return;
+						var bar = document.getElementById('ss-committeebar');
+						document.getElementById('ss-committee-link').setAttribute('href', path);
+						bar.hidden = false;
+						document.getElementById('ss-committee-hide').addEventListener('click', function () {
+							try { localStorage.removeItem('cobras-committee-view'); } catch (e) {}
+							bar.hidden = true;
+						});
+					})();
+				</script>
+			</>
+		)}
 		<main id="ss-app" class="ss-main" aria-busy="true">
 			<div class="ss-skeleton" aria-hidden="true">
 				<div class="ss-skeleton__hero">

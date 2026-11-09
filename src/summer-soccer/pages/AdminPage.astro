@@ -134,6 +134,10 @@ const gamesRange = (() => {
 			</section>
 		</main>
 
+		<script is:inline define:vars={{ adminPath: withBase('/summer-soccer/admin/') }}>
+			// Remember this browser has opened the committee view, so the public schedule can offer a way back
+			try { localStorage.setItem('cobras-committee-view', adminPath); } catch (e) {}
+		</script>
 		<script>
 			// Tabs (hash-linkable) and round pickers
 			const tabs = [...document.querySelectorAll<HTMLButtonElement>('[role="tab"]')];

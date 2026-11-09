@@ -1351,3 +1351,39 @@
 	color: #fff;
 	font-weight: 700;
 }
+
+/* "Back to committee view": only for browsers that have opened the admin page */
+.ss-committeebar {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+	padding: 4px max(16px, env(safe-area-inset-left));
+	background: #1b2d70;
+	color: #fff;
+	font-size: 0.875rem;
+}
+.ss-committeebar[hidden] {
+	display: none;
+}
+.ss-committeebar a {
+	display: inline-flex;
+	align-items: center;
+	min-height: 40px;
+	color: #fff;
+	font-weight: 600;
+}
+.ss-committeebar__hide {
+	min-height: 40px;
+	padding: 0 10px;
+	border: 0;
+	background: transparent;
+	color: rgb(255 255 255 / 0.75);
+	font: inherit;
+	font-size: 0.8125rem;
+	text-decoration: underline;
+	cursor: pointer;
+}
+.ss-committeebar__hide:hover {
+	color: #fff;
+}
