@@ -47,10 +47,10 @@ export const RULE_SECTIONS: RuleSection[] = [
 			},
 			{ label: 'No offside', text: 'There is no offside in any Summer Comp game.' },
 			{ label: 'No slide tackles', text: 'Slide tackles are not allowed.' },
-			{ label: 'Goalkeepers', text: 'Goalkeepers must stay inside the goal area (the “D”).' },
+			{ label: 'Goalkeepers', text: 'Goalkeepers must stay inside the goal area.' },
 			{
 				label: 'The goal area',
-				text: 'Only the goalkeeper can play the ball inside the D. Other players can step into it, as long as they don’t play the ball or interfere with play.'
+				text: 'Only the goalkeeper can play the ball inside the goal area. Other players can step into it, as long as they don’t play the ball or interfere with play.'
 			},
 			{
 				label: 'Keeper throws only',
