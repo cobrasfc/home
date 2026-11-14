@@ -49,6 +49,15 @@ export const RULE_SECTIONS: RuleSection[] = [
 			{ label: 'No slide tackles', text: 'Slide tackles are not allowed.' },
 			{ label: 'Goalkeepers', text: 'Goalkeepers must stay inside the goal area (the “D”).' },
 			{
+				label: 'The goal area',
+				text: 'Only the goalkeeper can play the ball inside the D. Other players can step into it, as long as they don’t play the ball or interfere with play.'
+			},
+			{
+				label: 'Keeper throws only',
+				text: 'Once the keeper has the ball, they can only throw it out (overarm, underarm or like a throw-in), never kick it from their hands, and the throw can’t cross halfway.'
+			},
+			{ label: 'No pass backs', text: 'Players can’t deliberately pass the ball back to their own goalkeeper.' },
+			{
 				label: 'Free kicks',
 				text: 'Defenders, including any wall, must be at least 5m from the ball at every free kick and penalty.'
 			},
