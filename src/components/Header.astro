@@ -1,5 +1,5 @@
 ---
-import { SITE } from '../site.config';
+import { SITE, SUMMER_COMP } from '../site.config';
 import { withBase } from '../utils/withBase';
 
 const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -93,7 +93,7 @@ const dropdownLinkClass = (href: string) =>
 						<a class={dropdownLinkClass('/play-football/junior')} href={withBase('/play-football/junior')}>Junior</a>
 						<a class={dropdownLinkClass('/play-football/senior')} href={withBase('/play-football/senior')}>Senior</a>
 						<a class={dropdownLinkClass('/play-football/summer')} href={withBase('/play-football/summer')}>Summer</a>
-						<a class={dropdownLinkClass('/play-football/summer-dual-registration')} href={withBase('/play-football/summer-dual-registration')}>Summer Dual Registration</a>
+						{SUMMER_COMP.registrationsOpen && <a class={dropdownLinkClass('/play-football/summer-dual-registration')} href={withBase('/play-football/summer-dual-registration')}>Summer Dual Registration</a>}
 					</div>
 				</div>
 			</details>
@@ -126,7 +126,7 @@ const dropdownLinkClass = (href: string) =>
 								<a class={linkClass('/play-football/junior')} href={withBase('/play-football/junior')}>Junior</a>
 								<a class={linkClass('/play-football/senior')} href={withBase('/play-football/senior')}>Senior</a>
 								<a class={linkClass('/play-football/summer')} href={withBase('/play-football/summer')}>Summer</a>
-								<a class={linkClass('/play-football/summer-dual-registration')} href={withBase('/play-football/summer-dual-registration')}>Summer Dual Registration</a>
+								{SUMMER_COMP.registrationsOpen && <a class={linkClass('/play-football/summer-dual-registration')} href={withBase('/play-football/summer-dual-registration')}>Summer Dual Registration</a>}
 							</div>
 						</details>
 

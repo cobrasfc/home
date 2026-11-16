@@ -8,21 +8,32 @@ const regoGroups = [
 	{ key: 'registered', title: 'Registered players', note: 'Played in Winter 2026' },
 	{ key: 'unregistered', title: 'Unregistered players', note: 'Did not play in Winter 2026' }
 ] as const;
+
+const open = SUMMER_COMP.registrationsOpen;
 ---
 
 <BaseLayout
 	title="Summer Comp 2026"
-	description="Metford Cobras Summer Comp 2026 registrations are open — 10 weeks of 6-a-side football for juniors and adults. Adults Mondays from 12 October, juniors Tuesdays from 13 October."
+	description={open
+		? 'Metford Cobras Summer Comp 2026 registrations are open — 10 weeks of 6-a-side football for juniors and adults. Adults Mondays from 12 October, juniors Tuesdays from 13 October.'
+		: 'Metford Cobras Summer Comp 2026 — 10 weeks of 6-a-side football for juniors and adults at Metford. Registrations have closed; the competition is underway.'}
 >
 	<section class="container-page py-10">
 		<div class="grid gap-8 md:grid-cols-2 md:items-center">
 			<div>
 				<p class="kicker">Summer Football</p>
-				<h1 class="page-title">Summer Comp 2026 registrations are open!</h1>
-				<p class="mt-4 max-w-3xl text-sm text-slate-700">
-					{SUMMER_COMP.weeks} weeks of summer football at Metford. Whether you&#8217;re playing with your mates or flying
-					solo, there&#8217;s a division for everyone &#8212; and most importantly, this one is all about having fun.
-				</p>
+				<h1 class="page-title">{open ? 'Summer Comp 2026 registrations are open!' : 'Summer Comp 2026 registrations have closed'}</h1>
+				{open ? (
+					<p class="mt-4 max-w-3xl text-sm text-slate-700">
+						{SUMMER_COMP.weeks} weeks of summer football at Metford. Whether you&#8217;re playing with your mates or flying
+						solo, there&#8217;s a division for everyone &#8212; and most importantly, this one is all about having fun.
+					</p>
+				) : (
+					<p class="mt-4 max-w-3xl text-sm text-slate-700">
+						Thanks to everyone who signed up! {SUMMER_COMP.weeks} weeks of summer football at Metford are now underway.
+						Check the draw for your team&#8217;s game times, and subscribe to hear first when registrations open next season.
+					</p>
+				)}
 				<div class="mt-5 grid grid-cols-2 gap-3 max-w-md">
 					<div class="rounded-xl bg-cobra-blue/5 p-3">
 						<p class="text-xs font-medium uppercase tracking-wider text-cobra-blue">Adults</p>
@@ -34,6 +45,12 @@ const regoGroups = [
 					</div>
 				</div>
 				<div class="mt-6 flex flex-wrap gap-3">
+					{!open && (
+						<>
+							<a class="btn-primary" href={withBase('/summer-soccer/schedule')}>View the draw &#8594;</a>
+							<a class="btn-secondary" href={withBase('/subscribe')}>Subscribe for updates</a>
+						</>
+					)}
 					<a class="btn-secondary" href={SITE.facebookUrl} target="_blank" rel="noopener">Read the FAQs on Facebook</a>
 					{!SUMMER_REGULATIONS.draft && (
 						<a class="btn-secondary" href={withBase('/play-football/summer-regulations')}>Competition regulations</a>
@@ -76,7 +93,7 @@ const regoGroups = [
 			</div>
 		</div>
 
-		<div id="register" class="mt-10 scroll-mt-24">
+		{open && <div id="register" class="mt-10 scroll-mt-24">
 			<h2 class="text-2xl font-medium text-cobra-blue">Ready to play? Register via PlayFootball</h2>
 			<p class="mt-2 text-sm text-slate-700">
 				Choose the link that matches whether you played with a club in Winter 2026, then pick your age division.
@@ -126,7 +143,7 @@ const regoGroups = [
 				<p class="text-sm font-semibold text-cobra-blue">Places are limited and team numbers are capped &#8212; get your registration in early!</p>
 				<p class="mt-1 text-sm text-cobra-blue/80">Get your mates together. Pick your team name. Choose your colour. Let&#8217;s play!</p>
 			</div>
-		</div>
+		</div>}
 
 		<div class="mt-4">
 			<div class="card">

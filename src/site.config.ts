@@ -43,6 +43,9 @@ export type GalaDayAgeGroup = (typeof GALA_DAY.ageGroups)[number];
 // a division with an empty url shows "Link coming shortly" instead of a button.
 export const SUMMER_COMP = {
 	name: 'Metford Cobras Summer Comp 2026',
+	// false = registrations closed: the Summer page hides the PlayFootball links and dual registration, and the
+	// nav drops "Summer Dual Registration" (that page still works for anyone with the link). Closed 17 Nov 2026.
+	registrationsOpen: false,
 	weeks: 10,
 	adultsStart: 'Mondays from 12 October',
 	juniorsStart: 'Tuesdays from 13 October',
