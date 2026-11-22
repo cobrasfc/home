@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-09T10:27",
+ "generatedAt": "2026-11-22T12:57",
  "jobs": {
   "Monday": [
    {
@@ -293,7 +293,7 @@
    "setup": 10,
    "duty": 15,
    "canteen": 0,
-   "pack": 12
+   "pack": 14
   },
   {
    "name": "Jaz",
@@ -313,24 +313,24 @@
    "keys": true,
    "lead": false,
    "size": 1,
-   "note": "",
+   "note": "Tue 1 Dec: not available until wave 2.",
    "monday": "Field / canteen set up; duty officer except while Metford AAM play; field / canteen pack down",
    "tuesday": "Field / canteen set up; duty officer; field / canteen pack down",
-   "setup": 18,
-   "duty": 12,
+   "setup": 17,
+   "duty": 13,
    "canteen": 0,
-   "pack": 6
+   "pack": 4
   },
   {
    "name": "Chad",
    "keys": false,
    "lead": false,
    "size": 1,
-   "note": "",
+   "note": "Not available Tue 24 Nov.",
    "monday": "Not available",
    "tuesday": "Duty officer; field / canteen pack down",
    "setup": 0,
-   "duty": 16,
+   "duty": 14,
    "canteen": 0,
    "pack": 0
   },
@@ -343,7 +343,7 @@
    "monday": "Duty officer",
    "tuesday": "Duty officer",
    "setup": 0,
-   "duty": 11,
+   "duty": 12,
    "canteen": 0,
    "pack": 0
   },
@@ -1176,7 +1176,7 @@
     "duty1": {
      "who": [
       "Mitch",
-      "Chad"
+      "Jaz"
      ],
      "amount": 2
     },
@@ -1188,8 +1188,8 @@
     },
     "duty2": {
      "who": [
-      "Jaz",
-      "Chad"
+      "Brock",
+      "Sam"
      ],
      "amount": 2
     },
@@ -1202,8 +1202,8 @@
     },
     "fieldPack": {
      "who": [
-      "Jaz",
-      "Brock"
+      "Mitch",
+      "Jaz"
      ],
      "amount": 2
     },
@@ -1306,15 +1306,14 @@
    "night": "Tuesday",
    "jobs": {
     "fieldSetup": {
-     "who": [
-      "Brock",
-      "Toni"
-     ],
-     "amount": 2
-    },
-    "canteenSetup": {
      "who": [],
      "amount": 0
+    },
+    "canteenSetup": {
+     "who": [
+      "Toni"
+     ],
+     "amount": 1
     },
     "duty1": {
      "who": [
@@ -1345,8 +1344,8 @@
     },
     "fieldPack": {
      "who": [
-      "Jaz",
-      "Brock"
+      "Mitch",
+      "Jaz"
      ],
      "amount": 2
     },
@@ -1360,10 +1359,10 @@
    },
    "issues": [
     {
-     "job": "canteenSetup",
+     "job": "fieldSetup",
      "level": "bad",
-     "text": "Set up — canteen: vacant — Toni on field set up.",
-     "fix": "Field jobs come first; the canteen opens once Candice or Toni is free."
+     "text": "Set up — field: 0 of the 2 people needed.",
+     "fix": "Find another volunteer for this job."
     }
    ]
   },
@@ -1666,9 +1665,17 @@
     5,
     6,
     7,
-    8,
     9,
     10
+   ]
+  },
+  {
+   "level": "bad",
+   "night": "Tuesday",
+   "text": "Set up — field: 0 of the 2 people needed.",
+   "fix": "Find another volunteer for this job.",
+   "rounds": [
+    8
    ]
   },
   {
