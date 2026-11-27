@@ -55,7 +55,7 @@ const generated = new Date(data.generatedAt).toLocaleString('en-AU', { dateStyle
 					</tr>
 					<tr>
 						{jobs.map((j) => (
-							<th scope="col">{j.label}<br /><span class="ad-muted">{j.time}</span></th>
+							<th scope="col">{j.label}<br /><span class="ad-muted">{j.time}{j.extra ? ' · some nights' : ''}</span></th>
 						))}
 					</tr>
 				</thead>
@@ -66,9 +66,12 @@ const generated = new Date(data.generatedAt).toLocaleString('en-AU', { dateStyle
 							{jobs.map((j) => {
 								const cell = n.jobs[j.id];
 								const issues = n.issues.filter((i: any) => i.job === j.id);
+								// The extra catch-up wave's jobs only exist on the nights that have one
+								if (!cell) return <td class="ad-muted"><span aria-hidden="true">·</span><span class="sr-only">No extra wave</span></td>;
 								return (
 									<td class={issues.some((i: any) => i.level === 'bad') ? 'is-gap' : issues.length ? 'is-thin' : undefined}>
 										{cell.who.length ? cell.who.join(', ') : <span class="ad-muted">—</span>}
+										{cell.time && <><br /><span class="ad-muted">{cell.time} (later, after the extra wave)</span></>}
 										{issues.map((i: any) => (
 											<span class={`ad-flag ${i.level === 'bad' ? 'is-bad' : 'is-warn'}`} title={`${i.text} ${i.fix}`}>
 												<span aria-hidden="true">{i.level === 'bad' ? '✕' : '!'}</span> {i.text.replace(/^[^:]+: /, '').split(' — ')[0].replace(/\.$/, '')}
@@ -146,5 +149,6 @@ const generated = new Date(data.generatedAt).toLocaleString('en-AU', { dateStyle
 <p class="ad-note">
 	🔑 = has keys · ☕ = runs the canteen. Set ups and pack downs include both field and canteen; a duty or canteen shift is one wave. Jobs are
 	shared out as evenly as availability allows; when someone has to do more than two jobs in a night it goes to Mitch first, then Jaz, Brock and
-	Sam. Roster made {generated} from the current draw — it's redone whenever the draw or anyone's availability changes.
+	Sam. The Extra wave columns are only used on nights with an extra catch-up wave (pack down starts later those nights). Past nights stay
+	as they were rostered. Roster made {generated} from the current draw — it's redone whenever the draw or anyone's availability changes.
 </p>

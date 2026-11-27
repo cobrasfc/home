@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-22T12:57",
+ "generatedAt": "2026-11-27T15:27",
  "jobs": {
   "Monday": [
    {
@@ -17,7 +17,8 @@
      "Put out match balls",
      "Put out benches"
     ],
-    "needs": "keys"
+    "needs": "keys",
+    "extra": false
    },
    {
     "id": "canteenSetup",
@@ -33,7 +34,8 @@
      "Unlock toilets",
      "Turn on lights"
     ],
-    "needs": "canteen lead"
+    "needs": "canteen lead",
+    "extra": false
    },
    {
     "id": "duty1",
@@ -47,7 +49,8 @@
     "tasks": [
      "2 duty officers"
     ],
-    "needs": ""
+    "needs": "",
+    "extra": false
    },
    {
     "id": "canteen1",
@@ -61,7 +64,8 @@
     "tasks": [
      "1 or 2 canteen helpers"
     ],
-    "needs": "canteen lead"
+    "needs": "canteen lead",
+    "extra": false
    },
    {
     "id": "duty2",
@@ -75,7 +79,8 @@
     "tasks": [
      "2 duty officers"
     ],
-    "needs": ""
+    "needs": "",
+    "extra": false
    },
    {
     "id": "canteen2",
@@ -89,7 +94,38 @@
     "tasks": [
      "1 or 2 canteen helpers"
     ],
-    "needs": "canteen lead"
+    "needs": "canteen lead",
+    "extra": false
+   },
+   {
+    "id": "duty3",
+    "slot": "w3",
+    "group": "Extra wave",
+    "label": "Duty officers",
+    "time": "8:10–8:50",
+    "min": 2,
+    "max": 2,
+    "count": "people",
+    "tasks": [
+     "2 duty officers"
+    ],
+    "needs": "",
+    "extra": true
+   },
+   {
+    "id": "canteen3",
+    "slot": "w3",
+    "group": "Extra wave",
+    "label": "Canteen",
+    "time": "8:10–8:50",
+    "min": 1,
+    "max": 2,
+    "count": "helpers",
+    "tasks": [
+     "1 or 2 canteen helpers"
+    ],
+    "needs": "canteen lead",
+    "extra": true
    },
    {
     "id": "fieldPack",
@@ -107,7 +143,8 @@
      "Pack away benches",
      "Lock up sheds"
     ],
-    "needs": "keys"
+    "needs": "keys",
+    "extra": false
    },
    {
     "id": "canteenPack",
@@ -124,7 +161,8 @@
      "Lock up toilets",
      "Turn off lights"
     ],
-    "needs": "canteen lead"
+    "needs": "canteen lead",
+    "extra": false
    }
   ],
   "Tuesday": [
@@ -143,7 +181,8 @@
      "Put out match balls",
      "Put out benches"
     ],
-    "needs": "keys"
+    "needs": "keys",
+    "extra": false
    },
    {
     "id": "canteenSetup",
@@ -160,7 +199,8 @@
      "Turn on lights",
      "Unlock gates for the Swirl N Dip van"
     ],
-    "needs": "canteen lead"
+    "needs": "canteen lead",
+    "extra": false
    },
    {
     "id": "duty1",
@@ -174,7 +214,8 @@
     "tasks": [
      "2 duty officers"
     ],
-    "needs": ""
+    "needs": "",
+    "extra": false
    },
    {
     "id": "canteen1",
@@ -188,7 +229,8 @@
     "tasks": [
      "1 or 2 canteen helpers"
     ],
-    "needs": "canteen lead"
+    "needs": "canteen lead",
+    "extra": false
    },
    {
     "id": "duty2",
@@ -202,7 +244,8 @@
     "tasks": [
      "2 duty officers"
     ],
-    "needs": ""
+    "needs": "",
+    "extra": false
    },
    {
     "id": "canteen2",
@@ -216,7 +259,8 @@
     "tasks": [
      "1 or 2 canteen helpers"
     ],
-    "needs": "canteen lead"
+    "needs": "canteen lead",
+    "extra": false
    },
    {
     "id": "fieldPack",
@@ -234,7 +278,8 @@
      "Pack away benches",
      "Lock up sheds"
     ],
-    "needs": "keys"
+    "needs": "keys",
+    "extra": false
    },
    {
     "id": "canteenPack",
@@ -251,7 +296,8 @@
      "Lock up toilets",
      "Turn off lights"
     ],
-    "needs": "canteen lead"
+    "needs": "canteen lead",
+    "extra": false
    }
   ]
  },
@@ -264,10 +310,10 @@
    "note": "Pair — always together. Light duties (canteen) only.",
    "monday": "Canteen set up; canteen except while Motley Crew / Summer Savages play; canteen pack down",
    "tuesday": "Canteen set up; canteen; canteen pack down",
-   "setup": 10,
+   "setup": 9,
    "duty": 0,
-   "canteen": 8,
-   "pack": 9
+   "canteen": 7,
+   "pack": 8
   },
   {
    "name": "Chloe + Abby",
@@ -277,10 +323,10 @@
    "note": "Pair — Mondays only. Field set up only with 2 others helping; no duty officer.",
    "monday": "Field / canteen set up; canteen except while Motley Crew / Summer Savages play; canteen pack down",
    "tuesday": "Not available",
-   "setup": 10,
+   "setup": 9,
    "duty": 0,
    "canteen": 0,
-   "pack": 9
+   "pack": 8
   },
   {
    "name": "Mitch",
@@ -290,10 +336,10 @@
    "note": "",
    "monday": "Field / canteen set up; duty officer except while Metford AAM play; field / canteen pack down",
    "tuesday": "Duty officer except while Cobras Gold play; field / canteen pack down",
-   "setup": 10,
-   "duty": 15,
+   "setup": 9,
+   "duty": 13,
    "canteen": 0,
-   "pack": 14
+   "pack": 13
   },
   {
    "name": "Jaz",
@@ -304,9 +350,9 @@
    "monday": "Duty officer (wave 2 only) except while Summer Savages play; field / canteen pack down",
    "tuesday": "Duty officer; field / canteen pack down",
    "setup": 0,
-   "duty": 10,
+   "duty": 9,
    "canteen": 0,
-   "pack": 18
+   "pack": 16
   },
   {
    "name": "Brock",
@@ -316,10 +362,10 @@
    "note": "Tue 1 Dec: not available until wave 2.",
    "monday": "Field / canteen set up; duty officer except while Metford AAM play; field / canteen pack down",
    "tuesday": "Field / canteen set up; duty officer; field / canteen pack down",
-   "setup": 17,
+   "setup": 15,
    "duty": 13,
    "canteen": 0,
-   "pack": 4
+   "pack": 3
   },
   {
    "name": "Chad",
@@ -343,7 +389,7 @@
    "monday": "Duty officer",
    "tuesday": "Duty officer",
    "setup": 0,
-   "duty": 12,
+   "duty": 11,
    "canteen": 0,
    "pack": 0
   },
@@ -357,8 +403,8 @@
    "tuesday": "Duty officer; canteen; field / canteen pack down",
    "setup": 0,
    "duty": 8,
-   "canteen": 14,
-   "pack": 18
+   "canteen": 13,
+   "pack": 16
   },
   {
    "name": "Toni",
@@ -368,9 +414,9 @@
    "note": "",
    "monday": "Field / canteen set up; duty officer; canteen; field / canteen pack down",
    "tuesday": "Field / canteen set up; duty officer; canteen; field / canteen pack down",
-   "setup": 18,
+   "setup": 16,
    "duty": 0,
-   "canteen": 22,
+   "canteen": 21,
    "pack": 0
   }
  ],
@@ -940,82 +986,6 @@
   },
   {
    "round": 6,
-   "date": "2026-11-16",
-   "night": "Monday",
-   "jobs": {
-    "fieldSetup": {
-     "who": [
-      "Chloe + Abby",
-      "Mitch",
-      "Brock"
-     ],
-     "amount": 4
-    },
-    "canteenSetup": {
-     "who": [
-      "Harley + Cass",
-      "Toni"
-     ],
-     "amount": 2
-    },
-    "duty1": {
-     "who": [
-      "Mitch",
-      "Brock"
-     ],
-     "amount": 2
-    },
-    "canteen1": {
-     "who": [
-      "Toni"
-     ],
-     "amount": 1
-    },
-    "duty2": {
-     "who": [
-      "Sam",
-      "Candice"
-     ],
-     "amount": 2
-    },
-    "canteen2": {
-     "who": [
-      "Toni"
-     ],
-     "amount": 1
-    },
-    "fieldPack": {
-     "who": [
-      "Mitch",
-      "Jaz"
-     ],
-     "amount": 2
-    },
-    "canteenPack": {
-     "who": [
-      "Chloe + Abby",
-      "Candice"
-     ],
-     "amount": 2
-    }
-   },
-   "issues": [
-    {
-     "job": null,
-     "level": "warn",
-     "text": "Mitch has 3 jobs this night.",
-     "fix": "Swap one of their jobs if someone else can help."
-    },
-    {
-     "job": null,
-     "level": "warn",
-     "text": "Toni has 3 jobs this night.",
-     "fix": "Swap one of their jobs if someone else can help."
-    }
-   ]
-  },
-  {
-   "round": 6,
    "date": "2026-11-17",
    "night": "Tuesday",
    "jobs": {
@@ -1158,76 +1128,10 @@
    ]
   },
   {
-   "round": 7,
-   "date": "2026-11-24",
-   "night": "Tuesday",
-   "jobs": {
-    "fieldSetup": {
-     "who": [
-      "Brock",
-      "Toni"
-     ],
-     "amount": 2
-    },
-    "canteenSetup": {
-     "who": [],
-     "amount": 0
-    },
-    "duty1": {
-     "who": [
-      "Mitch",
-      "Jaz"
-     ],
-     "amount": 2
-    },
-    "canteen1": {
-     "who": [
-      "Toni"
-     ],
-     "amount": 1
-    },
-    "duty2": {
-     "who": [
-      "Brock",
-      "Sam"
-     ],
-     "amount": 2
-    },
-    "canteen2": {
-     "who": [
-      "Harley + Cass",
-      "Candice"
-     ],
-     "amount": 2
-    },
-    "fieldPack": {
-     "who": [
-      "Mitch",
-      "Jaz"
-     ],
-     "amount": 2
-    },
-    "canteenPack": {
-     "who": [
-      "Harley + Cass",
-      "Candice"
-     ],
-     "amount": 2
-    }
-   },
-   "issues": [
-    {
-     "job": "canteenSetup",
-     "level": "bad",
-     "text": "Set up — canteen: vacant — Toni on field set up.",
-     "fix": "Field jobs come first; the canteen opens once Candice or Toni is free."
-    }
-   ]
-  },
-  {
    "round": 8,
    "date": "2026-11-30",
    "night": "Monday",
+   "extraWave": true,
    "jobs": {
     "fieldSetup": {
      "who": [
@@ -1270,32 +1174,53 @@
      ],
      "amount": 1
     },
+    "duty3": {
+     "who": [
+      "Mitch",
+      "Brock"
+     ],
+     "amount": 2
+    },
+    "canteen3": {
+     "who": [
+      "Toni"
+     ],
+     "amount": 1
+    },
     "fieldPack": {
      "who": [
       "Mitch",
       "Jaz"
      ],
-     "amount": 2
+     "amount": 2,
+     "time": "8:50–9:35"
     },
     "canteenPack": {
      "who": [
       "Chloe + Abby",
       "Candice"
      ],
-     "amount": 2
+     "amount": 2,
+     "time": "8:50–9:35"
     }
    },
    "issues": [
     {
      "job": null,
      "level": "warn",
-     "text": "Mitch has 3 jobs this night.",
+     "text": "Mitch has 4 jobs this night.",
      "fix": "Swap one of their jobs if someone else can help."
     },
     {
      "job": null,
      "level": "warn",
-     "text": "Toni has 3 jobs this night.",
+     "text": "Brock has 3 jobs this night.",
+     "fix": "Swap one of their jobs if someone else can help."
+    },
+    {
+     "job": null,
+     "level": "warn",
+     "text": "Toni has 4 jobs this night.",
      "fix": "Swap one of their jobs if someone else can help."
     }
    ]
@@ -1304,6 +1229,7 @@
    "round": 8,
    "date": "2026-12-01",
    "night": "Tuesday",
+   "extraWave": false,
    "jobs": {
     "fieldSetup": {
      "who": [],
@@ -1370,6 +1296,7 @@
    "round": 9,
    "date": "2026-12-07",
    "night": "Monday",
+   "extraWave": true,
    "jobs": {
     "fieldSetup": {
      "who": [
@@ -1412,19 +1339,34 @@
      ],
      "amount": 1
     },
+    "duty3": {
+     "who": [
+      "Sam",
+      "Candice"
+     ],
+     "amount": 2
+    },
+    "canteen3": {
+     "who": [
+      "Toni"
+     ],
+     "amount": 1
+    },
     "fieldPack": {
      "who": [
       "Mitch",
       "Jaz"
      ],
-     "amount": 2
+     "amount": 2,
+     "time": "8:50–9:35"
     },
     "canteenPack": {
      "who": [
       "Chloe + Abby",
       "Candice"
      ],
-     "amount": 2
+     "amount": 2,
+     "time": "8:50–9:35"
     }
    },
    "issues": [
@@ -1437,8 +1379,20 @@
     {
      "job": null,
      "level": "warn",
-     "text": "Candice has 3 jobs this night.",
+     "text": "Toni has 3 jobs this night.",
      "fix": "Swap one of their jobs if someone else can help."
+    },
+    {
+     "job": null,
+     "level": "warn",
+     "text": "Candice has 4 jobs this night.",
+     "fix": "Swap one of their jobs if someone else can help."
+    },
+    {
+     "job": null,
+     "level": "warn",
+     "text": "Sam is duty officer in both waves.",
+     "fix": "Another duty officer for one wave would let them have just one."
     }
    ]
   },
@@ -1446,6 +1400,7 @@
    "round": 9,
    "date": "2026-12-08",
    "night": "Tuesday",
+   "extraWave": false,
    "jobs": {
     "fieldSetup": {
      "who": [
@@ -1460,7 +1415,7 @@
     },
     "duty1": {
      "who": [
-      "Mitch",
+      "Jaz",
       "Chad"
      ],
      "amount": 2
@@ -1473,7 +1428,7 @@
     },
     "duty2": {
      "who": [
-      "Jaz",
+      "Brock",
       "Chad"
      ],
      "amount": 2
@@ -1487,8 +1442,8 @@
     },
     "fieldPack": {
      "who": [
-      "Jaz",
-      "Brock"
+      "Mitch",
+      "Jaz"
      ],
      "amount": 2
     },
@@ -1513,6 +1468,7 @@
    "round": 10,
    "date": "2026-12-14",
    "night": "Monday",
+   "extraWave": false,
    "jobs": {
     "fieldSetup": {
      "who": [
@@ -1589,6 +1545,7 @@
    "round": 10,
    "date": "2026-12-15",
    "night": "Tuesday",
+   "extraWave": false,
    "jobs": {
     "fieldSetup": {
      "who": [
@@ -1664,7 +1621,6 @@
     3,
     5,
     6,
-    7,
     9,
     10
    ]
@@ -1687,9 +1643,7 @@
     1,
     4,
     5,
-    6,
     7,
-    8,
     9,
     10
    ]
@@ -1700,7 +1654,8 @@
    "text": "Mitch has 4 jobs this night.",
    "fix": "Swap one of their jobs if someone else can help.",
    "rounds": [
-    2
+    2,
+    8
    ]
   },
   {
@@ -1711,8 +1666,7 @@
    "rounds": [
     3,
     5,
-    7,
-    9
+    7
    ]
   },
   {
@@ -1722,9 +1676,44 @@
    "fix": "Swap one of their jobs if someone else can help.",
    "rounds": [
     4,
-    6,
-    8,
+    9,
     10
+   ]
+  },
+  {
+   "level": "warn",
+   "night": "Monday",
+   "text": "Brock has 3 jobs this night.",
+   "fix": "Swap one of their jobs if someone else can help.",
+   "rounds": [
+    8
+   ]
+  },
+  {
+   "level": "warn",
+   "night": "Monday",
+   "text": "Toni has 4 jobs this night.",
+   "fix": "Swap one of their jobs if someone else can help.",
+   "rounds": [
+    8
+   ]
+  },
+  {
+   "level": "warn",
+   "night": "Monday",
+   "text": "Candice has 4 jobs this night.",
+   "fix": "Swap one of their jobs if someone else can help.",
+   "rounds": [
+    9
+   ]
+  },
+  {
+   "level": "warn",
+   "night": "Monday",
+   "text": "Sam is duty officer in both waves.",
+   "fix": "Another duty officer for one wave would let them have just one.",
+   "rounds": [
+    9
    ]
   }
  ]

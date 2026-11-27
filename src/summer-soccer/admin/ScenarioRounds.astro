@@ -89,12 +89,16 @@ const longDate = (iso: string) => new Date(`${iso}T12:00:00`).toLocaleDateString
 							)}
 						</div>
 						<div class="ad-maps">
-							{n.waves.map((w: any) => {
+							{[
+								...n.waves,
+								// An extra catch-up wave after the normal ones (wave 3), on the rounds that have one
+								...games.filter((g: any) => g.wave === 3).slice(0, 1).map((g: any) => ({ wave: 3, start: g.start, end: g.end }))
+							].map((w: any) => {
 								const wg = games.filter((g: any) => g.wave === w.wave);
 								return (
 									<figure class="ad-map">
 										<figcaption class="ad-map__cap">
-											<strong>Wave {w.wave}</strong> · {w.start}–{w.end}
+											<strong>{w.wave === 3 ? 'Extra wave' : `Wave ${w.wave}`}</strong> · {w.start}–{w.end}
 											<span class="ad-muted"> · {plural(wg.length, 'game')}</span>
 										</figcaption>
 										<Fragment set:html={GroundPlan(groundFor(s), v.roundAssignments(s, n.night, w.wave, wk), `${s.name} round ${wk} ${n.night} wave ${w.wave}`, `${key}-r${wk}-${n.night}-${w.wave}`)} />
