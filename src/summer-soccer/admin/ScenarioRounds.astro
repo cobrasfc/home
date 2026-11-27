@@ -91,14 +91,15 @@ const longDate = (iso: string) => new Date(`${iso}T12:00:00`).toLocaleDateString
 						<div class="ad-maps">
 							{[
 								...n.waves,
-								// An extra catch-up wave after the normal ones (wave 3), on the rounds that have one
-								...games.filter((g: any) => g.wave === 3).slice(0, 1).map((g: any) => ({ wave: 3, start: g.start, end: g.end }))
-							].map((w: any) => {
+								// An extra catch-up wave before or after the normal ones (a wave not in the night's plan), on the rounds that have one
+								...[...new Set(games.map((g: any) => g.wave))].filter((x) => !n.waves.some((w: any) => w.wave === x))
+									.map((x) => { const g = games.find((f: any) => f.wave === x); return { wave: x, start: g.start, end: g.end, extra: true }; })
+							].sort((p: any, q: any) => p.wave - q.wave).map((w: any) => {
 								const wg = games.filter((g: any) => g.wave === w.wave);
 								return (
 									<figure class="ad-map">
 										<figcaption class="ad-map__cap">
-											<strong>{w.wave === 3 ? 'Extra wave' : `Wave ${w.wave}`}</strong> · {w.start}–{w.end}
+											<strong>{w.extra ? 'Extra wave' : `Wave ${w.wave}`}</strong> · {w.start}–{w.end}
 											<span class="ad-muted"> · {plural(wg.length, 'game')}</span>
 										</figcaption>
 										<Fragment set:html={GroundPlan(groundFor(s), v.roundAssignments(s, n.night, w.wave, wk), `${s.name} round ${wk} ${n.night} wave ${w.wave}`, `${key}-r${wk}-${n.night}-${w.wave}`)} />

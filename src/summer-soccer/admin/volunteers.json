@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-27T15:27",
+ "generatedAt": "2026-11-27T15:46",
  "jobs": {
   "Monday": [
    {
@@ -36,6 +36,36 @@
     ],
     "needs": "canteen lead",
     "extra": false
+   },
+   {
+    "id": "duty0",
+    "slot": "w0",
+    "group": "Extra wave",
+    "label": "Duty officers",
+    "time": "5:40–6:20",
+    "min": 2,
+    "max": 2,
+    "count": "people",
+    "tasks": [
+     "2 duty officers"
+    ],
+    "needs": "",
+    "extra": true
+   },
+   {
+    "id": "canteen0",
+    "slot": "w0",
+    "group": "Extra wave",
+    "label": "Canteen",
+    "time": "5:40–6:20",
+    "min": 1,
+    "max": 2,
+    "count": "helpers",
+    "tasks": [
+     "1 or 2 canteen helpers"
+    ],
+    "needs": "canteen lead",
+    "extra": true
    },
    {
     "id": "duty1",
@@ -96,36 +126,6 @@
     ],
     "needs": "canteen lead",
     "extra": false
-   },
-   {
-    "id": "duty3",
-    "slot": "w3",
-    "group": "Extra wave",
-    "label": "Duty officers",
-    "time": "8:10–8:50",
-    "min": 2,
-    "max": 2,
-    "count": "people",
-    "tasks": [
-     "2 duty officers"
-    ],
-    "needs": "",
-    "extra": true
-   },
-   {
-    "id": "canteen3",
-    "slot": "w3",
-    "group": "Extra wave",
-    "label": "Canteen",
-    "time": "8:10–8:50",
-    "min": 1,
-    "max": 2,
-    "count": "helpers",
-    "tasks": [
-     "1 or 2 canteen helpers"
-    ],
-    "needs": "canteen lead",
-    "extra": true
    },
    {
     "id": "fieldPack",
@@ -1139,14 +1139,29 @@
       "Mitch",
       "Brock"
      ],
-     "amount": 4
+     "amount": 4,
+     "time": "4:40–5:40"
     },
     "canteenSetup": {
      "who": [
       "Harley + Cass",
       "Toni"
      ],
+     "amount": 2,
+     "time": "5:10–5:40"
+    },
+    "duty0": {
+     "who": [
+      "Mitch",
+      "Brock"
+     ],
      "amount": 2
+    },
+    "canteen0": {
+     "who": [
+      "Toni"
+     ],
+     "amount": 1
     },
     "duty1": {
      "who": [
@@ -1174,34 +1189,19 @@
      ],
      "amount": 1
     },
-    "duty3": {
-     "who": [
-      "Mitch",
-      "Brock"
-     ],
-     "amount": 2
-    },
-    "canteen3": {
-     "who": [
-      "Toni"
-     ],
-     "amount": 1
-    },
     "fieldPack": {
      "who": [
       "Mitch",
       "Jaz"
      ],
-     "amount": 2,
-     "time": "8:50–9:35"
+     "amount": 2
     },
     "canteenPack": {
      "who": [
       "Chloe + Abby",
       "Candice"
      ],
-     "amount": 2,
-     "time": "8:50–9:35"
+     "amount": 2
     }
    },
    "issues": [
@@ -1304,14 +1304,29 @@
       "Mitch",
       "Brock"
      ],
-     "amount": 4
+     "amount": 4,
+     "time": "4:40–5:40"
     },
     "canteenSetup": {
      "who": [
       "Harley + Cass",
       "Toni"
      ],
+     "amount": 2,
+     "time": "5:10–5:40"
+    },
+    "duty0": {
+     "who": [
+      "Sam",
+      "Candice"
+     ],
      "amount": 2
+    },
+    "canteen0": {
+     "who": [
+      "Toni"
+     ],
+     "amount": 1
     },
     "duty1": {
      "who": [
@@ -1339,34 +1354,19 @@
      ],
      "amount": 1
     },
-    "duty3": {
-     "who": [
-      "Sam",
-      "Candice"
-     ],
-     "amount": 2
-    },
-    "canteen3": {
-     "who": [
-      "Toni"
-     ],
-     "amount": 1
-    },
     "fieldPack": {
      "who": [
       "Mitch",
       "Jaz"
      ],
-     "amount": 2,
-     "time": "8:50–9:35"
+     "amount": 2
     },
     "canteenPack": {
      "who": [
       "Chloe + Abby",
       "Candice"
      ],
-     "amount": 2,
-     "time": "8:50–9:35"
+     "amount": 2
     }
    },
    "issues": [
