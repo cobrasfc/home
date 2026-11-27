@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-27T15:46",
+ "generatedAt": "2026-11-27T15:55",
  "weeks": 10,
  "unrefereedComps": [],
  "comps": [
@@ -2162,7 +2162,7 @@
      "field": "field-1",
      "team1": "PXG",
      "team2": "Lizzopool",
-     "note": "Catch-up game: Mon 30 Nov, 5:40 pm, Field 2",
+     "note": "Catch-up game: Mon 30 Nov, 5:40 pm, Field 4",
      "status": "Washed out (wet weather)",
      "tag": "",
      "label": ""
@@ -2178,7 +2178,7 @@
      "field": "field-3",
      "team1": "Gooners FC",
      "team2": "Muppets",
-     "note": "Catch-up game: Mon 7 Dec, 5:40 pm, Field 4",
+     "note": "Catch-up game: Mon 7 Dec, 5:40 pm, Field 3",
      "status": "Washed out (wet weather)",
      "tag": "",
      "label": ""
@@ -2194,7 +2194,7 @@
      "field": "field-4",
      "team1": "Team Gene",
      "team2": "Dribbling Morons",
-     "note": "Catch-up game: Mon 30 Nov, 5:40 pm, Field 4",
+     "note": "Catch-up game: Mon 30 Nov, 5:40 pm, Field 5",
      "status": "Washed out (wet weather)",
      "tag": "",
      "label": ""
@@ -2242,7 +2242,7 @@
      "field": "field-1",
      "team1": "Goal Diggers",
      "team2": "Grasshopper United",
-     "note": "Catch-up game: Mon 7 Dec, 5:40 pm, Field 5",
+     "note": "Catch-up game: Mon 7 Dec, 5:40 pm, Field 1",
      "status": "Washed out (wet weather)",
      "tag": "",
      "label": ""
@@ -2258,7 +2258,7 @@
      "field": "field-3",
      "team1": "Metford AAM",
      "team2": "The Ghosts",
-     "note": "Catch-up game: Mon 7 Dec, 5:40 pm, Field 6",
+     "note": "Catch-up game: Mon 7 Dec, 5:40 pm, Field 2",
      "status": "Washed out (wet weather)",
      "tag": "",
      "label": ""
@@ -2274,7 +2274,7 @@
      "field": "field-4",
      "team1": "Pitch Please",
      "team2": "Cleats & Chaos",
-     "note": "Catch-up game: Mon 7 Dec, 5:40 pm, Field 1 · Colour clash: Cleats & Chaos to wear bibs (supplied by Cobras)",
+     "note": "Catch-up game: Mon 7 Dec, 5:40 pm, Field 4 · Colour clash: Cleats & Chaos to wear bibs (supplied by Cobras)",
      "status": "Washed out (wet weather)",
      "tag": "",
      "label": ""
@@ -2306,7 +2306,7 @@
      "field": "field-6",
      "team1": "Summer Savages",
      "team2": "Clangers",
-     "note": "Catch-up game: Mon 7 Dec, 5:40 pm, Field 3",
+     "note": "Catch-up game: Mon 7 Dec, 5:40 pm, Field 6",
      "status": "Washed out (wet weather)",
      "tag": "",
      "label": ""
@@ -2812,22 +2812,6 @@
      "date": "2026-11-30",
      "night": "Monday",
      "wave": 0,
-     "comp": "aam",
-     "start": "5:40 PM",
-     "end": "6:20 PM",
-     "field": "field-2",
-     "team1": "PXG",
-     "team2": "Lizzopool",
-     "note": "Catch-up for the Round 6 game washed out on Mon 16 Nov",
-     "status": "",
-     "tag": "Catch-up",
-     "label": "Round 6"
-    },
-    {
-     "week": 8,
-     "date": "2026-11-30",
-     "night": "Monday",
-     "wave": 0,
      "comp": "aaw",
      "start": "5:40 PM",
      "end": "6:20 PM",
@@ -2844,10 +2828,26 @@
      "date": "2026-11-30",
      "night": "Monday",
      "wave": 0,
-     "comp": "mixed",
+     "comp": "aam",
      "start": "5:40 PM",
      "end": "6:20 PM",
      "field": "field-4",
+     "team1": "PXG",
+     "team2": "Lizzopool",
+     "note": "Catch-up for the Round 6 game washed out on Mon 16 Nov",
+     "status": "",
+     "tag": "Catch-up",
+     "label": "Round 6"
+    },
+    {
+     "week": 8,
+     "date": "2026-11-30",
+     "night": "Monday",
+     "wave": 0,
+     "comp": "mixed",
+     "start": "5:40 PM",
+     "end": "6:20 PM",
+     "field": "field-5",
      "team1": "Team Gene",
      "team2": "Dribbling Morons",
      "note": "Catch-up for the Round 6 game washed out on Mon 16 Nov",
@@ -3228,58 +3228,10 @@
      "date": "2026-12-07",
      "night": "Monday",
      "wave": 0,
-     "comp": "aaw",
+     "comp": "aam",
      "start": "5:40 PM",
      "end": "6:20 PM",
      "field": "field-1",
-     "team1": "Pitch Please",
-     "team2": "Cleats & Chaos",
-     "note": "Catch-up for the Round 6 game washed out on Mon 16 Nov · Colour clash: Cleats & Chaos to wear bibs (supplied by Cobras)",
-     "status": "",
-     "tag": "Catch-up",
-     "label": "Round 6"
-    },
-    {
-     "week": 9,
-     "date": "2026-12-07",
-     "night": "Monday",
-     "wave": 0,
-     "comp": "aaw",
-     "start": "5:40 PM",
-     "end": "6:20 PM",
-     "field": "field-3",
-     "team1": "Summer Savages",
-     "team2": "Clangers",
-     "note": "Catch-up for the Round 6 game washed out on Mon 16 Nov",
-     "status": "",
-     "tag": "Catch-up",
-     "label": "Round 6"
-    },
-    {
-     "week": 9,
-     "date": "2026-12-07",
-     "night": "Monday",
-     "wave": 0,
-     "comp": "aam",
-     "start": "5:40 PM",
-     "end": "6:20 PM",
-     "field": "field-4",
-     "team1": "Gooners FC",
-     "team2": "Muppets",
-     "note": "Catch-up for the Round 6 game washed out on Mon 16 Nov",
-     "status": "",
-     "tag": "Catch-up",
-     "label": "Round 6"
-    },
-    {
-     "week": 9,
-     "date": "2026-12-07",
-     "night": "Monday",
-     "wave": 0,
-     "comp": "aam",
-     "start": "5:40 PM",
-     "end": "6:20 PM",
-     "field": "field-5",
      "team1": "Goal Diggers",
      "team2": "Grasshopper United",
      "note": "Catch-up for the Round 6 game washed out on Mon 16 Nov",
@@ -3295,9 +3247,57 @@
      "comp": "aam",
      "start": "5:40 PM",
      "end": "6:20 PM",
-     "field": "field-6",
+     "field": "field-2",
      "team1": "Metford AAM",
      "team2": "The Ghosts",
+     "note": "Catch-up for the Round 6 game washed out on Mon 16 Nov",
+     "status": "",
+     "tag": "Catch-up",
+     "label": "Round 6"
+    },
+    {
+     "week": 9,
+     "date": "2026-12-07",
+     "night": "Monday",
+     "wave": 0,
+     "comp": "aam",
+     "start": "5:40 PM",
+     "end": "6:20 PM",
+     "field": "field-3",
+     "team1": "Gooners FC",
+     "team2": "Muppets",
+     "note": "Catch-up for the Round 6 game washed out on Mon 16 Nov",
+     "status": "",
+     "tag": "Catch-up",
+     "label": "Round 6"
+    },
+    {
+     "week": 9,
+     "date": "2026-12-07",
+     "night": "Monday",
+     "wave": 0,
+     "comp": "aaw",
+     "start": "5:40 PM",
+     "end": "6:20 PM",
+     "field": "field-4",
+     "team1": "Pitch Please",
+     "team2": "Cleats & Chaos",
+     "note": "Catch-up for the Round 6 game washed out on Mon 16 Nov · Colour clash: Cleats & Chaos to wear bibs (supplied by Cobras)",
+     "status": "",
+     "tag": "Catch-up",
+     "label": "Round 6"
+    },
+    {
+     "week": 9,
+     "date": "2026-12-07",
+     "night": "Monday",
+     "wave": 0,
+     "comp": "aaw",
+     "start": "5:40 PM",
+     "end": "6:20 PM",
+     "field": "field-6",
+     "team1": "Summer Savages",
+     "team2": "Clangers",
      "note": "Catch-up for the Round 6 game washed out on Mon 16 Nov",
      "status": "",
      "tag": "Catch-up",
@@ -4210,12 +4210,12 @@
      ],
      "games": [
       [
-       "Grass Goblins",
-       "Mayhem FC"
-      ],
-      [
        "Chaos FC",
        "Tough Cookies FC"
+      ],
+      [
+       "Grass Goblins",
+       "Mayhem FC"
       ]
      ]
     },
@@ -4230,12 +4230,12 @@
      ],
      "games": [
       [
-       "Golden Ballers",
-       "U7 Goal Diggers"
-      ],
-      [
        "8/3 Thornton Devils",
        "Wild Warriors"
+      ],
+      [
+       "Golden Ballers",
+       "U7 Goal Diggers"
       ]
      ]
     },
@@ -4307,12 +4307,12 @@
      ],
      "games": [
       [
-       "Grass Goblins",
-       "Mayhem FC"
-      ],
-      [
        "Chaos FC",
        "Tough Cookies FC"
+      ],
+      [
+       "Grass Goblins",
+       "Mayhem FC"
       ]
      ]
     },
@@ -4327,12 +4327,12 @@
      ],
      "games": [
       [
-       "Golden Ballers",
-       "U7 Goal Diggers"
-      ],
-      [
        "8/3 Thornton Devils",
        "Wild Warriors"
+      ],
+      [
+       "Golden Ballers",
+       "U7 Goal Diggers"
       ]
      ]
     },
@@ -4366,12 +4366,12 @@
      ],
      "games": [
       [
-       "U8s Metford",
-       "Wild Warriors"
-      ],
-      [
        "Cobras Gold",
        "Golden Ballers"
+      ],
+      [
+       "U8s Metford",
+       "Wild Warriors"
       ]
      ]
     }
@@ -4388,24 +4388,24 @@
     }
    ],
    "waveSplit": {
-    "aam": {
-     "earlyMin": 1,
-     "earlyMax": 6
+    "mixed": {
+     "earlyMin": 5,
+     "earlyMax": 9
     },
     "aaw": {
      "earlyMin": 1,
      "earlyMax": 6
     },
-    "mixed": {
-     "earlyMin": 5,
-     "earlyMax": 9
-    },
-    "u1215": {
-     "earlyMin": 3,
-     "earlyMax": 10
+    "aam": {
+     "earlyMin": 1,
+     "earlyMax": 6
     },
     "u67": {
      "earlyMin": 4,
+     "earlyMax": 10
+    },
+    "u1215": {
+     "earlyMin": 3,
      "earlyMax": 10
     }
    },
